@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <title>
+            Countdown Test
+        </title>
+    </head>
+    <body>
+        <div>
+            <p>
+                Countdown<strong id="endtime"></strong>S!
+            </p>
+            <input type="button" id="btn" value="Buy" disabled="disabled" onClick="func()"/>
+        </div>
+        <script type="text/javascript">
+            //countdown 15s
+            var i = 15;
+            function remainTime() {
+                if (i > 0) {
+                    document.getElementById("endtime").innerHTML = i--;
+                    setTimeout("remainTime()", 1000);
+
+                }
+                if (i == 0) {
+                    $("p").text("Event Start");
+                    $("p").css("background-color", "yellow");
+                    document.getElementById("btn").disabled = false;
+                }
+
+            }
+            remainTime();
+
+            function func() {
+                alert("恭喜你抢到一个月饼");
+            }
+        </script>
+    </body>
+    <script type="text/javascript">
+        var button = document.getElementById("btn");
+        //每秒执行一次，若按钮状态为可用，进行点击
+        setInterval(function() {
+            if (button.disabled == false) {
+                button.click();
+                clearInterval
+            }
+        },
+        1000);
+    </script>
+</html>
+
+<!-- //选取data-id为6的<a>标签
+    var button = $("a[data-id='6']");
+    //每秒执行一次，若按钮状态为可用，进行点击
+    var fuc = setInterval(function() {
+            //如果出现刷新验证码的按钮，则表明已抢到
+            if($(".refresh-btn").length > 0){
+                  window.clearInterval(fuc); 
+                  //桌面通知，只有chrome，firefox浏览器支持桌面API
+                  Notification.requestPermission(function(status) {
+                        var n = new Notification('通知消息', { body: '爱奇艺会员兑换码！' }); 
+                    });
+            } else {
+                  button.click();
+            }
+    },1000);//一秒一次点击 
+var d=document.querySelector(".parent");
+var sc=document.createElement("script");
+sc.setAttribute("src","http://code.jquery.com/jquery-latest.js");
+d.appendChild(sc);-->

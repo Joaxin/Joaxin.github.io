@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            margin-bottom: 0px;
+            padding: 0;
+            border: 0;
+        }
+
+        body {
+            line-height: 1.6;
+            font-family: Arial, x-locale-body, sans-serif;
+            letter-spacing: -.00278rem;
+            font-size: 18px;
+            font-size: 1rem;
+        }
+
+        table {
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 100%;
+            border-collapse: collapse;
+            border: solid #e0e0dc;
+            border-width: 1px 0 0 1px;
+        }
+
+        tabletd {
+            background-color: #f9fafb;
+            background-color: rgba(212, 221, 228, .15);
+            border: 2px solid #fff;
+            box-shadow: inset 0 -1px 0 0 rgba(212, 221, 228, .5);
+            text-align: left;
+            padding: 6px 8px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3d7e9a;
+        }
+
+        .spec-ED {
+            color: #e61919;
+        }
+
+        .spec-ED::before {
+            content: 'ED';
+            background: #f4c1c2;
+            margin: .2em .6em 0 0;
+            font-weight: 700;
+            direction: ltr;
+            border-left: 4px solid;
+            display: inline-block;
+            min-width: 20px;
+            vertical-align: baseline;
+            border-radius: 2px;
+            padding: .45em .35em;
+            background-color: #eee;
+            font-family: Helvetica, arial, sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: normal;
+        }
+
+        code {
+            background-color: #bbb;
+            background-color: rgba(220, 220, 220, .5);
+            border-radius: 2px;
+            box-decoration-break: clone;
+            font-family: consolas, "Liberation Mono", courier, monospace;
+            padding: 0 2px;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <table class="standard-table">
+        <thead>
+         <tr>
+          <th scope="col">Specification</th>
+          <th scope="col">Status</th>
+          <th scope="col">Comment</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td><a rel="noopener" lang="en" hreflang="en" href="https://drafts.csswg.org/css-values-4/" title="The 'CSS Values and Units Module Level&nbsp;4' specification" class="external external-icon">CSS Values and Units Module Level&nbsp;4</a></td>
+          <td><span class="spec-ED">Editor's Draft</span></td>
+          <td>Adds the <code>vi</code>, <code>vb</code>, <code>ic</code>, <code>cap</code>, <code>lh</code> and <code>rlh</code> units.<br>
+           Adds the <code>min()</code>, <code>max()</code> and <code>clamp()</code> functional notation<br>
+           Adds <code>toggle()</code></td>
+         </tr>
+         <tr>
+          <td><a rel="noopener" lang="en" hreflang="en" href="https://drafts.csswg.org/css-values-3/" title="The 'CSS Values and Units Module Level&nbsp;3' specification" class="external external-icon">CSS Values and Units Module Level&nbsp;3</a></td>
+          <td><span class="spec-CR">Candidate Recommendation</span></td>
+          <td>Adds <code>calc()</code>,&nbsp;<code>ch</code>,&nbsp;<code>rem</code>,&nbsp;<code>vw</code>,&nbsp;<code>vw</code>,&nbsp;<code>vmin</code>,<code>&nbsp;vmax</code>,&nbsp;<code>Q</code></td>
+         </tr>
+         <tr>
+          <td><a rel="noopener" lang="en" hreflang="en" href="https://drafts.csswg.org/css-color/" title="The 'CSS Color Module Level&nbsp;4' specification" class="external external-icon">CSS Color Module Level&nbsp;4</a></td>
+          <td><span class="spec-WD">Working Draft</span></td>
+          <td>Adds commaless syntaxes for the&nbsp;<code>rgb()</code>,&nbsp;<code>rgba()</code>,&nbsp;<code>hsl()</code>, and&nbsp;<code>hsla()</code>&nbsp;functions. Allows alpha values in&nbsp;<code>rgb()</code>&nbsp;and&nbsp;<code>hsl()</code>, turning&nbsp;<code>rgba()</code>&nbsp;and&nbsp;<code>hsla()</code>&nbsp;into (deprecated) aliases for them.<br>
+           Adds color keyword&nbsp;<code>rebeccapurple</code>.<br>
+           Adds 4- and 8-digit hex color values, where the last digit(s) represents the alpha value.<br>
+           Adds&nbsp;<code>hwb()</code>,&nbsp;<code>device-cmyk()</code>, and&nbsp;<code>color()</code>&nbsp;functions.</td>
+         </tr>
+         <tr>
+          <td><a rel="noopener" lang="en" hreflang="en" href="https://drafts.csswg.org/css-color-3/" title="The 'CSS Color Module Level&nbsp;3' specification" class="external external-icon">CSS Color Module Level&nbsp;3</a></td>
+          <td><span class="spec-REC">Recommendation</span></td>
+          <td>Deprecates system-colors. Adds SVG colors. Adds the&nbsp;<code>rgba()</code>,&nbsp;<code>hsl()</code>, and&nbsp;<code>hsla()</code>&nbsp;functions.</td>
+         </tr>
+         <tr>
+          <td><a rel="noopener" lang="en" hreflang="en" href="https://drafts.csswg.org/css-images-4/" title="The 'CSS Images Module Level&nbsp;4' specification" class="external external-icon">CSS Images Module Level&nbsp;4</a></td>
+          <td><span class="spec-WD">Working Draft</span></td>
+          <td>
+           <p>Adds <code>element()</code>, <code>image()</code>, <code>image-set()</code>, <code>conic-gradient()</code></p>
+          </td>
+         </tr>
+         <tr>
+          <td><a rel="noopener" lang="en" hreflang="en" href="https://drafts.csswg.org/css-images-3/" title="The 'CSS Images Module Level&nbsp;3' specification" class="external external-icon">CSS Images Module Level&nbsp;3</a></td>
+          <td><span class="spec-CR">Candidate Recommendation</span></td>
+          <td>Initial definition of image.</td>
+         </tr>
+         <tr>
+          <td><a rel="noopener" lang="en" hreflang="en" href="https://www.w3.org/TR/CSS2/" title="The 'CSS Level&nbsp;2 (Revision&nbsp;1)' specification" class="external external-icon">CSS Level&nbsp;2 (Revision&nbsp;1)</a></td>
+          <td><span class="spec-REC">Recommendation</span></td>
+          <td>&nbsp;</td>
+         </tr>
+         <tr>
+          <td><a rel="noopener" lang="en" hreflang="en" href="https://www.w3.org/TR/CSS1/" title="The 'CSS Level&nbsp;1' specification" class="external external-icon">CSS Level&nbsp;1</a></td>
+          <td><span class="spec-REC">Recommendation</span></td>
+          <td>Initial definition.</td>
+         </tr>
+        </tbody>
+       </table>
+</body>
+</html>

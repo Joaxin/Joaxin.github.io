@@ -1,0 +1,238 @@
+<html>
+
+<head>
+    <title>Code Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin: 5px 5px 0px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 250px;
+            overflow: scroll;
+            margin: 0px auto;
+            display: inline-block;
+            border: none;
+            background: #f4f4f9;
+            font-family: Courier, sans-serif;
+            font-size: 14px;
+        }
+
+        ul.tabs {
+            list-style: none;
+            height: 32px;
+            width: 100%;
+        }
+
+        ul.tabs li {
+            float: left;
+            cursor: pointer;
+            padding: 0px 20px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #666;
+            color: #ccc;
+            overflow: hidden;
+            position: relative;
+        }
+
+        ul.tabs li:hover {
+            background-color: #ccc;
+            color: #555;
+        }
+
+        ul.tabs li.active {
+            background-color: #f4f4f9;
+            color: #555;
+            display: block;
+            /* border-bottom: 1px solid #f4f4f9; */
+        }
+
+        .tab_code {
+            width: 100%;
+            background: #fff;
+            overflow: auto;
+        }
+
+        .tab_ {
+            padding: 0px;
+            display: none;
+        }
+
+        iframe {
+            bottom: 0;
+            border: none;
+            position: relative;
+            width: 100%;
+            height: 35em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="tabs">
+            <li class="active" rel="tab1">HTML</li>
+            <li rel="tab2">CSS</li>
+            <li rel="tab3">JavaScript</li>
+        </ul>
+        <div class="tab_code">
+            <div id="tab1" class="tab_">
+
+                <textarea id="html" placeholder="HTML">
+<form>
+    <label for="text">Nth Selector</label>
+    <input id="text" name="text" list="sources" required value="2n+1" autocomplete="on"/>
+    <datalist id="sources">
+        <option value="even">even</option>
+        <option value="odd">odd</option>
+        <option value="n-1">n-1</option>
+        <option value="2n+2">2n+2</option>
+        <option value="2n-3">2n-3</option>
+        <option value="3n+1">3n+1</option>
+        <option value="-3n+8">-3n+8</option>
+    </datalist>    
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+</form>
+<ul id = "nth">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+    <li>11</li>
+    <li>12</li>
+    <li>13</li>
+    <li>14</li>
+    <li>15</li>
+    <li>16</li>
+    <li>17</li>
+    <li>18</li>
+    <li>19</li>
+    <li>20</li>
+</ul>
+</textarea>
+            </div>
+            <div id="tab2" class="tab_">
+                <textarea id="css" placeholder="CSS">
+select{
+    font: 1.2em Georgia,serif;
+    border-radius: 5px;
+    border: 1px solid red;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+ul {
+    margin: 50px auto;
+    width: 600px;
+    list-style: none outside none;
+}
+li {
+    display:inline-block;
+    margin: 5px;
+    padding: 5px;
+    width:50px;
+    height: 50px;
+    font: bold 30px/50px arial;
+    background: #000;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+}
+
+
+ul>li:nth-last-child(even){
+    background-color: #748950;
+}
+
+ul>li.selected
+{
+background-color: green;
+border: 5px solid #ccc;
+}
+                </textarea>
+            </div>
+            <div id="tab3" class="tab_">
+                <textarea id="js" placeholder="JavaScript">
+$(document).ready(function(){
+    $("form").submit(function(){
+        $("#nth").addClass("ran");
+        $("#nth li").removeClass("selected");	
+        try {
+            $("#nth li:nth-child(" + $("#text").val() + ")").addClass("selected");
+        } catch(err) {
+            alert("No results found. Make sure your nth value is valid i.e. 2n+1, 3n+3, even, odd etc.");
+        } finally {
+            //do this anyway...
+        }		
+        return false;
+    });
+    
+    $("button[type='reset']").click(function(){
+        $("#text").val("").focus();
+        $("#nth").removeClass("ran");
+        $("#nth li").removeClass("selected");
+        return false;
+    });
+});
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <iframe id="code"></iframe>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(".tab_").hide();
+        $(".tab_:first").show();
+
+        $("ul.tabs li").click(function() {
+
+            $(".tab_").hide();
+            let activeTab = $(this).attr("rel");
+            $("#" + activeTab).fadeIn();
+
+            $("ul.tabs li").removeClass("active");
+            $(this).addClass("active");
+
+        });
+
+        function compile() {
+            let html = document.getElementById("html");
+            let css = document.getElementById("css");
+            let js = document.getElementById("js");
+            let code = document.getElementById("code").contentWindow.document;
+            code.open();
+            code.writeln(
+                html.value +
+                "<style>" +
+                css.value +
+                "</style>" +
+                "<script src='https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js'><\/script>" +
+                "<script>" +
+                js.value + "<" +
+                "/script>");
+            code.close();
+        }
+
+        compile();
+        window.addEventListener("click", compile);
+    </script>
+</body>
+
+</html>

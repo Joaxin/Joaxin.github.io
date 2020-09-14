@@ -1,0 +1,196 @@
+<html>
+
+<head>
+    <title>Code Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin: 5px 5px 0px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 250px;
+            overflow: scroll;
+            margin: 0px auto;
+            display: inline-block;
+            border: none;
+            background: #f4f4f9;
+            font-family: Courier, sans-serif;
+            font-size: 14px;
+        }
+
+        ul.tabs {
+            list-style: none;
+            height: 32px;
+            width: 100%;
+        }
+
+        ul.tabs li {
+            float: left;
+            cursor: pointer;
+            padding: 0px 20px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #666;
+            color: #ccc;
+            overflow: hidden;
+            position: relative;
+        }
+
+        ul.tabs li:hover {
+            background-color: #ccc;
+            color: #555;
+        }
+
+        ul.tabs li.active {
+            background-color: #f4f4f9;
+            color: #555;
+            display: block;
+            /* border-bottom: 1px solid #f4f4f9; */
+        }
+
+        .tab_code {
+            width: 100%;
+            background: #fff;
+            overflow: auto;
+        }
+
+        .tab_ {
+            padding: 0px;
+            display: none;
+        }
+
+        iframe {
+            bottom: 0;
+            border: none;
+            position: relative;
+            width: 100%;
+            height: 35em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="tabs">
+            <li class="active" rel="tab1">HTML</li>
+            <li rel="tab2">CSS</li>
+            <li rel="tab3">JavaScript</li>
+        </ul>
+        <div class="tab_code">
+            <div id="tab1" class="tab_">
+                <textarea id="html" placeholder="HTML">
+<div class="block">
+    <h3>最新博文</h3>
+    <ol class="clearfix">
+        <li><a href="#">如何和何时使用CSS的!important</a><span>2013-02-19</span></li>
+        <li><a href="#">社交媒体网站设计尺寸参考</a><span>2013-02-19</span></li>
+        <li><a href="#">10个简单有效的方法帮你改善jQuery代码与性能</a><span>2013-01-28</span></li>
+        <li><a href="#">预处理器的对比——Sass、LESS和Stylus</a><span>2013-01-26</span></li>
+        <li><a href="#">43个处理触摸事件的jQuery插件</a><span>2013-01-09</span></li>
+        <li><a href="#">2012年国外优秀前端网站</a><span>2013-01-02</span></li>
+        <li><a href="#">CSS团队精神：CSS最佳实践团队开发</a><span>2012-12-31</span></li>
+        <li><a href="#">使用CSS3的background-size优化苹果的Retina屏幕的图像显示</a><span>2012-12-26</span></li>
+        <li><a href="#">你应该知道的一些事情——CSS权重</a><span>2012-12-21</span></li>
+        <li><a href="#">使用CSS Scriptes来优化你的网站在Retina屏幕下显示</a><span>2012-12-18</span></li>
+    </ol>
+</div>
+                </textarea>
+            </div>
+            <div id="tab2" class="tab_">
+                <textarea id="css" placeholder="CSS">
+.block {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 318px;
+    line-height: 20px;
+    border: 1px solid #fc9;
+}
+.block ol {
+    padding-left:23px;
+    width: 14em;
+    background:url(bg.png) no-repeat 2px 4px;
+}
+.block li {
+    clear:both;
+    margin: 0;
+    padding: 0;
+    list-style: none outside none;
+}
+.block li a {
+    float:left;
+    _display:inline; /* 兼容@ie6*/
+    max-width:14em; /* 固定宽度 为用text-overflow做好准备*/
+    white-space: nowrap; /* 禁止换行 为用text-overflow做好准备*/
+    _white-space:noraml;/*超长就换行，第二行被裁掉 @ie6*/
+    _height: 20px; /* ie6下隐藏换行的文本*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    color: #333;
+    _background:transparent;/*解决莫名占据高度bug @ie6*/
+}
+.block li span {
+    _position: relative;/*应付父容器hacLayout裁切bug @ie6 */
+    float: left;
+    _display: inline;
+    margin-right: -99px;
+    padding-left: 10px;
+    font-size: 10px;
+    color: #999;
+}
+                      
+                </textarea>
+            </div>
+            <div id="tab3" class="tab_">
+                <textarea id="js" placeholder="JavaScript">
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <iframe id="code"></iframe>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(".tab_").hide();
+        $(".tab_:first").show();
+
+        $("ul.tabs li").click(function() {
+
+            $(".tab_").hide();
+            let activeTab = $(this).attr("rel");
+            $("#" + activeTab).fadeIn();
+
+            $("ul.tabs li").removeClass("active");
+            $(this).addClass("active");
+
+        });
+
+        function compile() {
+            let html = document.getElementById("html");
+            let css = document.getElementById("css");
+            let js = document.getElementById("js");
+            let code = document.getElementById("code").contentWindow.document;
+            code.open();
+            code.writeln(
+                html.value +
+                "<style>" +
+                css.value +
+                "</style>" +
+                "<script>" +
+                js.value + "<" +
+                "/script>");
+            code.close();
+        }
+
+        compile();
+        window.addEventListener("click", compile);
+    </script>
+</body>
+
+</html>

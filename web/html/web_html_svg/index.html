@@ -1,0 +1,289 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HTML Vector graphics | Pinsflora</title><meta name="description" content="What are vector graphics? SVG stands for Scalable Vector Graphics, and  is an XML-based language for describing vector images. On the web, you’ll work with two types of image — raster images, and vec"><meta name="author" content="Joaxin"><meta name="copyright" content="Joaxin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://u.pinsflora.com/web/html/web_html_svg/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="HTML Vector graphics"><meta property="og:url" content="https://u.pinsflora.com/web/html/web_html_svg/"><meta property="og:site_name" content="Pinsflora"><meta property="og:description" content="What are vector graphics? SVG stands for Scalable Vector Graphics, and  is an XML-based language for describing vector images. On the web, you’ll work with two types of image — raster images, and vec"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_seeds.jpg"><meta property="article:published_time" content="2017-11-01T16:00:00.000Z"><meta property="article:modified_time" content="2018-05-20T16:00:00.000Z"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-177831205-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-177831205-1');
+</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  hexoversion: '5.1.1',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime: 'days',
+  date_suffix: {"one_hour":"Just","hours":"hours ago","day":"days ago"},
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: {"bookmark":{"message_prev":"Press","message_next":"to bookmark this page"},"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+    },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true,
+  postUpdate: '2018-05-21 00:00:00'
+}</script><noscript><style type="text/css">
+#nav {
+  opacity: 1
+}
+.justified-gallery img {
+  opacity: 1
+}
+</style></noscript><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+  }
+}
+
+var autoChangeMode = 'false'
+var t = saveToLocal.get('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (saveToLocal.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="Pinsflora" type="application/atom+xml">
+</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">272</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">98</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">31</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div></div></div><div id="body-wrap"><div id="web_bg" data-type="photo"></div><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#what-are-vector-graphics"><span class="toc-number">1.</span> <span class="toc-text"> What are vector graphics?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shapes"><span class="toc-number">2.</span> <span class="toc-text"> Shapes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cross-browser-support"><span class="toc-number">3.</span> <span class="toc-text"> Cross-browser support</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#how-to-embed-an-svg"><span class="toc-number">4.</span> <span class="toc-text"> How to embed an SVG</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#svg-features"><span class="toc-number">5.</span> <span class="toc-text"> SVG Features</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#references"><span class="toc-number">6.</span> <span class="toc-text"> REFERENCES</span></a></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_seeds.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Pinsflora</a></span><span id="menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">HTML Vector graphics</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-11-01T16:00:00.000Z" title="Created 2017-11-02 00:00:00">2017-11-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2018-05-20T16:00:00.000Z" title="Updated 2018-05-21 00:00:00">2018-05-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Web/">Web</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Web/Intro/">Intro</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>9min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h2 id="what-are-vector-graphics"><a class="markdownIt-Anchor" href="#what-are-vector-graphics"></a> What are vector graphics?</h2>
+<p><strong>SVG</strong> stands for <strong>S</strong>calable <strong>V</strong>ector <strong>G</strong>raphics, and  is an XML-based language for describing vector images.</p>
+<p>On the web, you’ll work with two types of image — raster images, and vector images:</p>
+<ul>
+<li>Raster images are defined using a grid of pixels — a raster image file contains information showing exactly where each pixel is to be placed, and exactly what color it should be. Popular web raster formats include Bitmap (<code>.bmp</code>), PNG (<code>.png</code>), JPEG (<code>.jpg</code>), and GIF (<code>.gif</code>.)</li>
+<li>Vector images are defined using algorithms — a vector image file contains shape and path definitions that the computer can use to work out what the image should look like when rendered on the screen. The SVG format allows us to create powerful vector graphics for use on the Web.</li>
+</ul>
+<p>The difference becomes apparent when you zoom in the page — the PNG image becomes pixellated as you zoom in because it contains information on where each pixel should be (and what color). When it is zoomed, each pixel is simply increased in size to fill multiple pixels on screen, so the image starts to look blocky. The vector image however continues to look nice and crisp, because no matter what size it is, the algorithms are used to work out the shapes in the image, with the values simply being scaled as it gets bigger.</p>
+<p>SVG has some additional advantages besides those described so far:</p>
+<ul>
+<li>Text in vector images remains accessible (which also benefits your SEO).</li>
+<li>SVGs lend themselves well to styling/scripting, because each component of the image is an element that can be styled via CSS or scripted via JavaScript.</li>
+</ul>
+<p>So why would anyone want to use raster graphics over SVG? Well, SVG does have some disadvantages:</p>
+<ul>
+<li>SVG can get complicated very quickly, meaning that file sizes can grow; complex SVGs can also take significant processing time in the browser.</li>
+<li>SVG can be harder to create than raster images, depending on what kind of image you are trying to create.</li>
+<li>SVG is not supported in older browsers, so may not be suitable if you need to support older versions of Internet Explorer with your web site (SVG started being supported as of IE9.)</li>
+</ul>
+<p>Raster graphics are arguably better for complex precision images such as photos, for the reasons described above.</p>
+<h2 id="shapes"><a class="markdownIt-Anchor" href="#shapes"></a> Shapes</h2>
+<p>You can also open up the SVG file in a text editor, copy the SVG code, and paste it into your HTML document — this is sometimes called putting your <strong>SVG inline</strong>, or <strong>inlining SVG</strong>. Make sure your SVG code snippet begins and ends with the <code>&lt;svg&gt;&lt;/svg&gt;</code> tags (don’t include anything outside those.) Here’s a very simple example of what you might paste into your document:</p>
+<p><strong>Circle</strong></p>
+<p>- <strong>cx</strong> pushes the center of the circle further to the right of the screen</p>
+<p>- <strong>cy</strong> pushes the center of the circle further down from the top of the screen</p>
+<p>- <strong>r</strong> defines the radius</p>
+<p>- <strong>fill</strong> determines the color of our circle</p>
+<p>- <strong>stroke</strong> adds an outline to the circle</p>
+<p><strong>Rectangle</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">&quot;200&quot;</span> <span class="attr">height</span>=<span class="string">&quot;200&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">rect</span> <span class="attr">width</span>=<span class="string">&quot;300&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100&quot;</span> <span class="attr">x</span>=<span class="string">&quot;20&quot;</span> <span class="attr">y</span>=<span class="string">&quot;20&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;green&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>Line</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">&quot;400&quot;</span> <span class="attr">height</span>=<span class="string">&quot;410&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">line</span> <span class="attr">x1</span>=<span class="string">&quot;10&quot;</span> <span class="attr">y1</span>=<span class="string">&quot;10&quot;</span> <span class="attr">x2</span>=<span class="string">&quot;200&quot;</span> <span class="attr">y2</span>=<span class="string">&quot;100&quot;</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">style</span>=<span class="string">&quot;stroke:#000000; stroke-linecap:round; </span></span></span><br><span class="line"><span class="tag"><span class="string">        stroke-width:20&quot;</span>  /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>Polyline</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- a black check sign--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">&quot;2000&quot;</span> <span class="attr">height</span>=<span class="string">&quot;500&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">polyline</span> <span class="attr">style</span>=<span class="string">&quot;stroke-linejoin:miter; stroke:black; </span></span></span><br><span class="line"><span class="tag"><span class="string">        stroke-width:12; fill: none;&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">points</span>=<span class="string">&quot;100 100, 150 150, 200 100&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>Ellipse</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">height</span>=<span class="string">&quot;500&quot;</span> <span class="attr">width</span>=<span class="string">&quot;1000&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">ellipse</span> <span class="attr">cx</span>=<span class="string">&quot;200&quot;</span> <span class="attr">cy</span>=<span class="string">&quot;100&quot;</span> <span class="attr">rx</span>=<span class="string">&quot;150&quot;</span> <span class="attr">ry</span>=<span class="string">&quot;70&quot;</span> <span class="attr">style</span>=<span class="string">&quot;fill:green&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>Polygon</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">&quot;2000&quot;</span> <span class="attr">height</span>=<span class="string">&quot;2000&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">polygon</span> <span class="attr">points</span>=<span class="string">&quot;100 100, 200 200, 300 0&quot;</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">style</span>=<span class="string">&quot;fill: green; stroke:black;&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>Star</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="attr">version</span>=<span class="string">&quot;1.1&quot;</span> <span class="attr">height</span>=<span class="string">&quot;190&quot;</span> <span class="attr">id</span>=<span class="string">&quot;poly&quot;</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">polygon</span> <span class="attr">points</span>=<span class="string">&quot;100,10 40,180 190,60 10,60 160,180&quot;</span></span></span><br><span class="line"><span class="tag"> <span class="attr">style</span>=<span class="string">&quot;fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>Face</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">class</span>=<span class="string">&quot;face&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">&quot;50&quot;</span> <span class="attr">cy</span>=<span class="string">&quot;50&quot;</span> <span class="attr">r</span>=<span class="string">&quot;50&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;#FDD835&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">&quot;30&quot;</span> <span class="attr">cy</span>=<span class="string">&quot;30&quot;</span> <span class="attr">r</span>=<span class="string">&quot;10&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;#FFFFFF&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">&quot;70&quot;</span> <span class="attr">cy</span>=<span class="string">&quot;30&quot;</span> <span class="attr">r</span>=<span class="string">&quot;10&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;#FFFFFF&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">&quot;30&quot;</span> <span class="attr">cy</span>=<span class="string">&quot;30&quot;</span> <span class="attr">r</span>=<span class="string">&quot;5&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;#000000&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">&quot;70&quot;</span> <span class="attr">cy</span>=<span class="string">&quot;30&quot;</span> <span class="attr">r</span>=<span class="string">&quot;5&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;#000000&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;M 30 70 q 20 20 40 0&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;#FFFFFF&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;none&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>Animations</strong></p>
+<ul>
+<li><strong>attributeName</strong>: Specifies which attribute will be affected by the animation</li>
+<li><strong>from</strong>: Specifies the starting value of the attribute</li>
+<li><strong>to</strong>: Specifies the ending value of the attribute</li>
+<li><strong>dur</strong>: Specifies how long the animation runs (duration)</li>
+<li><strong>fill</strong>: Specifies whether or not the attribute’s value should return to its initial value when the animation is finished (Values: “remove” resets the value; “freeze” keeps the “to value”)</li>
+<li><strong>repeatCount</strong>: Specifies the repeat count of the animation</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- creates a rectangle that will change its position in 3 seconds and will then repeat the animation twice --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">&quot;1000&quot;</span> <span class="attr">height</span>=<span class="string">&quot;250&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">rect</span> <span class="attr">width</span>=<span class="string">&quot;150&quot;</span> <span class="attr">height</span>=<span class="string">&quot;150&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;orange&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">animate</span> <span class="attr">attributeName</span>=<span class="string">&quot;x&quot;</span> <span class="attr">from</span>=<span class="string">&quot;0&quot;</span> <span class="attr">to</span>=<span class="string">&quot;300&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">dur</span>=<span class="string">&quot;3s&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;freeze&quot;</span> <span class="attr">repeatCount</span>=<span class="string">&quot;2&quot;</span>/&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">rect</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>Paths</strong></p>
+<ul>
+<li><strong>M</strong>: moveto</li>
+<li><strong>L</strong>: lineto</li>
+<li><strong>H</strong>: horizontal lineto</li>
+<li><strong>V:</strong> vertical lineto</li>
+<li><strong>C</strong>: curveto</li>
+<li><strong>S</strong>: smooth curveto</li>
+<li><strong>Q</strong>: quadratic Bézier curve</li>
+<li><strong>T</strong>: smooth quadratic Bézier curveto</li>
+<li><strong>A:</strong> elliptical Arc</li>
+<li><strong>Z</strong>: closepath</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Rectangle: M 0 0 L200 200 L200 0 Z--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">&quot;500&quot;</span> <span class="attr">height</span>=<span class="string">&quot;500&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;M 0 0 L200 200 L200 0 Z&quot;</span> <span class="attr">style</span>=<span class="string">&quot;stroke:#000;  fill:none;&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a href="/web/svg/web_svg_demo01.html">SVG</a></p>
+<h2 id="cross-browser-support"><a class="markdownIt-Anchor" href="#cross-browser-support"></a> Cross-browser support</h2>
+<p>For browsers that don’t support SVG (IE 8 and below, Android 2.3 and below), you could reference a PNG or JPG from your <code>src</code> attribute and use a <code>srcset</code> attribute (which only recent browsers recognize) to reference the SVG. This being the case, only supporting browsers will load the SVG — older browsers will load the PNG instead:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;equilateral.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;triangle with equal sides&quot;</span> <span class="attr">srcset</span>=<span class="string">&quot;equilateral.svg&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>You can also use SVGs as CSS background images, as shown below. In the below code, older browsers will stick with the PNG that they understand, while newer browsers will load the SVG:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">background: url(&quot;fallback.png&quot;) no-repeat center;</span><br><span class="line">background-image: url(&quot;image.svg&quot;);</span><br><span class="line">background-size: contain;</span><br></pre></td></tr></table></figure>
+<p>Like the <code>&lt;img&gt;</code> method described above, inserting SVGs using CSS background images means that the SVG can’t be manipulated with JavaScript, and is also subject to the same CSS limitations.</p>
+<h2 id="how-to-embed-an-svg"><a class="markdownIt-Anchor" href="#how-to-embed-an-svg"></a> How to embed an SVG</h2>
+<p>To embed an SVG via an img element, you just need to reference it in the src attribute as you’d expect. You will need a <code>height</code> or a <code>width</code> attribute (or both if your SVG has no inherent aspect ratio).</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">src</span>=<span class="string">&quot;equilateral.svg&quot;</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">alt</span>=<span class="string">&quot;triangle with all three sides equal&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">height</span>=<span class="string">&quot;87px&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">width</span>=<span class="string">&quot;100px&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>You can open SVG images in your browser with an <code>&lt;iframe&gt;</code>  just like webpages.</p>
+<p>Here’s a quick review:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;triangle.svg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;500&quot;</span> <span class="attr">height</span>=<span class="string">&quot;500&quot;</span> <span class="attr">sandbox</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;triangle.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;Triangle with three unequal sides&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="svg-features"><a class="markdownIt-Anchor" href="#svg-features"></a> SVG Features</h2>
+<p>More advanced SVG features include <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix"><code>matrix</code></a>(transform colors using a transformation matrix,) <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/animate"><code>animation</code></a> (animate parts of your vector graphic,) and <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/mask"><code>mask</code></a> (apply a mask over the top of your image.)</p>
+<h2 id="references"><a class="markdownIt-Anchor" href="#references"></a> REFERENCES</h2>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Adding_vector_graphics_to_the_Web">https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Adding_vector_graphics_to_the_Web</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started">SVG tutorial</a> on MDN</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element">https://developer.mozilla.org/en-US/docs/Web/SVG/Element</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/SVG">https://developer.mozilla.org/en-US/docs/Web/SVG</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="http://thenewcode.com/744/Making-SVG-Responsive">Quick tips for responsive SVGs</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://tympanus.net/codrops/2014/08/19/making-svgs-responsive-with-css/">Sara Soueidan’s tutorial on responsive SVG images</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/SVG-access/">Accessibility benefits of SVG</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://css-tricks.com/scale-svg/">How to scale SVGs </a>(it’s not as simple as raster graphics!)</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/SVG">https://en.wikipedia.org/wiki/SVG</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html">https://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html</a></p>
+</li>
+</ul>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Joaxin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://u.pinsflora.com/web/html/web_html_svg/">https://u.pinsflora.com/web/html/web_html_svg/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="addtoany"><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_wechat"></a><a class="a2a_button_sina_weibo"></a><a class="a2a_button_facebook_messenger"></a><a class="a2a_button_email"></a><a class="a2a_button_copy_link"></a><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a></div></div><script async="async" src="https://static.addtoany.com/menu/page.js"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/web/html/web_html_images/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_writting_letter.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">HTML images</div></div></a></div><div class="next-post pull-right"><a href="/web/html/web_html_storage/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_grass_in_the_snow.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">HTML5 Web Storage</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div></div></div></div></article></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_seeds.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 By Joaxin</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Refine, the Life</div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="Switch Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    $.getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js', function () {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script defer="defer" id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="fasle"></script><script src="/js/third-party/activate-power-mode.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/fae45343.js","daovoice")
+</script><script>var isChatBtn = true
+daovoice('init', {
+  app_id: 'fae45343',},{
+  launcher: { 
+     disableLauncherIcon: isChatBtn // 悬浮 ICON 是否显示
+  },
+});
+daovoice('update');
+
+if (isChatBtn) {
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      daovoice('show')
+    });
+  }
+  chatBtnFn()
+} else {
+  if (true) {
+    function chatBtnHide () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: true // 悬浮 ICON 是否显示
+        },
+      });
+    }
+    function chatBtnShow () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: false // 悬浮 ICON 是否显示
+        },
+      });
+    }
+  }
+}</script></div></body></html>

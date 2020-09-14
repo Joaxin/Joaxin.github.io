@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML Live Preview</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.bootcss.com/highlight.js/9.7.0/styles/docco.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="body-wrapper">
+    <h2>HTML Input</h2>
+
+    <div id="code" class="html-input" contenteditable="true">
+      <pre><code><ul class="pagination">
+          <li><a href="#">«</a></li>
+          <li><a href="#">1</a></li>
+          <li><a class="active" href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#">6</a></li>
+          <li><a href="#">7</a></li>
+          <li><a href="#">»</a></li>
+        </ul>
+        </code></pre>
+</div>
+  
+    <h2>CSS Input</h2>
+    <div id="code" class="css-input" contenteditable="true"> 
+        <pre><code>
+            ul.pagination {
+              display: inline-block;
+              padding: 0;
+              margin: 0;
+          }
+          
+          ul.pagination li {display: inline;}
+          
+          ul.pagination li a {
+              color: black;
+              float: left;
+              padding: 8px 16px;
+              text-decoration: none;
+          }
+          
+          ul.pagination li a.active {
+              background-color: #4CAF50;
+              color: white;
+          }
+          
+          ul.pagination li a:hover:not(.active) {background-color: #ddd;}
+        </code></pre>
+</div>
+
+
+    <h2>JS Input</h2>
+    <div id="code" class="js-input" contenteditable="true"> 
+        <pre><code>
+        </code></pre>
+
+</div>
+<h2>Output</h2>
+    <div class="output"></div>
+    <div class="controls">
+      <input id="reset" type="button" value="Reset">
+      <input id="solution" type="button" value="Show solution">
+    </div>
+  </div>
+  <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

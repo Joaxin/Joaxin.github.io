@@ -1,0 +1,245 @@
+<html>
+
+<head>
+    <title>Code Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin: 5px 5px 0px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 250px;
+            overflow: scroll;
+            margin: 0px auto;
+            display: inline-block;
+            border: none;
+            background: #f4f4f9;
+            font-family: Courier, sans-serif;
+            font-size: 14px;
+        }
+
+        ul.tabs {
+            list-style: none;
+            height: 32px;
+            width: 100%;
+        }
+
+        ul.tabs li {
+            float: left;
+            cursor: pointer;
+            padding: 0px 20px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #666;
+            color: #ccc;
+            overflow: hidden;
+            position: relative;
+        }
+
+        ul.tabs li:hover {
+            background-color: #ccc;
+            color: #555;
+        }
+
+        ul.tabs li.active {
+            background-color: #f4f4f9;
+            color: #555;
+            display: block;
+            /* border-bottom: 1px solid #f4f4f9; */
+        }
+
+        .tab_code {
+            width: 100%;
+            background: #fff;
+            overflow: auto;
+        }
+
+        .tab_ {
+            padding: 0px;
+            display: none;
+        }
+
+        iframe {
+            bottom: 0;
+            border: none;
+            position: relative;
+            width: 100%;
+            height: 35em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="tabs">
+            <li class="active" rel="tab1">HTML</li>
+            <li rel="tab2">CSS</li>
+            <li rel="tab3">JavaScript</li>
+        </ul>
+        <div class="tab_code">
+            <div id="tab1" class="tab_">
+                <textarea id="html" placeholder="HTML">
+<figure class="blur">
+    <img src="colorful-heart.png" alt="a colorful prism heart">
+    <figcaption>Blur filter</figcaption>
+</figure>
+
+<figure class="brightness">
+    <img src="colorful-heart.png" alt="a colorful prism heart">
+    <figcaption>Brightness filter</figcaption>
+</figure>
+
+<figure class="shadow">
+    <img src="colorful-heart.png" alt="a colorful prism heart">
+    <figcaption>Drop shadow filter</figcaption>
+</figure>
+
+<figure class="gray">
+    <img src="colorful-heart.png" alt="a colorful prism heart">
+    <figcaption>Grayscale filter</figcaption>
+</figure>
+
+<figure class="sepia">
+    <img src="colorful-heart.png" alt="a colorful prism heart">
+    <figcaption>Sepia filter</figcaption>
+</figure>
+
+<figure class="invert">
+    <img src="colorful-heart.png" alt="a colorful prism heart">
+    <figcaption>Inversion filter</figcaption>
+</figure>
+
+<figure class="saturate">
+    <img src="colorful-heart.png" alt="a colorful prism heart">
+    <figcaption>Saturation filter</figcaption>
+</figure>
+
+<figure class="opacity">
+    <img src="colorful-heart.png" alt="a colorful prism heart">
+    <figcaption>Opacity filter</figcaption>
+</figure>
+
+<figure class="hue-rotate">
+    <img src="colorful-heart.png" alt="a colorful prism heart">
+    <figcaption>Hue rotation filter</figcaption>
+</figure>
+                </textarea>
+            </div>
+            <div id="tab2" class="tab_">
+                <textarea id="css" placeholder="CSS">
+html {
+    font-family: sans-serif;
+}
+
+figure {
+transition: 1s all;
+display: inline-block;
+position: relative;
+}
+
+figcaption {
+text-align:center;
+border:5px dotted magenta;
+text-shadow: 1px 1px 1px white,px 2px 1px white;
+font-size: 1.3rem;
+letter-spacing: 2px
+}
+
+.blur:hover {
+-webkit-filter: blur(5px);
+filter: blur(5px);
+}
+
+.brightness:hover {
+-webkit-filter: brightness(0.6);
+filter: brightness(0.6);
+}
+
+.shadow:hover {
+-webkit-filter: drop-shadow(10px 10px 5px rgba(0,0,0,0.7));
+filter: drop-shadow(10px 10px 5px rgba(0,0,0,0.7));
+}
+
+.gray:hover {
+-webkit-filter: grayscale(100%);
+filter: grayscale(100%);
+}
+
+.sepia:hover {
+-webkit-filter: sepia(100%);
+filter: sepia(100%);
+}
+
+.invert:hover {
+-webkit-filter: invert(100%);
+filter: invert(100%);
+}
+
+.saturate:hover {
+-webkit-filter: saturate(300%);
+filter: saturate(300%);
+}
+
+.opacity:hover {
+-webkit-filter: opacity(0%);
+filter: opacity(0%);
+}
+
+.hue-rotate:hover {
+-webkit-filter: hue-rotate(210deg);
+filter: hue-rotate(210deg);
+}
+                </textarea>
+            </div>
+            <div id="tab3" class="tab_">
+                <textarea id="js" placeholder="JavaScript"></textarea>
+            </div>
+        </div>
+    </div>
+    <iframe id="code"></iframe>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(".tab_").hide();
+        $(".tab_:first").show();
+
+        $("ul.tabs li").click(function() {
+
+            $(".tab_").hide();
+            let activeTab = $(this).attr("rel");
+            $("#" + activeTab).fadeIn();
+
+            $("ul.tabs li").removeClass("active");
+            $(this).addClass("active");
+
+        });
+
+        function compile() {
+            let html = document.getElementById("html");
+            let css = document.getElementById("css");
+            let js = document.getElementById("js");
+            let code = document.getElementById("code").contentWindow.document;
+            code.open();
+            code.writeln(
+                html.value +
+                "<style>" +
+                css.value +
+                "</style>" +
+                "<script>" +
+                js.value + "<" +
+                "/script>");
+            code.close();
+        }
+
+        compile();
+        window.addEventListener("click", compile);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+    <style>
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background: aliceblue;
+    background: linear-gradient(to right, aliceblue, azure);
+}
+h1 {
+    color: #ffffff;
+    background-color: midnightblue;
+    margin: 0;
+    padding: 10px 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+h1::selection {
+    background: none;
+}
+
+li::selection {
+    background: none;
+}
+#container{
+    margin:20px 50px;
+}
+
+input {
+    margin:20px 0px 0px 40%;
+    color: darkgray;
+    box-sizing: border-box;
+    width: 200px;
+    font-size: 16px;
+    background-color: #fafafa;
+    padding: 10px 0px 10px 15px;
+    height: 40px;
+    border: 3px solid rgba(0,0,0,0);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+input:focus {
+    border: 2px solid rgba(0, 204, 255, .8);
+    outline: 0;
+}
+li {
+    text-transform: capitalize;
+    color: deeppink;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    text-align: center;
+    min-width: 250px;
+    background:#f1f1f1;
+    border: 1px solid rgba(0,0,0,0);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+li:nth-child(odd) {
+    background-color: #fafafa;
+}
+
+.fa-trash-o,.fa-pencil{
+line-height: 40px;
+}
+span {
+    background-color: deeppink;
+    color: #fff;
+    height: 40px;
+    width: 0;
+    opacity: 0;
+    display: inline-block;
+    float: right;
+    text-align: center;
+    transition: all 200ms linear;
+}
+
+li:hover span {
+    width: 40px;
+    opacity: 1;
+}
+
+</style>
+<script>
+
+$(document).ready(function(){
+  $("#add").on("click", function() {
+    var val = $("input").val();
+    if(val !== '') {
+     var elem = $("<li></li>").text(val);
+     $(elem).append("<span class='fa fa-trash-o fa-2x'></span><span class='fa fa-pencil fa-2x'></span>");
+     $("#mylist").append(elem);
+     $("input").val("");
+     $(".fa-trash-o").on("click", function() {
+      $(this).parent().remove();});
+     $(".fa-pencil").on("click", function() {
+      $(this).parent().css({"color": "gray","text-decoration": "line-through"});
+     });
+    }
+  });
+  $('input[type="text"]').on('keypress', function(event){
+    if(event.which === 13 && $(this).val() !== "") {
+        var ToDo = $(this).val();
+        $('#mylist').append("<li>"+ ToDo + "<span class='fa fa-trash-o fa-2x'></span><span class='fa fa-pencil fa-2x'></span></li>");
+        $(this).val("").blur();
+             $(".fa-trash-o").on("click", function() {
+      $(this).parent().remove();});
+     $(".fa-pencil").on("click", function() {
+      $(this).parent().css({"color": "gray","text-decoration": "line-through"});
+     });
+    }
+});
+});
+</script>
+    <title>Document</title>
+</head>
+<body>
+<h1>My To-Do List</h1>
+<input placeholder="New Item" type="text">
+<button id="add">ADD</button>
+<div id="container">
+<ol  id="mylist"></ol>
+</div>
+</body>
+</html>

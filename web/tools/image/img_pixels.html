@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form {
+        border: 5px dotted pink;
+        padding: 5px;
+        margin: 20px auto;
+      }
+      img:hover{
+        cursor:crosshair;
+      }
+      #info li, #info ul{
+        display: inline-block;
+      }
+      #info li::after{
+        content:"";
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <input type="file" id="filetag" />
+      <label for="text">放大/缩小 : </label>
+      <input
+        id="zoom"
+        name="zoom"
+        list="sources"
+        required
+        value=""
+        autocomplete="off"
+      />
+      <datalist id="sources">
+        <option value="200%">200%</option>
+        <option value="150%">150%</option>
+        <option value="100%">100%</option>
+        <option value="75%">75%</option>
+        <option value="50%">50%</option>
+        <option value="25%">25%</option>
+        <option value="10%">10%</option>
+        <option value="5%">5%</option>
+      </datalist>
+      当前坐标：X <input type="text" name="img_x" id = "img_x" ondblclick="putPixel()" />
+       Y <input type="text" name="img_y" id = "img_y" ondblclick="putPixel()" />
+       大小：<input type="range" name="size" id="size" min="1" max="20" value ="5" step="1" onchange = 'document.querySelector("span").textContent = this.value'><span ></span>
+       线 : <input type='checkbox' />
+       图片边框 : <input type='checkbox' onchange ='this.checked?document.querySelector("img").style.border="1px solid gray":document.querySelector("img").style.border="none"' /> 
+       <!-- div.parentNode.removeChild(div);  -->
+       <input type="button" value = "清除标记" onclick="document.querySelector('#pbox').innerHTML = ''">
+       <p>背景颜色: <input type="color" id="bgColor"> 文本颜色: <input type="color" id="ttColor" value="#ffffff"></p> 
+      <div id="info"><b>图片信息：</b></div>
+    </form>
+    <img id="preview" onmousemove="getMousePos(event,this)" onclick="putPixel()">
+    <div id="pbox"></div>
+  </body>
+  <script>
+    var fileTag = document.getElementById("filetag"),
+      info = document.getElementById("info");
+    preview = document.getElementById("preview");
+    zoom = document.getElementById("zoom");
+
+    zoom.addEventListener("change", function () {
+      changeImageSize();
+    });
+
+    fileTag.addEventListener("change", function () {
+      changeImage(this);
+    });
+
+    let img_height, img_width;
+    function changeImage(input) {
+      var reader;
+      // console.log(input.files[0])
+      var img = new Image();
+
+      if (input.files && input.files[0]) {
+        reader = new FileReader();
+        reader.onload = function (e) {
+          // console.log(e.target);
+          img.src = e.target.result;
+          img.onload = function () {
+            // console.log(img);
+            let fileDetailHtml='<ul class="file-info">';
+            fileDetailHtml+='<li><strong class="title">Name</strong>: '+ escape(input.files[0].name)+"</li>";
+            fileDetailHtml+='<li><strong class="title">Type</strong>: '+ input.files[0].type || 'N/A' +"</li>";
+            img_height=img.height;
+            img_width=img.width;
+            fileDetailHtml+='<li><strong class="title">Size</strong>: '+Math.floor(input.files[0].size / 1024, 2)+" KB"+"("+img_width+","+img_height+")</li>";
+            fileDetailHtml+='<li><strong class="title">Last Modified</strong>: '+(input.files[0].lastModifiedDate ? input.files[0].lastModifiedDate.toLocaleDateString(): "N/A")+"</li>";
+            fileDetailHtml += "</ul>";
+            info.innerHTML += fileDetailHtml;
+
+            preview.setAttribute("src", img.src); // e.target.result OR reader.result
+          };
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    function changeImageSize() {
+      img = document.getElementById("preview");
+      if (parseInt(zoom.value) / 100 && parseInt(zoom.value) / 100 > 0) {
+        img.style.height = (img_height * parseInt(zoom.value)) / 100 + "px";
+        img.style.width = (img_width * parseInt(zoom.value)) / 100 + "px";
+        if (
+          document.querySelector("body").offsetWidth >=
+          img.offsetWidth + 40
+        ) {
+          img.style.display = "block";
+          img.style.margin = "20px auto";
+        }
+      } else {
+        alert("invalid input!");
+      }
+    }
+
+    function getMousePos(ev, obj) {
+      img_X = ev.clientX - obj.offsetLeft;
+      img_Y = ev.clientY - obj.offsetTop;
+      n = document.getElementById("zoom").value
+      if (n){n = parseInt(n)/100 } else{n=1}
+      document.getElementById("img_x").value = img_X * 1/n ;
+      document.getElementById("img_y").value = img_Y * 1/n ;
+      return { 'x': img_X , 'y': img_Y};
+    }
+    
+    function putPixel() {
+    x =  document.getElementById("img_x").value
+    y =  document.getElementById("img_y").value
+    sz = document.getElementById("size").value
+    let pbox = document.createElement('div');
+    pbox.style.backgroundColor = document.getElementById("bgColor").value;
+    pbox.style.color = document.getElementById("ttColor").value;;
+    pbox.style.width = sz*2 + "px";
+    pbox.style.height= sz*2 + "px";
+    
+    pbox.style.position = "absolute";
+    img = document.getElementById("preview");
+    n = document.getElementById("zoom").value
+    if (n){n = parseInt(n)/100 } else{n=1}
+    pbox.style.left = Math.round(x)*n + img.offsetLeft  - sz + "px";
+    pbox.style.top = Math.round(y)*n  + img.offsetTop  - sz + "px";
+    pbox.style.borderRadius = "50%";
+    pbox.style.zIndex = 999;
+    let pxy = document.createElement('p');
+    pxy.innerHTML = "<div>" + "(" + x + "," + y + ")" + "</div>";
+    pbox.appendChild(pxy);
+    document.querySelector("#pbox").appendChild(pbox);
+    }
+  </script>
+</html>

@@ -1,0 +1,225 @@
+<html>
+<head>
+<style>
+body {
+    text-align: center;
+    margin-top: 0;
+}
+p{
+    margin-top: 50px;
+    font-size: 2em;
+}
+span{
+    text-transform: capitalize;
+    font-size: 1.2em;
+}
+input[type="button"] {
+    background-color: #3fb6b2;
+    width:20%;
+    border-radius: 10px;
+    padding: 10px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    border: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+input[type="button"]:hover {
+    background-color: #43a09d;
+}
+input{
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    padding: 5px 2px 2px;
+    border: 1px solid #cecece;
+    background-color: #efefef;
+    color: #787575;
+    border-radius: 5px;
+    width: 50%;
+    outline: none;
+}
+.copyright {
+    position: fixed;
+    bottom:0px;
+    right:20px;
+    font-size: 8pt;
+    text-align: right;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    color: grey;
+}
+ul {
+    margin: 25px auto;
+    width: 1000px;
+    list-style: none outside none;
+}
+li {
+    display:inline-block;
+    margin: 3px;
+    padding: 3px;
+    width:25px;
+    height: 25px;
+    font: bold 20px/25px arial;
+    background: #000;
+    color: #fff;
+    border-radius: 25px;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+<p>Number Base 64 Conversion </p>
+<span>Before : </span>
+<input type="text" value="" id="from1" />
+<span>radix1 : </span>
+<input type="text" value="2" id="from2" style="width:50px;"/>
+<br/>
+<br/>
+<span>After : &nbsp;</span>
+<input type="text" value="" id="to1" />
+<span>radix2 : </span>
+<input type="text" value="10" id="to2" style="width:50px;" />
+<br/><br/>
+<input type="button" id="cover" value="Conversion" onclick="Cover();"/>
+<input type="button" id="info" value="Information" onclick="showInfo();"/>
+<div class="info">
+<div id = "numbers">
+<ul id="nu"></ul>
+</div>
+<div class="copyright">
+    &copy; 2018 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/. All rights reserved.
+</div>
+</body>
+<script>
+// (10/017/ox22).toString(2,8,10,16)
+// parseInt(010101,2/8/16)
+function checkNumber(num,dig1,dig2){
+char="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/";
+// 48-57 65-90 97-122 43 47
+// slice(+)/substring(0)/substr("")
+　　if (num=="" || dig1==""||dig2=="") {
+　　　　alert("number or radix1 or radix2 is empty");
+    return false;
+　　} else {
+　　    var dig = dig1 - 1;
+　　    var re =new RegExp("^[" + char.slice(0,dig1) + "]+$","g");
+　　  //  alert(re);
+    　　if (!re.test(num)|| dig1>64 || dig2>64){
+    　　    alert("plz input a valid radix1");
+          return false;
+    　　}
+　　}
+return true;
+
+}
+
+Cover = function(){
+var n1 = document.getElementById("from1").value;
+var d1 = document.getElementById("from2").value;
+var n2 = document.getElementById("to1");
+var d2 = document.getElementById("to2").value;
+if(checkNumber(n1,d1,d2)){
+    // to radix1
+    var len = n1.length;
+    var b = 0;
+    var i = 1;
+    // var t = n1%10;
+    // do{
+    //     b = b + t * Math.pow(d1,i-1);
+    //     n1 = parseInt(n1/10);
+    //     t = n1%10;
+    //     i = i + 1;
+    // }while(i<= len);
+    var s = n1.match(/./g);
+    var j = 0;
+    for (var i = len - 1, j = 1; i >= 0; i--, j *= Number(d1)) {
+        if (s[i] >= 'a' && s[i] <= 'z') {
+            s[i] = s[i].charCodeAt(0) - 87;
+        }else if((s[i] >= 'A' && s[i] <= 'Z')){
+            s[i] = s[i].charCodeAt(0) - 29;
+        }else if(s[i] =="+"){
+            s[i] = 62;
+        }else if(s[i] =="/"){
+            s[i] = 63;
+        }
+        b += Number(s[i])* j;
+    }
+    console.log(b);
+    // to radix2
+    // var i=0;
+    // var q=0;
+    // var r=0;
+    // var num=0;
+    // do{
+    // q = parseInt(b/d2);
+    // r = b%d2;
+    // num = num + r * Math.pow(10,i);
+    // i = i + 1;
+    // b = q;
+    // }while(q!=0);
+    var str="";
+    while (b > 0){
+        d2=Number(d2);
+        var m = b % d2;
+        console.log(m,str);
+        if (m > 0 && m<=9){
+            m = m + 48;
+        }else if(m >= 10 && m <= 35){
+            m = m + 97 - 10;
+        }else if(m >= 36 && m <= 61){
+            m = m + 65 - 36;
+        }else if(m == 62){
+            m = 43;
+        }else if(m == 63){
+            m=47;
+        }else{
+            if(d2<=10){
+                m= 48;
+            }else if(d2>=11&&d2<=36){
+                m = d2 + 97 - 11;
+            }else if(d2>=37&&d2<=62){
+                m = d2 + 29 - 37;
+            }else if(d2==63){
+                m=43;
+            }else if(d2==64){
+                m=47;
+            }
+            b=b-d2;
+        }
+        str = String.fromCharCode(m) + str;
+        console.log(m,str);
+        b = parseInt(b/d2);
+    }
+    n2.value=str;
+}
+}
+showInfo = function(){
+var n1 = document.getElementById("from1").value;
+var n2 = document.getElementById("to1").value;
+var cont = document.getElementById("numbers");
+var ul = document.getElementById("nu");
+nums1 = String(n1).split("");
+nums2 = String(n2).split("");
+
+var uul=document.createElement("ul");
+for(var i=0;i<nums1.length;i++){
+var li = document.createElement("li");
+var node = document.createTextNode(String(nums1[i]));
+li.appendChild(node);
+uul.appendChild(li);
+}
+var br = document.createElement("br");
+uul.appendChild(br);
+for(var i=0;i<nums2.length;i++){
+var li = document.createElement("li");
+var node = document.createTextNode(String(nums2[i]));
+li.appendChild(node);
+uul.appendChild(li);
+}
+uul.id="nu";
+cont.replaceChild(uul,ul);
+
+}
+</script>
+</html>

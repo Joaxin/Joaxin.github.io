@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  box-sizing: content-box;
+  /* align-items: center; */
+  margin: auto;
+  padding: 1px;
+  width: 1000px;
+  height: 200px;
+  border: 2px solid orange;
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
+}
+
+/* [class^='item']{
+    flex-basis:0;
+} */
+
+.item1,.item2,.item3{
+    flex-basis:0;
+}
+
+.item4,.item5,.item6{
+    flex-basis:auto;
+}
+
+.item1 {
+  width: 100px;
+  background: red;
+  flex-grow: 1;
+}
+.item2 {
+  width: 300px;
+  background: green;
+  flex-grow: 1;
+}
+.item3 {
+  width: 200px;
+  background: blue;
+  flex-grow: 2;
+}
+
+.item4 {
+  width: 100px;
+  background: red;
+  flex-grow: 1;
+}
+.item5 {
+  width: 300px;
+  background: green;
+  flex-grow: 1;
+}
+.item6 {
+  width: 200px;
+  background: blue;
+  flex-grow: 2;
+}
+</style>
+</head>
+<body>
+    <p> flex-basis:0;</p>
+    <div class="container">
+       
+        <div class="item1">100px</div>
+        <div class="item2">300px</div>
+        <div class="item3">200px</div>
+      </div>
+      <p>flex-basis:auto;</p>
+      <div class="container">
+        
+        <div class="item4">100px</div>
+        <div class="item5">300px</div>
+        <div class="item6">200px</div>
+      </div>
+    <script>
+    var item = document.querySelectorAll('[class^=item]');
+    for (i=0;i<item.length;i++){
+        itemClass = "item" + (i + 1)
+        console.log(itemClass);
+        oriHTML = document.getElementsByClassName(itemClass)[0].innerHTML 
+        document.getElementsByClassName(itemClass)[0].innerHTML = oriHTML + "==>" + item[i].offsetWidth + "px";
+    }
+    </script>
+</body>
+</html>

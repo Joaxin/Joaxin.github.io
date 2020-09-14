@@ -1,0 +1,165 @@
+<html>
+
+<head>
+    <title>Code Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin: 5px 5px 0px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 250px;
+            overflow: scroll;
+            margin: 0px auto;
+            display: inline-block;
+            border: none;
+            background: #f4f4f9;
+            font-family: Courier, sans-serif;
+            font-size: 14px;
+        }
+
+        ul.tabs {
+            list-style: none;
+            height: 32px;
+            width: 100%;
+        }
+
+        ul.tabs li {
+            float: left;
+            cursor: pointer;
+            padding: 0px 20px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #666;
+            color: #ccc;
+            overflow: hidden;
+            position: relative;
+        }
+
+        ul.tabs li:hover {
+            background-color: #ccc;
+            color: #555;
+        }
+
+        ul.tabs li.active {
+            background-color: #f4f4f9;
+            color: #555;
+            display: block;
+            /* border-bottom: 1px solid #f4f4f9; */
+        }
+
+        .tab_code {
+            width: 100%;
+            background: #fff;
+            overflow: auto;
+        }
+
+        .tab_ {
+            padding: 0px;
+            display: none;
+        }
+
+        iframe {
+            bottom: 0;
+            border: none;
+            position: relative;
+            width: 100%;
+            height: 35em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="tabs">
+            <li class="active" rel="tab1">HTML</li>
+            <li rel="tab2">CSS</li>
+            <li rel="tab3">JavaScript</li>
+        </ul>
+        <div class="tab_code">
+            <div id="tab1" class="tab_">
+                <textarea id="html" placeholder="HTML">
+div { break-word: 
+<select id="select_change" onChange='document.getElementsByTagName("div")[0].style.wordBreak= this.options[this.selectedIndex].text;'>
+    <option value="0">-Select break-word CSS-</option>
+    <option value="1">normal</option>
+    <option value="2">break-all</option>
+    <option value="3">keep-all</option>
+    <option value="4">break-word</option>
+</select>;}
+
+<div>
+    Honorificabilitudinitatibus califragilisticexpialidocious Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu
+    次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉 他友善而打趣地指了一下，一面暗自笑着，走到胸墙那儿。斯蒂芬·迪达勒斯爬上塔顶，无精打采地跟着他走到半途，就在炮座边上坐下来，静静地望着他怎样把镜子靠在胸墙上，将刷子在钵里浸了浸，往面颊和脖颈上涂起皂沫。
+</div>
+</textarea>
+            </div>
+            <div id="tab2" class="tab_">
+                <textarea id="css" placeholder="CSS">
+select{
+    font: 1.2em Georgia,serif;
+    border-radius: 5px;
+    border: 1px solid red;
+}
+div{
+    width: 30%;
+    padding: 20px;
+    text-align: start;
+    border: solid 1px #a9a9a9;
+    margin-top:50px;
+}        
+                </textarea>
+            </div>
+            <div id="tab3" class="tab_">
+                <textarea id="js" placeholder="JavaScript">
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <iframe id="code"></iframe>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(".tab_").hide();
+        $(".tab_:first").show();
+
+        $("ul.tabs li").click(function() {
+
+            $(".tab_").hide();
+            let activeTab = $(this).attr("rel");
+            $("#" + activeTab).fadeIn();
+
+            $("ul.tabs li").removeClass("active");
+            $(this).addClass("active");
+
+        });
+
+        function compile() {
+            let html = document.getElementById("html");
+            let css = document.getElementById("css");
+            let js = document.getElementById("js");
+            let code = document.getElementById("code").contentWindow.document;
+            code.open();
+            code.writeln(
+                html.value +
+                "<style>" +
+                css.value +
+                "</style>" +
+                "<script>" +
+                js.value + "<" +
+                "/script>");
+            code.close();
+        }
+
+        compile();
+        window.addEventListener("click", compile);
+    </script>
+</body>
+
+</html>

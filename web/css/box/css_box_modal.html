@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    h1,
+h2 {
+  margin: 0;
+  color: #8e44ad;
+}
+
+body {
+  padding: 50px;
+  background: #FCB410;
+  font-family: 'Lato', sans-serif;
+}
+
+header {
+  background: #fff;
+  padding: 25px;
+  border: 20px solid #27ae60;
+  outline: 6px dotted #2c3e50;
+  outline-offset: 30px;
+}
+
+header h1 {
+  font-size: 4.8vw;
+  padding-top: 15px;
+  padding-left: 15px;
+  border-top: 4px dotted #EC555C;
+  border-left: 4px dotted #EC555C;
+  border-right: 4px dotted #EC555C;
+  position: relative;
+}
+
+header h2 {
+  font-size: 3.8vw;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  border-left: 4px dotted #EC555C;
+  border-right: 4px dotted #EC555C;
+  border-bottom: 4px dotted #EC555C;
+  margin-top: 2px;
+}
+
+h1::before {
+  content: "Content";
+  font-size: 2.5vw;
+  top: 2px;
+  position: absolute;
+  color: #000;
+}
+
+header::after {
+  content: "Padding";
+  font-size: 2.5vw;
+  position: absolute;
+}
+
+header::before {
+  content: "Border";
+  font-size: 2.5vw;
+  position: absolute;
+  top: 0;
+}
+
+.intro::before {
+  content: "Margin";
+  font-size: 2.5vw;
+  position: absolute;
+  top: -25px;;
+}
+
+.intro {
+  position: relative;
+}
+
+
+@media (min-width:1300px) {
+  
+  header {
+    background: #ecf0f1;
+    padding: 55px;
+    border: 50px solid #27ae60;
+    outline: 8px dotted #2c3e50;
+    outline-offset: 45px;
+  }
+
+  header h1 {
+    font-size: 8vw;
+    padding-top: 25px;
+    padding-left: 25px;
+  }
+
+  header h2 {
+    font-size: 6vw;
+    padding-left: 25px;
+    padding-bottom: 25px;
+  }
+  
+  h1::before {
+  content: "Content";
+  font-size: 2vw;
+  top: 2px;
+  position: absolute;
+  color: #000;
+}
+
+header::after {
+  content: "Padding";
+  font-size: 2vw;
+  position: absolute;
+}
+
+header::before {
+  font-size: 2vw;
+}
+
+.intro::before {
+  content: "Margin";
+  font-size: 2vw;
+  position: absolute;
+  top: -25px;;
+}
+
+  h1::before {
+    top: 5px;
+  }
+
+  .intro::before {
+    top: -35px;
+  }
+
+}</style>
+</head>
+<body>
+        <section class="intro">	
+                <header>
+                  <h1>The CSS Box Model</h1>
+                  <h2>Presented by: Pure CSS</h2>
+                </header>
+              </section>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<html>
+
+<head>
+    <title>Code Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin: 5px 5px 0px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 250px;
+            overflow: scroll;
+            margin: 0px auto;
+            display: inline-block;
+            border: none;
+            background: #f4f4f9;
+            font-family: Courier, sans-serif;
+            font-size: 14px;
+        }
+
+        ul.tabs {
+            list-style: none;
+            height: 32px;
+            width: 100%;
+        }
+
+        ul.tabs li {
+            float: left;
+            cursor: pointer;
+            padding: 0px 20px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #666;
+            color: #ccc;
+            overflow: hidden;
+            position: relative;
+        }
+
+        ul.tabs li:hover {
+            background-color: #ccc;
+            color: #555;
+        }
+
+        ul.tabs li.active {
+            background-color: #f4f4f9;
+            color: #555;
+            display: block;
+            /* border-bottom: 1px solid #f4f4f9; */
+        }
+
+        .tab_code {
+            width: 100%;
+            background: #fff;
+            overflow: auto;
+        }
+
+        .tab_ {
+            padding: 0px;
+            display: none;
+        }
+
+        iframe {
+            bottom: 0;
+            border: none;
+            position: relative;
+            width: 100%;
+            height: 35em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="tabs">
+            <li class="active" rel="tab1">HTML</li>
+            <li rel="tab2">CSS</li>
+            <li rel="tab3">JavaScript</li>
+        </ul>
+        <div class="tab_code">
+            <div id="tab1" class="tab_">
+                <textarea id="html" placeholder="HTML">
+<select id="select_shadow" onChange='document.getElementById("shadow_").style.textShadow = this.options[this.selectedIndex].text;'>
+    <option value="0">-Select Text Shadow CSS-</option>
+    <option value="1">5px 10px</option>
+    <option value="2">green 0 -25px</option>
+    <option value="3">10px 10px 5px green</option>
+    <option value="4">#FC0 1px 0 10px</option>
+    <option value="5">5px 5px #558ABB</option>
+    <option value="6">5px 5px 2px red, 0 0 1em #FC0</option>
+    <option value="7">5px -10px 2px red, 0 0 1em green, 0 0 0.5em #Fc0</option>
+    <option value="8">-50px -50px 2px red,-50px 50px 1px yellow,10px -10px 2px green,10px 10px 2px blue</option>
+</select>
+<input id = "shadow" type="text" placeholder="Text Shadow CSS" >
+
+<p id="shadow_">Cascading Style Sheets</p>
+</textarea>
+            </div>
+            <div id="tab2" class="tab_">
+                <textarea id="css" placeholder="CSS">
+select,input{
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    line-height: 25px;
+    font: 1.2em Georgia,serif;
+    border-radius: 5px;
+    border: 1px solid gray;
+    margin-top:15px;
+}
+
+p {
+    color:#352995;
+    font:2.5em Georgia,serif;
+    margin-top: 50px;
+    text-align:center;
+}
+                      
+                </textarea>
+            </div>
+            <div id="tab3" class="tab_">
+                <textarea id="js" placeholder="JavaScript">
+function apply_css(){
+    let v = document.getElementById("shadow_")
+    v.style.textShadow = this.value;
+    document.getElementById("select_shadow").selectedIndex = 0;
+}
+document.getElementById("shadow").addEventListener('change', apply_css);
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <iframe id="code"></iframe>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(".tab_").hide();
+        $(".tab_:first").show();
+
+        $("ul.tabs li").click(function() {
+
+            $(".tab_").hide();
+            let activeTab = $(this).attr("rel");
+            $("#" + activeTab).fadeIn();
+
+            $("ul.tabs li").removeClass("active");
+            $(this).addClass("active");
+
+        });
+
+        function compile() {
+            let html = document.getElementById("html");
+            let css = document.getElementById("css");
+            let js = document.getElementById("js");
+            let code = document.getElementById("code").contentWindow.document;
+            code.open();
+            code.writeln(
+                html.value +
+                "<style>" +
+                css.value +
+                "</style>" +
+                "<script>" +
+                js.value + "<" +
+                "/script>");
+            code.close();
+        }
+
+        compile();
+        window.addEventListener("click", compile);
+    </script>
+</body>
+
+</html>

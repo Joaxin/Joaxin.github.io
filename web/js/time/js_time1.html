@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+    var win;
+    var i = 1;
+    var mytime;
+    var monAbbr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var weekAbbr = ["Sun","Mon","Tues","Wed","Thur","Fri","Sat"]
+    function checktime(i){
+        if (i<10) {i="0"+i;}
+        return i;
+    }
+    function padding(num, n, s = "0") {
+            return (Array(n).join(s) + num).slice(-n);
+    }
+
+    function getTime(){
+    var date = new Date();
+    // date=date.toLocaleTimeString(); 下午4:05:29
+    document.getElementById("time").innerHTML = date.getFullYear() + "-" + monAbbr[date.getMonth()] + "-" + date.getDate() + "   " +
+        checktime(date.getHours())+ ":"+checktime(date.getMinutes())+":"+checktime(date.getSeconds()) + ":" + padding(date.getMilliseconds(),3) + "  "+weekAbbr[date.getDay()]+"</br>";
+    }
+
+    function StopTime(){
+    if(i==0){
+        clearInterval(mytime);
+        i=1;
+        document.getElementById("btn").innerHTML="Start";
+        alert("The time stoped ,I'm sooooooo Boring!!!");
+        win=setTimeout(function(){message();},2000);
+    }else{
+       mytime =setInterval(function(){
+        getTime();},1);
+       i=0;
+       document.getElementById("btn").innerHTML="Pause";
+    }
+    }
+</script>
+<noscript>Sorry, your browser does not support JavaScript!</noscript>
+</head>
+
+<body onload="message();getTime();StopTime()">
+<p id="time" style="font-weight:bold;font-size:26px;text-align: center"></p>
+<div align= "center">
+<button onclick="StopTime()" id = "btn">Stop</button>
+</div>
+
+</body>
+<script>
+    function message(){
+        win=setTimeout(function(){Stwin();},2000);
+
+        var result = confirm("I'm Boring,can you help me?");
+        if (result == true) {
+          alert("I'm so happy!!!");
+          clearInterval(win);
+        }
+        else {
+          alert("You dont understand me.");
+        }
+    }</script>
+</html>
+
+<button>Start machine</button>
+<p>The machine is stopped.</p>
+const btn = document.querySelector('button');
+const txt = document.querySelector('p');
+
+btn.addEventListener('click', updateBtn);
+
+function updateBtn() {
+  if (btn.textContent === 'Start machine') {
+    btn.textContent = 'Stop machine';
+    txt.textContent = 'The machine has started!';
+  } else {
+    btn.textContent = 'Start machine';
+    txt.textContent = 'The machine is stopped.';
+  }
+}

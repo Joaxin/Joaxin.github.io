@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Github events</title>
+    <!-- https://fonts.google.com/specimen/Liu+Jian+Mao+Cao -->
+    <link href="https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+      <header>
+
+      </header>
+
+      <section>
+        <ul class="cards">
+
+        </ul>
+      </section>
+
+    <script>
+    let header = document.querySelector('header');
+    let git_events_cards = document.querySelector('.cards');
+
+    let requestURL = 'https://api.github.com/events';
+    let request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+    request.responseType = 'json';
+    request.send();
+
+    request.onload = function() {
+      let gitevents = request.response;
+      populateHeader(gitevents);
+      showEvents(gitevents);
+    }
+
+    function populateHeader(jsonObj) {
+      let myH1 = document.createElement('h1');
+      myH1.textContent = 'Github Events';
+      header.appendChild(myH1);
+    }
+
+    function showEvents(jsonObj) {
+      let  gitevents = jsonObj
+
+      for(let i = 0; i < gitevents.length; i++) {
+        let git_event_li = document.createElement('li'); 
+        git_event_li.className='cards__item';
+        let git_event = document.createElement('div');
+        git_event.className='card';
+        git_event_li.appendChild(git_event);
+        
+        let git_userImage = document.createElement('div');
+        git_userImage.className='card__image';
+        git_userImage.style.backgroundImage="url('" + gitevents[i].actor.avatar_url + "')"
+        // tricks
+        git_event_li.appendChild(git_userImage);
+
+        let git_useInfo = document.createElement('div');
+        git_useInfo.className='card__content';
+
+        let git_userName = document.createElement('div');
+        let git_userUrl = gitevents[i].actor.url.replace("api.","www.").replace("users/","")
+        git_userName.innerHTML = '<a class = "card__author" target="_blank" href=' + git_userUrl + '>' + gitevents[i].actor.login  + '</a>';
+        
+        let git_userRepo = document.createElement('p');
+        git_userRepo.className='card__text';
+        let git_repoName = gitevents[i].repo.name.replace(/.*\//g,"",);
+        let git_repoUrl =  gitevents[i].repo.url.replace("api.","www.").replace("repos/","");
+        git_userRepo.innerHTML = 'Type: ' + gitevents[i].type + '<br/>' + 'Repository: ' +  '<br/>' + git_repoName + '<br/>' + 'Repository URL: ' + '<br/>' + git_repoUrl;
+       
+        let git_userRepo_button = document.createElement('button');
+        git_userRepo_button.className='btn btn--block card__btn';
+
+        git_userRepo_button.onclick = function() {
+          window.open(git_repoUrl);
+        };
+
+        git_userRepo_button.innerHTML = "Go to the Repository";
+
+        git_useInfo.appendChild(git_userName);
+        git_useInfo.appendChild(git_userRepo);
+        git_useInfo.appendChild(git_userRepo_button);
+        git_event.appendChild(git_useInfo);
+
+        git_events_cards.appendChild(git_event_li);
+      }
+      
+    }
+
+    </script>
+  </body>
+</html>
+
+
+

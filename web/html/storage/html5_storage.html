@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        button {
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function clickCounter() {
+            if (typeof Storage !== "undefined") {
+                if (localStorage.clickcount) {
+                    localStorage.clickcount = Number(localStorage.clickcount) + 1;
+                } else {
+                    localStorage.clickcount = 1;
+                }
+                document.getElementById("result").innerHTML =
+                    "You have clicked the button " +
+                    localStorage.clickcount +
+                    " time(s).";
+            } else {
+                document.getElementById("result").innerHTML =
+                    "Sorry, your browser does not support web storage...";
+            }
+        }
+    </script>
+    <div id="result"></div>
+    <button onclick="clickCounter()" type="button">Click me!</button>
+    <script>
+        if (typeof Storage !== "undefined") {
+            if (!localStorage.getItem("lastname")) {
+                var myName = prompt("Please enter your name.");
+                localStorage.lastname = myName;
+                // localStorage.setItem('lastname', myName);
+                document.getElementById("result").innerHTML =
+                    "Last name: " + localStorage.lastname;
+            } else {
+                var storedName = localStorage.getItem("lastname");
+                document.getElementById("result").innerHTML =
+                    "Last name: " + localStorage.lastname;
+            }
+        } else {
+            document.getElementById("result").innerHTML =
+                "Sorry, your browser does not support web storage...";
+        }
+    </script>
+</body>
+
+</html>

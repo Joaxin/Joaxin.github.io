@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HTML Live Preview</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.bootcss.com/highlight.js/9.7.0/styles/docco.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <h2>HTML</h2>
+
+    <div id="code" class="html-input" contenteditable="true">
+      <pre><code>
+          <fieldset>
+              <legend>Favorite season</legend>
+            
+              <input type="radio" name="season" id="spring">
+              <label for="spring">Spring</label>
+            
+              <input type="radio" name="season" id="summer" checked>
+              <label for="summer">Summer</label>
+            
+              <input type="radio" name="season" id="fall">
+              <label for="fall">Fall</label>
+            
+              <input type="radio" name="season" id="winter">
+              <label for="winter">Winter</label>
+            </fieldset>
+            
+            <div>
+              <input type="checkbox" name="my-checkbox" id="opt-in">
+              <label for="opt-in">Check me!</label>
+            </div>
+            
+            <select name="my-select" id="fruit">
+              <option value="opt1">Apples</option>
+              <option value="opt2">Grapes</option>
+              <option value="opt3">Pears</option>
+            </select>
+        </code></pre>
+    </div>
+
+    <h2>CSS</h2>
+    <div id="code" class="css-input" contenteditable="true">
+      <pre><code>
+
+          input:default {
+            box-shadow: 0 0 2px 1px coral;
+          }
+          
+          input:default + label {
+            color: coral;
+          }
+
+          div,fieldset,
+select {
+  margin: 8px;
+}
+
+/* Labels for checked inputs */
+input:checked + label {
+  color: red;
+}
+
+/* Radio element, when checked */
+input[type="radio"]:checked {
+  box-shadow: 0 0 0 3px orange;
+}
+
+/* Checkbox element, when checked */
+input[type="checkbox"]:checked {
+  box-shadow: 0 0 0 3px hotpink;
+}
+
+/* Option elements, when selected */
+option:checked {
+  box-shadow: 0 0 0 3px lime;
+  color: red;
+}
+        </code></pre>
+    </div>
+    <div class="output"></div>
+  </div>
+  <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Python Introduction - Exceptions | Pinsflora</title><meta name="description" content="In the following article, let us introduce a few more elements to for python, that is exceptions."><meta name="keywords" content="Python,Exceptions"><meta name="author" content="Joaxin"><meta name="copyright" content="Joaxin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://u.pinsflora.com/Pysnista/Intro/py_exceptions/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="Python Introduction - Exceptions"><meta property="og:url" content="https://u.pinsflora.com/Pysnista/Intro/py_exceptions/"><meta property="og:site_name" content="Pinsflora"><meta property="og:description" content="In the following article, let us introduce a few more elements to for python, that is exceptions."><meta property="og:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_grass_in_the_snow.jpg"><meta property="article:published_time" content="2017-10-21T16:00:00.000Z"><meta property="article:modified_time" content="2019-11-27T16:00:00.000Z"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-177831205-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-177831205-1');
+</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  hexoversion: '5.1.1',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime: 'days',
+  date_suffix: {"one_hour":"Just","hours":"hours ago","day":"days ago"},
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: {"bookmark":{"message_prev":"Press","message_next":"to bookmark this page"},"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+    },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true,
+  postUpdate: '2019-11-28 00:00:00'
+}</script><noscript><style type="text/css">
+#nav {
+  opacity: 1
+}
+.justified-gallery img {
+  opacity: 1
+}
+</style></noscript><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+  }
+}
+
+var autoChangeMode = 'false'
+var t = saveToLocal.get('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (saveToLocal.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="Pinsflora" type="application/atom+xml">
+</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">272</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">98</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">31</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div></div></div><div id="body-wrap"><div id="web_bg" data-type="photo"></div><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81errors"><span class="toc-number">1.</span> <span class="toc-text"> 常见Errors</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E5%BF%97logging"><span class="toc-number">2.</span> <span class="toc-text"> 日志logging</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#examples"><span class="toc-number">3.</span> <span class="toc-text"> Examples</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#celsius-to-fahrenheit-and-fahrenheit-to-celsius-conversion"><span class="toc-number">3.1.</span> <span class="toc-text"> Celsius To Fahrenheit and Fahrenheit to Celsius conversion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iteration"><span class="toc-number">3.2.</span> <span class="toc-text"> Iteration</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#references"><span class="toc-number">4.</span> <span class="toc-text"> REFERENCES</span></a></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_grass_in_the_snow.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Pinsflora</a></span><span id="menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">Python Introduction - Exceptions</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-10-21T16:00:00.000Z" title="Created 2017-10-22 00:00:00">2017-10-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2019-11-27T16:00:00.000Z" title="Updated 2019-11-28 00:00:00">2019-11-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/">Python</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/Introduction/">Introduction</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>7min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><p>When something goes wrong, due to incorrect code or input. When an exception occurs, the program immediately stops.</p>
+<table>
+<thead>
+<tr>
+<th>Common exceptions</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ImportError</td>
+<td>an import fails</td>
+</tr>
+<tr>
+<td>IndexError</td>
+<td>a <strong>list</strong> is indexed with an out-of-range number</td>
+</tr>
+<tr>
+<td>NameError</td>
+<td>an unknown variable is used. list[a]</td>
+</tr>
+<tr>
+<td>SyntaxError</td>
+<td>the code can’t be parsed properly</td>
+</tr>
+<tr>
+<td>TypeError</td>
+<td>a function is called on a value of an inappropriate type. list[1.0]</td>
+</tr>
+<tr>
+<td>ValueError</td>
+<td>a function is called on a value of the correct type, but with an inappropriate value</td>
+</tr>
+<tr>
+<td>Built-in exceptions</td>
+<td>such as <code>ZeroDivisionError</code>、 <code>OSError</code>、<code>StopIteration</code>.</td>
+</tr>
+<tr>
+<td>Third-party Errors</td>
+<td>Third-party libraries also define their own exceptions</td>
+</tr>
+</tbody>
+</table>
+<h2 id="常见errors"><a class="markdownIt-Anchor" href="#常见errors"></a> 常见Errors</h2>
+<p>若Python 遇到错误，它就会生成一些错误信息，称为“反向跟踪”。反向跟踪包含了出错消息、导致该错误的代码行号，以及导致该错误的函数调用的序列。这个序列称为“调用栈”。</p>
+<p>以下代码一次会追踪到6-&gt;2-&gt;4==&gt;This is the error message.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">spam</span>():</span> </span><br><span class="line">     bacon() </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bacon</span>():</span> </span><br><span class="line">     <span class="keyword">raise</span> Exception(<span class="string">&#x27;This is the error message.&#x27;</span>) </span><br><span class="line"> </span><br><span class="line">spam() </span><br></pre></td></tr></table></figure>
+<p>使用 try 和 except 语句，你可以更优雅地处理错误，而不是让整个程序崩溃。</p>
+<p>只要抛出的异常没有被处理，Python 就会显示反向跟踪。但你也可以调用traceback.format_exc()，得到它的字符串形式。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> traceback </span><br><span class="line"><span class="keyword">try</span>: </span><br><span class="line">           <span class="keyword">raise</span> Exception(<span class="string">&#x27;This is an error message.&#x27;</span>) </span><br><span class="line"><span class="keyword">except</span>: </span><br><span class="line">           errorFile = open(<span class="string">&#x27;errorInfo.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>) </span><br><span class="line">           errorFile.write(traceback.format_exc()) <span class="comment">## 116个字符被写入到文件中</span></span><br><span class="line">           errorFile.close() </span><br><span class="line">           print(<span class="string">&#x27;The traceback info was written to errorInfo.txt.&#x27;</span>) </span><br><span class="line"><span class="comment"># The traceback info was written to errorInfo.txt.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;ipython-input-42-3cf24af55dca&gt;&quot;, line 3, in &lt;module&gt;</span><br><span class="line">    raise Exception(&#39;This is an error message.&#39;)</span><br><span class="line">Exception: This is an error message.</span><br></pre></td></tr></table></figure>
+<p>Python的“断言”由 assert 语句执行。如果检查失败，就会抛出异常。我断言这个条件为真，如果不为真，程序便会抛出一个异常，比如：你的hello太多了 。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    var = <span class="number">7</span></span><br><span class="line">    print(var * <span class="string">&quot;hello&quot;</span>)</span><br><span class="line">    print(var / <span class="string">&quot;hello&quot;</span>)</span><br><span class="line"><span class="keyword">except</span> ZeroDivisionError <span class="keyword">as</span> err:</span><br><span class="line">    print(<span class="string">&quot;Divided by zero&quot;</span>,err)</span><br><span class="line"><span class="keyword">except</span> (ValueError, TypeError) <span class="keyword">as</span> err2:</span><br><span class="line">    print(err2)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">&quot;Unknown occurred&quot;</span>)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    print(<span class="string">&quot;It`s over!&quot;</span>)</span><br><span class="line"><span class="keyword">assert</span>(var &lt;= <span class="number">5</span>), <span class="string">&quot;Too many hellos&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hellohellohellohellohellohellohello</span><br><span class="line">unsupported operand type(s) for &#x2F;: &#39;int&#39; and &#39;str&#39;</span><br><span class="line">It&#96;s over!</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">AssertionError                            Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input-13-03f060164418&gt; in &lt;module&gt;</span><br><span class="line">     11 finally:</span><br><span class="line">     12     print(&quot;It&#96;s over!&quot;)</span><br><span class="line">---&gt; 13 assert(var &lt;&#x3D; 5), &quot;Too many hellos&quot;</span><br><span class="line"></span><br><span class="line">AssertionError: Too many hellos</span><br></pre></td></tr></table></figure>
+<p>编写一个交通信号灯的模拟程序。代表路口信号灯的数据结构是一个字典，以 ‘ns’ 和 ‘ew’ 为键，分别表示南北向和东西向的信号灯。这些键的值可以是 ‘green’、‘yellow’ 或 ‘red’ 之一。简单的代码像这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">market_2nd = &#123;<span class="string">&#x27;ns&#x27;</span>: <span class="string">&#x27;green&#x27;</span>, <span class="string">&#x27;ew&#x27;</span>: <span class="string">&#x27;red&#x27;</span>&#125; </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">switchLights</span>(<span class="params">stoplight</span>):</span> </span><br><span class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> stoplight.keys(): </span><br><span class="line">        <span class="keyword">if</span> stoplight[key] == <span class="string">&#x27;green&#x27;</span>: </span><br><span class="line">            stoplight[key] = <span class="string">&#x27;yellow&#x27;</span> </span><br><span class="line">        <span class="keyword">elif</span> stoplight[key] == <span class="string">&#x27;yellow&#x27;</span>: </span><br><span class="line">            stoplight[key] = <span class="string">&#x27;red&#x27;</span> </span><br><span class="line">        <span class="keyword">elif</span> stoplight[key] == <span class="string">&#x27;red&#x27;</span>: </span><br><span class="line">            stoplight[key] = <span class="string">&#x27;green&#x27;</span> </span><br><span class="line">    print(stoplight)</span><br><span class="line">    <span class="keyword">assert</span> <span class="string">&#x27;red&#x27;</span> <span class="keyword">in</span> stoplight.values(), <span class="string">&#x27;Neither light is red! &#x27;</span> + str(stoplight) </span><br><span class="line"> </span><br><span class="line">switchLights(market_2nd)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#39;ns&#39;: &#39;yellow&#39;, &#39;ew&#39;: &#39;green&#39;&#125;</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">AssertionError                            Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input-51-bc61311a1f1e&gt; in &lt;module&gt;</span><br><span class="line">     11     assert &#39;red&#39; in stoplight.values(), &#39;Neither light is red! &#39; + str(stoplight)</span><br><span class="line">     12 </span><br><span class="line">---&gt; 13 switchLights(market_2nd)</span><br><span class="line"></span><br><span class="line">&lt;ipython-input-51-bc61311a1f1e&gt; in switchLights(stoplight)</span><br><span class="line">      9             stoplight[key] &#x3D; &#39;green&#39;</span><br><span class="line">     10     print(stoplight)</span><br><span class="line">---&gt; 11     assert &#39;red&#39; in stoplight.values(), &#39;Neither light is red! &#39; + str(stoplight)</span><br><span class="line">     12 </span><br><span class="line">     13 switchLights(market_2nd)</span><br><span class="line"></span><br><span class="line">AssertionError: Neither light is red! &#123;&#39;ns&#39;: &#39;yellow&#39;, &#39;ew&#39;: &#39;green&#39;&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在运行 Python 时传入-O 选项，可以禁用断言。</p>
+</blockquote>
+<h2 id="日志logging"><a class="markdownIt-Anchor" href="#日志logging"></a> 日志logging</h2>
+<p>启用Python的 logging 模块，可以在程序运行时，将日志信息显示在屏幕上。</p>
+<p>比如你编写了阶乘函数，但结果不对，所以你需要输入一些日志信息，来帮助你弄清楚哪里出了问题。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging </span><br><span class="line">logging.basicConfig(level=logging.DEBUG, format=<span class="string">&#x27; %(asctime)s - %(levelname)s -   %(message)s&#x27;</span>) </span><br><span class="line"><span class="comment">## 写入文本</span></span><br><span class="line"><span class="comment"># logging.basicConfig(filename=&#x27;Log.txt&#x27;, level=logging.DEBUG, format=&#x27; %(asctime)s - %(levelname)s - %(message)s&#x27;) </span></span><br><span class="line">logging.debug(<span class="string">&#x27;Start of program&#x27;</span>) </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">factorial</span>(<span class="params">n</span>):</span> </span><br><span class="line">    logging.debug(<span class="string">&#x27;Start of factorial(%s%%)&#x27;</span> % (n)) </span><br><span class="line">    total = <span class="number">1</span> </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n + <span class="number">1</span>): </span><br><span class="line">        total *= i </span><br><span class="line">        logging.debug(<span class="string">&#x27;i is &#x27;</span> + str(i) + <span class="string">&#x27;, total is &#x27;</span> + str(total)) </span><br><span class="line">    logging.debug(<span class="string">&#x27;End of factorial(%s%%)&#x27;</span> % (n)) </span><br><span class="line">    <span class="keyword">return</span> total </span><br><span class="line"> </span><br><span class="line">print(factorial(<span class="number">5</span>)) </span><br><span class="line"></span><br><span class="line">logging.debug(<span class="string">&#x27;End of program&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>然后把<code>for i in range(n + 1)</code>改为<code>for i in range(1, n + 1)</code>即可。</p>
+<p>我们向<code>basicConfig()</code>函数传入 <code>logging.DEBUG</code> 作为 level 关键字参数，其中DEBUG是最低的级别，日志的重要性按5 个级别对日志消息进行分类：</p>
+<table>
+<thead>
+<tr>
+<th>级别</th>
+<th>日志函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DEBUG</td>
+<td>logging.debug()</td>
+<td>最低级别。用于小细节。通常只有在诊断问题时，你才会关心这些消息</td>
+</tr>
+<tr>
+<td>INFO</td>
+<td><a target="_blank" rel="noopener" href="http://logging.info">logging.info</a>()</td>
+<td>用于记录程序中一般事件的信息，或确认一切工作正常</td>
+</tr>
+<tr>
+<td>WARNING</td>
+<td>logging.warning()</td>
+<td>用于表示可能的问题，它不会阻止程序的工作，但将来可能会</td>
+</tr>
+<tr>
+<td>ERROR</td>
+<td>logging.error()</td>
+<td>用于记录错误，它导致程序做某事失败</td>
+</tr>
+<tr>
+<td>CRITICAL</td>
+<td>logging.critical()</td>
+<td>最高级别。用于表示致命的错误，它导致或将导致程序完全停止工作</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Tips: 在调试完程序后，用 <code>logging.disable（logging.DEBUG）</code>可以禁用日志消息。</p>
+</blockquote>
+<h2 id="examples"><a class="markdownIt-Anchor" href="#examples"></a> Examples</h2>
+<h3 id="celsius-to-fahrenheit-and-fahrenheit-to-celsius-conversion"><a class="markdownIt-Anchor" href="#celsius-to-fahrenheit-and-fahrenheit-to-celsius-conversion"></a> Celsius To Fahrenheit and Fahrenheit to Celsius conversion</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    CF = input(<span class="string">&quot;Plz input temperature in celsius(e.g. 25c) / Fahrenheit(e.g. 52f): &quot;</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">if</span> CF.endswith(<span class="string">&quot;C&quot;</span>) <span class="keyword">or</span> CF.endswith(<span class="string">&quot;c&quot;</span>):</span><br><span class="line">            fcelsius = float(CF[:<span class="number">-1</span>])</span><br><span class="line">            fahrenheit = (fcelsius * <span class="number">1.8</span>) + <span class="number">32</span></span><br><span class="line">            print(<span class="string">&#x27;%.2f°C = %0.2f°F&#x27;</span> %(fcelsius, fahrenheit))</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">elif</span> CF.endswith(<span class="string">&quot;F&quot;</span>) <span class="keyword">or</span> CF.endswith(<span class="string">&quot;f&quot;</span>):</span><br><span class="line">            ffahrenheit = float(CF[:<span class="number">-1</span>])</span><br><span class="line">            celsius = (ffahrenheit - <span class="number">32</span>) / <span class="number">1.8</span></span><br><span class="line">            print(<span class="string">&#x27;%.2f°F = %0.2f°C&#x27;</span> %(ffahrenheit, celsius))</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">&quot;Invalid Format Error, plz check your input! &quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> ValueError:</span><br><span class="line">            print(<span class="string">&quot;Invalid Format Error, plz check your input! &quot;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Plz input temperature in celsius(e.g. 25c) &#x2F; Fahrenheit(e.g. 52f):  0x6f</span><br><span class="line">Invalid Format Error, plz check your input! </span><br><span class="line">Plz input temperature in celsius(e.g. 25c) &#x2F; Fahrenheit(e.g. 52f):  036f</span><br><span class="line">36.00°F &#x3D; 2.22°C</span><br></pre></td></tr></table></figure>
+<h3 id="iteration"><a class="markdownIt-Anchor" href="#iteration"></a> Iteration</h3>
+<p>Lets see a <code>StopIteration</code>example:</p>
+<p>A triplet <code>(x, y, z)</code> is called pythogorian triplet if <code>x*x + y*y == z*z</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">integers</span>():</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Infinite sequence of integers.&quot;&quot;&quot;</span></span><br><span class="line">    i = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">yield</span> i</span><br><span class="line">        i = i + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">squares</span>():</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> integers():</span><br><span class="line">        <span class="keyword">yield</span> i * i</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">take</span>(<span class="params">n, seq</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Returns first n values from the given sequence.&quot;&quot;&quot;</span></span><br><span class="line">    seq = iter(seq)</span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">            result.append(next(seq))</span><br><span class="line">    <span class="keyword">except</span> StopIteration:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">print(take(<span class="number">5</span>, squares())) </span><br><span class="line"><span class="comment"># [1, 4, 9, 16, 25]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pyt = ((x, y, z) <span class="keyword">for</span> z <span class="keyword">in</span> integers() <span class="keyword">for</span> y <span class="keyword">in</span> range(<span class="number">1</span>, z) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, y) <span class="keyword">if</span> x*x + y*y == z*z)</span><br><span class="line">take(<span class="number">10</span>, pyt)</span><br><span class="line"><span class="comment"># [(3, 4, 5), (6, 8, 10), (5, 12, 13), (9, 12, 15), (8, 15, 17), (12, 16, 20), (15, 20, 25), (7, 24, 25), (10, 24, 26), (20, 21, 29)]</span></span><br></pre></td></tr></table></figure>
+<h2 id="references"><a class="markdownIt-Anchor" href="#references"></a> REFERENCES</h2>
+<ul>
+<li></li>
+</ul>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Joaxin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://u.pinsflora.com/Pysnista/Intro/py_exceptions/">https://u.pinsflora.com/Pysnista/Intro/py_exceptions/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a><a class="post-meta__tags" href="/tags/Exceptions/">Exceptions</a></div><div class="post_share"><div class="addtoany"><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_wechat"></a><a class="a2a_button_sina_weibo"></a><a class="a2a_button_facebook_messenger"></a><a class="a2a_button_email"></a><a class="a2a_button_copy_link"></a><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a></div></div><script async="async" src="https://static.addtoany.com/menu/page.js"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/Pysnista/Intro/py_oop/"><img class="prev-cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Python Introduction - OOP</div></div></a></div><div class="next-post pull-right"><a href="/Pysnista/Intro/py_re/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_erol-ahmed-unsplash.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Python Introduction - Regular Expressions</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> Related Articles</span></div><div class="relatedPosts-list"><div><a href="/Pysnista/Algor/Leetcode_Distance/" title="Leetcode - hamming"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2019-11-28</div><div class="title">Leetcode - hamming</div></div></a></div><div><a href="/Pysnista/Algor/Leetcode_Ranges/" title="Leetcode - Ranges"><img class="cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_forests.jpg"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2019-11-28</div><div class="title">Leetcode - Ranges</div></div></a></div><div><a href="/Pysnista/Algor/Leetcode_Reverse/" title="Leetcode - Reverse"><img class="cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_writing-letters-french.jpg"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2019-11-28</div><div class="title">Leetcode - Reverse</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div></div></div></div></article></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_grass_in_the_snow.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 By Joaxin</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Refine, the Life</div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="Switch Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    $.getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js', function () {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script defer="defer" id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="fasle"></script><script src="/js/third-party/activate-power-mode.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/fae45343.js","daovoice")
+</script><script>var isChatBtn = true
+daovoice('init', {
+  app_id: 'fae45343',},{
+  launcher: { 
+     disableLauncherIcon: isChatBtn // 悬浮 ICON 是否显示
+  },
+});
+daovoice('update');
+
+if (isChatBtn) {
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      daovoice('show')
+    });
+  }
+  chatBtnFn()
+} else {
+  if (true) {
+    function chatBtnHide () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: true // 悬浮 ICON 是否显示
+        },
+      });
+    }
+    function chatBtnShow () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: false // 悬浮 ICON 是否显示
+        },
+      });
+    }
+  }
+}</script></div></body></html>

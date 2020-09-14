@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Snake</title>
+        <style type="text/css" media="screen">
+*{
+ padding:0px;
+ margin:0px;
+}
+#container{
+    margin:20px auto;
+    position: relative;
+    border:1px solid white;
+    font-size:0;
+    position: relative;
+    letter-spaceing:-4px; /* fix the margin-top gap*/
+}
+#box{
+    margin:5px auto;
+    background: lightgrey;
+    position: relative;
+}
+span{
+ display:inline-block; /*About 4px gap between elements*/
+ border:1px solid rgb(240,240,240);
+}
+span.snake{
+ background-color:magenta;
+  position: absolute;
+}
+span.food{
+ background-color:blue;
+  position: absolute;
+}
+h2 { line-height:100%;margin:0;padding:0;}
+#btn{
+        width:100px;
+        height:100px;
+        position: relative;
+        margin:20px auto;
+}
+.btn{
+    width:30px;
+    height:30px;
+    color:#fff;
+    background:#ccc;
+    border:0px;
+    cursor:pointer;
+    position: absolute;
+
+}
+#left{
+top:35px;
+left:0px;
+}
+#right{
+left:70px;
+top:35px;
+}
+#up{
+ transform:rotate(90deg);
+ left:35px;
+ top:0px;
+}
+#down{
+ transform:rotate(-90deg);
+left:35px;
+ top:70px;
+}
+        </style>
+    </head>
+    <body>
+    <h2 style="text-align:center;margin: 20px 5px 10px">Score : 0</h2>
+
+        <div id="container">
+            <div id="box"> </div>
+        </div>
+        <div id = "btn">
+            <button id="left" class="btn">&lt;</button>
+            <button id="right" class="btn">&gt;</button>
+            <button id="up" class="btn">&lt;</button>
+            <button id="down" class="btn">&lt;</button>
+        </div>
+    </body>
+        <script>
+var lt = document.getElementById("left");
+var rt = document.getElementById("right");
+var up = document.getElementById("up");
+var dn = document.getElementById("down");
+var score = document.getElementsByTagName("h2")[0];
+var con = document.getElementById('container');
+var box = document.getElementById('box');
+var cell={width:25,height:25};
+var snake=[];
+var direct={L:1,U:2,R:3,D:4};
+var dir=direct.R;
+var food=null;
+var row,col;
+var speed=200;
+var border=1;
+window.onload = function() {
+    con.style.height=Math.floor(window.innerHeight/1.3) + "px";
+    con.style.width=Math.floor(window.innerWidth/1.3) + "px";
+    initMap();
+    showFood();
+    createSnake();
+    setInterval(snakeMove,speed);
+    document.onkeyup=function(e){
+    switch(e.keyCode){
+    case 37:dir=direct.L;break;
+    case 38:dir=direct.U;break;
+    case 39:dir=direct.R;break;
+    case 40:dir=direct.D;break;}}
+    lt.addEventListener("click", function(){dir=direct.L});
+    rt.addEventListener("click", function(){dir=direct.R});
+    up.addEventListener("click", function(){dir=direct.U});
+    dn.addEventListener("click", function(){dir=direct.D});
+};
+function isInSnakeBody(left,top){
+    for(var i=0;i<snake.length;i++){
+    if(snake[i].offsetLeft==left&&snake[i].offsetTop==top){
+    return true;}}
+}
+function initMap(){
+    row=Math.floor((con.offsetWidth-2)/(cell.width+2*border));
+    // console.log(con.style.width);
+    // console.log(con.offsetWidth); border added
+    col=Math.floor((con.offsetHeight-2)/(cell.height+2*border));
+    var num=row*col;
+    var newSpan=null;
+    box.style.width=row*(cell.width+2*border)+"px";
+    box.style.height=col*(cell.height+2*border)+"px";
+    for(var i=1;i<=num;i++){
+    newSpan=document.createElement("span");
+    newSpan.style.width=cell.width+"px";
+    newSpan.style.height=cell.height+"px";
+    box.appendChild(newSpan);
+ }
+}
+ function createSnake(){
+    var newBody=null;
+    do{
+    var left=Math.floor(row*Math.random())+1;}
+    while(left>=col-5);
+    var top=Math.floor(col*Math.random())+1;
+    for(var i=0;i<5;i++){
+    newBody=document.createElement("span");
+    newBody.style.width=cell.width+"px";
+    newBody.style.height=cell.height+"px";
+    newBody.style.left=(left-1)*cell.width+2*border*(left-1)+(cell.width+2*border)*i + "px";
+    newBody.style.top=(top-1)*cell.height+2*border*(top-1)+"px";
+    newBody.className="snake";
+    box.appendChild(newBody);
+    snake.push(newBody);
+    // console.log(snake);
+ }}
+function showFood(){
+    food=document.createElement("span");
+    food.className="food";
+    food.style.width=cell.width+"px";
+    food.style.height=cell.height+"px";
+    var left,top;
+    // console.log(row);
+    // console.log(col);
+    do{
+    left=Math.floor(row*Math.random())+1;
+    top=Math.floor(col*Math.random())+1;
+    }while(isInSnakeBody(left,top));
+    // console.log(left);
+    // console.log(top);
+    food.style.left=(left-1)*cell.width+ 2*border*(left-1) +"px";
+    food.style.top=(top-1)*cell.height+2*border*(top-1) +"px";
+    box.appendChild(food);
+}
+
+function snakeMove(){
+ var head=snake[snake.length-1];
+ var newTop=head.offsetTop,newLeft=head.offsetLeft;
+ switch(dir){
+ case direct.L:newLeft-=cell.width+2*border; break;
+ case direct.R:newLeft+=cell.width+2*border; break;
+ case direct.U:newTop-=cell.height+2*border; break;
+ case direct.D:newTop+=cell.height+2*border; break;
+ default:break;
+ }
+ if(newLeft>box.offsetWidth-2-border){newLeft=0;}
+ if(newLeft<0){newLeft=box.offsetWidth-2-cell.width; }
+ if(newTop<0){newTop=box.offsetHeight-2-cell.height;}
+ if(newTop>box.offsetHeight-2-border){newTop=0;}
+
+ for(var i=0;i<snake.length-1;i++){
+ if(snake[i].offsetLeft==newLeft&&snake[i].offsetTop==newTop){
+ alert("Game over！！");
+ window.location.href=window.location.href;
+ }}
+     // console.log(newLeft);
+     // console.log(newTop);
+ if(newLeft==food.offsetLeft&&newTop==food.offsetTop){
+ food.className="snake";
+ snake.push(food);
+ score.innerHTML="Score : " + (snake.length-5) + "  Points";
+ showFood();
+ return;}
+for(var i=0;i<snake.length-1;i++){
+ snake[i].style.top=snake[i+1].offsetTop+"px";
+ snake[i].style.left=snake[i+1].offsetLeft+"px";
+ }
+ head.style.left=newLeft+"px";
+ head.style.top=newTop+"px";
+}
+</script>
+</html>

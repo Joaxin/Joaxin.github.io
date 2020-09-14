@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CIrcle Tools</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Circle Area Calculator</h1>
+        <div id="content-container">
+
+            <div id="form-container">
+                <form id="input-box">
+                    <input id="a" required min="0" placeholder="Enter radius of the circle" type="number" step="any">
+                    <input id="b"  min="0" placeholder="Enter perimeter of the circle" type="number" step="any">
+                    <input id="c"  min="0" placeholder="Enter area of the circle" type="number" step="any">
+                    <input value="Show the result" type="submit">
+                    <input value="Reset" type="button" onclick="resetb()">
+                </form>
+            </div>
+
+            <div id="display-result">The result will show Here</div>
+            
+        </div>
+    </div>
+    <script src="js/circle.js"></script>
+</body>
+</html>
+

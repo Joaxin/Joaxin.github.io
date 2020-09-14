@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            background-color: powderblue;
+            outline: 1px solid green;
+        }
+
+        h1 {
+            color: blue;
+        }
+
+        p {
+            color: red;
+        }
+
+        table.fixed {
+            table-layout: fixed;
+        }
+
+        table.fixed td {
+            overflow: hidden;
+        }
+
+        table {
+            table-layout: fixed;
+            width: 100px;
+        }
+
+        table tr {
+            height: 10px;
+        }
+
+        .hline {
+            width: 100%;
+            height: 1px;
+            border-bottom: 1px solid black;
+            pointer-events: none;
+            position: absolute;
+        }
+
+        .vline {
+            width: 1px;
+            height: 100%;
+            border-left: 1px solid black;
+            pointer-events: none;
+            position: absolute;
+        }
+    </style>
+    <title>Demo.html</title>
+    <meta charset="UTF-8" />
+    <script type="text/javascript">
+        function mouseMove(event, thiz) {
+            var img = document.getElementById('image');
+            var rows = document.getElementById('mytbl').rows;
+            var cols = rows[1].cells;
+            var x = event.clientX - img.offsetLeft;
+            var y = img.height - (event.clientY - img.offsetTop);
+            cols[0].innerHTML = x;
+            cols[1].innerHTML = y;
+
+            var hline = document.getElementById('hline');
+            hline.style.top = (document.body.offsetTop + event.clientY) + 'px';
+            //hline.innerHTML = y;
+            var vline = document.getElementById('vline');
+            vline.style.left = event.clientX + 'px';
+            //vline.innerHTML = x;
+
+        }
+
+        function createLineElement(x, y, length, angle, desc) {
+            var line = document.createElement("div");
+            var styles = 'border: 1px solid black; ' +
+                'width: ' + length + 'px; ' +
+                'height: 0px; ' +
+                '-moz-transform: rotate(' + angle + 'rad); ' +
+                '-webkit-transform: rotate(' + angle + 'rad); ' +
+                '-o-transform: rotate(' + angle + 'rad); ' +
+                '-ms-transform: rotate(' + angle + 'rad); ' +
+                'position: absolute; ' +
+                'top: ' + y + 'px; ' +
+                'left: ' + x + 'px; ';
+            line.setAttribute('style', styles);
+            line.innerHTML = desc;
+            if (isExist(x, y) == false) {
+                document.body.appendChild(line);
+            }
+            return;
+        }
+
+        function createLine(x1, y1, x2, y2, desc) {
+            console.log("createLine: " + x1 + "," + y1 + " " + x2 + "," + y2);
+            var a = x1 - x2,
+                b = y1 - y2,
+                c = Math.sqrt(a * a + b * b);
+            var sx = (x1 + x2) / 2,
+                sy = (y1 + y2) / 2;
+            var x = sx - c / 2,
+                y = sy;
+            var alpha = Math.PI - Math.atan2(-b, a);
+            createLineElement(x, y, c, alpha, desc);
+            return;
+        }
+
+        function isExist(x, y, length) {
+            var exist = false;
+            var elems = document.getElementsByTagName("div");
+            var len = elems.length;
+            for (var i = 0; i < len; i++) {
+                var x1 = elems[i].offsetLeft;
+                var y1 = elems[i].offsetTop;
+                if (x1 == x && y1 == y) {
+                    exist = true;
+                }
+            }
+            return exist;
+        }
+
+        function addLine(event, img, ishline) {
+            var width = window.innerWidth ||
+                document.documentElement.clientWidth ||
+                document.body.clientWidth;
+            var height = window.innerHeight ||
+                document.documentElement.clientHeight ||
+                document.body.clientHeight;
+            var x1 = document.body.offsetLeft;
+            var y1 = event.clientY;
+            var x2 = width;
+            var y2 = y1;
+            var desc = img.height - (y1 - img.offsetTop);
+            if (ishline == false) {
+                x1 = event.clientX;
+                y1 = document.body.offsetTop;
+                x2 = x1;
+                y2 = height;
+                desc = x1 - img.offsetLeft;
+            }
+            createLine(x1, y1, x2, y2, desc);
+            return
+        }
+
+        function onClick(event, thiz) {
+            var img = document.getElementById('image');
+            addLine(event, img, true);
+            addLine(event, img, false);
+        }
+
+        function handleFileSelect(thiz) {
+            //var image = document.querySelector('img');
+            var image = document.getElementById('image')
+            //var files = document.querySelector('input[type=file]').files;
+            //var files = document.getElementById('browser').files;
+            var files = thiz.files;
+            console.log("length:" + files.length);
+            var file = files[0];
+            var reader = new FileReader();
+            reader.onloadend = function() {
+                image.src = reader.result;
+            }
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                image.src = "";
+            }
+            var output = [];
+            output.push('<li><strong>', escape(file.name), '</strong> (', file.type || 'n/a', ') - ',
+                file.size, ' bytes, last modified: ',
+                file.lastModifiedDate ? file.lastModifiedDate.toLocaleDateString() : 'n/a',
+                '</li>');
+            document.getElementById('filelist').innerHTML = '<ul>' + output.join('') + '</ul>';
+        }
+        //document.getElementById('browser').addEventListener('change', handleFileSelect, false);
+    </script>
+</head>
+
+<body>
+    <div id="hline" class="hline"></div>
+    <div id="vline" class="vline"></div>
+    <img id="image" style="max-width:95%;margin-left: 30px;margin-top: 30px;border:0px double #545565;cursor:crosshair;outline: 2px solid red;" onclick="onClick(event,this);" onmousemove="mouseMove(event,this);" src="a.jpg" alt="not found" />
+    <table id="mytbl" border="1" width="10%">
+        <tr>
+            <td>x</td>
+            <td>y</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+    </table>
+    <input id="browser" type='file' name="files" multiple onchange="handleFileSelect(this);">
+    <output id="filelist"></output>
+</body>
+
+</html>

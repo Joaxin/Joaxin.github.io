@@ -1,0 +1,111 @@
+
+body {
+    font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    background-color: #f8f8ff;
+
+}
+
+
+.flex-container{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+  }
+
+  .flex-item {
+    background: #f8f8ff;
+    padding: 5px;
+    min-width: 30%;
+    min-height: 300px;
+  }
+
+
+section>h2
+{
+	font-size: 1.3em;
+	font-weight: normal;
+}
+
+div.tabs section
+{
+	position: absolute;
+
+	top: 1.8em;
+	left: 0;
+	padding: 10px 20px;
+	border-radius: 5px;
+	box-shadow: 0 3px 3px rgba(0,0,0,0.1);
+	z-index: 0;
+	min-width: 40%;
+	min-height: 300px;
+}
+
+div.tabs section:first-child
+{
+	z-index: 1;
+}
+
+div.tabs section>h2
+{
+	position: absolute;
+	font-size: 1em;
+	font-weight: normal;
+	width: 120px;
+	height: 1.8em;
+	bottom: -1.8em;
+	left: 10px;
+	padding: 0;
+	margin: 0;
+	color: #999;
+	background-color: #ddd;
+	border-radius: 5px 5px 0 0;
+}
+
+div.tabs section:nth-child(2)>h2
+{
+	left: 132px;
+}
+
+div.tabs section:nth-child(3)>h2
+{
+	left: 254px;
+}
+
+div.tabs section>h2>a
+{
+	display: block;
+	width: 100%;
+	line-height: 1.8em;
+	text-align: center;
+	text-decoration: none;
+	color: inherit;
+	outline: 0 none;
+}
+
+div.tabs section,
+div.tabs section>h2
+{
+	transition: all 500ms ease;
+}
+
+div.tabs section:target,
+div.tabs section:target>h2
+{
+	color: #333;
+	background-color: #fff;
+	z-index: 2;
+}
+
+.flex-container .output {
+    height: auto;
+    border: 1px solid #ccc;
+    overflow: auto;
+    margin: 25px auto;
+	background-color: #f8f8ff;
+	z-index: 1;
+	max-width: 50%;
+}
+
+

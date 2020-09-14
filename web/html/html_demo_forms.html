@@ -1,0 +1,107 @@
+<html>
+
+<head>
+    <title>Code Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        div {
+            width: 59%;
+            height: 100%;
+            float: left;
+            background: #f1f1f9;
+            font-family: Courier, sans-serif;
+            font-size: 1.05em;
+            border-radius: 5px;
+            box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        iframe {
+            float: right;
+            width: 40%;
+            height: 100%;
+        }
+    </style>
+    <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.2/styles/docco.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div>
+        <pre><code><form action="MAILTO:someone@example.com&subject=Send%20Your%20Messge&body=Here!" method="post" enctype="text/plain">
+    <p><label for="search">Search:</label>
+        <input type="search" id="search" name="search"></p>
+    <fieldset>
+        <legend>Personal information:</legend>
+        <p><label for="name">Name<abbr title="required">*</abbr>:</label>
+        <input type="text" size="30" id="name" name="user_name" value="Lucida" required></p>
+        your sex: boy<input type="radio" name="sex"> girl<input type="radio" name="sex">
+        none<input type="radio" name="what" checked="checked"><br/>
+        
+        <p><label for="mail">E-mail<abbr title="required">*</abbr>:</label>
+            <input type="email" id="mail" name="user_mail" value="someone@email.com" required></p>
+        <p><label for="pwd">Enter your password<abbr title="required">*</abbr>:</label>
+            <input type="password" id="pwd" name="pwd" required></p>
+        <p><label for="birth">Date of birth<abbr title="required">*</abbr>:</label>
+            <input type="date" size="10" name="user_birth" value="1995-11-30" required></p>
+        <p><label for="tel">Enter your number:</label>
+            <input type="tel" id="tel" name="tel"></p>
+        <p><label for="taste_1">I like cherry</label>
+            <input type="checkbox" id="taste_1" name="taste_cherry" value="1"></p>
+        <p><label for="taste_2">I like banana</label>
+           <input type="checkbox" id="taste_2" name="taste_banana" value="1"></p>
+        <p><label for="taste_2">I like apple</label>
+           <input type="checkbox" id="taste_3" name="taste_applea" value="1"></p>
+        <label for="cars">your cars:</label>
+        <select name="cars" id="cars">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">saab</option>
+                    <option value="fiat">Fiat</option>
+                    <option value="audi" selected>Audi</option>
+        </select>
+        <p><label for="url">Web address:</label>
+            <input type="url" id="url" name="url"></p>
+        <p><label for="msg">Message<abbr title="required">*</abbr>:</label>
+            <textarea type="text" id="msg" name="user_message" cols="20" rows="5" placeholder="Message me" required></textarea></p>
+    </fieldset>
+    <p class="button"><button>I am a button</button>
+        <input type="button" value="I am also a button">
+        <input type="submit" value="submit">
+        <input type="reset" value="Reset"></p>
+</form>
+</code></pre>
+    </div>
+
+    <iframe id="code"></iframe>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+
+        function compile() {
+            let html = document.getElementsByTagName("code")[0].innerHTML;
+            let code = document.getElementById("code").contentWindow.document;
+            code.open();
+            code.writeln(html);
+            code.close();
+        }
+        compile();
+
+        function stringToEntity() {
+            var pr = $("pre");
+            var co = $("pre>code");
+            for (i = 0; i < pr.length; i++) {
+                var code = document.createElement("code");
+                code.innerText = co[i].innerHTML.replace(/\n\n/gm, "\n");
+                pr[i].replaceChild(code, co[i]);
+            }
+        }
+        stringToEntity();
+
+        $(document).ready(function() {
+            $("pre code").each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+</body>
+
+</html>

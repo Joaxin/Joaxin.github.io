@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Triangle Tools</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Triangle Area Calculator</h1>
+        <div id="content-container">
+
+            <div id="form-container">
+                <form id="input-box">
+                    <input id="a" required min="0" placeholder="Enter length of side 1" type="number" step="any">
+                    <input id="b" required min="0" placeholder=" Enter length of side 2" type="number" step="any">
+                    <input id="c" required min="0" placeholder="Enter length of side 3" type="number" step="any">
+                    <input value="Show the result" type="submit">
+                    <input value="Reset" type="button" onclick="resetb()">
+                </form>
+            </div>
+
+            <div id="display-result">The result will show Here</div>
+            
+        </div>
+    </div>
+    <script src="js/triangle.js"></script>
+</body>
+</html>

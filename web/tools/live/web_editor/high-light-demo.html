@@ -1,0 +1,52 @@
+<html>
+<head>
+    <title>Code</title>
+    <style>
+        body {
+            margin:0px;
+            padding:0px;
+            overflow:hidden;
+        }
+        #code {
+            background:#2b2e33;
+            color:white;
+            font-family:Monaco;
+            width:100%;
+            height:100%;
+            font-size:12px;
+        }
+    </style>
+</head>
+<body>
+    <div id="code" contenteditable="true"></div>
+    <script>
+        var div = document.getElementById("code");
+
+        function placeCaretAtEnd(el) {
+  el.focus();
+  if (typeof window.getSelection != "undefined" &&
+    typeof document.createRange != "undefined") {
+    var range = document.createRange();
+    range.selectNodeContents(el);
+    range.collapse(false);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  } else if (typeof document.body.createTextRange != "undefined") {
+    var textRange = document.body.createTextRange();
+    textRange.moveToElementText(el);
+    textRange.collapse(false);
+    textRange.select();
+  }
+}
+
+hightlight = function() {
+            var code = div.innerText;
+            code = code.replace(/var/g,"<span style='color:magenta'>var</span>");
+            div.innerHTML = code;
+            placeCaretAtEnd(div);
+        }
+
+        document.getElementById("code").addEventListener("click",hightlight)
+    </script>
+</body>

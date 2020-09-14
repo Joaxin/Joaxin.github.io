@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./src/style.css" type="text/css">
+    <title>Markdown Tiny Tools </title>
+</head>
+
+<body>
+    <h2 align = "center">Markdown Tiny Tools</h2>
+    <p class = "choose"><strong>Choose An Action</strong></p>
+    <table style="width:90%">
+        <tbody>
+            <tr>
+                <td><input type="radio" id="lineSep1" name="lineSep" value="comma" checked="checked">Unlink</td>
+                <td><input type="radio" id="lineSep2" name="lineSep" value="tab">TAB</td>
+                <td><input type="radio" id="lineSepCustom" name="lineSep" value="CustomSeprator">CustomSeprator <input id="CustomSeprator" name="CustomSeprator" value="" size="8" class="frmtxt" type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="lineSep3" name="lineSep" value="separator"> | </td>
+                <td><input type="radio" id="lineSep4" name="lineSep" value="quotespace"> Single Space</td>
+                <td>NewSeprator<input id="NewSeprator" name="NewSeprator" value="" size="8" class="frmtxt" type="text"></td>
+                
+            </tr>
+        </tbody>
+    </table>
+
+    <div><textarea id="oldText" name="oldText" rows="6" cols="36"></textarea></p>
+    <p><input type="button" name="make-table" value="To HTML Table" id="dataToTable">
+        <input type="button" name="clearText" id="clearText" value="Reset" class="rstbtn">
+    </div>
+
+    <div id="newTable"> </div>
+    <p>
+        <input type="button" name="copyTable" id="copyTable" value="Copy to Clipboard" data-clipboard-target="#newTable" style="display:none;">
+    </p>
+
+    <div><textarea id="newHTML" name="newHTML" rows="9" cols="36" style="display:none;"></textarea></div>
+    <p>
+        <input type="button" name="copyHTML" id="copyHTML" value="Copy to Clipboard" data-clipboard-target="#newHTML" style="display:none;">
+    </p>
+</body>
+<script type="text/javascript" src="./src/clipped.js"></script>
+<script type="text/javascript" src="./src/mdtools.js"></script>
+</html>

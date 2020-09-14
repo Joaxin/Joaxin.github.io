@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Code Editor</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin: 5px 5px 0px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 250px;
+            overflow: scroll;
+            margin: 0px auto;
+            display: inline-block;
+            border: none;
+            background: #f4f4f9;
+            font-family: Courier, sans-serif;
+            font-size: 14px;
+        }
+
+        ul.tabs {
+            list-style: none;
+            height: 32px;
+            width: 100%;
+        }
+
+        ul.tabs li {
+            float: left;
+            cursor: pointer;
+            padding: 0px 20px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #666;
+            color: #ccc;
+            overflow: hidden;
+            position: relative;
+        }
+
+        ul.tabs li:hover {
+            background-color: #ccc;
+            color: #555;
+        }
+
+        ul.tabs li.active {
+            background-color: #f4f4f9;
+            color: #555;
+            display: block;
+            /* border-bottom: 1px solid #f4f4f9; */
+        }
+
+        .tab_code {
+            width: 100%;
+            background: #fff;
+            overflow: auto;
+        }
+
+        .tab_ {
+            padding: 0px;
+            display: none;
+        }
+
+        iframe {
+            bottom: 0;
+            border: none;
+            position: relative;
+            width: 100%;
+            height: 35em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="tabs">
+            <li class="active" rel="tab1">HTML</li>
+            <li rel="tab2">CSS</li>
+            <li rel="tab3">JavaScript</li>
+        </ul>
+        <div class="tab_code">
+            <div id="tab1" class="tab_">
+                <textarea id="html" placeholder="HTML">
+<!-- https://www.w3schools.com/cssref/pr_class_display.asp -->
+<label for="select_change">Choose a div display value:</label>
+<select class="select_change">
+    <option selected>block</option>
+    <option>inline</option>
+    <option>inline-block</option>
+    <option>contents</option>
+    <option>flex</option>
+    <option>inline-flex</option>
+    <option>grid</option>
+    <option>inline-grid</option>
+    <option>table</option>
+    <option>table-cell</option>
+    <option>inline-table</option>
+    <option>list-item</option>
+    <option>run-in</option>
+    <option>inherit</option>
+    <option>initial</option>
+    <option>none</option>
+</select>
+<label for="select_change">Choose a span display value:</label>
+<select class="select_change">
+    <option>block</option>
+    <option selected>inline</option>
+    <option>inline-block</option>
+    <option>contents</option>
+    <option>flex</option>
+    <option>inline-flex</option>
+    <option>grid</option>
+    <option>inline-grid</option>
+    <option>table</option>
+    <option>table-cell</option>
+    <option>inline-table</option>
+    <option>list-item</option>
+    <option>run-in</option>
+    <option>inherit</option>
+    <option>initial</option>
+    <option>none</option>
+</select>
+<p></p>
+<div class="display">
+<div class="container">
+    <span>First</span>
+    <span>Second</span>
+    <span>Third</span>
+  </div>
+  
+<div class="container">
+    <span>Fourth</span>
+    <span>Fifth</span>
+    <span>Sixth</span>
+</div>
+<div class="container">
+    <span>Seventh</span>
+    <span>Eighth</span>
+    <span>Ninth</span>
+</div>
+</div>
+</textarea>
+            </div>
+            <div id="tab2" class="tab_">
+                <textarea id="css" placeholder="CSS">
+select{
+    font: 1.2em Georgia,serif;
+    border-radius: 5px;
+    border: 1px solid red;
+}
+.display {
+    margin: 25px auto;
+    padding: 50px;
+    border: 5px dotted cyan;
+}
+.container {
+    background-color: pink;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 25px 15px;
+}
+div span {
+    font-family: helvetica, arial, sans-serif;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    text-align:center;
+    color: black;
+    margin: 25px 15px;
+    width: 250px;
+    border: 5px dotted #bc1339;
+    padding: 25px 15px;
+    background: #fbdb65 url("http://gtms04.alicdn.com/tps/i4/TB1_oz6GVXXXXaFXpXXJDFnIXXX-64-64.ico") no-repeat;
+  }
+
+                </textarea>
+            </div>
+            <div id="tab3" class="tab_">
+                <textarea id="js" placeholder="JavaScript">
+var containers = document.querySelectorAll('.container');
+var spans = document.querySelectorAll('span');
+var select = document.querySelectorAll('select');
+
+function updateDisplay() {
+    containers.forEach((container) => {
+        container.style.display = select[0].value;
+    });
+    spans.forEach((span) => {
+        span.style.display = select[1].value;
+    });
+}
+
+select[0].addEventListener('change', updateDisplay);
+select[1].addEventListener('change', updateDisplay);
+
+updateDisplay();
+
+var dict = [];
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <iframe id="code"></iframe>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(".tab_").hide();
+        $(".tab_:first").show();
+
+        $("ul.tabs li").click(function() {
+
+            $(".tab_").hide();
+            let activeTab = $(this).attr("rel");
+            $("#" + activeTab).fadeIn();
+
+            $("ul.tabs li").removeClass("active");
+            $(this).addClass("active");
+
+        });
+
+        function compile() {
+            let html = document.getElementById("html");
+            let css = document.getElementById("css");
+            let js = document.getElementById("js");
+            let code = document.getElementById("code").contentWindow.document;
+            code.open();
+            code.writeln(
+                html.value +
+                "<style>" +
+                css.value +
+                "</style>" +
+                "<script>" +
+                js.value + "<" +
+                "/script>");
+            code.close();
+        }
+
+        compile();
+        window.addEventListener("click", compile);
+    </script>
+</body>
+
+</html>

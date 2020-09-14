@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/picnic"> -->
+    <link rel="stylesheet" type="text/css" href="picnic.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <nav><a href="/" class="brand"><span>Date&Time Tools</span></a><input id="bmenu" type="checkbox" class="show"><label
+            for="bmenu" class="burger toggle pseudo button">menu</label>
+        <div class="menu"><a href="/tests" class="pseudo button icon-help-circled">Test</a><a
+                href="https://github.com/franciscop/picnic" target="_blank" class="pseudo button icon-g">GitHub</a><a
+                href="/documentation" class="button icon-file-code">Documentation</a></div>
+    </nav> -->
+    <div class="container">
+<article class="interval card">
+        <header>
+                <h3>A really simple time interval calculator</h3>
+        </header>
+
+        <label for="start">Start Time:</label>
+        <input id="start" name="time" placeholder="yyyy-mm-dd">
+
+        <label for="end">End Time:</label>
+        <input id="end" name="time" placeholder="yyyy-mm-dd">
+
+        <button onclick="calculateInterval()">Calculate Interval</button>
+
+        <p><label id="out1"></label></p>
+
+        <p><label id="out2"></label></p>
+
+        <p><label id="out3"></label></p>
+</article>
+
+    </div>
+</body>
+<script>
+    Date.getFormattedDateDiff = function (date1, date2) {
+        var b = moment(date1),
+            a = moment(date2),
+            intervals = ['years', 'months', 'weeks', 'days'],
+            out = [];
+            out2 = [];
+            out.push("Total: " + a.diff(b, "days") + " days ")
+            out.push("Total: " + a.diff(b, "minutes") + " minutes ")
+            out.push("Total: " + a.diff(b, "seconds") + " seconds ")
+            // console.log(a.diff(b, "seconds"))
+        for (var i = 0; i < intervals.length; i++) {
+            var diff = a.diff(b, intervals[i]);
+            b.add(diff, intervals[i]);
+            out.push(diff + ' ' + intervals[i]);
+        }
+        return out.join(', ');
+    };
+
+    function calculateInterval() {
+        var start = new Date(document.getElementById('start').value),
+            end = new Date(document.getElementById('end').value);
+
+        document.getElementById('out1').innerHTML
+            = 'Time elapsed between "' + start.toISOString().split('T')[0]
+            + '" and "' + end.toISOString().split('T')[0] + '":<br/>'
+            + Date.getFormattedDateDiff(start, end);
+    }
+
+    var today = new Date(),
+        newYear = new Date(today.getFullYear(), 0, 1),
+        y2k = new Date(2000, 0, 1);
+
+    document.getElementById('out2').innerHTML
+        = 'Time since New Year:<br/>' + Date.getFormattedDateDiff(newYear, today)
+        + '<p>Time since Y2K:<br/>' + Date.getFormattedDateDiff(y2k, today) + '</p>';
+
+$(function() {
+  $('input[name="time"]').daterangepicker({
+    singleDatePicker: true,
+    showDropdowns: true,
+    minYear: 1901,
+    maxYear: parseInt(moment().format('YYYY'),10) + 100
+  }, function(start, end, label) {
+    var years = moment().diff(start, 'years');
+    // alert("You are " + years + " years old!");
+  });
+});
+</script>
+
+</html>

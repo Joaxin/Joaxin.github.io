@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HTML Live Preview</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.bootcss.com/highlight.js/9.7.0/styles/docco.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <h2>HTML</h2>
+
+    <div id="code" class="html-input" contenteditable="true">
+      <pre><code><input type="checkbox" id="expand-toggle" />
+
+        <table>
+          <thead>
+            <tr><th>Column #1</th><th>Column #2</th><th>Column #3</th></tr>
+          </thead>
+          <tbody>
+            <tr class="expandable"><td>[more text]</td><td>[more text]</td><td>[more text]</td></tr>
+            <tr><td>[cell text]</td><td>[cell text]</td><td>[cell text]</td></tr>
+            <tr><td>[cell text]</td><td>[cell text]</td><td>[cell text]</td></tr>
+            <tr class="expandable"><td>[more text]</td><td>[more text]</td><td>[more text]</td></tr>
+            <tr class="expandable"><td>[more text]</td><td>[more text]</td><td>[more text]</td></tr>
+          </tbody>
+        </table>
+        
+        <label for="expand-toggle" id="expand-btn">Toggle hidden rows</label>
+        </code></pre>
+    </div>
+
+    <h2>CSS</h2>
+    <div id="code" class="css-input" contenteditable="true">
+      <pre><code>
+
+          /* Hide the toggle checkbox */
+          #expand-toggle {
+            display: none;
+          }
+          
+          /* Hide expandable content by default */
+          .expandable {
+            visibility: collapse;
+            background: #ddd;
+          }
+          
+          /* Style the button */
+          #expand-btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 5px 11px;
+            background-color: #ff7;
+            border: 1px solid;
+            border-radius: 3px;
+          }
+          
+          /* Show hidden content when the checkbox is checked */
+          #expand-toggle:checked ~ * .expandable {
+            visibility: visible;
+          }
+          
+          /* Style the button when the checkbox is checked */
+          #expand-toggle:checked ~ #expand-btn {
+            background-color: #ccc;
+          }
+          
+        </code></pre>
+    </div>
+    <div class="output"></div>
+  </div>
+  <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

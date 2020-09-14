@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keywords Generator</title>
+    <style type="text/css">
+        .fform {
+            max-width: 85%;
+            padding: 10px 20px;
+            background: #f4f7f8;
+            margin: 10px auto;
+            padding: 20px;
+            background: #f4f7f8;
+            border-radius: 8px;
+            font-family: Georgia, "Times New Roman", Times, serif;
+
+        }
+
+        .fform fieldset {
+            border: none;
+        }
+
+        .fform legend {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+
+        .fform label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .fform input[type="text"],
+        .fform input[type="date"],
+        .fform input[type="datetime"],
+        .fform input[type="email"],
+        .fform input[type="number"],
+        .fform input[type="search"],
+        .fform input[type="time"],
+        .fform input[type="url"],
+        .fform textarea,
+        .fform select {
+            font-family: Georgia, "Times New Roman", Times, serif;
+            background: rgba(255, 255, 255, .1);
+            border: none;
+            border-radius: 4px;
+            font-size: 15px;
+            margin: 0;
+            outline: 0;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            background-color: #e8eeef;
+            color: #8a97a0;
+            -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+            margin-bottom: 30px;
+        }
+
+        .fform input[type="text"]:focus,
+        .fform input[type="date"]:focus,
+        .fform input[type="datetime"]:focus,
+        .fform input[type="email"]:focus,
+        .fform input[type="number"]:focus,
+        .fform input[type="search"]:focus,
+        .fform input[type="time"]:focus,
+        .fform input[type="url"]:focus,
+        .fform textarea:focus,
+        .fform select:focus {
+            background: #d2d9dd;
+        }
+
+        .fform select {
+            -webkit-appearance: menulist-button;
+
+        }
+
+        .fform .number {
+            background: #1abc9c;
+            color: #fff;
+            height: 30px;
+            width: 30px;
+            display: inline-block;
+            font-size: 0.8em;
+            margin-right: 4px;
+            line-height: 30px;
+            text-align: center;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+            border-radius: 15px 15px 15px 0px;
+        }
+
+        .fform input[type="submit"],
+        .fform input[type="button"] {
+            position: relative;
+            display: inline-block;
+            padding: 19px 39px 18px 39px;
+            color: #FFF;
+            margin: 0 auto;
+            background: #1abc9c;
+            font-size: 18px;
+            text-align: center;
+            font-style: normal;
+            border: 1px solid #16a085;
+            border-width: 1px 1px 3px;
+            margin-bottom: 10px;
+            width: 32.5%;
+        }
+
+        .fform input[type="submit"]:hover,
+        .fform input[type="button"]:hover {
+            background: #109177;
+        }
+
+        #container {
+            margin: 0px auto;
+        }
+
+        .kwlist {
+            display: inline-block;
+            width: 24%;
+        }
+        #buttons{
+            margin: 5px auto;
+        }
+
+        .kwlist textarea {
+            height: 300px;
+
+        }
+
+        textarea {
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            outline: 0;
+            box-shadow: none;
+            border: none;
+            border-bottom: 1px solid #ced4da;
+            border-radius: 0;
+            box-sizing: content-box;
+            background-color: transparent;
+            overflow-y: hidden;
+            padding: 1.5rem 0;
+            resize: none;
+            overflow-y: scroll;
+        }
+    </style>
+    <script language="javascript" type="text/javascript">
+
+        function checkRefresh() {
+            if (document.refreshForm.visited.value == "") {
+                // This is a fresh page load
+                document.refreshForm.visited.value = "1";
+                // You may want to add code here special for
+                // fresh page loads
+                generate();
+            } else {
+                // This is a page refresh
+                // Insert code here representing what to do on
+                // a refresh
+            }
+        }
+
+        /* save */
+        var saveKeywords = function (i, k) { localStorage.setItem("kw" + i, k); }
+
+        function generate() {
+            var kw1 = document.getElementById('kw1').value.replace(/^\s*/, '').replace(/\s*$/, '').split("\n");
+            var kw2 = document.getElementById('kw2').value.replace(/^\s*/, '').replace(/\s*$/, '').split("\n");
+            var kw3 = document.getElementById('kw3').value.replace(/^\s*/, '').replace(/\s*$/, '').split("\n");
+            var kw4 = document.getElementById('kw4').value.replace(/^\s*/, '').replace(/\s*$/, '').split("\n");
+            if (!localStorage.getItem("kw1") && kw1 !== null) {
+                saveKeywords(1, kw1)
+
+            } else if ((kw1.join("\n") !== localStorage.getItem("kw1").split(",").join("\n"))&&(kw1.join("\n") !== "")) {
+                saveKeywords(1, kw1)
+            }
+            else {
+                var kw1 = localStorage.getItem("kw1").split(",");
+                document.getElementById('kw1').value = kw1.join("\n")
+
+            }
+
+            if (!localStorage.getItem("kw2") && kw2 !== null) {
+
+                saveKeywords(2, kw2)
+
+            } else if ((kw2.join("\n") !== localStorage.getItem("kw2").split(",").join("\n"))&& (kw2.join("\n") !== "")) {
+                saveKeywords(2, kw2)
+            }
+            else {
+                var kw2 = localStorage.getItem("kw2").split(",");
+                document.getElementById('kw2').value = kw2.join("\n")
+
+            }
+            if (!localStorage.getItem("kw3") && kw3 !== null) {
+
+            saveKeywords(3, kw3)
+
+            } else if ((kw3.join("\n") !== localStorage.getItem("kw3").split(",").join("\n"))&& (kw3.join("\n") !== "")) {
+            saveKeywords(3, kw3)
+            }
+            else {
+            var kw3 = localStorage.getItem("kw3").split(",");
+            document.getElementById('kw3').value = kw3.join("\n")
+
+            }
+            if (!localStorage.getItem("kw4") && kw4 !== null) {
+
+            saveKeywords(4, kw4)
+
+            } else if ((kw4.join("\n") !== localStorage.getItem("kw4").split(",").join("\n"))&& (kw4.join("\n") !== "")) {
+            saveKeywords(4, kw4)
+            }
+            else {
+            var kw4 = localStorage.getItem("kw4").split(",");
+            document.getElementById('kw4').value = kw4.join("\n")
+
+            }
+
+
+            var results = '';
+            var openq = '';
+            var closeq = '';
+
+            var msel = document.getElementById("matchtype");
+            var mtype = msel.options[msel.selectedIndex].value;
+
+
+            if (mtype == 'quotes') {
+                openq = '"';
+                closeq = '"';
+            } else if (mtype == 'square') {
+                openq = '[';
+                closeq = ']';
+            }
+
+            for (x in kw1) {
+                for (y in kw2) {
+                    if (document.getElementById('kw3').value) {
+                        for (z in kw3) {
+
+                            if (document.getElementById('kw4').value) {
+                                for (u in kw4) {
+                                    results += openq + kw1[x] + " " + kw2[y] + " " + kw3[z] + " " + kw4[u] + closeq + "\n";
+                                }
+                            } else {
+                                results += openq + kw1[x] + " " + kw2[y] + " " + kw3[z] + closeq + "\n";
+                            }
+                        }
+                    } else {
+                        results += openq + kw1[x] + " " + kw2[y] + closeq + "\n";
+                    }
+                }
+
+                // results += openq + kw1[x] + closeq + "\n";
+            }
+
+            document.getElementById('results').value = results.replace(/\s*$/, '');
+
+            return true;
+        }
+
+        function clearForm() {
+            document.getElementById('kw1').value = '';
+            document.getElementById('kw2').value = '';
+            document.getElementById('kw3').value = '';
+            document.getElementById('kw4').value = '';
+            document.getElementById('results').value = '';
+            localStorage.removeItem('kw1');
+            localStorage.removeItem('kw2');
+            localStorage.removeItem('kw3');
+            localStorage.removeItem('kw4');
+            return true;
+        }
+
+        function saveTextAsFile(textToWrite, fileNameToSaveAs) {
+            var textFileAsBlob = new Blob([textToWrite], { type: 'text/plain' });
+            var downloadLink = document.createElement("a");
+            downloadLink.download = fileNameToSaveAs;
+            downloadLink.innerHTML = "Download File";
+            if (window.webkitURL != null) {
+                // Chrome allows the link to be clicked
+                // without actually adding it to the DOM.
+                downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+            }
+            else {
+                // Firefox requires the link to be added to the DOM
+                // before it can be clicked.
+                downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+                downloadLink.onclick = destroyClickedElement;
+                downloadLink.style.display = "none";
+                document.body.appendChild(downloadLink);
+            }
+
+            downloadLink.click();
+        }
+    </script>
+</head>
+
+<body onLoad="JavaScript:checkRefresh();">
+    <form name="refreshForm">
+        <input type="hidden" name="visited" value="" />
+    </form>
+    <div id="container" class="fform">
+        <h1>Keywords Generator</h1>
+        <div>
+            <div class="kwlist">
+                <label>Keyword List 1 (one per line)</label><br>
+                <textarea id="kw1"> </textarea>
+            </div>
+            <div class="kwlist">
+                <label>Keyword List 2 (one per line)</label><br>
+                <textarea id="kw2"> </textarea>
+            </div>
+            <div class="kwlist">
+                <label>Keyword List 3 (one per line)</label><br>
+                <textarea id="kw3"> </textarea>
+            </div>
+            <div class="kwlist">
+                <label>Keyword List 4 (one per line)</label><br>
+                <textarea id="kw4"> </textarea>
+            </div>
+        </div>
+        
+            <div><select id="matchtype">
+                    <option value="">Broad Match: no quotation marks around results</option>
+                    <option value="quotes">Phrase Match: "quotation marks" around results</option>
+                    <option value="square">Exact Match: [square brackets] around results</option>
+                </select></div>
+
+                <div id="buttons">
+            <input type="button" onclick="clearForm();" value="ClearForm">
+            <input id="generate" type="button" onclick="generate();" value="Generate">
+            <input onclick="saveTextAsFile(results.value,'keywords.txt')" value="Download" type="button">
+        </div>
+            <div>
+                <textarea id="results" cols="30" rows="50"> </textarea>
+            </div>
+        
+</body>
+
+</html>

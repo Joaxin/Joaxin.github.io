@@ -1,0 +1,214 @@
+<html>
+  <head>
+    <title>Code Editor</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        margin: 5px 5px 0px;
+      }
+
+      textarea {
+        width: 100%;
+        min-height: 250px;
+        overflow: scroll;
+        margin: 0px auto;
+        display: inline-block;
+        border: none;
+        background: #f4f4f9;
+        font-family: Courier, sans-serif;
+        font-size: 14px;
+      }
+
+      ul.tabs {
+        list-style: none;
+        height: 32px;
+        width: 100%;
+        z-index: 999;
+      }
+
+      ul.tabs li {
+        float: left;
+        cursor: pointer;
+        padding: 0px 20px;
+        height: 30px;
+        line-height: 30px;
+        background-color: #666;
+        color: #ccc;
+        overflow: hidden;
+        position: relative;
+      }
+
+      ul.tabs li:hover {
+        background-color: #ccc;
+        color: #555;
+      }
+
+      ul.tabs li.active {
+        background-color: #f4f4f9;
+        color: #555;
+        display: block;
+        /* border-bottom: 1px solid #f4f4f9; */
+      }
+
+      .tab_code {
+        width: 100%;
+        background: #fff;
+        overflow: auto;
+      }
+
+      .tab_ {
+        padding: 0px;
+        display: none;
+      }
+
+      iframe {
+        bottom: 0;
+        border: none;
+        position: relative;
+        width: 100%;
+        height: 35em;
+      }
+    </style>
+    <script src="https://cdn.bootcdn.net/ajax/libs/ace/1.4.12/ace.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <ul class="tabs" id="tabs">
+        <li class="active" rel="tab1">HTML</li>
+        <li rel="tab2">CSS</li>
+        <li rel="tab3">JavaScript</li>
+        <li onclick="mi()"><i class="fa fa-window-minimize"></i></li>
+      </ul>
+      <div class="tab_code">
+        <div id="tab1" class="tab_">
+          <textarea id="html" placeholder="HTML">
+<p>There are several browsers available, such as <a href="#">MozillaFirefox</a>, <a href="#">Google Chrome</a>, and
+<a href="#">Microsoft Edge</a>.</p>
+                        
+                                    
+                </textarea
+          >
+        </div>
+        <div id="tab2" class="tab_">
+          <textarea id="css" placeholder="CSS">
+body {
+    width: 300px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+}
+
+p {
+    line-height: 1.4;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    padding: 2px 1px 0;
+}
+
+a:link {
+    color: #265301;
+}
+
+a:visited {
+    color: #437A16;
+}
+
+a:focus {
+    border-bottom: 1px solid;
+    background: #BAE498;
+}
+
+a:hover {
+    border-bottom: 1px solid;
+    background: #CDFEAA;
+}
+
+a:active {
+    background: #265301;
+    color: #CDFEAA;
+}
+                </textarea
+          >
+        </div>
+        <div id="tab3" class="tab_">
+          <textarea id="js" placeholder="JavaScript"></textarea>
+        </div>
+      </div>
+    </div>
+    <iframe id="code"></iframe>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(".tab_").hide();
+      $(".tab_:first").show();
+
+      $("ul.tabs li").click(function () {
+        $(".tab_").hide();
+        let activeTab = $(this).attr("rel");
+        $("#" + activeTab).fadeIn();
+
+        $("ul.tabs li").removeClass("active");
+        $(this).addClass("active");
+      });
+
+      function mi() {
+        var iframe = document.getElementById("code");
+        var tabs = document.getElementById("tabs");
+        if (tabs.style.position == "fixed") {
+          iframe.style.height = "35em";
+          for (var i = 0; i < tabs.children.length - 1; i++) {
+            tabs.children[i].style.display = "block";
+          }
+          tabs.children[3].childNodes[0].className = "fa fa-window-minimize";
+          tabs.style.position = "relative";
+        } else {
+          iframe.style.height = "100%";
+          iframe.style.width = "100%";
+          for (var i = 0; i < tabs.children.length - 1; i++) {
+            tabs.children[i].style.display = "none";
+          }
+          tabs.children[3].childNodes[0].className = "fa fa-plus";
+          tabs.children[3].childNodes[0].style.padding = "7px";
+          tabs.style.position = "fixed";
+        }
+      }
+
+      function compile() {
+        let html = document.getElementById("html");
+        let css = document.getElementById("css");
+        let js = document.getElementById("js");
+        let code = document.getElementById("code").contentWindow.document;
+        code.open();
+        code.writeln(
+          html.value +
+            "<style>" +
+            css.value +
+            "</style>" +
+            "<script>" +
+            js.value +
+            "<" +
+            "/script>"
+        );
+        code.close();
+      }
+
+      compile();
+      window.addEventListener("click", compile);
+    </script>
+  </body>
+</html>

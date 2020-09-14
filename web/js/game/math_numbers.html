@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    @import url("https://fonts.googleapis.com/css?family=Rubik&display=swap");
+body {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  font-family: 'Rubik', sans-serif;
+}
+body h1 {
+  background-color: #FF4081;
+  color: #fff;
+  padding: 32px;
+  border-radius: 4px;
+  min-width: 300px;
+  text-align: center;
+  box-shadow: 0 5px 5px -5px rgba(255, 64, 129, 0.15),
+              0 10px 10px -5px rgba(255, 64, 129, 0.15), 
+              0 15px 15px -5px rgba(255, 64, 129, 0.15), 
+              0 20px 20px -5px rgba(255, 64, 129, 0.15);
+}
+
+</style>
+</head>
+<body>
+    <h1 id='answer'></h1>
+    <script>
+    const calc = operator =>
+  `48 / 2 ${operator} (9 + 3) = ${eval(48 / 2 + operator + (9 + 3))}`;
+const answer = document.querySelector("#answer");
+const operators = ["*", "/", "+", "-"];
+
+const maths = () => {
+  for (let i = 0; i < operators.length; i++) {
+    setTimeout(() => {
+      answer.innerText = calc(operators[i]);
+    }, i * 1000);
+  }
+};
+
+maths();
+
+setInterval(() => maths(), operators.length * 1000);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <title>Code Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        div {
+            width: 100%;
+            min-height: 150px;
+            float: top;
+            background: #f1f1f9;
+            font-family: Courier, sans-serif;
+            font-size: 1.15em;
+            border-radius: 5px;
+            box-shadow: 0 3px 3px rgba(0,0,0,0.1);
+        }
+
+        iframe {
+            bottom: 0;
+            width: 100%;
+            height: 60%;
+        }
+    </style>
+<link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.2/styles/docco.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div>
+<pre><code>
+<p>This       is a paragraph</p>
+<h1>This is    heading 1</h1>
+<h2>This is    heading 2</h2>
+<h3>This    is heading 3</h3>
+<h4>This is    heading 4</h4>
+<h5>This    is heading 5</h5>
+<h6>This is     heading 6</h6>
+<hr/> <!-- create a horizontal line -->
+<p>text: regular text </p>
+<p>text: <small> small text </small></p> <!--  nesting small-->
+<p>text: <big> big text </big></p>
+<p>text: <em> big text </em></p> <!--  emphasized,  these are recognised by screen readers and spoken out in a different tone of voice -->
+        <p>text: <i> italic text </i></p> <!--   italicize words-->
+        <p>text: <strong> strong text </strong></p> <!-- strongly emphasized -->
+        <p>text: <b> bold text </b></p>
+        <p>text: <sub> subscripted text </sub></p>
+        <p>text: <sup> superscripted text </sup></p>
+        <p>text: <ins> inserted text </ins></p>
+        <p>text: <del> deleted text </del></p>
+</code></pre>
+</div>
+
+    <iframe id="code"></iframe>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script>
+
+    hljs.initHighlightingOnLoad();
+
+    function compile() {
+            let html = document.getElementsByTagName("code")[0].innerHTML;
+            let code = document.getElementById("code").contentWindow.document;
+            code.open();
+            code.writeln(html)
+            code.close();
+    };
+    compile();
+
+    function stringToEntity() {
+      var pr = $('pre');
+      var co = $("pre>code");
+      for (i = 0; i < pr.length; i++) {
+        var code = document.createElement('code');
+        code.innerText = co[i].innerHTML.replace(/^\s+|[^\S\r\n]{19,}|\s+$/gm, '');
+        pr[i].replaceChild(code, co[i]);
+      }
+    }
+    stringToEntity();   
+
+    
+    $(document).ready(function() {
+      $('pre code').each(function(i, block) {
+         hljs.highlightBlock(block)
+      });
+    });
+
+    </script>
+</body>
+
+</html>

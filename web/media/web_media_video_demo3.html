@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=0.74">
+    <style>
+        /* body {
+            color: white;
+            background-color: #1d1d1d;
+            background-image: url(bg.jpg);
+            background-position:center center;
+            backgroundattachment: fixed;
+            background-repeat: no-repeat;
+            background-size: 100% 150%; // cover
+            z-index: -1;
+        } */
+
+        body {
+            background-color: white;
+            background: url("Stellar.mp4") no-repeat center 0px;
+        }
+
+        video#bgvid {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -100;
+            background-size: cover;
+        }
+
+        #curtain {
+            background-color: rgba(255, 255, 255, 0.1);
+            text-align: center;
+            padding: 50px;
+        }
+    </style>
+    <title>Demo</title>
+</head>
+
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <video muted autoplay="autoplay" loop="loop" id="bgvid">
+        <source src="Stellar.mp4" type="video/mp4">
+        </video>
+    <div id="curtain">
+        <font size="+6" color="white" face="Open Sans, Helvetica, arial">
+            <strong>The mind is not a vessel to be filled but a fire to be kindled.<br></strong>
+        </font>
+        <br>
+        <font size="+2"  color="white" face="Open Sans, Helvetica, arial">
+            Plutarch
+        </font>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+
+</html>

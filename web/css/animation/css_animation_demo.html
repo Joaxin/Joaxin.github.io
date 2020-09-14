@@ -1,0 +1,369 @@
+<html>
+
+<head>
+    <title>Code Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin: 5px 5px 0px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 250px;
+            overflow: scroll;
+            margin: 0px auto;
+            display: inline-block;
+            border: none;
+            background: #f4f4f9;
+            font-family: Courier, sans-serif;
+            font-size: 14px;
+        }
+
+        ul.tabs {
+            list-style: none;
+            height: 32px;
+            width: 100%;
+            z-index: 999;
+        }
+
+        ul.tabs li {
+            float: left;
+            cursor: pointer;
+            padding: 0px 20px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #666;
+            color: #ccc;
+            overflow: hidden;
+            position: relative;
+        }
+
+        ul.tabs li:hover {
+            background-color: #ccc;
+            color: #555;
+        }
+
+        ul.tabs li.active {
+            background-color: #f4f4f9;
+            color: #555;
+            display: block;
+            /* border-bottom: 1px solid #f4f4f9; */
+        }
+
+        .tab_code {
+            width: 100%;
+            background: #fff;
+            overflow: auto;
+        }
+
+        .tab_ {
+            padding: 0px;
+            display: none;
+        }
+
+        iframe {
+            bottom: 0;
+            border: none;
+            position: relative;
+            width: 100%;
+        }
+
+        #colorBox{
+            position: absolute;
+            top: 45px;
+            right: 45px;
+        }
+        #colorBox div div{
+            position: relative;
+        }
+    </style>
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <ul class="tabs" id="tabs">
+            <li class="active" rel="tab1">HTML</li>
+            <li rel="tab2">CSS</li>
+            <li rel="tab3">JavaScript</li>
+            <li onclick="mi()"><i class="fa fa-window-minimize"></i></li>
+        </ul>
+        <div class="tab_code">
+            <div id="tab1" class="tab_">
+                <textarea id="html" placeholder="HTML">
+
+<h2>ease(width height background)</h2>
+<div class="ease"></div>
+<h2>ease-in(rotate)</h2>
+<div class="ease-in"></div>
+<h2>ease-out(anchor rotate)</h2>
+<div class="ease-out">
+    <div class="rotate">
+    </div>
+</div>
+<h2>ease-in-out(translate)</h2>
+<div class="ease-in-out"></div>
+<h2>linear(skew)</h2>
+<div class="linear"></div>
+<h2>cubic-bezier(scale)</h2>
+<div class="bezier"></div>
+<h2>keyframes</h2>
+<div class="keyframes"></div>
+                </textarea>
+            </div>
+            <div id="tab2" class="tab_">
+                <textarea id="css" placeholder="CSS">   
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: Arial;
+    vertical-align: middle;
+    text-align: center;
+    background: linear-gradient(65deg, hsl(90, 40%, 80%), hsl(120, 50%, 60%));
+}
+
+div {
+    margin: 10px auto;
+    height: 50px;
+    width: 100px;
+    border-radius: 5px;
+    border: 2px solid hsl(0, 0%, 95%);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+div div {
+    margin: 0px auto;
+}
+
+.ease {
+    transition: width 3s, height 3s, background 3s ease;
+    background-color: hsl(0, 80%, 60%);
+}
+
+.ease:hover {
+    width: 150px;
+    height: 150px;
+    background: hsl(270, 80%, 60%);
+}
+
+.ease-in {
+    background-color: hsl(30, 80%, 60%);
+    transition: transform 5s ease-in;
+}
+
+.ease-in:hover {
+    transform: rotate(180deg);
+    ;
+}
+
+.ease-out {
+    background-color: hsl(60, 80%, 60%);
+}
+
+.rotate {
+    transition: transform 5s ease-out;
+}
+
+.rotate:hover {
+    transform-origin: 100% 100%;
+    transform: rotate(30deg);
+}
+
+.ease-in-out {
+    background-color: hsl(90, 80%, 60%);
+    transition: transform 5s ease-in-out;
+}
+
+.ease-in-out:hover {
+    transform: translate(100px, 50px)
+}
+
+.linear {
+    background-color: hsl(180, 80%, 60%);
+    transition: transform 5s linear;
+}
+
+.linear:hover {
+    transform: skew(60deg)
+}
+
+.bezier {
+    background-color: hsl(210, 80%, 60%);
+    transition: transform 5s cubic-bezier(0, 1, 1, 0);
+}
+
+.bezier:hover {
+    transform: scale(1.5, 1.5)
+}
+
+.keyframes {
+    background-color: hsl(240, 80%, 60%);
+    perspective: 100px;
+    -webkit-perspective: 100px;
+    animation-name: magic;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes magic {
+    from {
+        transform: rotateX(0deg);
+    }
+    50% {
+        transform: rotateX(180deg);
+    }
+    to {
+        transform: rotateX(359deg);
+    }
+}
+
+h2 {
+    margin-top: 50px;
+    color: hsl(0, 100%, 15%);
+}
+
+h2::first-letter {
+    color: hsl(0, 100%, 25%);
+    text-transform: uppercase;
+}
+                                 
+</textarea>
+                <div id="colorBox">
+                    <p></p>
+                </div>
+            </div>
+            <div id="tab3" class="tab_">
+                <textarea id="js" placeholder="JavaScript">
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <iframe id="code"></iframe>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(".tab_").hide();
+        $(".tab_:first").show();
+
+        $("ul.tabs li").click(function() {
+            $(".tab_").hide();
+            let activeTab = $(this).attr("rel");
+            $("#" + activeTab).fadeIn();
+
+            $("ul.tabs li").removeClass("active");
+            $(this).addClass("active");
+        });
+
+        function mi() {
+            var iframe = document.getElementById("code");
+            var tabs = document.getElementById("tabs");
+            if (tabs.style.position == "fixed") {
+                iframe.style.height = window.innerHeight - document.querySelector(".tabs").offsetHeight
+                for (var i = 0; i < tabs.children.length - 1; i++) {
+                    tabs.children[i].style.display = "block";
+                }
+                tabs.children[3].childNodes[0].className = "fa fa-window-minimize";
+                tabs.style.position = "relative";
+                document.querySelector(".container").style.margin = "5px 5px 0px"
+            } else {
+                for (var i = 0; i < tabs.children.length - 1; i++) {
+                    tabs.children[i].style.display = "none";
+                }
+                tabs.children[3].childNodes[0].className = "fa fa-plus";
+                tabs.children[3].childNodes[0].style.padding = "7px";
+                tabs.style.position = "fixed";
+                document.querySelector(".container").style.margin = "0px"
+                // iframe.style.height = "100%";
+                iframe.style.width = "100%";
+            }
+        }
+
+        function isLight(color) {
+            if (["white","yellow"].includes(color)) {
+                return false
+            }
+            var r, g, b, hsp;
+            if (color.match(/^rgb/)) {
+                color = color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/);
+                r = color[1];
+                g = color[2];
+                b = color[3];
+            } else {
+                // If hex --> Convert it to RGB: http://gist.github.com/983661
+                color = +("0x" + color.slice(1).replace(
+                    color.length < 5 && /./g, '$&$&'));
+                r = color >> 16;
+                g = color >> 8 & 255;
+                b = color & 255;
+            }
+            // HSP (Highly Sensitive Poo) equation from http://alienryderflex.com/hsp.html
+            hsp = Math.sqrt(
+                0.299 * (r * r) +
+                0.587 * (g * g) +
+                0.114 * (b * b)
+            );
+            // Using the HSP value, determine whether the color is light or dark
+            return hsp < 127.5
+        }
+
+        function compile() {
+            let html = document.getElementById("html");
+            let css = document.getElementById("css");
+            // let css = document.getElementById("css").value;
+            // var regex = /#(?:[0-9a-f]{3}){1,2}/gi
+            // https://gist.github.com/olmokramer/82ccce673f86db7cda5e
+            let regex = /(#([\da-f]{3}){1,2}|\b(black|silver|gray|whitesmoke|maroon|red|purple|fuchsia|green|lime|olivedrab|yellow|navy|blue|teal|aquamarine|orange|aliceblue|antiquewhite|aqua|azure|beige|bisque|blanchedalmond|blueviolet|brown|burlywood|cadetblue|chartreuse|chocolate|coral|cornflowerblue|cornsilk|crimson|darkblue|darkcyan|darkgoldenrod|darkgray|darkgreen|darkgrey|darkkhaki|darkmagenta|darkolivegreen|darkorange|darkorchid|darkred|darksalmon|darkseagreen|darkslateblue|darkslategray|darkslategrey|darkturquoise|darkviolet|deeppink|deepskyblue|dimgray|dimgrey|dodgerblue|firebrick|floralwhite|forestgreen|gainsboro|ghostwhite|goldenrod|gold|greenyellow|grey|honeydew|hotpink|indianred|indigo|ivory|khaki|lavenderblush|lavender|lawngreen|lemonchiffon|lightblue|lightcoral|lightcyan|lightgoldenrodyellow|lightgray|lightgreen|lightgrey|lightpink|lightsalmon|lightseagreen|lightskyblue|lightslategray|lightslategrey|lightsteelblue|lightyellow|limegreen|linen|mediumaquamarine|mediumblue|mediumorchid|mediumpurple|mediumseagreen|mediumslateblue|mediumspringgreen|mediumturquoise|mediumvioletred|midnightblue|mintcream|mistyrose|moccasin|navajowhite|oldlace|olive|orangered|orchid|palegoldenrod|palegreen|paleturquoise|palevioletred|papayawhip|peachpuff|peru|pink|plum|powderblue|rosybrown|royalblue|saddlebrown|salmon|sandybrown|seagreen|seashell|sienna|skyblue|slateblue|slategray|slategrey|snow|springgreen|steelblue|tan|thistle|tomato|turquoise|violet|wheat|white|yellowgreen|rebeccapurple)\b|(rgb|hsl)a\((\d{1,3}%?,\s?){3}(1|0?\.\d+)\)|(rgb|hsl)\(\d{1,3}%?(,\s?\d{1,3}%?){2}\))/gi
+            let colorSet = [...new Set(css.value.match(regex))];
+
+            let colorBox = document.getElementById("colorBox");
+            let colorInfo = document.createElement("div");
+            for (let n = 0; n < colorSet.length; n++) {
+                var co = document.createElement("div");
+                co.style.backgroundColor = colorSet[n];
+                co.style.height = "1.5em";
+                co.style.top = parseInt(n / parseInt(css.offsetHeight/30))*-224 + "px"
+                co.style.right = parseInt(n / parseInt(css.offsetHeight/30))*154 + "px"
+                co.style.padding = "2px";
+                co.style.width = "150px";
+                co.style.textAlign = "center";
+                co.style.color = isLight(colorSet[n]) ? '#FFF' : '#000';
+                co.innerHTML = "<b>" + colorSet[n] + "</b>";
+                colorInfo.appendChild(co);
+            }
+            colorBox.replaceChild(colorInfo, colorBox.childNodes[0]);
+            let js = document.getElementById("js");
+            document.getElementById("code").style.height = window.innerHeight - document.querySelector(".container").offsetHeight - document.querySelector(".container").offsetTop
+            let code = document.getElementById("code").contentWindow.document;
+            code.open();
+            code.writeln(
+                html.value +
+                "<style>" +
+                css.value +
+                "</style>" +
+                "<script>" +
+                js.value +
+                "<" +
+                "/script>"
+            );
+            code.close();
+        }
+
+        compile();
+        window.addEventListener("click", compile);
+    </script>
+</body>
+
+</html>

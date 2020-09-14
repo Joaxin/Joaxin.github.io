@@ -1,0 +1,260 @@
+
+<!DOCTYPE HTML>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>CSS背景颜色属性值转换_实现背景色透明效果的代码_小志博客_wwww.linxz.de_css那些事儿</title>
+<meta name="keywords" content="css那些事儿,林小志,linxz,林友赛,linxz.de,透明背景色,渐变,滤镜" />
+<meta name="description" content="实现各个浏览器中具备良好的透明特性的效果，IE中使用私有滤镜filter，高端浏览器使用CSS3中的rgba属性。林小志的个人博客站点，《CSS那些事儿》书籍的作者，专注于页面重构的思维，关注于页面制作中结构的扩展性以及可维护性。" />
+<link rel="stylesheet" href="../css/demo.css" type="text/css"/>
+<style type="text/css">
+
+.top_tips { position:relative; width:1000px; margin:20px auto; padding:10px; color:#272727; border:1px dashed #99CC29; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; background-color:#F0F0F0; zoom:1; }
+.top_tips:after { clear:both; display:block; content:"."; height:0; visibility:hidden; font-size:0; line-height:0; }
+.top_tips:hover { color:#000000; border-color:#99CC29; background-color:#E0E0E0; }
+.top_tips:hover h1 { color:#B50000; }
+
+h2 { font-size:14px; }
+p { margin:0; line-height:20px; font-size:12px; }
+label { color:#F32600; }
+label, button { cursor:pointer; }
+input { width:100px; height:18px; text-align:center; font-family:Tahoma; font-size:12px; color:#F32600; }
+#alpha_style {  height:100px; margin-top:20px; line-height:20px; padding:5px; font-size:13px; font-family:Tahoma; color:#A6CAF0; border:1px solid #FFFFFF; background-color:#272727; }
+#simple { width:200px; height:100px; overflow:hidden; text-align:center; line-height:100px; }
+.wrap { width:1000px; overflow:hidden; margin:20px auto 20px; zoom:1; }
+#tip { display:none; position:absolute; top:48px; left:10px; width:400px; padding:10px; color:#FFFFFF; background:rgba(39,39,39,0.8); background:#272727\0; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; }
+#tip:after { position:absolute; bottom:-5px; right:185px; width:0; height:0; content:""; display:block; border-top:5px solid #525252; border-top:5px solid #272727\0; border-left:5px solid transparent; border-right:5px solid transparent; }
+#tip_alphe { display:none; position:absolute; top:183px; left:358px; width:200px; padding:10px; color:#FFFFFF; background:rgba(39,39,39,0.8); background:#272727\0; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; }
+#tip_alphe:after { position:absolute; top:-5px; left:35px; width:0; height:0; content:""; display:block; border-bottom:5px solid #525252; border-bottom:5px solid #272727\0; border-left:5px solid transparent; border-right:5px solid transparent; }
+</style>
+</head>
+
+<body>
+<div id="header">
+  <h1></h1>
+</div>
+<div id="main">
+  <h1>CSS背景颜色属性值转换</h1>
+  <div id="body" class="light">
+    <div id="content" class="show">
+      <div class="top_tips">
+
+        <h2>实现背景色透明效果的代码</h2>
+        <p>实现各个浏览器中具备良好的透明特性的效果，IE中使用私有滤镜filter，高端浏览器使用CSS3中的rgba属性。</p>
+        <p>输入十六进制的颜色值以及透明度，自动在IE的过渡滤镜以及CSS3中的rgba属性之间进行十六进制与十进制的换算。</p>
+        <p><strong>说明：</strong></p>
+        <p><strong>1.样式名选项，</strong>例如：.rgba，填样式名选项后会自动导出IE9的兼容方案，不填样式名直接输出样式属性，请自己写IE9的hack</p>
+        <p>单独把 IE9 的 filter 变成透明度为 0 即可。高级浏览器大部分支持 :root 伪类，但不支持 filter 属性，而 IE 只有 IE9 支持，所以我们可以这样写。代码如下：</p>
+        <pre>:root .rgba{filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#00000000', EndColorStr='#00000000');  }</pre>
+        <p><strong>2.颜色值选项</strong>：十六进制是从【0】到【9】以及【a】到【f】组合而成的，再来一次吧！\n如果是十六进制的缩写，是前后相邻的字母可简写成为一个，例如【#FF000FF】可转为【#F0F】\n请检查你的颜色值是否为【三位】或者符合【十六进制的组合方式】。</p>
+        <p><strong>3.透明度现象：</strong>透明度的值在【0】到【1】之间。</p>
+<p>&nbsp;</p>
+        <div id="tip" onclick="this.style.display='none'" onmouseout="this.style.display='none'"></div>
+        <div id="tip_alphe" onclick="this.style.display='none'" onmouseout="this.style.display='none'"></div>
+      </div>
+      <div class="wrap">
+        <label for="class-name">样式名：</label>
+        <input type="text" value="" id="class-name"  />
+        <label for="color_value">需要透明的颜色十六进制值：#</label>
+        <input type="text" value="" id="color_value" maxlength="6" />
+        <label for="original">透明度：</label>
+        <input type="input" id="original" />
+        <button type="button" onclick="change_10_to_16()">转为16进制的颜色</button>
+        <br />
+        <div id="alpha_style"></div>
+      </div>
+      <ul>
+        <li>作者： <a href="http://www.linxz.de/" title="林小志">林小志</a></li>
+        <li>修改：<a href="/"></a></li>
+        <li>时间：2011-10-12</li>
+        <li><a href="http://www.linxz.de/demo/hex_change.html">CSS背景颜色属性值转换</a></li>
+      </ul>
+      <script type="text/javascript">
+
+          var oOriginal = document.getElementById("original");
+
+          var co_value = document.getElementById("color_value");
+
+          var css_cont = document.getElementById("alpha_style");
+
+          var warn_tip = document.getElementById("tip");
+
+          var warn_tip_a = document.getElementById("tip_alphe");
+          var classVal = document.getElementById("class-name");
+
+          function change_10_to_16() {
+
+              var pattern = /^[0-9a-fA-F]{6}$/;
+
+              var pattern_3 = /^[0-9a-fA-F]{3}$/;
+
+              var co = co_value.value;
+
+              var num = Math.floor((Math.floor(oOriginal.value * 100) / 100) * 255);
+
+              var num_10 = (Math.floor(oOriginal.value * 100) / 100);
+
+              var num_change = num.toString(16);
+
+              var txt = '';
+
+
+              num = parseInt(num);
+
+
+              if (co.match(pattern) == null) {
+
+                  if (co.length == 3) {
+
+                      if (co.match(pattern_3) == null) {
+
+                          warn_tip.innerHTML = "十六进制是从【0】到【9】以及【a】到【f】组合而成的，再来一次吧！\n如果是十六进制的缩写，是前后相邻的字母可简写成为一个，例如【#FF000FF】可转为【#F0F】\n请检查你的颜色值是否为【三位】或者符合【十六进制的组合方式】。";
+
+                      } else {
+
+                          if (oOriginal.value >= 0 && oOriginal.value <= 1) {
+
+                              if (num_change.length == 1) {
+
+                                  num_change = "0" + num_change;
+
+                              }
+
+                              var co_a = co.substring(0, 1);
+
+                              var co_b = co.substring(1, 2);
+
+                              var co_c = co.substring(2, 3);
+
+                              var co_a2 = co_a + co_a;
+
+                              var co_b2 = co_b + co_b;
+
+                              var co_c2 = co_c + co_c;
+
+                              co = co_a2 + co_b2 + co_c2;
+                              var outText="";
+                      if(classVal.value==""){
+                          outText="filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#" + num_change.toUpperCase() + co.toUpperCase() + "', endColorstr='#" + num_change.toUpperCase() + co.toUpperCase() + "');background:rgba(" + parseInt(co_a2, 16) + "," + parseInt(co_b2, 16) + "," + parseInt(co_c2, 16) + "," + num_10 + ");";
+
+
+                      }else{
+                        outText=classVal.value+"{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#" + num_change.toUpperCase() + co.toUpperCase() + "', endColorstr='#" + num_change.toUpperCase() + co.toUpperCase() + "');background:rgba(" + parseInt(co_a2, 16) + "," + parseInt(co_b2, 16) + "," + parseInt(co_c2, 16) + "," + num_10 + ");}";
+                              outText+="<br /> :root "+classVal.value+"{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#00" + co.toUpperCase() + "', endColorstr='#00" + co.toUpperCase() + "');}/*for IE9*/";
+                      outText+="<br />或者ie9的hack使用： <br /> :root "+classVal.value+"{filter:none;}/*for IE9*/";
+                      }
+
+                              css_cont.innerHTML = outText;
+
+
+                              /*temp_cont = css_cont.value;
+
+
+                              txt += css_cont.innerHTML;
+
+
+                              if (css_cont.value == "" || css_cont.value != txt) {
+
+                                  css_cont.value = txt;
+
+                              }*/
+
+
+                          } else {
+
+                              warn_tip_a.style.display = "block";
+
+                              warn_tip_a.innerHTML = "透明度的值在【0】到【1】之间。";
+
+                          }
+
+                      }
+
+                  } else {
+
+                      warn_tip.style.display = "block";
+
+                      warn_tip.innerHTML = "十六进制是从【0】到【9】以及【a】到【f】组合而成的，再来一次吧！\n如果是十六进制的缩写，是前后相邻的字母可简写成为一个，例如【#FF000FF】可转为【#F0F】\n请检查你的颜色值是否为【三位】或者符合【十六进制的组合方式】。";
+
+                  }
+
+              } else {
+
+                  if (oOriginal.value >= 0 && oOriginal.value <= 1) {
+
+                      if (num_change.length == 1) {
+
+                          num_change = "0" + String(num_change);
+
+                      }
+
+                      var co_a = co.substring(0, 2);
+
+                      var co_b = co.substring(2, 4);
+
+                      var co_c = co.substring(4, 6);
+                      var outText="";
+                      if(classVal.value==""){
+                          outText="filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#" + num_change.toUpperCase() + co.toUpperCase() + "', endColorstr='#" + num_change.toUpperCase() + co.toUpperCase() + "');background:rgba(" + parseInt(co_a, 16) + "," + parseInt(co_b, 16) + "," + parseInt(co_c, 16) + "," + num_10 + ");";
+
+                      }else{
+                        outText=classVal.value+"{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#" + num_change.toUpperCase() + co.toUpperCase() + "', endColorstr='#" + num_change.toUpperCase() + co.toUpperCase() + "');background:rgba(" + parseInt(co_a, 16) + "," + parseInt(co_b, 16) + "," + parseInt(co_c, 16) + "," + num_10 + ");}";
+
+                        outText+="<br /> :root "+classVal.value+"{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#00" + co.toUpperCase() + "', endColorstr='#00" + co.toUpperCase() + "');}/*for IE9*/";
+                          outText+="<br />或者ie9的hack使用： <br /> :root "+classVal.value+"{filter:none;}/*for IE9*/";
+                      }
+
+                      css_cont.innerHTML = outText;
+                      //css_cont.innerHTML = "filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#" + num_change.toUpperCase() + co.toUpperCase() + "', endColorstr='#" + num_change.toUpperCase() + co.toUpperCase() + "');background:rgba(" + parseInt(co_a, 16) + "," + parseInt(co_b, 16) + "," + parseInt(co_c, 16) + "," + num_10 + ");";
+
+
+
+                      temp_cont = css_cont.value;
+
+
+                      txt += css_cont.innerHTML;
+
+
+                      if (css_cont.value == "" || css_cont.value != txt) {
+
+                          css_cont.value = txt;
+
+                      }
+
+
+                  } else {
+
+                      warn_tip_a.style.display = "block";
+
+                      warn_tip_a.innerHTML = "透明度的值在【0】到【1】之间。";
+
+                  }
+
+              }
+
+          }
+</script>
+    </div>
+  </div>
+</div>
+<div id="footer"> Designed &amp; Powerd by <a href="/">web前端开发</a><br/>
+  Copyright© web前端开发-专注前端开发,关注用户体验 <br>
+</div>
+<!-- 43 queries. 0.519 seconds. -->
+<script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-3448069-1");
+        pageTracker._trackPageview();
+    } catch(err) {
+    }</script>
+<script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe9ccdced32867527733a2550ec94eee6' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

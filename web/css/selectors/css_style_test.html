@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    /* Classic usage for language selection */
+[lang|="fr"] {
+  font-weight: bold;
+}
+
+/* All elements with the attribute "data-quantity", for which
+   the value starts with "optional" */
+[data-quantity^="optional"] {
+  opacity: 0.5;
+}
+
+/* All elements with the attribute "data-quantity", for which
+   the value ends with "kg" */
+[data-quantity$="kg"] {
+  font-weight: bold;
+}
+
+/* All elements with the attribute "data-vegetable" containing
+   the substring "not spicy" are turned back to green */
+[data-vegetable*="not spicy"] {
+  color: green;
+}
+
+</style>
+
+</head>
+<body>
+    <!-- Learn about this code on MDN: https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Attribute_selectors -->
+
+Ingredients for my recipe: <i lang="fr-FR">Poulet basquaise</i>
+<ul>
+  <li data-quantity="1kg" data-vegetable>Tomatoes</li>
+  <li data-quantity="3" data-vegetable>Onions</li>
+  <li data-quantity="3" data-vegetable>Garlic</li>
+  <li data-quantity="700g" data-vegetable="not spicy like chili">Red pepper</li>
+  <li data-quantity="2kg" data-meat>Chicken</li>
+  <li data-quantity="optional 150g" data-meat>Bacon bits</li>
+  <li data-quantity="optional 10ml" data-vegetable="liquid">Olive oil</li>
+  <li data-quantity="25cl" data-vegetable="liquid">White wine</li>
+</ul><div class="body-wrapper" style="font-family: 'Open Sans Light',Helvetica,Arial,sans-serif;">
+  <h2>HTML Input</h2>
+  <textarea id="code" class="html-input" style="width: 90%;height: 10em;padding: 10px;border: 1px solid #0095dd;"><ol>
+  <li lang="en-GB" data-perf="inc-pro">Manchester United</li>
+  <li lang="es" data-perf="same-pro">Barcelona</li>
+  <li lang="de" data-perf="dec">Bayern Munich</li>
+  <li lang="es" data-perf="same">Real Madrid</li>
+  <li lang="de" data-perf="inc-rel">Borussia Dortmund</li>
+  <li lang="en-GB" data-perf="dec-rel">Southampton FC</li>
+</ol></textarea>
+
+  <h2>CSS Input</h2>
+  <textarea id="code" class="css-input" style="width: 90%;height: 10em;padding: 10px;border: 1px solid #0095dd;">li[] {
+   background: url("http://mdn.github.io/learning-area/css/introduction-to-css/css-selectors/en-GB.png") 5px center no-repeat;
+ }
+
+li[] {
+   background: url("http://mdn.github.io/learning-area/css/introduction-to-css/css-selectors/de.png") 5px center no-repeat;
+ }
+
+li[] {
+   background: url("http://mdn.github.io/learning-area/css/introduction-to-css/css-selectors/es.png") 5px center no-repeat;
+ }
+
+li[] {
+   background-color: rgba(0,255,0,0.7);
+ }
+
+li[] {
+   background-color: rgba(0,0,255,0.5);
+ }
+
+li[] {
+   background-color: rgba(255,0,0,0.7);
+ }
+
+li[] {
+   font-weight: bold;
+ }
+
+li[] {
+   font-style: italic;
+   color: #666;
+ }
+
+ol {
+   padding: 0;
+ }
+
+li {
+   padding: 3px 3px 3px 34px;
+   margin-bottom: 5px;
+   list-style-position: inside;
+ }</textarea>
+
+  <h2>Output</h2>
+  <div class="output" style="width: 90%;height: 10em;padding: 10px;border: 1px solid #0095dd;overflow:auto;"></div>
+  <div class="controls">
+    <input id="reset" type="button" value="Reset" style="margin: 10px 10px 0 0;">
+    <input id="solution" type="button" value="Show solution" style="margin: 10px 0 0 10px;">
+  </div>
+</div>
+<script>
+    var htmlInput = document.querySelector(".html-input");
+    var cssInput = document.querySelector(".css-input");
+    var reset = document.getElementById("reset");
+    var htmlCode = htmlInput.value;
+    var cssCode = cssInput.value;
+    var output = document.querySelector(".output");
+    var solution = document.getElementById("solution");
+    
+    var styleElem = document.createElement('style');
+    var headElem = document.querySelector('head');
+    headElem.appendChild(styleElem);
+    
+    function drawOutput() {
+      output.innerHTML = htmlInput.value;
+      styleElem.textContent = cssInput.value;
+    }
+    
+    reset.addEventListener("click", function() {
+      htmlInput.value = htmlCode;
+      cssInput.value = cssCode;
+      drawOutput();
+    });
+    
+    solution.addEventListener("click", function() {
+      htmlInput.value = htmlCode;
+      cssInput.value = 'li[lang="en-GB"] {\n   background: url("http://mdn.github.io/learning-area/css/introduction-to-css/css-selectors/en-GB.png") 5px center no-repeat;\n}\n\nli[lang="de"] {\n   background: url("http://mdn.github.io/learning-area/css/introduction-to-css/css-selectors/de.png") 5px center no-repeat;\n}\n\nli[lang="es"] {\n   background: url("http://mdn.github.io/learning-area/css/introduction-to-css/css-selectors/es.png") 5px center no-repeat;\n}\n\nli[data-perf*="inc"] {\n   background-color: rgba(0,255,0,0.7);\n}\n\nli[data-perf*="same"] {\n   background-color: rgba(0,0,255,0.5);\n}\n\nli[data-perf*="dec"] {\n   background-color: rgba(255,0,0,0.7);\n}\n\nli[data-perf*="pro"] {\n   font-weight: bold;\n}\n\nli[data-perf*="rel"] {\n   font-style: italic;\n   color: #666;\n}\n\nol {\n   padding: 0;\n}\n\nli {\n   padding: 3px 3px 3px 34px;\n   margin-bottom: 5px;\n   list-style-position: inside;\n}';
+      drawOutput();
+    });
+    
+    htmlInput.addEventListener("input", drawOutput);
+    cssInput.addEventListener("input", drawOutput);
+    window.addEventListener("load", drawOutput);
+    </script>
+</body>
+</html>   

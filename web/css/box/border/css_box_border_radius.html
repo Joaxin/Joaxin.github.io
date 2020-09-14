@@ -1,0 +1,219 @@
+<html>
+
+<head>
+    <title>Code Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin: 5px 5px 0px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 250px;
+            overflow: scroll;
+            margin: 0px auto;
+            display: inline-block;
+            border: none;
+            background: #f4f4f9;
+            font-family: Courier, sans-serif;
+            font-size: 14px;
+        }
+
+        ul.tabs {
+            list-style: none;
+            height: 32px;
+            width: 100%;
+        }
+
+        ul.tabs li {
+            float: left;
+            cursor: pointer;
+            padding: 0px 20px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #666;
+            color: #ccc;
+            overflow: hidden;
+            position: relative;
+        }
+
+        ul.tabs li:hover {
+            background-color: #ccc;
+            color: #555;
+        }
+
+        ul.tabs li.active {
+            background-color: #f4f4f9;
+            color: #555;
+            display: block;
+            /* border-bottom: 1px solid #f4f4f9; */
+        }
+
+        .tab_code {
+            width: 100%;
+            background: #fff;
+            overflow: auto;
+        }
+
+        .tab_ {
+            padding: 0px;
+            display: none;
+        }
+
+        iframe {
+            bottom: 0;
+            border: none;
+            position: relative;
+            width: 100%;
+            height: 35em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="tabs">
+            <li class="active" rel="tab1">HTML</li>
+            <li rel="tab2">CSS</li>
+            <li rel="tab3">JavaScript</li>
+        </ul>
+        <div class="tab_code">
+            <div id="tab1" class="tab_">
+                <textarea id="html" placeholder="HTML">
+<select id="select_radius"" onChange='apply_css_select(this)'>
+<option value="0">-Select Border Radius-</option>
+<option value="1">10px</option>
+<!-- 25/25-10px -->
+<option value="2">25px</option>
+<!-- 30 degree / 45 degree -->
+<option value="3">80px</option>
+<option value="4">100px</option>
+<option value="5">10px 0 0 0</option>
+<option value="6">10px 25px 50px</option>
+<option value="7">10px  20px  30px  40px / 40px 30px 20px 10px</option>
+</select>
+<hr>
+<div id="border-radius"></div>
+<div id="border-radius2"></div>
+<div id="border-radius3"></div>
+<table class="table1">
+    <tr>
+        <td>border-collapse:collapse</td>
+        <td>border-collapse:collapse</td>
+    </tr>
+    <tr>
+        <td>border-collapse:collapse</td>
+        <td>border-collapse:collapse</td>
+    </tr>
+</table>
+<table class="table2">
+  <tr>
+      <td>border-collapse:separate</td>
+      <td>border-collapse:separate</td>
+  </tr>
+  <tr>
+    <td>border-collapse:separate</td>
+    <td>border-collapse:separate</td>
+</tr>
+</table>
+                </textarea>
+            </div>
+            <div id="tab2" class="tab_">
+                <textarea id="css" placeholder="CSS">
+div {
+    display: inline-block;
+    margin: 20px 50px;
+    width: 350px;
+    height: 100px;
+}
+
+#border-radius {
+    border: 10px solid orange;
+}
+
+#border-radius2 {
+    border: 30px solid orange;
+    border-width: 20px 5px 30px 60px;
+}
+
+#border-radius3 {
+    border: 30px solid orange;
+    border-width: 35px 35px 60px 30px;
+    border-color: orange red green blue;
+}
+
+table {
+    margin: 10px;
+    border: 5px solid orange;
+    border-radius: 10px;
+}
+
+.table1 {
+    border-collapse: collapse;
+}
+
+.table2 {
+    border-collapse: separate;
+}
+                </textarea>
+            </div>
+            <div id="tab3" class="tab_">
+                <textarea id="js" placeholder="JavaScript">
+function apply_css_select(rel){
+    let v1 = document.getElementById("border-radius")
+    v1.style.borderRadius= rel.options[rel.selectedIndex].text;
+    let v2 = document.getElementById("border-radius2")
+    v2.style.borderRadius= rel.options[rel.selectedIndex].text;
+    let v3 = document.getElementById("border-radius3")
+    v3.style.borderRadius= rel.options[rel.selectedIndex].text;
+}
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <iframe id="code"></iframe>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(".tab_").hide();
+        $(".tab_:first").show();
+
+        $("ul.tabs li").click(function() {
+
+            $(".tab_").hide();
+            let activeTab = $(this).attr("rel");
+            $("#" + activeTab).fadeIn();
+
+            $("ul.tabs li").removeClass("active");
+            $(this).addClass("active");
+
+        });
+
+        function compile() {
+            let html = document.getElementById("html");
+            let css = document.getElementById("css");
+            let js = document.getElementById("js");
+            let code = document.getElementById("code").contentWindow.document;
+            code.open();
+            code.writeln(
+                html.value +
+                "<style>" +
+                css.value +
+                "</style>" +
+                "<script>" +
+                js.value + "<" +
+                "/script>");
+            code.close();
+        }
+
+        compile();
+        window.addEventListener("click", compile);
+    </script>
+</body>
+
+</html>

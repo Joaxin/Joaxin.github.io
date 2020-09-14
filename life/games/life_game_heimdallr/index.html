@@ -1,0 +1,251 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>海姆达尔 - Heimdallr | Pinsflora</title><meta name="description" content="逐梦，似人生无涯。活着，如末日将至。向死而生，我以真正活过。"><meta name="author" content="Joaxin"><meta name="copyright" content="Joaxin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://u.pinsflora.com/life/games/life_game_heimdallr/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="海姆达尔 - Heimdallr"><meta property="og:url" content="https://u.pinsflora.com/life/games/life_game_heimdallr/"><meta property="og:site_name" content="Pinsflora"><meta property="og:description" content="逐梦，似人生无涯。活着，如末日将至。向死而生，我以真正活过。"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/games/Heimdall/heimdall_cover.jpg"><meta property="article:published_time" content="2019-07-30T16:00:00.000Z"><meta property="article:modified_time" content="2019-09-26T16:00:00.000Z"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-177831205-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-177831205-1');
+</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  hexoversion: '5.1.1',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime: 'days',
+  date_suffix: {"one_hour":"Just","hours":"hours ago","day":"days ago"},
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: {"bookmark":{"message_prev":"Press","message_next":"to bookmark this page"},"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+    },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true,
+  postUpdate: '2019-09-27 00:00:00'
+}</script><noscript><style type="text/css">
+#nav {
+  opacity: 1
+}
+.justified-gallery img {
+  opacity: 1
+}
+</style></noscript><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+  }
+}
+
+var autoChangeMode = 'false'
+var t = saveToLocal.get('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (saveToLocal.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="Pinsflora" type="application/atom+xml">
+</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">272</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">98</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">31</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div></div></div><div id="body-wrap"><div id="web_bg" data-type="photo"></div><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E8%AF%84"><span class="toc-number">1.</span> <span class="toc-text"> 简评</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%84%E4%BB%B7"><span class="toc-number">2.</span> <span class="toc-text"> 评价</span></a></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/games/Heimdall/heimdall_cover.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Pinsflora</a></span><span id="menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">海姆达尔 - Heimdallr</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-07-30T16:00:00.000Z" title="Created 2019-07-31 00:00:00">2019-07-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2019-09-26T16:00:00.000Z" title="Updated 2019-09-27 00:00:00">2019-09-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Life/">Life</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Life/Games/">Games</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>5min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><blockquote>
+<p>在北欧神话里（Norse mythology），海姆达尔（Heimdall, 古北欧语：Heimdallr），是彩虹桥的守护神，阿斯加德的守护者, 破晓之神。</p>
+<p>奥丁和雅恩莎撒(Jarnsaxa)之子，满口长着金牙，他拥有最好的眼睛，眼光敏锐深远，能眼观四路，无论白天黑夜都能看三百里远；他拥有最灵敏的耳朵，亦能耳听八方，俯伏在地上能听得见青草生长，流水潺潺，羊毛生长的嘶嘶声，日夜不疲。</p>
+<p>他日夜守护在天界入口要道比弗罗斯特彩虹桥（ Rainbow bridge Bifröst），用他过人的眼睛和耳朵监视着，防御冰霜巨人的侵袭。他骑着金鬃马，肩背奥拉尔号角（Gjallarhorn），遇有紧急情况便吹起号角，召唤众神祗前来应付。</p>
+</blockquote>
+<h2 id="简评"><a class="markdownIt-Anchor" href="#简评"></a> 简评</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/games/Heimdall/heimdall_01asgard.jpg" alt="Asgard" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/games/Heimdall/heimdall_02plan_AG.jpg" alt="AG" /></p>
+<p>Ω实验室是科技界的一枚新星，其创始人是三位优秀的年轻人(克莱尔，福克斯，艾伦)，被媒体称为“三剑客”。其中，“三剑客”之一的克莱尔(Claire)在工作中意外身亡，留下未完成的作品“海姆达尔”。</p>
+<p>15年后，克莱尔之子杰森(Jason)，长大成为一名黑客。他对警察的草草结案极为不满，发誓要将事故查个水落石出。</p>
+<p>为了寻找真相，杰森执着的寻找线索，穿梭在虚拟和现实中，依游戏解谜要求，不断展开各种冒险挑战。</p>
+<p>而女主角的出现可以说是给被称为“肥宅”，哦不，是“高端科技型大佬肥宅”的男主的内心照去了一束光，本来以男主一个人难以做到的事情因为她，一切似乎都变得简单起来。</p>
+<p>初次连入</p>
+<p>梦魇</p>
+<p>入侵科尔 抽取记忆 美好的记忆</p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/games/Heimdall/heimdall_009.jpg" alt="tree memories" /></p>
+<p>大树下的回忆 你怎么还留着这个删掉</p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/games/Heimdall/heimdall_010.jpg" alt="tree memories" /></p>
+<p>快看 那群机器人在嗨 娱乐 休息 巡逻 电解液</p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/games/Heimdall/heimdall_003.jpg" alt="cat" /></p>
+<blockquote></blockquote>
+<p>唤醒我的灵魂 摆脱束缚	他们终于安静了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/games/Heimdall/heimdall_011.jpg" alt="tree memories" /></p>
+<p>​	在柯尔经受着折磨，束缚着艾伦的不再是外界的任何东西了，而是对自己的苛责，对克莱尔的愧疚。挚友走后，她生活的每一步都如履薄冰，责任，变成了负担。在医院里，艾伦重复着无止境的噩梦。八音盒播放出的婉转曲调，正是那美好的过往。但再也回不去了，只留下这段旋律，承载着再也回不去的时光。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/games/Heimdall/heimdall_012.jpg" alt="allen01" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/games/Heimdall/heimdall_13.jpg" alt="allen02" /></p>
+<p>​	方盒子燃烧自我瞬间爆发，绝地反击替JK挡住守护者那一刀简直瞬间燃爆。COM是克莱尔给予杰森最好的生日礼物，也是解封海姆达尔唯一的钥匙，没有方盒子舍身一击的存在，也许再也没有人能冲破海姆达尔的封锁了.</p>
+<blockquote>
+<p>COM 方盒子 我们走吧 方盒子 它怎么了</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/games/Heimdall/heimdall_005.jpg" alt="violin" /></p>
+<blockquote>
+<p>福克斯的野心</p>
+<p>福克斯 我理解你的理想，但海姆达尔应该是我们进化的钥匙，我决不允许你把它变成人类泄欲的工具，自由和思考才是解药，你却妄想用满足欲望“拯救人类”？ 目光短浅的是你才对！</p>
+</blockquote>
+<p>​	克莱尔因为患有渐冻症所以在多次连入后对海姆达尔产生了依赖性，海姆达尔一旦上市，许多人都会这样。她活着，海姆达尔会变为利益的工具，人类醉生梦死的彼方，会给杰森带来负担，她不想成为任何人的负担却又变为负担 ，命运让她无力选择，只能以死亡解脱面对无解的生活现状 。</p>
+<p>​	在看到邮件的一瞬，克莱尔哭了，哭的很伤心。但同时，她也解脱了，悬在她胸口上的那块石头终于落了地。面对无解的生活现状，她选择了毒药，是的，那也是一种出路。以泪洗面的同时，她终于得以释怀。 克莱尔是自由的，海姆达尔也是自由的。我们手握联通世界的钥匙缺遗失了自己最初的梦想，也许解脱 、逃离、删除才是最好的选择吧。</p>
+<blockquote>
+<p>快走吧，这里马上就要被格式化了<br />
+无所谓，反正她也不在了</p>
+</blockquote>
+<p>她作出了这样的选择， 最后一口刀子，也许，我不应该再妄加评判了</p>
+<blockquote>
+<p>“降临时孤独而至，离开时也孑然一身”<br />
+“向死而生，我已经真正活过”</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/games/Heimdall/heimdall_004.jpg" alt="violin" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/games/Heimdall/heimdall_cover.jpg" alt="逐梦" /></p>
+<blockquote>
+<p>挣脱血与骨的枷锁，冲破时空的边界。我在这里，寻找自由。身体愈发僵硬，思想的火花却更加绚丽。我倾听灵魂深处的声音。它们自由掠过天空与大海，感受狂风和暴雨。活着，从未如此真实，而现实，却让人无比厌烦。世俗已经毫无吸引力，而曾经的朋友也渐行渐远。降临时孤独而至，离开时也孑然一身。</p>
+</blockquote>
+<p>三剑客的克莱尔过于理想，福克斯过于现实，艾伦则过于悲观。克莱尔让艾伦接受了好友的去世，福克斯强行删除艾伦的记忆，艾伦确实不容易。</p>
+<p>克莱尔在死前说的接触限制，证明了海姆达尔早已完成。大脑的极限，算力的极限，理想世界，同步率100%同步率不会使大脑受损，但她却选择自己离去，她认为给杰森留下了最好的礼物，但这选择使艾伦留下创伤，使福克斯变得冷血无情，使Ω破灭，使杰森失去了母亲，她自己离去了解脱了，但给身边的人带来了负担。</p>
+<p>平行线很可怕，永不会相遇，却发现相交线更可怕，虽然能遇见，可相遇后彼此的距离却越来越远。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/games/Heimdall/heimdall_006.jpg" alt="violin" /></p>
+<p><strong>母亲的所作所为我不知道应该说谁对还是错，不由得想到，了最后的选择题，你想将海姆达尔留下来还是将删除呢?</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/games/Heimdall/heimdall_014.jpg" alt="choose" /></p>
+<p>理智来想，我一定会选择上传, 因为海姆达尔是一种技术，一种变革，一种思想的革新, 是开源的。</p>
+<p>JK是克莱尔的孩子，而克莱尔创造海姆达尔的初衷就是想创造一个更有意义的能帮助世人的工具，JK作为她的孩子，我认为他也应该继续下去，如果在海姆达尔的帮助下，社会上的医、教育、文化都有了更好的发展，最终不也是造福了人类吗，这不也是一件有意义的事吗，</p>
+<p>如果选择不上传，那么未来会有第二个海姆达尔出现，因为这种技术的产生在大环境下是“必然”，人的欲望从来没有止境，与其遏制，不如疏通， 被野心家利用是每样技术都有的危险，但技术无错，如果雪藏技术，阻碍的是人类的发展，不如公开技术，避免垄断的发生。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/games/Heimdall/heimdall_recover_end.jpg" alt="END" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/games/Heimdall/heimdall_007.jpg" alt="reporter sister" /></p>
+<p>吉娜成为了优秀的记者</p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/games/Heimdall/heimdall_015.jpg" alt="reporter card" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/games/Heimdall/heimdall_008.jpg" alt="reporter sister" /></p>
+<p><strong>其他</strong>:</p>
+<p>编程梗： 你好世界 <code>sql</code> <code>k8s</code> 泰科用的是亚马逊的aws</p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/games/Heimdall/heimdall_017.jpg" alt="DDOS 盗火者 神秘的K" /></p>
+<h2 id="评价"><a class="markdownIt-Anchor" href="#评价"></a> 评价</h2>
+<p>音效音乐: 极佳，接近the extrasensory（超感觉）</p>
+<p>跑酷难度：AI芯片 &gt; 守门人 &gt; Boss，就是重复了点儿</p>
+<p>解谜难度: 高级但并不复杂</p>
+<p>电影联想: 社会工程学==&gt;没有绝对安全的系统</p>
+<p>​				 皮克希 源代码</p>
+<p>​				夏日大作战</p>
+<p>​				红魔法</p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Joaxin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://u.pinsflora.com/life/games/life_game_heimdallr/">https://u.pinsflora.com/life/games/life_game_heimdallr/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="addtoany"><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_wechat"></a><a class="a2a_button_sina_weibo"></a><a class="a2a_button_facebook_messenger"></a><a class="a2a_button_email"></a><a class="a2a_button_copy_link"></a><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a></div></div><script async="async" src="https://static.addtoany.com/menu/page.js"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/Pysnista/Intro/files/py_subprocess/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_forests.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Python Subprocess</div></div></a></div><div class="next-post pull-right"><a href="/lang/no/duo_no003_actions/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_red_dim_flower.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Duolingo - Norwegian - Vol.3 - Actions</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div></div></div></div></article></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/games/Heimdall/heimdall_cover.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 By Joaxin</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Refine, the Life</div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="Switch Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    $.getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js', function () {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script defer="defer" id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="fasle"></script><script src="/js/third-party/activate-power-mode.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/fae45343.js","daovoice")
+</script><script>var isChatBtn = true
+daovoice('init', {
+  app_id: 'fae45343',},{
+  launcher: { 
+     disableLauncherIcon: isChatBtn // 悬浮 ICON 是否显示
+  },
+});
+daovoice('update');
+
+if (isChatBtn) {
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      daovoice('show')
+    });
+  }
+  chatBtnFn()
+} else {
+  if (true) {
+    function chatBtnHide () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: true // 悬浮 ICON 是否显示
+        },
+      });
+    }
+    function chatBtnShow () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: false // 悬浮 ICON 是否显示
+        },
+      });
+    }
+  }
+}</script></div></body></html>

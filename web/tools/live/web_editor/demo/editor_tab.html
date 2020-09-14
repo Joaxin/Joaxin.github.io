@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML-CSS-JS Live Preview</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="js/docco.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="flex-container">
+        <div class="tabs flex-item">
+            <section id="html">
+                <h2><a href="#html">HTML</a></h2>
+                <div class="code html-input" contenteditable="true">
+                    <pre><code>
+                        <canvas id="myCanvas" width="500" height="500" style="border:2px dotted #8000FF">
+                        </canvas>
+                    </code></pre>
+                </div>
+            </section>
+
+            <section id="css">
+                <h2><a href="#css">CSS</a></h2>
+                <div class="code css-input" contenteditable="true">
+                    <pre><code>
+                    </code></pre>
+                </div>
+
+
+            </section>
+
+            <section id="js">
+                <h2><a href="#js">JS</a></h2>
+                <div class="code js-input" contenteditable="true">
+                    <pre><code>
+                   </code></pre>
+            </section>
+            </div>
+
+        <div class="output flex-item">
+        </div>
+     </div>
+        <script src="js/jquery.slim.min.js"></script>
+        <script src="js/highlight.min.js"></script>
+        <script src="js/main.js"></script>
+</body>
+
+</html>

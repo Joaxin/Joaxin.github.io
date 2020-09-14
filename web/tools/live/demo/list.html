@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HTML Live Preview</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.bootcss.com/highlight.js/9.7.0/styles/docco.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <h2>HTML</h2>
+
+    <div id="code" class="html-input" contenteditable="true">
+      <pre><code><ul class="pagination">
+          <li><a href="#">«</a></li>
+          <li><a href="#">1</a></li>
+          <li><a class="active" href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#">6</a></li>
+          <li><a href="#">7</a></li>
+          <li><a href="#">»</a></li>
+        </ul>
+
+        <ul class="pagination2">
+          <li><a href="#">«</a></li>
+          <li><a href="#">1</a></li>
+          <li><a class="active" href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#">6</a></li>
+          <li><a href="#">7</a></li>
+          <li><a href="#">»</a></li>
+          </ul>
+        </code></pre>
+    </div>
+
+    <h2>CSS</h2>
+    <div id="code" class="css-input" contenteditable="true">
+      <pre><code>
+
+          *{
+            padding: 0;
+            margin: 0;
+          }
+          .pagination {
+              display: inline-block;
+          }
+          
+          .pagination li {
+            display: inline;
+            padding: 3px;
+            margin-bottom: 5px;
+          }
+          
+          .pagination li a {
+              color: black;
+              float: left;
+              padding: 8px 16px;
+              text-decoration: none;
+          }
+          
+          .pagination li a.active {
+              background-color: #4CAF50;
+              color: white;
+          }
+          
+          .pagination li a:hover:not(.active) {
+            background-color: #ddd;
+          }
+
+          .pagination2 li {
+            padding: 3px;
+            margin-bottom: 5px;
+            list-style-type: none;
+            display:inline-block;
+          }
+          .pagination2 a {
+            text-decoration: none;
+            color: black;
+          padding:8px 16px;
+          display:inline-block;
+          }
+          
+          .pagination2 a:hover {
+            text-decoration: underline;
+            color: red;
+          }
+          .pagination2 li:nth-of-type(even) {
+            background-color: #ccc;
+          }
+          
+          .pagination2 li:nth-of-type(odd) {
+            background-color: #eee;
+          }
+          
+        </code></pre>
+    </div>
+    <div class="output"></div>
+  </div>
+  <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+<html>
+
+<head>
+    <title>Code Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin: 5px 5px 0px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 250px;
+            overflow: scroll;
+            margin: 0px auto;
+            display: inline-block;
+            border: none;
+            background: #f4f4f9;
+            font-family: Courier, sans-serif;
+            font-size: 14px;
+        }
+
+        ul.tabs {
+            list-style: none;
+            height: 32px;
+            width: 100%;
+        }
+
+        ul.tabs li {
+            float: left;
+            cursor: pointer;
+            padding: 0px 20px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #666;
+            color: #ccc;
+            overflow: hidden;
+            position: relative;
+        }
+
+        ul.tabs li:hover {
+            background-color: #ccc;
+            color: #555;
+        }
+
+        ul.tabs li.active {
+            background-color: #f4f4f9;
+            color: #555;
+            display: block;
+            /* border-bottom: 1px solid #f4f4f9; */
+        }
+
+        .tab_code {
+            width: 100%;
+            background: #fff;
+            overflow: auto;
+        }
+
+        .tab_ {
+            padding: 0px;
+            display: none;
+        }
+
+        iframe {
+            bottom: 0;
+            border: none;
+            position: relative;
+            width: 100%;
+            height: 35em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="tabs">
+            <li class="active" rel="tab1">HTML</li>
+            <li rel="tab2">CSS</li>
+            <li rel="tab3">JavaScript</li>
+        </ul>
+        <div class="tab_code">
+            <div id="tab1" class="tab_">
+                <textarea id="html" placeholder="HTML">
+    <div id=f ontFamily class="section">
+    <h1><span>Font family</span></h1>
+    <p class="serif">
+        This is a paragraph shown in serif font.
+    </p>
+    <p class="sansserif">
+        This is a paragraph shown in sans-serif font.
+    </p>
+    <p class="monospace">
+        This is a paragraph shown in monospace font.
+    </p>
+    <p class="cursive">
+        This is a paragraph shown in cursive font.
+    </p>
+    <p class="fantasy">
+        This is a paragraph shown in fantasy font.
+    </p>
+</div>
+<div id="fontSize" class="section">
+    <h1><span>Font Size</span></h1>
+    <p>
+        This is a paragraph shown in default fontSize.
+    </p>
+    <p style="font-size:16px">
+        This is a paragraph shown in 16px fontSize.
+    </p>
+    <p style="font-size:16pt">
+        This is a paragraph shown in 16pt fontSize.
+    </p>
+    <p style="font-size:1em">
+        This is a paragraph shown in 1em fontSize.
+    </p>
+    <p style="font-size:small">
+        This is a paragraph shown in small fontSize.
+    </p>
+    <p style="font-size:medium">
+        This is a paragraph shown in medium fontSize.
+    </p>
+    <p style="font-size:large">
+        This is a paragraph shown in large fontSize.
+    </p>
+    <p style="font-size:larger">
+        This is a paragraph shown in larger fontSize.
+    </p>
+                </textarea>
+            </div>
+            <div id="tab2" class="tab_">
+                <textarea id="css" placeholder="CSS">
+body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.5em;
+    color: #20bcd5;
+    padding: 18px 0 18px;
+    margin: 10px 0 10px;
+}
+
+h1 span {
+    border: 2px dashed #20bcd5;
+    padding: 10px;
+}
+
+.section {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+p.serif {
+    font-family: "Times New Roman", Times, serif;
+}
+
+p.sansserif {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+p.monospace {
+    font-family: "Courier New", Courier, monospace;
+}
+
+p.cursive {
+    font-family: Florence, cursive;
+}
+
+p.fantasy {
+    font-family: Blippo, fantasy;
+}
+
+#fontSize {
+    background-color: #efefef;
+    padding: 10px;
+    margin: 0;
+}
+                </textarea>
+            </div>
+            <div id="tab3" class="tab_">
+                <textarea id="js" placeholder="JavaScript"></textarea>
+            </div>
+        </div>
+    </div>
+    <iframe id="code"></iframe>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(".tab_").hide();
+        $(".tab_:first").show();
+
+        $("ul.tabs li").click(function() {
+
+            $(".tab_").hide();
+            let activeTab = $(this).attr("rel");
+            $("#" + activeTab).fadeIn();
+
+            $("ul.tabs li").removeClass("active");
+            $(this).addClass("active");
+
+        });
+
+        function compile() {
+            let html = document.getElementById("html");
+            let css = document.getElementById("css");
+            let js = document.getElementById("js");
+            let code = document.getElementById("code").contentWindow.document;
+            code.open();
+            code.writeln(
+                html.value +
+                "<style>" +
+                css.value +
+                "</style>" +
+                "<script>" +
+                js.value + "<" +
+                "/script>");
+            code.close();
+        }
+
+        compile();
+        window.addEventListener("click", compile);
+    </script>
+</body>
+
+</html>

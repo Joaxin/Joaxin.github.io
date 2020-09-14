@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <title>Code Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        body {
+            text-align: center;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            float: top;
+            overflow: scroll;
+            display: inline-block;
+            background: #f1f1f9;
+            font-family: Courier, sans-serif;
+            font-size: 1.05em;
+        }
+
+        iframe {
+            bottom: 0;
+            position: relative;
+            width: 100%;
+            height: 60%;
+        }
+    </style>
+<!-- <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.2/styles/docco.min.css" rel="stylesheet"> -->
+</head>
+
+<body>
+
+    <textarea id="html" placeholder="" class="code">
+<!--    ordered -->
+<ol>
+    <li>Annihilation</li>
+    <li>Ready Player One</li>
+    <li>A Quiet Place</li>
+</ol> 
+
+<!--     unordered -->
+<ul>
+    <li>Insidious</li>
+    <li>Insidious: Chapter 2 </li>
+    <li>Insidious: Chapter 3 </li>
+    <li>Insidious: The Last Key </li>
+</ul> 
+
+<dl>
+  <dt>soliloquy</dt>
+  <dd>In drama, where a character speaks to themselves, representing their inner thoughts or feelings and in the process relaying them to the audience (but not to other characters.)</dd>
+  <dt>monologue</dt>
+  <dd>In drama, where a character speaks their thoughts out loud to share them with the audience and any other characters present.</dd>
+  <dt>aside</dt>
+  <dd>In drama, where a character shares a comment only with the audience for humorous or dramatic effect. This is usually a feeling, thought, or piece of additional background information.</dd>
+</dl>
+    </textarea>
+
+    <iframe id="code"></iframe>
+<!--     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script> -->
+    <script>
+    function compile() {
+            let html = document.getElementById("html");
+            let code = document.getElementById("code").contentWindow.document;
+            code.open();
+            code.writeln(html.value)
+            code.close();
+    };
+    compile();
+    window.addEventListener("click", compile);
+    </script>
+</body>
+
+</html>

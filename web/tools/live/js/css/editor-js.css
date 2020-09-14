@@ -1,0 +1,207 @@
+* {
+	box-sizing: border-box
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	color: #333;
+	font: 1pc/1.5 sans-serif
+}
+
+header h4:before {
+	display: inline-block;
+	margin-right: .6em;
+	width: 45px;
+	height: 45px;
+	background: transparent url(../media/dino.svg) 0 0 no-repeat;
+	content: '';
+	vertical-align: middle
+}
+
+header h4 {
+	display: inline-block;
+	margin: 0;
+	font-weight: 700;
+	font-size: .9rem
+}
+
+.user-message {
+	position: absolute;
+	top: 30px;
+	left: 50%;
+	z-index: 4;
+	display: none;
+	padding: .5em;
+	border-radius: 4px;
+	background-color: #333;
+	color: #fff;
+	font-size: 14px;
+	opacity: 1;
+	transition: opacity .5s
+}
+
+.fade-in {
+	animation: fadein .5s
+}
+
+.fade-out {
+	animation: fadeout .5s
+}
+
+.hide {
+	opacity: 0
+}
+
+.hidden {
+	display: none
+}
+
+.show {
+	display: block
+}
+
+.visually-hidden {
+	position: absolute!important;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	margin: -1px;
+	padding: 0;
+	width: 1px;
+	height: 1px;
+	border: 0
+}
+
+@media screen and (min-width:47.9375em) {
+	header h4 {
+		font-size: 1.1rem
+	}
+}
+
+@media screen and (min-width:63.9375em) {
+	header h4 {
+		font-size: 1.4rem
+	}
+}
+
+@keyframes fadein {
+	0% {
+		opacity: 0
+	}
+
+	to {
+		opacity: 1
+	}
+}
+
+@keyframes fadeout {
+	0% {
+		opacity: 1
+	}
+
+	to {
+		opacity: 0
+	}
+}
+
+.editor,.output {
+	font-size: 14px
+}
+
+.editor {
+	margin-bottom: 1em
+}
+
+.editor,.output {
+	position: relative
+}
+
+.output {
+	display: inline-block;
+	margin: 0;
+	padding: .8em;
+	width: 91%;
+	height: 90pt;
+	border: 1px solid #eaf2f4;
+	background-color: #fff;
+	box-shadow: 2px 2px 5px -2px rgba(0,0,0,.1);
+	font-family: courier
+}
+
+.output code {
+	overflow-y: auto;
+	width: 100%;
+	height: 75pt;
+	vertical-align: middle;
+	white-space: pre;
+	word-break: break-word
+}
+
+.buttons-container {
+	display: inline-block;
+	width: 75pt;
+	vertical-align: top
+}
+
+.button {
+	display: block;
+	padding: .5em;
+	width: 75pt;
+	border: 2px solid #333;
+	background-color: #fff;
+	color: #333;
+	font-size: 14px;
+	line-height: 1;
+	cursor: pointer
+}
+
+.button:first-child {
+	margin-bottom: .5em
+}
+
+.button:hover {
+	background-color: #333;
+	color: #fff
+}
+
+.js .editor {
+	min-height: 280px
+}
+
+.CodeMirror {
+	height: 280px;
+	border: 1px solid #3f87a6;
+	border-left: 5px solid #3f87a6
+}
+
+.js .editor.taller,.js .editor.taller .CodeMirror {
+	height: 490px
+}
+
+.js .editor.shorter,.js .editor.shorter .CodeMirror {
+	height: 200px;
+	min-height: 200px
+}
+
+@supports (display:flex) {
+	.buttons-container {
+		width: auto;
+		align-self: flex-start
+	}
+
+	.output-container {
+		display: flex;
+		align-items: center
+	}
+
+	.run {
+		margin-right: 10px
+	}
+
+	.output {
+		display: flex;
+		flex: 10 150px;
+		align-items: center
+	}
+}

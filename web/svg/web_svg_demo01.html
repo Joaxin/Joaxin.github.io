@@ -1,0 +1,206 @@
+<html>
+
+<head>
+    <title>Code Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin: 5px 5px 0px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 250px;
+            overflow: scroll;
+            margin: 0px auto;
+            display: inline-block;
+            border: none;
+            background: #f4f4f9;
+            font-family: Courier, sans-serif;
+            font-size: 14px;
+        }
+
+        ul.tabs {
+            list-style: none;
+            height: 32px;
+            width: 100%;
+        }
+
+        ul.tabs li {
+            float: left;
+            cursor: pointer;
+            padding: 0px 20px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #666;
+            color: #ccc;
+            overflow: hidden;
+            position: relative;
+        }
+
+        ul.tabs li:hover {
+            background-color: #ccc;
+            color: #555;
+        }
+
+        ul.tabs li.active {
+            background-color: #f4f4f9;
+            color: #555;
+            display: block;
+            /* border-bottom: 1px solid #f4f4f9; */
+        }
+
+        .tab_code {
+            width: 100%;
+            background: #fff;
+            overflow: auto;
+        }
+
+        .tab_ {
+            padding: 0px;
+            display: none;
+        }
+
+        iframe {
+            bottom: 0;
+            border: none;
+            position: relative;
+            width: 100%;
+            height: 35em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="tabs">
+            <li class="active" rel="tab1">HTML</li>
+            <li rel="tab2">CSS</li>
+            <li rel="tab3">JavaScript</li>
+        </ul>
+        <div class="tab_code">
+            <div id="tab1" class="tab_">
+                <textarea id="html" placeholder="HTML">
+<h2><span>Circle</span></h2>
+<svg width="200" height="200">
+    <circle cx="80" cy="80" r="50" fill="yellow" stroke="red"/>
+</svg>
+
+<h2><span>Rectangle</span></h2>
+<svg width="200" height="100">
+    <rect width="100%" height="100%"  x="20" y="20" fill="green" />
+</svg>
+
+<h2><span>Line</span></h2>
+<svg width="200" height="200">
+    <line x1="10" y1="10" x2="200" y2="100"
+        style="stroke:#000000; stroke-linecap:round;
+        stroke-width:20"/>
+</svg>
+
+<h2><span>Polyline</span></h2>
+<svg width="200" height="200">
+    <polyline style="stroke-linejoin:miter; stroke:black;
+        stroke-width:12; fill: none;"
+        points="100 100, 150 150, 200 100" />
+</svg>
+
+<h2><span>Ellipse</span></h2>
+<svg height="200" width="500">
+    <ellipse cx="200" cy="100" rx="150" ry="70" style="fill:green" />
+</svg>
+
+<h2><span>Polygon</span></h2>
+<svg width="400" height="200">
+<polygon points="100 100, 200 200, 300 0"
+        style="fill: green; stroke:black;" />
+</svg>
+
+<h2><span>Star</span></h2>
+<svg baseProfile="full" xmlns="http://www.w3.org/2000/svg" version="1.1" height="200" id="poly">
+    <polygon points="100,10 40,180 190,60 10,60 160,180"
+    style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;">
+</svg>
+
+<h2><span>Face</span></h2>
+<svg class="face" height="100" width="100">
+<circle cx="50" cy="50" r="50" fill="#FFFF00"/>
+<circle cx="30" cy="30" r="10" fill="#FFFFFF"/>
+<circle cx="70" cy="30" r="10" fill="#FFFFFF"/>
+<circle cx="30" cy="30" r="5" fill="#000000"/>
+<circle cx="70" cy="30" r="5" fill="#000000"/>
+<path d="M 30 70 q 20 20 40 0" stroke="#FFFFFF" stroke-width="5" fill="none" />
+</svg>
+
+<h2><span>Animations</span></h2>
+<svg width="1000" height="250">
+<rect width="150" height="150" fill="orange">
+    <animate attributeName="x" from="0" to="300"
+    dur="3s" fill="freeze" repeatCount="2"/> 
+</rect>
+</svg>
+
+<h2><span>Paths</span></h2>
+<!-- Rectangle: M 0 0 L200 200 L200 0 Z-->
+<svg width="500" height="500">
+<path d="M 0 0 L200 200 L200 0 Z" style="stroke:#000;  fill:none;" />
+</svg>
+                                                        
+                                    
+                </textarea>
+            </div>
+            <div id="tab2" class="tab_">
+                <textarea id="css" placeholder="CSS">
+
+                </textarea>
+            </div>
+            <div id="tab3" class="tab_">
+                <textarea id="js" placeholder="JavaScript"></textarea>
+            </div>
+        </div>
+    </div>
+    <iframe id="code"></iframe>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(".tab_").hide();
+        $(".tab_:first").show();
+
+        $("ul.tabs li").click(function() {
+
+            $(".tab_").hide();
+            let activeTab = $(this).attr("rel");
+            $("#" + activeTab).fadeIn();
+
+            $("ul.tabs li").removeClass("active");
+            $(this).addClass("active");
+
+        });
+
+        function compile() {
+            let html = document.getElementById("html");
+            let css = document.getElementById("css");
+            let js = document.getElementById("js");
+            let code = document.getElementById("code").contentWindow.document;
+            code.open();
+            code.writeln(
+                html.value +
+                "<style>" +
+                css.value +
+                "</style>" +
+                "<script>" +
+                js.value + "<" +
+                "/script>");
+            code.close();
+        }
+
+        compile();
+        window.addEventListener("click", compile);
+    </script>
+</body>
+
+</html>
