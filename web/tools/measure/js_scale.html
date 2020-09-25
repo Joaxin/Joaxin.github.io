@@ -51,12 +51,14 @@
 
       .info {
         display: flex;
-        flex: 1;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: space-around;
+        
       }
 
       .info > div {
+        flex: 1;
         border: 1px solid black;
         border-radius: 1px;
         font-size: 1.1rem;
@@ -85,6 +87,7 @@
     <div class="info">
       <div class="cont"></div>
       <div class="box"></div>
+      <div><img src="./box.png" alt=""></div>
     </div>
   </body>
   <script type="text/javascript">
@@ -182,7 +185,7 @@
           "container.style.height: " + container.style.height,
           "container.offsetWidth: " + container.offsetWidth+ "px",
           "container.offsetHeight: " + container.offsetHeight + "px",
-          "container.offsetLeft: " + container.offsetLeft + "px",
+          "container.offsetLeft: " + container.offsetLeft + "px(" + (document.documentElement.clientWidth - 176)/2 + ")",
           "container.offsetTop: " + container.offsetTop + "px",
         ].join("<br/>");
 
