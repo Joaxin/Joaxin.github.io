@@ -1,0 +1,42 @@
+html {
+  font-family: sans-serif;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2.5px solid #7f8c8d; 
+  /* Asbestos */
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+}
+
+td, th {
+  border: 1px solid #ecf0f1;
+   /* white */
+  padding: 10px 20px;
+  
+}
+
+th {
+  background-color: rgb(235,235,235);
+  color:#2c3e50;
+   /* midnight blue */
+}
+
+td {
+  text-align: center;
+}
+
+tr:nth-child(even) td {
+  background-color: #95a5a6;
+  /* concrete */
+}
+
+tr:nth-child(odd) td {
+  background-color: #bdc3c7;
+  /* sliver */
+}
+
+caption {
+  padding: 10px;
+}

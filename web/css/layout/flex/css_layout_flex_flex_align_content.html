@@ -1,0 +1,344 @@
+<html>
+
+<head>
+    <title>Code Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin: 5px 5px 0px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 250px;
+            overflow: scroll;
+            margin: 0px auto;
+            display: inline-block;
+            border: none;
+            background: #f4f4f9;
+            font-family: Courier, sans-serif;
+            font-size: 14px;
+        }
+
+        ul.tabs {
+            list-style: none;
+            height: 32px;
+            width: 100%;
+            z-index: 999;
+        }
+
+        ul.tabs li {
+            float: left;
+            cursor: pointer;
+            padding: 0px 20px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #666;
+            color: #ccc;
+            overflow: hidden;
+            position: relative;
+        }
+
+        ul.tabs li:hover {
+            background-color: #ccc;
+            color: #555;
+        }
+
+        ul.tabs li.active {
+            background-color: #f4f4f9;
+            color: #555;
+            display: block;
+            /* border-bottom: 1px solid #f4f4f9; */
+        }
+
+        .tab_code {
+            width: 100%;
+            background: #fff;
+            overflow: auto;
+        }
+
+        .tab_ {
+            padding: 0px;
+            display: none;
+        }
+
+        iframe {
+            bottom: 0;
+            border: none;
+            position: relative;
+            width: 100%;
+            height: 35em;
+        }
+
+        #colorBox {
+            position: absolute;
+            right: 50px;
+            top: 50px;
+        }
+
+    </style>
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <ul class="tabs" id="tabs">
+            <li class="active" rel="tab1">HTML</li>
+            <li rel="tab2">CSS</li>
+            <li rel="tab3">JavaScript</li>
+            <li onclick="mi()"><i class="fa fa-window-minimize"></i></li>
+        </ul>
+        <div class="tab_code">
+            <div id="tab1" class="tab_">
+                <textarea id="html" placeholder="HTML">
+<div id="container" class="flex">
+    <div id="item1">1</div>
+    <div id="item2">2</div>
+    <div id="item3">3</div>
+    <div id="item4">4</div>
+    <div id="item5">5</div>
+    <div id="item6">6</div>
+</div>
+
+<div class="row">
+    <label for="display">display: </label>
+    <select id="display">
+                          <option value="flex">flex</option>
+                          <option value="grid">grid</option>
+                        </select>
+</div>
+
+<div class="row">
+    <label for="values">align-content: </label>
+    <select id="values">
+                          <option value="normal" selected>normal</option>
+                          <option value="stretch">stretch</option>
+                          <option value="flex-start">flex-start</option>
+                          <option value="flex-end">flex-end</option>
+                          <option value="center">center</option>
+                          <option value="space-between">space-between</option>
+                          <option value="space-around">space-around</option>
+                          <option value="space-evenly">space-evenly</option>
+                      
+                          <option value="start">start</option>
+                          <option value="end">end</option>
+                          <option value="left">left</option>
+                          <option value="right">right</option>
+                      
+                          <option value="baseline">baseline</option>
+                          <option value="first baseline">first baseline</option>
+                          <option value="last baseline">last baseline</option>
+                      
+                          <option value="safe center">safe center</option>
+                          <option value="unsafe center">unsafe center</option>
+                          <option value="safe right">safe right</option>
+                          <option value="unsafe right">unsafe right</option>
+                          <option value="safe end">safe end</option>
+                          <option value="unsafe end">unsafe end</option>
+                          <option value="safe flex-end">safe flex-end</option>
+                          <option value="unsafe flex-end">unsafe flex-end</option>
+                        </select>
+</textarea>
+            </div>
+            <div id="tab2" class="tab_">
+                <textarea id="css" placeholder="CSS">
+#container {
+    height: 200px;
+    width: 240px;
+    background-color: #8c8c8c;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 50px);
+}
+
+div>div {
+    box-sizing: border-box;
+    border: 2px solid #8c8c8c;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#item1 {
+    background-color: #8cffa0;
+    min-height: 30px;
+}
+
+#item2 {
+    background-color: #a0c8ff;
+    min-height: 50px;
+}
+
+#item3 {
+    background-color: #ffa08c;
+    min-height: 40px;
+}
+
+#item4 {
+    background-color: #ffff8c;
+    min-height: 60px;
+}
+
+#item5 {
+    background-color: #ff8cff;
+    min-height: 70px;
+}
+
+#item6 {
+    background-color: #8cffff;
+    min-height: 50px;
+    font-size: 30px;
+}
+
+select {
+    font-size: 16px;
+}
+
+.row {
+    margin-top: 10px;
+}
+
+                </textarea>
+                <div id="colorBox">
+                    <p></p>
+                </div>
+            </div>
+            <div id="tab3" class="tab_">
+                <textarea id="js" placeholder="JavaScript">
+var values = document.getElementById('values');
+var display = document.getElementById('display');
+var container = document.getElementById('container');
+
+values.addEventListener('change', function (evt) {
+    container.style.alignContent = evt.target.value;
+});
+
+display.addEventListener('change', function (evt) {
+    container.className = evt.target.value;
+});
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <iframe id="code"></iframe>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(".tab_").hide();
+        $(".tab_:first").show();
+
+        $("ul.tabs li").click(function() {
+            $(".tab_").hide();
+            let activeTab = $(this).attr("rel");
+            $("#" + activeTab).fadeIn();
+
+            $("ul.tabs li").removeClass("active");
+            $(this).addClass("active");
+        });
+
+        function mi() {
+            var iframe = document.getElementById("code");
+            var tabs = document.getElementById("tabs");
+            if (tabs.style.position == "fixed") {
+                iframe.style.height = "35em";
+                for (var i = 0; i < tabs.children.length - 1; i++) {
+                    tabs.children[i].style.display = "block";
+                }
+                tabs.children[3].childNodes[0].className = "fa fa-window-minimize";
+                tabs.style.position = "relative";
+            } else {
+                iframe.style.height = "100%";
+                iframe.style.width = "100%";
+                for (var i = 0; i < tabs.children.length - 1; i++) {
+                    tabs.children[i].style.display = "none";
+                }
+                tabs.children[3].childNodes[0].className = "fa fa-plus";
+                tabs.children[3].childNodes[0].style.padding = "7px";
+                tabs.style.position = "fixed";
+            }
+        }
+
+        function isLight(color) {
+            if (["white","yellow"].includes(color)) {
+                return false
+            }
+            var r, g, b, hsp;
+            if (color.match(/^rgb/)) {
+                color = color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/);
+                r = color[1];
+                g = color[2];
+                b = color[3];
+            } else {
+                // If hex --> Convert it to RGB: http://gist.github.com/983661
+                color = +("0x" + color.slice(1).replace(
+                    color.length < 5 && /./g, '$&$&'));
+                r = color >> 16;
+                g = color >> 8 & 255;
+                b = color & 255;
+            }
+            // HSP (Highly Sensitive Poo) equation from http://alienryderflex.com/hsp.html
+            hsp = Math.sqrt(
+                0.299 * (r * r) +
+                0.587 * (g * g) +
+                0.114 * (b * b)
+            );
+            // Using the HSP value, determine whether the color is light or dark
+            return hsp < 127.5
+        }
+
+        function compile() {
+            let html = document.getElementById("html");
+            let css = document.getElementById("css");
+            // let css = document.getElementById("css").value;
+            // var regex = /#(?:[0-9a-f]{3}){1,2}/gi
+            // https://gist.github.com/olmokramer/82ccce673f86db7cda5e
+            let regex = /(#([\da-f]{3}){1,2}|\b(black|silver|gray|whitesmoke|maroon|red|purple|fuchsia|green|lime|olivedrab|yellow|navy|blue|teal|aquamarine|orange|aliceblue|antiquewhite|aqua|azure|beige|bisque|blanchedalmond|blueviolet|brown|burlywood|cadetblue|chartreuse|chocolate|coral|cornflowerblue|cornsilk|crimson|darkblue|darkcyan|darkgoldenrod|darkgray|darkgreen|darkgrey|darkkhaki|darkmagenta|darkolivegreen|darkorange|darkorchid|darkred|darksalmon|darkseagreen|darkslateblue|darkslategray|darkslategrey|darkturquoise|darkviolet|deeppink|deepskyblue|dimgray|dimgrey|dodgerblue|firebrick|floralwhite|forestgreen|gainsboro|ghostwhite|goldenrod|gold|greenyellow|grey|honeydew|hotpink|indianred|indigo|ivory|khaki|lavenderblush|lavender|lawngreen|lemonchiffon|lightblue|lightcoral|lightcyan|lightgoldenrodyellow|lightgray|lightgreen|lightgrey|lightpink|lightsalmon|lightseagreen|lightskyblue|lightslategray|lightslategrey|lightsteelblue|lightyellow|limegreen|linen|mediumaquamarine|mediumblue|mediumorchid|mediumpurple|mediumseagreen|mediumslateblue|mediumspringgreen|mediumturquoise|mediumvioletred|midnightblue|mintcream|mistyrose|moccasin|navajowhite|oldlace|olive|orangered|orchid|palegoldenrod|palegreen|paleturquoise|palevioletred|papayawhip|peachpuff|peru|pink|plum|powderblue|rosybrown|royalblue|saddlebrown|salmon|sandybrown|seagreen|seashell|sienna|skyblue|slateblue|slategray|slategrey|snow|springgreen|steelblue|tan|thistle|tomato|turquoise|violet|wheat|white|yellowgreen|rebeccapurple)\b|(rgb|hsl)a\((\d{1,3}%?,\s?){3}(1|0?\.\d+)\)|(rgb|hsl)\(\d{1,3}%?(,\s?\d{1,3}%?){2}\))/gi
+            let colorSet = [...new Set(css.value.match(regex))];
+
+            let colorInfo = document.createElement("div");
+            for (let n = 0; n < colorSet.length; n++) {
+                var co = document.createElement("div");
+                co.style.backgroundColor = colorSet[n];
+                co.style.height = "1.5em";
+                co.style.width = "8em";
+                co.style.textAlign = "center";
+                co.style.color = isLight(colorSet[n]) ? '#FFF' : '#000';
+                co.innerHTML = "<b>" + colorSet[n] + "</b>";
+                colorInfo.appendChild(co);
+            }
+            let colorBox = document.getElementById("colorBox");
+            colorBox.replaceChild(colorInfo, colorBox.childNodes[0]);
+            let js = document.getElementById("js");
+            let code = document.getElementById("code").contentWindow.document;
+            code.open();
+            code.writeln(
+                html.value +
+                "<style>" +
+                css.value +
+                "</style>" +
+                "<script>" +
+                js.value +
+                "<" +
+                "/script>"
+            );
+            code.close();
+        }
+
+        compile();
+        window.addEventListener("click", compile);
+    </script>
+</body>
+
+</html>

@@ -421,9 +421,9 @@
   </entry>
   
   <entry>
-    <title>browser_developer_tools</title>
-    <link href="https://u.pinsflora.com/web/tools/browser_developer_tools/"/>
-    <id>https://u.pinsflora.com/web/tools/browser_developer_tools/</id>
+    <title>web前端插件</title>
+    <link href="https://u.pinsflora.com/web/tools/web_tools/"/>
+    <id>https://u.pinsflora.com/web/tools/web_tools/</id>
     <published>2018-10-19T16:00:00.000Z</published>
     <updated>2019-03-26T16:00:00.000Z</updated>
     
@@ -432,7 +432,9 @@
       
         
         
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;网站&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#网站&quot;&gt;&lt;/a&gt; 网站&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;http://jsnice.org/&quot;&gt;http://jsnice.org/&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;教程&quot;&gt;&lt;a</summary>
         
       
     
@@ -446,20 +448,14 @@
   </entry>
   
   <entry>
-    <title>web前端插件</title>
-    <link href="https://u.pinsflora.com/web/tools/web_tools/"/>
-    <id>https://u.pinsflora.com/web/tools/web_tools/</id>
+    <title>browser_developer_tools</title>
+    <link href="https://u.pinsflora.com/web/tools/web_console_tools/"/>
+    <id>https://u.pinsflora.com/web/tools/web_console_tools/</id>
     <published>2018-10-19T16:00:00.000Z</published>
     <updated>2019-03-26T16:00:00.000Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
+    <summary type="html">工欲善其事，必先利其器。</summary>
     
     
     
@@ -472,8 +468,8 @@
   
   <entry>
     <title>Extensions</title>
-    <link href="https://u.pinsflora.com/web/tools/extensions/extensions/"/>
-    <id>https://u.pinsflora.com/web/tools/extensions/extensions/</id>
+    <link href="https://u.pinsflora.com/web/tools/extensions/web_extensions/"/>
+    <id>https://u.pinsflora.com/web/tools/extensions/web_extensions/</id>
     <published>2018-10-19T16:00:00.000Z</published>
     <updated>2019-03-26T16:00:00.000Z</updated>
     
@@ -482,7 +478,8 @@
       
         
         
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;what-are-extensions&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#what-are-extensions&quot;&gt;&lt;/a&gt; What are extensions?&lt;/h1&gt;
+&lt;p&gt;An extension adds</summary>
         
       
     
@@ -1091,6 +1088,35 @@
   </entry>
   
   <entry>
+    <title>常用微信技巧 | 技术向</title>
+    <link href="https://u.pinsflora.com/life/apps/life_apps_wx/"/>
+    <id>https://u.pinsflora.com/life/apps/life_apps_wx/</id>
+    <published>2018-06-02T16:00:00.000Z</published>
+    <updated>2019-09-26T16:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;如何在非微信客户端绕过“请在微信客户端打开链接”&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;检查当前UserAgent：&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="Life" scheme="https://u.pinsflora.com/categories/Life/"/>
+    
+    <category term="Apps" scheme="https://u.pinsflora.com/categories/Life/Apps/"/>
+    
+    
+    <category term="Wechat" scheme="https://u.pinsflora.com/tags/Wechat/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python Web Crawle Pt.8 - Scrapy</title>
     <link href="https://u.pinsflora.com/Pysnista/Crawler/py_Crawler08_scrapy/"/>
     <id>https://u.pinsflora.com/Pysnista/Crawler/py_Crawler08_scrapy/</id>
@@ -1442,7 +1468,7 @@
     
     <category term="Web" scheme="https://u.pinsflora.com/categories/Web/"/>
     
-    <category term="Intro" scheme="https://u.pinsflora.com/categories/Web/Intro/"/>
+    <category term="JS" scheme="https://u.pinsflora.com/categories/Web/JS/"/>
     
     
     <category term="JSON" scheme="https://u.pinsflora.com/tags/JSON/"/>
@@ -1463,7 +1489,7 @@
     
     <category term="Web" scheme="https://u.pinsflora.com/categories/Web/"/>
     
-    <category term="Intro" scheme="https://u.pinsflora.com/categories/Web/Intro/"/>
+    <category term="JS" scheme="https://u.pinsflora.com/categories/Web/JS/"/>
     
     
     <category term="AJAX" scheme="https://u.pinsflora.com/tags/AJAX/"/>
@@ -1484,7 +1510,7 @@
     
     <category term="Web" scheme="https://u.pinsflora.com/categories/Web/"/>
     
-    <category term="Intro" scheme="https://u.pinsflora.com/categories/Web/Intro/"/>
+    <category term="HTML" scheme="https://u.pinsflora.com/categories/Web/HTML/"/>
     
     
   </entry>
@@ -1531,8 +1557,8 @@
   
   <entry>
     <title>Docker</title>
-    <link href="https://u.pinsflora.com/notes/sys/Linux/Ubuntu_docker/"/>
-    <id>https://u.pinsflora.com/notes/sys/Linux/Ubuntu_docker/</id>
+    <link href="https://u.pinsflora.com/notes/sys/Linux/Linux_docker/"/>
+    <id>https://u.pinsflora.com/notes/sys/Linux/Linux_docker/</id>
     <published>2018-01-31T16:00:00.000Z</published>
     <updated>2019-12-12T16:00:00.000Z</updated>
     
@@ -1541,7 +1567,8 @@
       
         
         
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;安装-install&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#安装-install&quot;&gt;&lt;/a&gt; 安装 | Install&lt;/h2&gt;
+&lt;figure class=&quot;highlight</summary>
         
       
     
@@ -2279,29 +2306,6 @@
     <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
         
       
-    
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/categories/Python/Leetcode/"/>
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode - Implement Stack using Queues </title>
-    <link href="https://u.pinsflora.com/Pysnista/Algor/D/leetcode_Network%20Delay%20Time/"/>
-    <id>https://u.pinsflora.com/Pysnista/Algor/D/leetcode_Network%20Delay%20Time/</id>
-    <published>2018-01-13T16:00:00.000Z</published>
-    <updated>2019-04-16T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">Stack</summary>
     
     
     

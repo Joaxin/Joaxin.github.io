@@ -97,31 +97,26 @@
         <div class="tab_code">
             <div id="tab1" class="tab_">
                 <textarea id="html" placeholder="HTML">
-<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/web/res/scream.jpg" draggable="true" ondragstart="drag(event)" id="drag1"></div>
-<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div ondrop="drop(event)" ondragover="allowDrop(event)">
+    <img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/web/res/scream.jpg" draggable="true" ondragstart="drag(event)" id="drag"></div>
+<div ondrop="drop(event)" ondragover="allowDrop(event)"></div>
                 </textarea>
             </div>
             <div id="tab2" class="tab_">
                 <textarea id="css" placeholder="CSS"> 
-* {
-    margin: 0;
-    padding: 0;
-}
-
-#div1,
-#div2 {
+div {
     float: left;
     width: 150px;
     height: 220px;
     margin: 10px;
-    padding: 5px;
-    border: 1px solid #aaaaaa;
+    padding: 6px;
+    border: 1px solid magenta;
 }
 
-#drag1 {
-    height: 218px;
-    width: 148px;
+img{
+    height: 210px;
+    width: 140px;
+    padding: 4px;
     margin: 1px;
 }            
 </textarea>
@@ -146,6 +141,8 @@ function drop(ev)
 ev.preventDefault();
 var data=ev.dataTransfer.getData("Text");
 ev.target.appendChild(document.getElementById(data));
+// Clear the drag data cache (for all formats/types)
+ev.dataTransfer.clearData();
 }
                 </textarea>
             </div>

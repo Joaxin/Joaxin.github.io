@@ -6,8 +6,6 @@
 
 模拟一个打鼓的页面。用户在键盘上按下 ASDFGHJKL 这几个键时，页面上与字母对应的按钮变大变亮，对应的鼓点声音响起来。
 
-[看在线效果](http://soyaine.github.io/JavaScript30/01%20-%20JavaScript%20Drum%20Kit/index-SOYAINE.html)
-
 ## 关键要点
 
 1. 键盘事件
@@ -28,26 +26,6 @@
     2. **为其添加事件监听**
 4. **去除样式的事件处理程序**
 
-### ``forEach`` 与箭头函数
-
-使用 ``document.querySelector`` 获取一组符合 CSS 选择符的元素快照，类型为 NodeList（此对象是对于文档的实时运行的动态查询），对其进行遍历时可采用 ``forEach`` 方法。
-
-```javascript
-// Code from http://es6-features.org/#StatementBodies
-
-// ES6
-nums.forEach(v => {
-	if (v % 5 === 0)
-		fives.push(v);
-})
-
-// ES5
-nums.forEach(function (v) {
-	if (v % 5 === 0)
-		five.push(v);
-})
-```
-
 
 ## 解决难点
 
@@ -67,7 +45,7 @@ const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
 每次播放音频之前，设置播放时间戳为 0：
 
 ````javascript
-var audio = document.getElementById("video"); 
+var audio = document.getElementById("audio"); 
 audio.currentTime = 0;
 audio.play();
 ````

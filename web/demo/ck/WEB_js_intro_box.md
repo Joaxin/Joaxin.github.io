@@ -1,129 +1,210 @@
-## Positioning and Layout
+## 滚动条
 
-https://www.w3schools.com/cssref/pr_class_display.asp
-
-由于前端经常会遇到计算位置的问题，那么搞懂clientWidth,offsetWidth,scrollHeight等等这些就变得尤为重要。放上经典图，一张图让你搞懂clientWidth,offsetWidth,scrollHeight~~~
-
-![一张图搞懂clientWidth,offsetWidth,scrollHeight](https://image-static.segmentfault.com/375/301/3753019063-5c0652fcdb9ca_articlex)
-
-除了这些还有clientX,pageX,screenX等等，再来看下下面的图
-
-![clipboard.png](https://image-static.segmentfault.com/149/728/1497287605-5c06556991ad2_articlex)
-
-下面介绍一下每个字段的含义
-
-- clientLeft,clientTop
-  表示内容区域的左上角相对于整个元素左上角的位置（包括边框）。(取决于边框的像数值？)
-- clientWidth,clientHeight
-  内容区域的宽高，不包括边框宽度值。
-- clientX、clientY
-  点击位置距离当前body可视区域的x，y坐标
-- offsetLeft,offsetTop
-  相对于最近的祖先定位元素。
-- offsetParent
-  某元素的父元素 例如：this.offsetParent.tagName.toLowerCase() 得到body...
-- offsetWidth,offsetHeight
-  整个元素的尺寸(不包括因为滚动条变宽的宽度，包括滚动条的宽度和高度)
-- offsetX, offsetY
-  相对于带有定位的父盒子的x，y坐标
-- scrollLeft,scrollTop
-  元素滚动的距离大小
-- scrollWidth,scrollHeight
-  整个内容区域的宽度(包括需拉动滚动条隐藏起来的那些部分) scrollWidth = scrollTop+clientWidth
-- pageX、pageY
-  对于整个页面来说，包括了被卷去的body部分的长度
-- screenX、screenY
-  点击位置距离当前电脑屏幕的x，y坐标
-- x、y
-  和screenX、screenY一样
-
-### Width & Height
-
-**body**:
-
-clientHeight：body.padding+ body.height;
-
-offsetHeight：body.padding+ body.height+body.border;
-
-scrollHeight：body.padding+ body.height
-
-**documentElement**:
-
-clientHeight= body.height
-
-offsetHeight= body.padding+ body.height+body.border
-
-scrollHeight=body.height+scrollbar.height
-
-**Example:**
-
-> supossing that 
->
-> html:1829px*991px padding:3px border:2px margin:2px
->
-> body:1829px*991px padding:4px border:1px margin:8px(default)
->
-> scrollbar.width: 25px  scrollbar.height: 33px
->
 > Scrollbar: 17px
 
-```javascript
-// toolbars i.e. bookmarks added --> height change
-// Test on Chrome/Yandex/Firefox(Windows)
-document.body.scrollLeft:0
-document.body.scrollTop: 33
-// 1829+17 991+17
-window.innerWidth: 1846
-window.innerHeight: 1008
-//1829 + 17 + Browser.toolbar.width 991 + 17 + Browser.toolbar.height
-window.outerWidth: 1846
-window.outerrHeight: 1080
-//1829+4*2	991+4*2
-document.body.scrollWidth:1837
-document.body.scrollHeight: 999
-//1829+4*2	991+4*2
-document.body.clientWidth:1837
-document.body.clientHeight: 999
-//1829+4*2+2	991+4*2+2
-document.body.offsetWidth:1839
-document.body.offsetHeight: 1001
-//1829+25	991+33
-document.documentElement.scrollWidth:1854
-document.documentElement.scrollHeight: 1024
-//1829 991
-document.documentElement.clientWidth:1829
-document.documentElement.clientHeight: 991
-//1829+4*2+2	991+4*2+2
-document.documentElement.offsetWidth:1839
-document.documentElement.offsetHeight: 1001
-
-//broswer position
-window.screenTop: 0
-window.screenLeft: 0
-// resolution - Windows.toolbar.width
-// resolution - Windows.toolbar.height
-window.screen.availWidth: 1846
-window.screen.availHeight: 1080
-// resolution fixed
-window.screen.width: 1920
-window.screen.height: 1080
-// content
-container.style.width: 300px
-container.style.height:200px
-//300+80+2+4 200+100+4
-container.offsetWidth: 386
-container.offsetHeight:304
-// (1829-380-2-4)/2 + 4 + 1	15+ 4 + 1 (body border!!!)
-container.offsetLeft: 727
-container.offsetTop:20
-// css
-box.style.left: 40px
-box.style.top:50px
-// 40 + 8 + 2 + 30 + 200 +30 +6 +8 + 56(offsetRight)=300+40(padding)*2
-// 50 + 5 + 8 + 30 + 100 +30 +4 +5 + 68(offsetBottom)=200+50(padding)*2
-//40 + 8(margin) 50+5
-box.offsetLeft: 48
-box.offsetTop:55
+```js
+function getScrollBarWidth() {
+    var $outer = $("<div>")
+    .css({
+        visibility: "hidden",
+        width: 100,
+        overflow: "scroll",
+    })
+    .appendTo("body"),
+        widthWithScroll = $("<div>")
+    .css({
+        width: "100%",
+    })
+    .appendTo($outer)
+    .outerWidth();
+    $outer.remove();
+    return 100 - widthWithScroll;
+}
 ```
 
-[Check this for test](demo/js_scale.html)
+- document.body.scrollLeft：滚动条距离左边的距离大小
+- document.body.scrollTop：滚动条距离上边的距离大小
+
+> chrome firefox
+
+```html
+document.body.scrollLeft: 0px
+document.body.scrollTop: 0px
+document.documentElement.scrollLeft: 27px
+document.documentElement.scrollTop: 35px
+window.pageXOffset: 27px
+window.pageYOffset: 35px
+ScrollBar: 17px
+ScrollBar: 17px
+```
+
+## 窗口
+
+- innerheight 返回窗口的文档显示区的高度。
+
+- innerwidth 返回窗口的文档显示区的宽度。
+- outerHeight 属性设置或返回一个窗口的外部高度，包括所有界面元素（如工具栏/滚动条）。
+- outerWidth 属性设置或返回窗口的外部宽度，包括所有的界面元素（如工具栏/滚动）。
+
+```js
+//返回浏览器窗口相对于屏幕的X和Y坐标。
+// window.screenY
+window.screenTop: 0px
+// window.screenX
+window.screenLeft: 0px
+// 浏览器高度，分辨率-任务栏高度/其他占用屏幕的窗口或者桌面的高度-浏览器上分工具栏/书签高度
+window.innerWidth: 1600px
+window.innerHeight: 767px
+// 浏览器宽度，分辨率-其他占用屏幕的窗口或者桌面的宽度
+// 浏览器高度，分辨率-任务栏高度/其他占用屏幕的窗口或者桌面的高度
+window.outerWidth: 1600px
+window.outerHeight: 870px
+window.screen.availWidth: 1600px
+window.screen.availHeight: 870px
+// 固定值 屏幕分辨率
+window.screen.width: 1600px
+window.screen.height: 900px
+```
+
+## DocumentElement
+
+网页可见区域宽： document.documentElement.clientWidth;
+网页可见区域高： document.documentElement.clientHeight;  
+网页正文全文宽： document.documentElement.scrollWidth;
+网页正文全文高： document.documentElement.scrollHeight;
+
+```css
+html {
+    width: 100%;
+    height: 100%;
+    border: 2px solid yellow;
+    padding: 3px;
+    margin: 2px;
+}
+<!-- 6+4=10 -->
+```
+
+```js
+// html 高度和宽度 + 滚动条27px/35px
+document.documentElement.scrollWidth: 1610px
+document.documentElement.scrollHeight: 785px
+// html/body 高度和宽度
+document.documentElement.clientWidth: 1583px
+document.documentElement.clientHeight: 750px
+// html 高度和宽度 + padding + border
+document.documentElement.offsetWidth: 1593px
+document.documentElement.offsetHeight 760px
+```
+
+## Body
+
+- body.clientHeight：body.padding+ body.height;
+
+- body.scrollHeight：body.padding+ body.height
+- body.offsetHeight：body.padding+ body.height+body.border;
+
+```css
+body {
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
+    padding: 5px;
+}
+<!-- 8+16= 24-->
+```
+
+```js
+//1583+padding	750+padding
+document.body.scrollWidth: 1593px
+document.body.scrollHeight: 760px
+//1583+padding	750+padding
+document.body.clientWidth: 1593px
+document.body.clientHeight: 760px
+//1583+padding+border	750+padding+border	
+document.body.offsetWidth: 1595px
+document.body.offsetHeight 762px
+```
+
+## Container
+
+```css
+#container {
+    padding: 15px 10px;
+    border-top: 1px solid #000;
+    border-right: 2px solid #000;
+    border-bottom: 3px solid #000;
+    border-left: 4px solid #000;
+    margin: 15px auto;
+    position: relative;
+    background-color: lightgrey;
+}
+
+#box {
+    padding: 10px;
+    border-top: 8px solid green;
+    border-right: 6px solid green;
+    border-bottom: 4px solid green;
+    border-left: 2px solid green;
+    margin: 5px 8px;
+    position: absolute;
+    background-color: azure;
+}
+```
+
+```js
+var container = document.getElementById("container");
+container.style.width = 150 + "px";
+container.style.height = 100 + "px";
+var box = document.getElementById("box");
+box.style.width = 100 + "px";
+box.style.height = 50 + "px";
+box.style.left = 20 + "px";
+box.style.top = 25 + "px";
+```
+
+某个元素的上边界到html最顶部的距离：obj.offsetTop;（在元素的包含元素不含滚动条的情况下）
+某个元素的左边界到html最左边的距离：obj.offsetLeft;（在元素的包含元素不含滚动条的情况下）
+返回当前元素的上边界到它的包含元素的上边界border的偏移量：obj.offsetTop（在元素的包含元素含滚动条的情况下）
+返回当前元素的左边界到它的包含元素的左边界border的偏移量：obj.offsetLeft（在元素的包含元素含滚动条的情况下） 
+
+```js
+container.style.width: 150px
+container.style.height: 100px
+// width + padding + border
+// height + padding + border
+// 150+20+6 100+30+4
+container.offsetWidth: 176px
+container.offsetHeight: 134px
+
+// (body.width-176)/2(container.margin)+ (5 + 1 + 8)(body) + (3 + 2)(html.padding + html.border)
+// 15(container.margin)+ (5 + 1 + 8)(body) + (3 + 2)(html.padding + html.border)
+container.offsetLeft: 883px
+container.offsetTop：34px
+```
+
+
+
+```js
+// css
+box.style.left: 20px
+box.style.top: 25px
+
+// 20 + 8(margin)
+// 25 + 5(margin)
+// OR
+// 20(Left) + (8 + 2 + 10 + 100 +10 +6 +8)(box 144) + 6(offsetRight)=150+15(padding)*2
+// 25(Top) + (5 + 8 + 10 + 50 +10 +4 +5)(box 92) + 3(offsetBottom)=100+10(padding)*2
+box.offsetLeft: 28px
+box.offsetTop: 30px
+```
+
+
+
+
+
+
+
+## REFERENCES
+
+- https://www.w3schools.com/cssref/pr_class_display.asp
+- https://www.runoob.com/jsref/obj-window.html

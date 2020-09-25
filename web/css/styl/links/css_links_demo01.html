@@ -95,8 +95,9 @@
         <div class="tab_code">
             <div id="tab1" class="tab_">
                 <textarea id="html" placeholder="HTML">
-<p>There are several browsers available, such as <a href="#">MozillaFirefox</a>, <a href="#">Google Chrome</a>, and
-<a href="#">Microsoft Edge</a>.</p>
+<p>There are several browsers available, such as <a href="https://www.firefox.com/" name="Firefox" target="_blank">MozillaFirefox</a>, 
+    <a href="https://www.google.com/chrome/" name="Chrome" target="_blank">Google Chrome</a>, 
+    and <a href="https://www.microsoft.com/en-us/edge" name = "Edge" target="_blank" >Microsoft Edge</a>.</p>
                         
                                     
                 </textarea>
@@ -104,14 +105,14 @@
             <div id="tab2" class="tab_">
                 <textarea id="css" placeholder="CSS">
 body {
-    width: 300px;
+    width: 600px;
     margin: 0 auto;
     font-size: 1.2rem;
     font-family: sans-serif;
 }
 
 p {
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 a {
@@ -142,7 +143,17 @@ a:active {
     background: #265301;
     color: #CDFEAA;
 }
-                </textarea>
+
+a:before {
+    content: ' ';
+    clear: right;
+    display: block;
+}
+
+a:after {
+    content: '('attr(name)' | 'attr(href)')';
+}
+</textarea>
                 <div id="colorBox">
                     <p></p>
                 </div>
