@@ -1,0 +1,460 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Django Awesome Packages | Pinsflora</title><meta name="keywords" content="Django"><meta name="author" content="Joaxin"><meta name="copyright" content="Joaxin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="Django Awesome Packages (❛ᴗ❛๑ )۶">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django Awesome Packages">
+<meta property="og:url" content="https://u.pinsflora.xyz/Pysnista/Tools/py_packages/index.html">
+<meta property="og:site_name" content="Pinsflora">
+<meta property="og:description" content="Django Awesome Packages (❛ᴗ❛๑ )۶">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_erol-ahmed-unsplash.jpg">
+<meta property="article:published_time" content="2018-10-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-09-27T16:00:00.000Z">
+<meta property="article:author" content="Joaxin">
+<meta property="article:tag" content="Django">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_erol-ahmed-unsplash.jpg"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://u.pinsflora.xyz/Pysnista/Tools/py_packages/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-177831205-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-177831205-1');
+</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-09-28 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}const fontSizeVal = saveToLocal.get('global-font-size')
+if (fontSizeVal !== undefined) {
+  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+}})()</script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Pinsflora" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">333</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">110</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">34</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_erol-ahmed-unsplash.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Pinsflora</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Django Awesome Packages</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-10-23T16:00:00.000Z" title="Created 2018-10-24 00:00:00">2018-10-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-09-27T16:00:00.000Z" title="Updated 2020-09-28 00:00:00">2020-09-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/">Python</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/Tools/">Tools</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>17min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="criterion"><a class="markdownIt-Anchor" href="#criterion"></a> Criterion</h1>
+<ol>
+<li>Update frequently less than a year or Irreplaceable</li>
+<li>Frequently  use in your django project</li>
+</ol>
+<h1 id="python"><a class="markdownIt-Anchor" href="#python"></a> Python</h1>
+<p>jinja: <a target="_blank" rel="noopener" href="https://github.com/pallets/jinja">https://github.com/pallets/jinja</a></p>
+<p>pillow<br>
+awesome-slugify<br>
+fuzzywuzzy<br>
+markdown</p>
+<h2 id="crawler"><a class="markdownIt-Anchor" href="#crawler"></a> Crawler</h2>
+<p>requests<br>
+beautifulsoup4<br>
+html5lib<br>
+lxml</p>
+<h2 id="doc"><a class="markdownIt-Anchor" href="#doc"></a> Doc</h2>
+<h3 id="pandoc"><a class="markdownIt-Anchor" href="#pandoc"></a> Pandoc</h3>
+<blockquote>
+<p>Universal markup converter</p>
+</blockquote>
+<p>官网：<a target="_blank" rel="noopener" href="https://pandoc.org/">https://pandoc.org/</a></p>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/jgm/pandoc/">https://github.com/jgm/pandoc/</a></p>
+<p>下载： <a target="_blank" rel="noopener" href="https://github.com/jgm/pandoc/releases">https://github.com/jgm/pandoc/releases</a></p>
+<p>使用方法示例：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pandoc demo.md -o demo.docx</span><br></pre></td></tr></tbody></table></figure>
+<p>插件：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pandoc-fignos</span><br></pre></td></tr></tbody></table></figure>
+<p>pandoc-fignos：<a target="_blank" rel="noopener" href="https://github.com/tomduck/pandoc-fignos">https://github.com/tomduck/pandoc-fignos</a></p>
+<p>A pandoc filter for numbering figures and figure references.</p>
+<p>处理图形的交叉引用</p>
+<h3 id="xhtml2pdf"><a class="markdownIt-Anchor" href="#xhtml2pdf"></a> xhtml2pdf</h3>
+<p>xhtml2pdf is a HTML to PDF converter using Python, the ReportLab Toolkit, html5lib and PyPDF2. It supports HTML5 and CSS 2.1 (and some of CSS 3). It is completely written in pure Python, so it is platform independent.</p>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/xhtml2pdf/xhtml2pdf">https://github.com/xhtml2pdf/xhtml2pdf</a></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install xhtml2pdf</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="weasyprint"><a class="markdownIt-Anchor" href="#weasyprint"></a> WeasyPrint</h3>
+<p>The awesome document factory</p>
+<p>官网</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://weasyprint.org/">https://weasyprint.org/</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.courtbouillon.org/weasyprint">https://www.courtbouillon.org/weasyprint</a></li>
+</ul>
+<p>Github：<a target="_blank" rel="noopener" href="https://github.com/Kozea/WeasyPrint">https://github.com/Kozea/WeasyPrint</a></p>
+<p>Documentation: <a target="_blank" rel="noopener" href="https://weasyprint.readthedocs.io/">https://weasyprint.readthedocs.io</a></p>
+<p>Examples: <a target="_blank" rel="noopener" href="https://weasyprint.org/samples/">https://weasyprint.org/samples/</a></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install weasyprint</span><br><span class="line">weasyprint https://weasyprint.org/ weasyprint.pdf</span><br></pre></td></tr></tbody></table></figure>
+<p>出现错误：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">OSError: no library called <span class="string">"cairo"</span> was found</span><br><span class="line">no library called <span class="string">"libcairo-2"</span> was found</span><br><span class="line">cannot load library <span class="string">'libcairo.so.2'</span>: error <span class="number">0x7e</span></span><br><span class="line">cannot load library <span class="string">'libcairo.2.dylib'</span>: error <span class="number">0x7e</span></span><br><span class="line">cannot load library <span class="string">'libcairo-2.dll'</span>: error <span class="number">0x7e</span></span><br></pre></td></tr></tbody></table></figure>
+<p>Win用户此时需要安装GTK3： <a target="_blank" rel="noopener" href="https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer%EF%BC%8C%E5%B9%B6%E5%8A%A0%E5%85%A5%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E3%80%82">https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer，并加入环境变量。</a></p>
+<h2 id="test"><a class="markdownIt-Anchor" href="#test"></a> Test</h2>
+<p>单元测试 - 针对程序中最小的功能模块（函数和方法）的测试</p>
+<p>测试方法：</p>
+<p>- 白盒测试：程序自己写的测试</p>
+<p>- 黑盒测试：测试人员或QA，不知道代码实现细节，只关注功能</p>
+<p>编写Python单元测试 - 定义类继承TestCase，写测试方法(test_开头)</p>
+<h3 id="nose2"><a class="markdownIt-Anchor" href="#nose2"></a> nose2</h3>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install nose2 cov-core</span><br><span class="line">nose2 -v -C</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="pytest"><a class="markdownIt-Anchor" href="#pytest"></a> pytest</h3>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install pytest pytest-cov</span><br><span class="line"></span><br><span class="line">pytest -v --cov</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="django"><a class="markdownIt-Anchor" href="#django"></a> Django</h1>
+<p>The Web framework for perfectionists with deadlines.</p>
+<p>Website:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://pythontutor.com/">http://pythontutor.com/</a></li>
+</ul>
+<h2 id="auth"><a class="markdownIt-Anchor" href="#auth"></a> Auth</h2>
+<h3 id="django-allauth"><a class="markdownIt-Anchor" href="#django-allauth"></a> django-allauth</h3>
+<p>Integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/pennersr/django-allauth">https://github.com/pennersr/django-allauth</a></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install django-allauth</span><br></pre></td></tr></tbody></table></figure>
+<p>Doc: <a target="_blank" rel="noopener" href="https://django-allauth.readthedocs.io/en/latest/">https://django-allauth.readthedocs.io/en/latest/</a></p>
+<blockquote>
+<p>Tips: <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/63300404/makemigration-error-on-django-importerror-cannot-import-name-fielddoesnotexi">MakeMigration Error on Django - ImportError: cannot import name ‘FieldDoesNotExist’ from ‘django.db.models’</a> Update your django-allauth:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade django-allauth</span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+<h3 id="social-app-django"><a class="markdownIt-Anchor" href="#social-app-django"></a> social-app-django</h3>
+<p><a target="_blank" rel="noopener" href="https://github.com/python-social-auth/social-app-django">https://github.com/python-social-auth/social-app-django</a></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install social-auth-app-django</span><br></pre></td></tr></tbody></table></figure>
+<p>Python Social Auth是一个提供第三方认证登录的模块。使用这个模块可以让用户以第三方网站的信息进行登录，而无需先注册本网站的用户。</p>
+<p>Project documentation is available at <a target="_blank" rel="noopener" href="http://python-social-auth.readthedocs.org/">http://python-social-auth.readthedocs.org/</a>.</p>
+<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="comment">#...</span></span><br><span class="line">    <span class="string">'social_django'</span>,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">path(<span class="string">'social-auth/'</span>, include(<span class="string">'social_django.urls'</span>, namespace=<span class="string">'social'</span>))</span><br><span class="line"></span><br><span class="line">e.g.</span><br><span class="line">AUTHENTICATION_BACKENDS = [</span><br><span class="line">    <span class="string">'django.contrib.auth.backends.ModelBackend'</span>,</span><br><span class="line">    <span class="string">'account.authentication.EmailAuthBackend'</span>,</span><br><span class="line">    <span class="string">'social_core.backends.google.GoogleOAuth2'</span>,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = <span class="string">'XXX'</span> <span class="comment"># API ID</span></span><br><span class="line">SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = <span class="string">'XXX'</span> <span class="comment"># 密钥</span></span><br><span class="line"></span><br><span class="line">&lt;li class="google"&gt;&lt;a href="{% url 'social:begin' 'google-oauth2' %}"&gt;Log in with Google&lt;/a&gt;&lt;/li&gt;</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="django-registration"><a class="markdownIt-Anchor" href="#django-registration"></a> django-registration</h3>
+<p>An extensible user-registration app for Django.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ubernostrum/django-registration">https://github.com/ubernostrum/django-registration</a></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install django-registration</span><br></pre></td></tr></tbody></table></figure>
+<p>Doc: <a target="_blank" rel="noopener" href="https://django-registration.readthedocs.io/en/latest/">https://django-registration.readthedocs.io/en/latest/</a></p>
+<h3 id="django-simple-captcha"><a class="markdownIt-Anchor" href="#django-simple-captcha"></a> django-simple-captcha</h3>
+<p>Django Simple Captcha is an extremely simple, yet highly customizable Django application to add captcha images to any Django form.</p>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/mbi/django-simple-captcha">https://github.com/mbi/django-simple-captcha</a></p>
+<p>Doc: <a target="_blank" rel="noopener" href="http://django-simple-captcha.readthedocs.io/en/latest/">http://django-simple-captcha.readthedocs.io/en/latest/</a></p>
+<h2 id="editor"><a class="markdownIt-Anchor" href="#editor"></a> Editor</h2>
+<blockquote>
+<p>markdown</p>
+</blockquote>
+<h3 id="django-markdown-editor"><a class="markdownIt-Anchor" href="#django-markdown-editor"></a> django-markdown-editor</h3>
+<p>Once you have pip, type:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install martor</span><br></pre></td></tr></tbody></table></figure>
+<p>Markdown Editor plugin for Django (great to use outside default django admin)</p>
+<p><img src="https://raw.githubusercontent.com/agusmakmun/django-markdown-editor/master/.etc/images/bootstrap/martor-editor.png" alt="img"></p>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/agusmakmun/django-markdown-editor">https://github.com/agusmakmun/django-markdown-editor</a></p>
+<p>Demo: <a target="_blank" rel="noopener" href="https://python.web.id/posts/create/">https://python.web.id/posts/create/</a></p>
+<h3 id="markdownx"><a class="markdownIt-Anchor" href="#markdownx"></a> Markdownx</h3>
+<p>Comprehensive Markdown plugin built for Django</p>
+<p><img src="https://github.com/neutronX/django-markdownx/raw/master/django-markdownx-preview.gif?raw=true" alt="django-markdownx preview"></p>
+<p>Github: <a target="_blank" rel="noopener" href="https://neutronx.github.io/django-markdownx/">https://neutronx.github.io/django-markdownx/</a></p>
+<h3 id="django-summernote"><a class="markdownIt-Anchor" href="#django-summernote"></a> django-summernote</h3>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install django-summernote</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="https://camo.githubusercontent.com/520146a8ff6fcd2e49408d9507a6d6cb98ea1746/68747470733a2f2f7261772e6769746875622e636f6d2f6c71657a2f706173746562696e2f6d61737465722f696d672f646a616e676f2d73756d6d65726e6f74652e706e67" alt="django-summernote"></p>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/summernote/django-summernote">https://github.com/summernote/django-summernote</a></p>
+<p>Summernote is a simple WYSIWYG editor.</p>
+<p><code>django-summernote</code> allows you to embed Summernote into Django very handy. Support admin mixins and widgets.</p>
+<h3 id="django-ckeditor"><a class="markdownIt-Anchor" href="#django-ckeditor"></a> django-ckeditor</h3>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install django-ckeditor</span><br></pre></td></tr></tbody></table></figure>
+<p>Django admin CKEditor integration.</p>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/django-ckeditor/django-ckeditor">https://github.com/django-ckeditor/django-ckeditor</a></p>
+<h2 id="fields-forms-templates"><a class="markdownIt-Anchor" href="#fields-forms-templates"></a> Fields &amp; Forms &amp; Templates</h2>
+<h3 id="django-taggit"><a class="markdownIt-Anchor" href="#django-taggit"></a> django-taggit</h3>
+<p><a target="_blank" rel="noopener" href="https://github.com/jazzband/django-taggit">https://github.com/jazzband/django-taggit</a></p>
+<p><code>django-taggit</code> a simpler approach to tagging with Django.</p>
+<p>Doc: <a target="_blank" rel="noopener" href="https://django-taggit.readthedocs.io/en/latest/">https://django-taggit.readthedocs.io/en/latest/</a></p>
+<p><code>django-taggit</code> a simpler approach to tagging with Django. Add <code>"taggit"</code> to your <code>INSTALLED_APPS</code> then just add a TaggableManager to your model and go:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> taggit.managers <span class="keyword">import</span> TaggableManager</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Food</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    <span class="comment"># ... fields here</span></span><br><span class="line"></span><br><span class="line">    tags = TaggableManager()</span><br></pre></td></tr></tbody></table></figure>
+<p>Then you can use the API like so:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>apple = Food.objects.create(name=<span class="string">"apple"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>apple.tags.add(<span class="string">"red"</span>, <span class="string">"green"</span>, <span class="string">"delicious"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>apple.tags.all()</span><br><span class="line">[&lt;Tag: red&gt;, &lt;Tag: green&gt;, &lt;Tag: delicious&gt;]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>apple.tags.remove(<span class="string">"green"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>apple.tags.all()</span><br><span class="line">[&lt;Tag: red&gt;, &lt;Tag: delicious&gt;]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Food.objects.filter(tags__name__in=[<span class="string">"red"</span>])</span><br><span class="line">[&lt;Food: apple&gt;, &lt;Food: cherry&gt;]</span><br></pre></td></tr></tbody></table></figure>
+<p>Tags will show up for you automatically in forms and the admin.</p>
+<p>To further more, in <code>views.py</code>:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> taggit.models <span class="keyword">import</span> Tag</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">food_list</span>(<span class="params">request, tag_slug=None</span>):</span></span><br><span class="line">    tag = <span class="literal">None</span></span><br><span class="line">    <span class="keyword">if</span> tag_slug:</span><br><span class="line">        tag = get_object_or_404(Tag, slug=tag_slug)</span><br><span class="line">        object_list = object_list.filter(tags__in=[tag])</span><br><span class="line">    ...</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path(<span class="string">'tag/&lt;slug:tag_slug&gt;/'</span>, views.food_list, name=<span class="string">'food_list_by_tag'</span>),</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- &lt;p class="tags"&gt;Tags: {{ food.tags.all|join:", " }}&lt;/p&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"tag"</span>&gt;</span></span><br><span class="line">    Tags:</span><br><span class="line">    {% for tag in food.tags.all %}</span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"{% url "</span><span class="attr">food:food_list_by_tag</span>" <span class="attr">tag.slug</span> %}"&gt;</span>{{ tag.name }}<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    {% if not forloop.last %}, {% endif %}</span><br><span class="line">    {% endfor %}</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="django-model-utils"><a class="markdownIt-Anchor" href="#django-model-utils"></a> django-model-utils</h3>
+<p>Django model mixins and utilities.</p>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/jazzband/django-model-utils">https://github.com/jazzband/django-model-utils</a></p>
+<h3 id="django-upload-multiple-files"><a class="markdownIt-Anchor" href="#django-upload-multiple-files"></a> django-upload-multiple-files</h3>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/kdchang/python-django-upload-multiple-files">https://github.com/kdchang/python-django-upload-multiple-files</a></p>
+<h3 id="django-versatileimagefield"><a class="markdownIt-Anchor" href="#django-versatileimagefield"></a> django-versatileimagefield</h3>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/respondcreate/django-versatileimagefield">https://github.com/respondcreate/django-versatileimagefield</a></p>
+<p>A drop-in replacement for django’s ImageField that provides a flexible, intuitive and easily-extensible interface for quickly creating new images from the one assigned to the field.</p>
+<p>Doc: <a target="_blank" rel="noopener" href="https://django-versatileimagefield.readthedocs.io/">https://django-versatileimagefield.readthedocs.io/</a></p>
+<h3 id="django-crispy-forms"><a class="markdownIt-Anchor" href="#django-crispy-forms"></a> django-crispy-forms</h3>
+<p>The best way to have DRY Django forms. The app provides a tag and filter that lets you quickly render forms in a div format while providing an enormous amount of capability to configure and control the rendered HTML.</p>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/django-crispy-forms/django-crispy-forms">https://github.com/django-crispy-forms/django-crispy-forms</a></p>
+<h3 id="django-widget-tweaks"><a class="markdownIt-Anchor" href="#django-widget-tweaks"></a> django-widget-tweaks</h3>
+<p>Tweak the form field rendering in templates, not in python-level form definitions. CSS classes and HTML attributes can be altered.</p>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/jazzband/django-widget-tweaks">https://github.com/jazzband/django-widget-tweaks</a></p>
+<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">{% load widget_tweaks %}</span><br><span class="line"></span><br><span class="line">&lt;!-- change input type (e.g. to HTML5) --&gt;</span><br><span class="line">{% render_field form.search_query type=<span class="string">"search"</span> %}</span><br><span class="line"></span><br><span class="line">&lt;!-- add/change several attributes --&gt;</span><br><span class="line">{% render_field form.text rows=<span class="string">"20"</span> cols=<span class="string">"20"</span> title=<span class="string">"Hello, world!"</span> %}</span><br><span class="line"></span><br><span class="line">&lt;!-- append to an attribute --&gt;</span><br><span class="line">{% render_field form.title class+="css_class_1 css_class_2" %}</span><br><span class="line"></span><br><span class="line">&lt;!-- template variables can be used as attribute values --&gt;</span><br><span class="line">{% render_field form.text placeholder=form.text.label %}</span><br><span class="line"></span><br><span class="line">&lt;!-- double colon --&gt;</span><br><span class="line">{% render_field form.search_query v-bind::class="{active:isActive}" %}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="django-imagekit"><a class="markdownIt-Anchor" href="#django-imagekit"></a> django-imagekit</h3>
+<blockquote>
+<p>pillow</p>
+</blockquote>
+<p>Automated image processing for Django. Currently v4.0</p>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/matthewwithanm/django-imagekit">https://github.com/matthewwithanm/django-imagekit</a></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"><span class="keyword">from</span> imagekit.models <span class="keyword">import</span> ImageSpecField</span><br><span class="line"><span class="keyword">from</span> imagekit.processors <span class="keyword">import</span> ResizeToFill</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Profile</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    avatar = models.ImageField(upload_to=<span class="string">'avatars'</span>)</span><br><span class="line">    avatar_thumbnail = ImageSpecField(source=<span class="string">'avatar'</span>,</span><br><span class="line">                                      processors=[ResizeToFill(<span class="number">100</span>, <span class="number">50</span>)],</span><br><span class="line">                                      format=<span class="string">'JPEG'</span>,</span><br><span class="line">                                      options={<span class="string">'quality'</span>: <span class="number">60</span>})</span><br><span class="line"></span><br><span class="line">profile = Profile.objects.all()[<span class="number">0</span>]</span><br><span class="line">print(profile.avatar_thumbnail.url)    <span class="comment"># &gt; /media/CACHE/images/982d5af84cddddfd0fbf70892b4431e4.jpg</span></span><br><span class="line">print(profile.avatar_thumbnail.width)  <span class="comment"># &gt; 100</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="sorl-thumbnail"><a class="markdownIt-Anchor" href="#sorl-thumbnail"></a> sorl-thumbnail</h3>
+<p>Thumbnails for Django</p>
+<p>Getting the code for the latest stable release use ‘pip’.</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install sorl-thumbnail</span><br></pre></td></tr></tbody></table></figure>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/jazzband/sorl-thumbnail">https://github.com/jazzband/sorl-thumbnail</a></p>
+<p>Doc: <a target="_blank" rel="noopener" href="https://sorl-thumbnail.readthedocs.io/en/latest/">https://sorl-thumbnail.readthedocs.io/en/latest/</a></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = [</span><br><span class="line">...</span><br><span class="line">    <span class="string">'sorl.thumbnail'</span>,</span><br><span class="line">]</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">{% load thumbnail %}</span><br><span class="line">{% thumbnail item.image <span class="string">"100x100"</span> crop=<span class="string">"center"</span> <span class="keyword">as</span> im %}</span><br><span class="line">    &lt;img src=<span class="string">"{{ im.url }}"</span> width=<span class="string">"{{ im.width }}"</span> height=<span class="string">"{{ im.height }}"</span>&gt;</span><br><span class="line">{% endthumbnail %}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="admin-ehancement"><a class="markdownIt-Anchor" href="#admin-ehancement"></a> Admin Ehancement</h2>
+<h3 id="django-autocomplete-light"><a class="markdownIt-Anchor" href="#django-autocomplete-light"></a> django-autocomplete-light</h3>
+<p><a target="_blank" rel="noopener" href="https://github.com/yourlabs/django-autocomplete-light">https://github.com/yourlabs/django-autocomplete-light</a></p>
+<p>A fresh approach to autocomplete implementations, specially for Django. Status: v3 stable, 2.x.x stable, 1.x.x deprecated. Please DO regularely ping us with your link at #yourlabs IRC channel</p>
+<p>Doc: <a target="_blank" rel="noopener" href="https://django-autocomplete-light.readthedocs.io/">https://django-autocomplete-light.readthedocs.io/</a></p>
+<h3 id="django-analytical"><a class="markdownIt-Anchor" href="#django-analytical"></a> django-analytical</h3>
+<p><a target="_blank" rel="noopener" href="https://github.com/jazzband/django-analytical">https://github.com/jazzband/django-analytical</a></p>
+<p>The django-analytical application integrates analytics services into a <a target="_blank" rel="noopener" href="http://www.djangoproject.com/">Django</a> project.</p>
+<h2 id="admin"><a class="markdownIt-Anchor" href="#admin"></a> Admin</h2>
+<blockquote>
+<p>Slug: <a target="_blank" rel="noopener" href="https://github.com/voronind/awesome-slugify">https://github.com/voronind/awesome-slugify</a></p>
+</blockquote>
+<h3 id="simpleui"><a class="markdownIt-Anchor" href="#simpleui"></a> simpleui</h3>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/newpanjing/simpleui">https://github.com/newpanjing/simpleui</a></p>
+<p><a target="_blank" rel="noopener" href="https://simpleui.88cto.com/">https://simpleui.88cto.com/</a></p>
+<p>A modern theme based on vue+element-ui for django admin.</p>
+<h3 id="django-fluent-pages"><a class="markdownIt-Anchor" href="#django-fluent-pages"></a> django-fluent-pages</h3>
+<p>A smooth, flexible CMS to create the designs you like,built on top of the powerful Django framework.</p>
+<p>Features:</p>
+<ul>
+<li>A fully customizable page hierarchy.</li>
+<li>Support for multilingual websites.</li>
+<li>Support for multiple websites in a single database.</li>
+<li>Fast SEO-friendly page URLs.</li>
+<li>SEO optimized (meta keywords, description, title, 301-redirects, sitemaps integration).</li>
+<li>Plugin support for custom page types, which:</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://django-fluent.org/">https://django-fluent.org/</a></p>
+</blockquote>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/django-fluent/django-fluent-pages">https://github.com/django-fluent/django-fluent-pages</a></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install django-fluent-pages</span><br></pre></td></tr></tbody></table></figure>
+<p><a target="_blank" rel="noopener" href="https://github.com/un1t/django-file-resubmit">https://github.com/un1t/django-file-resubmit</a></p>
+<h3 id="django-suit"><a class="markdownIt-Anchor" href="#django-suit"></a> django-suit</h3>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/darklow/django-suit">https://github.com/darklow/django-suit</a></p>
+<p><a target="_blank" rel="noopener" href="http://djangosuit.com/">http://djangosuit.com/</a></p>
+<p><strong>Modern theme for Django admin interface</strong>.</p>
+<p>V2 demo: <a target="_blank" rel="noopener" href="https://v2.djangosuit.com/admin/login/?next=/admin/">https://v2.djangosuit.com/admin/login/?next=/admin/</a></p>
+<h3 id="django-jet"><a class="markdownIt-Anchor" href="#django-jet"></a> <s><a target="_blank" rel="noopener" href="https://github.com/geex-arts/django-jet">Django-jet</a></s></h3>
+<h2 id="framework"><a class="markdownIt-Anchor" href="#framework"></a> Framework</h2>
+<h3 id="djangorestframework"><a class="markdownIt-Anchor" href="#djangorestframework"></a> djangorestframework</h3>
+<p>Django REST framework is a powerful and flexible toolkit for building Web APIs.</p>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/encode/django-rest-framework">https://github.com/encode/django-rest-framework</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.django-rest-framework.org/">https://www.django-rest-framework.org/</a></p>
+<p>For Taggit:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/glemmaPaul/django-taggit-serializer">https://github.com/glemmaPaul/django-taggit-serializer</a></li>
+</ul>
+<h3 id="wagtail"><a class="markdownIt-Anchor" href="#wagtail"></a> Wagtail</h3>
+<p><a target="_blank" rel="noopener" href="https://wagtail.io/">https://wagtail.io/</a></p>
+<p>Wagtail is an open source content management system built on Django, with a strong community and commercial support. It’s focused on user experience, and offers precise control for designers and developers.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/wagtail/wagtail">https://github.com/wagtail/wagtail</a></p>
+<ul>
+<li>
+<p>A Django blog app implemented in Wagtail :<a target="_blank" rel="noopener" href="https://github.com/APSL/puput">https://github.com/APSL/puput</a></p>
+<p>Doc: <a target="_blank" rel="noopener" href="https://puput.readthedocs.io/en/latest/">https://puput.readthedocs.io/en/latest/</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://github.com/wagtail/wagtail-bakery">https://github.com/wagtail/wagtail-bakery</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://github.com/wagtail/bakerydemo">https://github.com/wagtail/bakerydemo</a></p>
+</li>
+</ul>
+<h3 id="saleor"><a class="markdownIt-Anchor" href="#saleor"></a> Saleor</h3>
+<p><a target="_blank" rel="noopener" href="https://saleor.io/">https://saleor.io/</a></p>
+<p><strong>Customer-centric e-commerce on a modern stack</strong></p>
+<p>A headless, GraphQL-first e-commerce platform delivering ultra-fast, dynamic, personalized shopping experiences. Beautiful online stores, anywhere, on any device.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mirumee/saleor">https://github.com/mirumee/saleor</a></p>
+<h2 id="search-filter"><a class="markdownIt-Anchor" href="#search-filter"></a> Search &amp; Filter</h2>
+<h3 id="django-haystack"><a class="markdownIt-Anchor" href="#django-haystack"></a> django-haystack</h3>
+<p>Haystack provides modular search for Django. It features a unified, familiar API that allows you to plug in different search backends (such as <a target="_blank" rel="noopener" href="http://lucene.apache.org/solr/">Solr</a>, <a target="_blank" rel="noopener" href="https://www.elastic.co/products/elasticsearch">Elasticsearch</a>, <a target="_blank" rel="noopener" href="https://bitbucket.org/mchaput/whoosh/">Whoosh</a>, <a target="_blank" rel="noopener" href="http://xapian.org/">Xapian</a>, etc.) without having to modify your code.</p>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/django-haystack/django-haystack">https://github.com/django-haystack/django-haystack</a></p>
+<p><a target="_blank" rel="noopener" href="http://haystacksearch.org/">http://haystacksearch.org/</a></p>
+<h3 id="django-filter"><a class="markdownIt-Anchor" href="#django-filter"></a> django-filter</h3>
+<p>A generic system for filtering Django QuerySets based on user selections</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install django-filter</span><br></pre></td></tr></tbody></table></figure>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/carltongibson/django-filter">https://github.com/carltongibson/django-filter</a></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = [</span><br><span class="line">    ...</span><br><span class="line">    <span class="string">'django_filters'</span>,</span><br><span class="line">    ...</span><br><span class="line">]</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> django_filters</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProductFilter</span>(<span class="params">django_filters.FilterSet</span>):</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        model = Product</span><br><span class="line">        fields = [<span class="string">'name'</span>, <span class="string">'price'</span>, <span class="string">'manufacturer'</span>]</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django_filters <span class="keyword">import</span> rest_framework <span class="keyword">as</span> filters</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProductFilter</span>(<span class="params">filters.FilterSet</span>):</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        model = Product</span><br><span class="line">        fields = (<span class="string">'category'</span>, <span class="string">'in_stock'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="django-url-filter"><a class="markdownIt-Anchor" href="#django-url-filter"></a> django-url-filter</h3>
+<p>Django URL Filter provides a safe way to filter data via human-friendly URLs.</p>
+<p>Easiest way to install this library is by using <code>pip</code>:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install django-url-filter</span><br></pre></td></tr></tbody></table></figure>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/miki725/django-url-filter">https://github.com/miki725/django-url-filter</a></p>
+<p>Doc: <a target="_blank" rel="noopener" href="https://django-url-filter.readthedocs.io/en/latest/">https://django-url-filter.readthedocs.io/en/latest/</a></p>
+<p>To make example short, it demonstrates Django URL Filter integration with Django REST Framework but it can be used without DRF (see below).</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> url_filter.integrations.drf <span class="keyword">import</span> DjangoFilterBackend</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserViewSet</span>(<span class="params">ModelViewSet</span>):</span></span><br><span class="line">    queryset = User.objects.all()</span><br><span class="line">    serializer_class = UserSerializer</span><br><span class="line">    filter_backends = [DjangoFilterBackend]</span><br><span class="line">    filter_fields = [<span class="string">'username'</span>, <span class="string">'email'</span>]</span><br></pre></td></tr></tbody></table></figure>
+<p>Alternatively filterset can be manually created and used directly to filter querysets:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> QueryDict</span><br><span class="line"><span class="keyword">from</span> url_filter.filtersets <span class="keyword">import</span> ModelFilterSet</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserFilterSet</span>(<span class="params">ModelFilterSet</span>):</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>(<span class="params">object</span>):</span></span><br><span class="line">        model = User</span><br><span class="line"></span><br><span class="line">query = QueryDict(<span class="string">'email__contains=gmail&amp;joined__gt=2015-01-01'</span>)</span><br><span class="line">fs = UserFilterSet(data=query, queryset=User.objects.all())</span><br><span class="line">filtered_users = fs.filter()</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="i18n"><a class="markdownIt-Anchor" href="#i18n"></a> I18n</h2>
+<h3 id="django-rosetta"><a class="markdownIt-Anchor" href="#django-rosetta"></a> django-rosetta</h3>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install django-rosetta</span><br></pre></td></tr></tbody></table></figure>
+<p>Rosetta is a Django application that eases the translation process of your Django projects</p>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/mbi/django-rosetta">https://github.com/mbi/django-rosetta</a></p>
+<p>Doc: <a target="_blank" rel="noopener" href="https://django-rosetta.readthedocs.io/">https://django-rosetta.readthedocs.io/</a></p>
+<h3 id="django-parler"><a class="markdownIt-Anchor" href="#django-parler"></a> django-parler</h3>
+<p>Easily translate “cheese omelet” into “omelette au fromage”.</p>
+<p>The package can be installed using:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install django-parler</span><br></pre></td></tr></tbody></table></figure>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/django-parler/django-parler">https://github.com/django-parler/django-parler</a></p>
+<p>Doc: <a target="_blank" rel="noopener" href="https://django-parler.readthedocs.io/en/stable/">https://django-parler.readthedocs.io/en/stable/</a></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS += (</span><br><span class="line">    <span class="string">'parler'</span>,</span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="django-modeltranslation"><a class="markdownIt-Anchor" href="#django-modeltranslation"></a> django-modeltranslation</h3>
+<p>ranslates Django models using a registration approach.</p>
+<p>Github: Thttps://github.com/deschler/django-modeltranslation</p>
+<p>Doc: <a target="_blank" rel="noopener" href="https://django-modeltranslation.readthedocs.org/en/latest">https://django-modeltranslation.readthedocs.org/en/latest</a></p>
+<h3 id="django-autotranslate"><a class="markdownIt-Anchor" href="#django-autotranslate"></a> django-autotranslate</h3>
+<p>A simple Django app to automatically translate the pot (.po) files generated by django’s makemessages command using google translate.</p>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/ankitpopli1891/django-autotranslate">https://github.com/ankitpopli1891/django-autotranslate</a></p>
+<p>Doc: <a target="_blank" rel="noopener" href="https://ankitpopli1891.github.io/django-autotranslate/">https://ankitpopli1891.github.io/django-autotranslate/</a></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install django-autotranslate</span><br></pre></td></tr></tbody></table></figure>
+<p>Add <code>'autotranslate'</code> to your <code>INSTALLED_APPS</code> setting.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = (</span><br><span class="line">    ...</span><br><span class="line">    <span class="string">'autotranslate'</span>,</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py translate_messages</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># default: 'autotranslate.services.GoSlateTranslatorService'</span></span><br><span class="line"><span class="comment"># pip install google-api-python-client</span></span><br><span class="line">AUTOTRANSLATE_TRANSLATOR_SERVICE = <span class="string">'autotranslate.services.GoogleAPITranslatorService'</span></span><br><span class="line">GOOGLE_TRANSLATE_KEY = <span class="string">'&lt;google-api-key&gt;'</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="conf"><a class="markdownIt-Anchor" href="#conf"></a> Conf</h2>
+<h3 id="django-hosts"><a class="markdownIt-Anchor" href="#django-hosts"></a> django-hosts</h3>
+<p><a target="_blank" rel="noopener" href="https://github.com/jazzband/django-hosts">https://github.com/jazzband/django-hosts</a></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install django-hosts</span><br></pre></td></tr></tbody></table></figure>
+<p>You can find the full docs here: <a target="_blank" rel="noopener" href="https://django-hosts.readthedocs.io/">django-hosts.rtfd.org</a></p>
+<p>Dynamic and static host resolving for Django. Maps hostnames to URLconfs.</p>
+<p>For example, if you own <code>example.com</code> but want to serve specific content at <code>api.example.com</code> and <code>beta.example.com</code>, add the following to a <code>hosts.py</code> file:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from django_hosts import patterns, host</span><br><span class="line"></span><br><span class="line">host_patterns = patterns('path.to',</span><br><span class="line">    host(r'api', 'api.urls', name='api'),</span><br><span cla

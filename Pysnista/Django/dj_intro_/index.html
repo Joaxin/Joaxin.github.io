@@ -1,0 +1,352 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Django Introduction Part 1 | Pinsflora</title><meta name="keywords" content="Django"><meta name="author" content="Joaxin"><meta name="copyright" content="Joaxin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="Introduction for Django">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django Introduction Part 1">
+<meta property="og:url" content="https://u.pinsflora.xyz/Pysnista/Django/dj_intro_/index.html">
+<meta property="og:site_name" content="Pinsflora">
+<meta property="og:description" content="Introduction for Django">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/py/django_cover.png">
+<meta property="article:published_time" content="2018-01-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-09-04T16:00:00.000Z">
+<meta property="article:author" content="Joaxin">
+<meta property="article:tag" content="Django">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/py/django_cover.png"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://u.pinsflora.xyz/Pysnista/Django/dj_intro_/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-177831205-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-177831205-1');
+</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-09-05 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}const fontSizeVal = saveToLocal.get('global-font-size')
+if (fontSizeVal !== undefined) {
+  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+}})()</script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Pinsflora" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">333</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">110</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">34</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/py/django_cover.png)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Pinsflora</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Django Introduction Part 1</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-01-23T16:00:00.000Z" title="Created 2018-01-24 00:00:00">2018-01-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-09-04T16:00:00.000Z" title="Updated 2020-09-05 00:00:00">2020-09-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/">Python</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/Django/">Django</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>10min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><div class="note info flat"><p>Updat Notes</p>
+<ul>
+<li>2018-01-24: Django 1.1.4</li>
+<li>2019-09-17: Django 2.2.2</li>
+<li>2020-07-28: Django 3.1.1</li>
+</ul>
+</div>
+<h2 id="about-django"><a class="markdownIt-Anchor" href="#about-django"></a> About Django</h2>
+<p>Django is an extremely popular and fully featured server-side web framework, written in Python languages,which was invented to meet fast-moving newsroom deadlines, while satisfying the tough requirements of experienced Web developers.</p>
+<h2 id="django-environment"><a class="markdownIt-Anchor" href="#django-environment"></a> Django Environment</h2>
+<p>As we only need Django itself on my computer to develop, so I don’t need to create any virtual environment, but in in production environment, it is very necessary to set up a virtual  env to avoid the problems.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ python --version</span><br><span class="line">Python 3.8.3</span><br><span class="line">$ pip3 install --upgrade django</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> G:\Python\Django\demo</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; import django</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; django.get_version()</span></span><br><span class="line">'3.1.1'</span><br><span class="line"><span class="meta">$</span><span class="bash"> G:\Python\Django\demo\&gt;django-admin --version</span></span><br><span class="line">3.1.1</span><br><span class="line"><span class="meta">$</span><span class="bash"> G:\Python\Django\demo\&gt;py -m django --version</span></span><br><span class="line">3.1.1</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> django-admin startproject myproject</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> myproject </span></span><br><span class="line"><span class="meta">$</span><span class="bash"> python manage.py runserver</span></span><br></pre></td></tr></tbody></table></figure>
+<p>Then, visit <a target="_blank" rel="noopener" href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a> with your familiar Web browser. You’ll see a “Congratulations!” page, with a rocket taking off.</p>
+<p>It worked!</p>
+<h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<p>Let’s look at what  <code>yourproject</code> created first:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yourproject/</span><br><span class="line">    manage.py</span><br><span class="line">    yourproject/</span><br><span class="line">        __init__.py</span><br><span class="line">        settings.py</span><br><span class="line">        urls.py</span><br><span class="line">        wsgi.py</span><br></pre></td></tr></tbody></table></figure>
+<p>These files are:</p>
+<ul>
+<li>
+<p>The outer <code>yourproject</code> root directory is just a container for your project. Its name doesn’t matter to Django; you can rename it to anything you like.</p>
+</li>
+<li>
+<p><code>manage.py</code>: A command-line utility(命令行工具) that lets you interact with Django project in various ways.</p>
+</li>
+<li>
+<p>The inner <code>yourproject</code> directory is the actual Python package for your project. Its name is the Python package name you’ll need to use to import anything inside it .</p>
+</li>
+<li>
+<p><code>yourproject/__init__.py</code>: An empty file that tells Python that this directory should be considered a Python package.</p>
+</li>
+<li>
+<p><code>yourproject/settings.py</code>: Settings/configuration for Django project,. this is where we register any applications we create, the location of our static files, database configuration details, etc.</p>
+</li>
+<li>
+<p><code>yourproject/urls.py</code>: The URL declarations for this Django project.</p>
+</li>
+<li>
+<p><code>yourproject/wsgi.py</code>: An entry-point for WSGI(Web Server Gateway Interface)-compatible web servers.</p>
+</li>
+<li>
+<p><code>yourproject/asgi.py</code>: An entry-point for ASGI-compatible web servers to serve your project.</p>
+<p>You can treat this as boilerplate.</p>
+</li>
+</ul>
+<p>Let us run it on your computer:</p>
+<blockquote>
+<p>By default, the server runs on port 8000 on the IP address <code>127.0.0.1 OR localhost</code>. You can pass in an IP address and port number explicitly.</p>
+</blockquote>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python manage.py runserver 8080 <span class="comment">## it starts the server on port 8080</span></span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>To make your development server viewable to other machines on the network, use its own IP address (e.g. <code>192.168.2.1</code>) or <code>0.0.0.0</code> or <code>::</code> (with IPv6 enabled) with --settings=yourproject.settings.</p>
+</blockquote>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ python manage.py runserver 0:8000 <span class="comment">## 0 is a shortcut for 0.0.0.0. </span></span><br><span class="line">$ python manage.py runserver 192.168.2.1:8000</span><br><span class="line">$ python manage.py runserver 127.0.0.1:8001 --settings=yourproject.settings</span><br></pre></td></tr></tbody></table></figure>
+<p>Automatic reloading of <code>runserver</code></p>
+<blockquote>
+<p>The development server automatically reloads Python code for each request as needed. You don’t need to restart the server for code changes to take effect.</p>
+<p>However, some actions like adding files don’t trigger a restart, so you’ll have to restart the server in these cases.</p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/3.1/ref/django-admin/#runserver">https://docs.djangoproject.com/en/3.1/ref/django-admin/#runserver</a></p>
+</blockquote>
+<h2 id="create-your-first-app"><a class="markdownIt-Anchor" href="#create-your-first-app"></a> Create your first APP</h2>
+<p>To create your app, make sure you’re in the same directory as <code>manage.py</code> :</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python manage.py startapp apps</span><br></pre></td></tr></tbody></table></figure>
+<p>That’ll create a directory <code>apps</code>, which is laid out like this:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">apps/</span><br><span class="line">    __init__.py</span><br><span class="line">    admin.py</span><br><span class="line">    apps.py</span><br><span class="line">    migrations/</span><br><span class="line">        __init__.py</span><br><span class="line">    models.py</span><br><span class="line">    tests.py</span><br><span class="line">    views.py</span><br></pre></td></tr></tbody></table></figure>
+<p>In addition we now have:</p>
+<ul>
+<li>A <em>migrations</em> folder, used to store “migrations” — files that allow you to automatically update your database as you modify your models.</li>
+<li><strong>_<em>init_</em>.py</strong> —  a python Package file.</li>
+</ul>
+<p>Django web applications typically group the code that handles each of these steps into separate files,</p>
+<p>The following diagram describes the main data flow, and the components required when handling HTTP requests and responses. As we already implemented the model, the main components we’ll create are:</p>
+<ul>
+<li>URL mappers to forward the supported URLs (and any information encoded in the URLs) to the appropriate view functions.</li>
+<li>View functions to get the requested data from the models, create HTML pages that display the data, and return the pages to the user to view in the browser.</li>
+<li>Templates to use when rendering data in the views.</li>
+</ul>
+<p><img src="https://mdn.mozillademos.org/files/13931/basic-django.png" alt="img"></p>
+<blockquote>
+<p>Note</p>
+<p>A website may consist of one or more sections, e.g. main site, blog, wiki, downloads area, etc. Django encourages you to develop these components as separate <em>applications</em>, which could then be re-used in different projects if desired.</p>
+</blockquote>
+<h2 id="write-your-first-view"><a class="markdownIt-Anchor" href="#write-your-first-view"></a> Write your first view</h2>
+<p>Let’s write the first view. Open the file <code>apps/views.py</code> and put the following Python code in it:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">"Hello, World!"</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>This is the simplest view maybe in Django.</p>
+<p>To call the view, we need to map it to a URL - and for this we need a <code>URLconf</code>.</p>
+<p>In the <code>apps/urls.py</code> file include the following code:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> views</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">''</span>, views.index, name=<span class="string">'index'</span>),</span><br><span class="line">]</span><br></pre></td></tr></tbody></table></figure>
+<p>The next step is to point the root URLconf at the <code>apps.urls</code> module.</p>
+<p>In <code>yourproject/urls.py</code>, add an import from <code>django.contrib</code> and insert an <code>include()</code>in the <code>urlpatterns</code>list, so you have:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> include, path</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">'apps/'</span>, include(<span class="string">'apps.urls'</span>)),</span><br><span class="line">    path(<span class="string">'admin/'</span>, admin.site.urls),</span><br><span class="line">]</span><br></pre></td></tr></tbody></table></figure>
+<p>The <code>include()</code> function allows referencing other URLconfs, make it easy to plug-and-play URLs.</p>
+<p>Since <code>apps</code> are in their own URLconf (<code>apps/urls.py</code>), they can be placed under “/apps/”, or under “/movies/apps/”, or any other path root, and the app will still work.</p>
+<p>Go to <a target="_blank" rel="noopener" href="http://localhost:8080/apps/">http://localhost:8080/apps/</a> in your browser, and you should see the text , which you defined in the <code>index</code> view.</p>
+<p>But <a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080/</a>  will not work since you don’t add the URLconf  , if you write the <code>path('', include('apps.urls'))</code>, then the text will be displayed, OR you can use  a special view function  <code>RedirectViews</code> ,e.g. <code>RedirectView.as_view(url='/apps/', permanent=True)</code> in <code>yourproject/urls.py</code> to  redirect the root URL:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Add URL maps to redirect the base URL to our application</span></span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> RedirectView</span><br><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> include, path</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">	path(<span class="string">''</span>,RedirectView.as_view(url=<span class="string">'/apps/'</span>, permanent=<span class="literal">True</span>)),</span><br><span class="line">    path(<span class="string">'apps/'</span>, include(<span class="string">'apps.urls'</span>)),</span><br><span class="line">    path(<span class="string">'admin/'</span>, admin.site.urls),</span><br><span class="line">]</span><br></pre></td></tr></tbody></table></figure>
+<p>Django does not serve <code>static files</code> like CSS, JavaScript, and images by default, but it can be useful for the development web server to do so while you’re creating your site.</p>
+<p>As a final addition to this URL mapper, you can enable the serving of static files during development by appending the following lines.</p>
+<p>Add the following final block to the bottom of the file now in <code>yourproject/urls.py</code>:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## Add URL maps to redirect the base URL to our application</span></span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> RedirectView</span><br><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> include, path</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">	path(<span class="string">''</span>,RedirectView.as_view(url=<span class="string">'/apps/'</span>, permanent=<span class="literal">True</span>)),</span><br><span class="line">    path(<span class="string">'apps/'</span>, include(<span class="string">'apps.urls'</span>)),</span><br><span class="line">    path(<span class="string">'admin/'</span>, admin.site.urls),</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="settings"><a class="markdownIt-Anchor" href="#settings"></a> Settings</h2>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="comment"># Build paths inside the project like this: os.path.join(BASE_DIR, ...)</span></span><br><span class="line">BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># SECURITY WARNING: keep the secret key used in production secret!</span></span><br><span class="line">SECRET_KEY = <span class="string">'xc3=e7kw8lr+pbjo+3g_x++hs4n3rij2=$s=ygu$+$9fp!@^t2'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># SECURITY WARNING: don't run with debug turned on in production!</span></span><br><span class="line">DEBUG = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># When yourproject is developed locally, no setting is required.</span></span><br><span class="line">ALLOWED_HOSTS = []</span><br><span class="line"><span class="comment"># When your projcet is exposed to internet, thatis the Hostname/IP address available for accessing the django project.</span></span><br><span class="line">ALLOWED_HOSTS = [<span class="string">"localhost"</span>,<span class="string">"192.168.10.*"</span>,<span class="string">"127.0.0.1"</span>]</span><br></pre></td></tr></tbody></table></figure>
+<p>To include the app in our project or  registered, we need to add a reference to its configuration class in the <code>INSTALLED_APPS</code>setting. The <code>appsConfig</code> class is in the <code>apps/apps.py</code> file, so its dotted path is <code>'apps.apps.appsConfig'</code> OR just  <code>apps(Not recommended)</code>. Edit the <code>yourproject/settings.py</code> file and add that dotted path to the <code>INSTALLED_APPS</code>It’ll look like this:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="string">'django.contrib.admin'</span>,</span><br><span class="line">    <span class="string">'django.contrib.auth'</span>,</span><br><span class="line">    <span class="string">'django.contrib.contenttypes'</span>,</span><br><span class="line">    <span class="string">'django.contrib.sessions'</span>,</span><br><span class="line">    <span class="string">'django.contrib.messages'</span>,</span><br><span class="line">    <span class="string">'django.contrib.staticfiles'</span>,</span><br><span class="line">    <span class="string">'apps.apps.appsConfig'</span>,</span><br><span class="line">]</span><br></pre></td></tr></tbody></table></figure>
+<p>By default, <code>INSTALLED_APPS</code> contains the following apps, all of which come with Django:</p>
+<ul>
+<li><code>django.contrib.admin</code> – The admin site. You’ll use it shortly.</li>
+<li><code>django.contrib.auth</code> – An authentication system.</li>
+<li><code>django.contrib.contenttypes</code> – A framework for content types.</li>
+<li><code>django.contrib.sessions</code> – A session framework.</li>
+<li><code>django.contrib.messages</code> – A messaging framework.</li>
+<li><code>django.contrib.staticfiles</code> – A framework for managing static files.</li>
+</ul>
+<p>While you’re editing <code>yourproject/settings.py</code>, set <code>TIME_ZONE</code> to your local time zone , for example,  set the <code>TIME_ZONE = 'Asia/Shanghai'</code>. And if you don’t know the format , you can check the timezone standard tz name from <code>wikipedia</code>(<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">List of tz database time zones</a>) here.</p>
+<p>Here we can set static and media path:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">STATIC_URL = <span class="string">'/static/'</span></span><br><span class="line"></span><br><span class="line">STATIC_ROOT = os.path.join(BASE_DIR, <span class="string">"static"</span>)</span><br><span class="line"></span><br><span class="line">MEDIA_ROOT = os.path.join(BASE_DIR, <span class="string">'media'</span>)</span><br><span class="line"></span><br><span class="line">MEDIA_URL = <span class="string">'/media/'</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="references"><a class="markdownIt-Anchor" href="#references"></a> REFERENCES</h2>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/3.1/">https://docs.djangoproject.com/en/3.1/</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/3.1/ref/contrib/">https://docs.djangoproject.com/en/3.1/ref/contrib/</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/3.1/intro/tutorial01/">https://docs.djangoproject.com/en/3.1/intro/tutorial01/</a></li>
+</ul>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://github.com/django">https://github.com/django</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://www.djangoproject.com">https://www.djangoproject.com</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://tutorial.djangogirls.org/en/">https://tutorial.djangogirls.org/en/</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://simpleisbetterthancomplex.com/tag/django/">https://simpleisbetterthancomplex.com/tag/django/</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django">https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://www.digitalocean.com/community">https://www.digitalocean.com/community</a> (Search Keywords Django)</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://www.packtpub.com/product/django-2-by-example/9781788472487">https://www.packtpub.com/product/django-2-by-example/9781788472487</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.packtpub.com/product/django-3-by-example-third-edition/9781838981952">https://www.packtpub.com/product/django-3-by-example-third-edition/9781838981952</a></p>
+<p><a target="_blank" rel="noopener" href="https://archive.conyli.cc/django-2-by-example">https://archive.conyli.cc/django-2-by-example</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/minkolee/django2-by-example-ZH">https://github.com/minkolee/django2-by-example-ZH</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://code.ziqiangxuetang.com/django/django-tutorial.html">https://code.ziqiangxuetang.com/django/django-tutorial.html</a> (中文)</p>
+</li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Joaxin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://u.pinsflora.xyz/Pysnista/Django/dj_intro_/">https://u.pinsflora.xyz/Pysnista/Django/dj_intro_/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Django/">Django</a></div><div class="post_share"><div class="addtoany"><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_wechat"></a><a class="a2a_button_sina_weibo"></a><a class="a2a_button_facebook_messenger"></a><a class="a2a_button_email"></a><a class="a2a_button_copy_link"></a><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a></div></div><script async="async" src="https://static.addtoany.com/menu/page.js"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/Pysnista/Django/dj_intro7_sessions/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_tree_dawnlights.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Django Introduction Part7 - Sessions framework</div></div></a></div><div class="next-post pull-right"><a href="/Pysnista/Django/dj_intro11_production/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_red_dim_flower.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Django Introduction Part11 - Deploying Django to production</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> Related Articles</span></div><div class="relatedPosts-list"><div><a href="/Pysnista/Django/dj_FAQ/" title="Django FAQ"><img class="cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_red_dim_flower.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2020-09-05</div><div class="title">Django FAQ</div></div></a></div><div><a href="/Pysnista/Django/dj_intro3_dbs/" title="Django Introduction Part3 - Database"><img class="cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_tree_dawnlights.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2020-09-05</div><div class="title">Django Introduction Part3 - Database</div></div></a></div><div><a href="/Pysnista/Django/dj_intro4_admin/" title="Django Introduction Part4 - Admin"><img class="cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_grass_in_the_snow.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2020-08-05</div><div class="title">Django Introduction Part4 - Admin</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Joaxin</div><div class="author-info__description">When I close my eyes, I'm in my own ♡cean 🐟aves.</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">333</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">110</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">34</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/joaxin"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/joaxin" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:lotility@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">感謝訪問本站，若喜歡請收藏 ^_^</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#about-django"><span class="toc-number">1.</span> <span class="toc-text"> About Django</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#django-environment"><span class="toc-number">2.</span> <span class="toc-text"> Django Environment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#introduction"><span class="toc-number">3.</span> <span class="toc-text"> Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#create-your-first-app"><span class="toc-number">4.</span> <span class="toc-text"> Create your first APP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#write-your-first-view"><span class="toc-number">5.</span> <span class="toc-text"> Write your first view</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#settings"><span class="toc-number">6.</span> <span class="toc-text"> Settings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#references"><span class="toc-number">7.</span> <span class="toc-text"> REFERENCES</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/Web/vue/Vue_lists/" title="No title"><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_sea_stairs.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/Web/vue/Vue_lists/" title="No title">No title</a><time datetime="2020-06-29T04:07:50.166Z" title="Created 2020-06-29 12:07:50">2020-06-29</time></div></div><

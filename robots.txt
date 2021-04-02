@@ -15,4 +15,4 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: https://u.pinsflora.com/sitemap.xml
+Sitemap: https://u.pinsflora.xyz/sitemap.xml

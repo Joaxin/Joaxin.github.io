@@ -1,0 +1,560 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Google Advanced Searching Challenge | Pinsflora</title><meta name="keywords" content="Google"><meta name="author" content="Joaxin"><meta name="copyright" content="Joaxin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="The way I solved Google Advanced Searching Problems.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google Advanced Searching Challenge">
+<meta property="og:url" content="https://u.pinsflora.xyz/Life/Internet/website_google_search/index.html">
+<meta property="og:site_name" content="Pinsflora">
+<meta property="og:description" content="The way I solved Google Advanced Searching Problems.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/goo_cover.png">
+<meta property="article:published_time" content="2018-09-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-10-04T16:00:00.000Z">
+<meta property="article:author" content="Joaxin">
+<meta property="article:tag" content="Google">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/goo_cover.png"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://u.pinsflora.xyz/Life/Internet/website_google_search/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-177831205-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-177831205-1');
+</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2019-10-05 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}const fontSizeVal = saveToLocal.get('global-font-size')
+if (fontSizeVal !== undefined) {
+  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+}})()</script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Pinsflora" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">333</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">110</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">34</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/goo_cover.png)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Pinsflora</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Google Advanced Searching Challenge</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-09-29T16:00:00.000Z" title="Created 2018-09-30 00:00:00">2018-09-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2019-10-04T16:00:00.000Z" title="Updated 2019-10-05 00:00:00">2019-10-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Life/">Life</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Life/Internet/">Internet</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>18min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>When I was exposed to the Internet, I had a vague feeling that the first time I met Google was on 2008, and that was so amazing and impressive.</p>
+<p>But something was about to happen to block us from this powerful search since 30 March, 2010.</p>
+<p>And…</p>
+<p>Google is not a search tool,  it’s a life style.</p>
+<h2 id="challenge-1-mimicking-presidential-voices-e"><a class="markdownIt-Anchor" href="#challenge-1-mimicking-presidential-voices-e"></a> Challenge 1 - Mimicking presidential voices (E)</h2>
+<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">From Kee Malesky, of National Public Radio:</span><br><span class="line"></span><br><span class="line">I was asked recently to find reputable sources for the following statement: “During the glory days of radio, it was illegal to mimic the voice of the US president.” Was there actually a law prohibiting that? Or was just a White House policy and not a legal issue.</span><br><span class="line"></span><br><span class="line">Was it law or policy?</span><br></pre></td></tr></tbody></table></figure>
+<p>From: <a target="_blank" rel="noopener" href="http://www.powersearchingwithgoogle.com/course/aps/challenge?c=1">http://www.powersearchingwithgoogle.com/course/aps/challenge?c=1</a></p>
+<h3 id="hints"><a class="markdownIt-Anchor" href="#hints"></a> Hints</h3>
+<blockquote>
+<p>Here is how one searcher broke down the problem:</p>
+<ul>
+<li>What time period are we talking about here?</li>
+<li>Which presidents would have been in office at that time?</li>
+<li>Who would have been imitating the presidents’ voices?</li>
+<li>What coverage is there of these people being told they could not mimic presidents’ voices?</li>
+<li>What kind of source would be “reputable” enough that I would feel I had found what I needed?</li>
+</ul>
+</blockquote>
+<h3 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_1001.png" alt="google"></p>
+<p>From: <a target="_blank" rel="noopener" href="https://www.washingtonpost.com/news/post-nation/wp/2016/06/27/the-surprisingly-dark-twisted-history-of-presidential-impersonators-in-america/">https://www.washingtonpost.com/news/post-nation/wp/2016/06/27/the-surprisingly-dark-twisted-history-of-presidential-impersonators-in-america/</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_1002.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_1003.png" alt="google"></p>
+<p>Or from: <a target="_blank" rel="noopener" href="https://www.npr.org/2012/10/29/163827167/impersonating-the-president-from-will-rogers-to-obamas-anger-translator">https://www.npr.org/2012/10/29/163827167/impersonating-the-president-from-will-rogers-to-obamas-anger-translator</a></p>
+<p>Now we have ideas, search google books or scholar for more details:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_1004.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_1005.png" alt="google"></p>
+<h3 id="answer"><a class="markdownIt-Anchor" href="#answer"></a> Answer</h3>
+<blockquote>
+<p>Policy. The prohibition against imitating the president’s voice on the radio was policy, not law.</p>
+</blockquote>
+<h2 id="challenge-2-turtle-fossils-e"><a class="markdownIt-Anchor" href="#challenge-2-turtle-fossils-e"></a> Challenge 2 - Turtle fossils (E)</h2>
+<blockquote>
+<p>I remember reading an article about scientists who found fossils of pairs of turtles mating. I want to read the original announcement of the discovery in a scholarly publication.</p>
+<p>What is the web address (URL) for the original article abstract?</p>
+</blockquote>
+<h3 id="hints-2"><a class="markdownIt-Anchor" href="#hints-2"></a> Hints</h3>
+<blockquote>
+<p>Here’s how one searcher broke down the problem:</p>
+<ul>
+<li>Find an article about this discovery.</li>
+<li>Who was the author of the original study?</li>
+<li>What was the title?</li>
+<li>(If neccesary: Is there a list of publications by this researcher?)</li>
+<li>Is the article findable by title and/or author in Google Scholar or Google Web search?</li>
+</ul>
+</blockquote>
+<h3 id="solution-2"><a class="markdownIt-Anchor" href="#solution-2"></a> Solution</h3>
+<p>Very simple:)</p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_2001.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_2002.png" alt="google"></p>
+<h3 id="answer-2"><a class="markdownIt-Anchor" href="#answer-2"></a> Answer</h3>
+<p>The original announcement appeared in Royal Society Publishing’s Biology Letters. The abstract is here: <a target="_blank" rel="noopener" href="http://rsbl.royalsocietypublishing.org/content/early/2012/06/25/rsbl.2012.0361">http://rsbl.royalsocietypublishing.org/content/early/2012/06/25/rsbl.2012.0361</a> ==&gt; <a target="_blank" rel="noopener" href="https://royalsocietypublishing.org/doi/full/10.1098/rsbl.2012.0361">https://royalsocietypublishing.org/doi/full/10.1098/rsbl.2012.0361</a></p>
+<h2 id="challenge-3-which-festival-m"><a class="markdownIt-Anchor" href="#challenge-3-which-festival-m"></a> Challenge 3 - Which festival? (M)</h2>
+<blockquote>
+<p>You are in the city that is home to the House of Light and a museum in a converted school featuring paintings from the far-away Forest of Honey. What traditional festival might you be visiting?</p>
+</blockquote>
+<h3 id="hints-3"><a class="markdownIt-Anchor" href="#hints-3"></a> Hints</h3>
+<blockquote>
+<p>Here is how one searcher broke down the problem:</p>
+<ul>
+<li>Which of the parts of this question do I think I can identify first?</li>
+<li>What are the “paintings from the far-away Forest of Honey”?</li>
+<li>What is the House of Light?</li>
+<li>Which places that relate to the two topics above are in the same city?</li>
+<li>What festivals does that city host each year?</li>
+</ul>
+</blockquote>
+<h3 id="solution-3"><a class="markdownIt-Anchor" href="#solution-3"></a> Solution</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_3001.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_3002.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_3003.png" alt="google"></p>
+<p>From: <a target="_blank" rel="noopener" href="https://www.theguardian.com/travel/2009/aug/01/art-festival-japan-echigo-tsumari">https://www.theguardian.com/travel/2009/aug/01/art-festival-japan-echigo-tsumari</a></p>
+<p>Then, found this:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_3004.png" alt="google"></p>
+<p>From: <a target="_blank" rel="noopener" href="http://www.echigo-tsumari.jp/eng/">http://www.echigo-tsumari.jp/eng/</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_3005.jpg" alt="google"></p>
+<p>Tokamachi - 十日町市 from:  <a target="_blank" rel="noopener" href="https://www.japan.travel/en/spot/1444/">https://www.japan.travel/en/spot/1444/</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_3006.png" alt="google"></p>
+<p>From: <a target="_blank" rel="noopener" href="https://homehome.jp/en/">https://homehome.jp/en/</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_3007.png" alt="google"></p>
+<p>From: <a target="_blank" rel="noopener" href="http://www.mithila-museum.com/aboutMM/Eindex.html">http://www.mithila-museum.com/aboutMM/Eindex.html</a></p>
+<h3 id="answer-3"><a class="markdownIt-Anchor" href="#answer-3"></a> Answer</h3>
+<blockquote>
+<p>You might be visiting the Snow festival. Tokamachi, in Niigata Prefecture, claims to be home to the oldest snow festival in Japan. It is also home to the Mithila Museum, displaying Madhubani paintings (also called Mithila paintings) and teracotta statues from India. Tokamachi is also home to the architectural work, The House of Light.</p>
+</blockquote>
+<h2 id="challenge-4-humongous-fungus-m"><a class="markdownIt-Anchor" href="#challenge-4-humongous-fungus-m"></a> Challenge 4 - Humongous fungus (M)</h2>
+<blockquote>
+<p>The article that introduced the most humongous “Humongous Fungus” has been cited by a mycoforester who recommended using what parasite to cure the infestation?</p>
+</blockquote>
+<h3 id="hints-4"><a class="markdownIt-Anchor" href="#hints-4"></a> Hints</h3>
+<blockquote>
+<p>Here’s how one searcher broke down the problem:</p>
+<ul>
+<li>What is the Humongous Fungus?</li>
+<li>Which is the largest?</li>
+<li>What article announced the discovery of the largest one?</li>
+<li>What other works cited that article?</li>
+<li>What parasites might cure the infestation of the Humongous Fungus?</li>
+</ul>
+</blockquote>
+<h3 id="solution-4"><a class="markdownIt-Anchor" href="#solution-4"></a> Solution</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_4001.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_4002.png" alt="google"></p>
+<p>From: <strong>奥氏蜜环菌</strong> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Armillaria_ostoyae">https://en.wikipedia.org/wiki/Armillaria_ostoyae</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_4003.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_4004.png" alt="google"></p>
+<p>From: <a target="_blank" rel="noopener" href="https://www.sciencedaily.com/releases/2003/03/030327074535.htm">https://www.sciencedaily.com/releases/2003/03/030327074535.htm</a></p>
+<p>Then, we found the original:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_4005.png" alt="google"></p>
+<p>From: <a target="_blank" rel="noopener" href="https://www.nrcresearchpress.com/doi/abs/10.1139/x03-065#.XZ1FYFX7T4Z">https://www.nrcresearchpress.com/doi/abs/10.1139/x03-065#.XZ1FYFX7T4Z</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_4006.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_4007.png" alt="google"></p>
+<p>From: <a target="_blank" rel="noopener" href="https://books.google.com/books?hl=zh-CN&amp;lr=&amp;id=NPI8_-omzvsC&amp;oi=fnd&amp;pg=PP16&amp;dq=mycoforester&amp;ots=3bqv51dn5L&amp;sig=SEA5aT7XpiSfBAccpxiv1XyaMLk#v=onepage&amp;q&amp;f=false">https://books.google.com/books?hl=zh-CN&amp;lr=&amp;id=NPI8_-omzvsC&amp;oi=fnd&amp;pg=PP16&amp;dq=mycoforester&amp;ots=3bqv51dn5L&amp;sig=SEA5aT7XpiSfBAccpxiv1XyaMLk#v=onepage&amp;q&amp;f=false</a></p>
+<h3 id="answer-4"><a class="markdownIt-Anchor" href="#answer-4"></a> Answer</h3>
+<blockquote>
+<p>Scientists have identified a number of fungi that are thought to combat the spread of a Armillaria solidipes, including:</p>
+<ul>
+<li>Cauliflower Mushrooms (Sparassis crispa),</li>
+<li>Smoky Gilled Woodlovers (Hypholoma capnoides),</li>
+<li>Clustered Woodlovers (Hypholoma fasciculare), and</li>
+<li>Turkey Tails (Trametes versicolor).</li>
+</ul>
+</blockquote>
+<h2 id="challenge-5-block-print-books-m"><a class="markdownIt-Anchor" href="#challenge-5-block-print-books-m"></a> Challenge 5 - Block-print books (M)</h2>
+<blockquote>
+<p>Salman Khan asks:</p>
+<p>“I recently estimated a current-day equivalent cost for a family to buy a block-print book before the invention of the Gutenberg press.”</p>
+<p>(1) To what contemporary item was the cost of a book compared?</p>
+<p>(2) Can you find other sources that back up or contradict the calculation in this book?</p>
+</blockquote>
+<h3 id="hints-5"><a class="markdownIt-Anchor" href="#hints-5"></a> Hints</h3>
+<blockquote>
+<p>Here’s how one searcher broke down the problem:</p>
+<ul>
+<li>Where did Khan make this estimate?</li>
+<li>Can I find it through Web search, or another Google service?</li>
+<li>If I cannot find it directly, how can I figure out what major things Khan has been up to for the last six months or a year to guess where he might have shared this estimate?</li>
+<li>How do scholars calculate the relative costs of items at different periods of time?</li>
+</ul>
+</blockquote>
+<h3 id="solution-5"><a class="markdownIt-Anchor" href="#solution-5"></a> Solution</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_5001.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_5002.png" alt="google"></p>
+<p>From: <a target="_blank" rel="noopener" href="https://www.history.com/topics/inventions/printing-press">https://www.history.com/topics/inventions/printing-press</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_5003.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_5004.png" alt="google"></p>
+<p>From: <a target="_blank" rel="noopener" href="https://archive.org/stream/TheOneWorldSchoolHouse-English-SalmanKhan/The-One-World-Schoolhouse-Salman-Khan2_djvu.txt">https://archive.org/stream/TheOneWorldSchoolHouse-English-SalmanKhan/The-One-World-Schoolhouse-Salman-Khan2_djvu.txt</a></p>
+<h3 id="answer-5"><a class="markdownIt-Anchor" href="#answer-5"></a> Answer</h3>
+<blockquote>
+<p>Salman Khan estimated that purchasing a “luxury car” today would have about the same impact on a family budget as would have been made by a family buying a block-print book prior to the invention of the Gutenberg press.</p>
+</blockquote>
+<h2 id="challenge-6-where-in-the-world-h"><a class="markdownIt-Anchor" href="#challenge-6-where-in-the-world-h"></a> Challenge 6 - Where in the world? (H)</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_6001.png" alt="google"><br>
+Image A: Boathouses</p>
+<p>The picture above was taken at a stop along the fall-to-spring route of a particular vehicle.</p>
+<p>That photo, and the two below, were taken in the same county, from a vehicle as it traveled.</p>
+<p>(1) What is the name of the vehicle that the pictures were taken from?<br>
+(2) What job does this vehicle do for most of the year, excluding the summer months?<br>
+(3) All the images are in the same county. If you travel north to south and visit each of these locations in order, in what order would you arrive at the sites? (For example, would you go A, B, C?)</p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_6002.png" alt="google"><br>
+Image B: Industrial plant for processing oil</p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_6003.png" alt="google"><br>
+Image C: Passing an island</p>
+<h3 id="hints-6"><a class="markdownIt-Anchor" href="#hints-6"></a> Hints:</h3>
+<blockquote>
+<p>Here is how one searcher broke down the problem:</p>
+<ul>
+<li>Looking at all four pictures, are there any hints that I can see? Are there any pieces of information that appear multiple times?</li>
+<li>Can I identify any of these places using Search-by-Image? Can I drag and drop it into Search-by-Image? Can I take a screenshot and upload it to Search-by-Image? (Can I find instructions for how to take a screenshot if I have not done it before?)</li>
+<li>Does any information I find with Search-by-Image give me more infromation to build upon?</li>
+<li>Are there any useful search terms I have learned so far that I can combine with general descriptions of some of these pictures in order to figure out what the rest of the pictures are?</li>
+</ul>
+</blockquote>
+<h3 id="solution-6"><a class="markdownIt-Anchor" href="#solution-6"></a> Solution</h3>
+<p><strong>Bokbåten</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_6004.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_6005.png" alt="google"></p>
+<p>From: <a target="_blank" rel="noopener" href="https://thornews.com/2012/02/01/the-book-boat-epos-a-floating-library/">https://thornews.com/2012/02/01/the-book-boat-epos-a-floating-library/</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_6006.png" alt="google"></p>
+<p>From: <a target="_blank" rel="noopener" href="https://bokbaten.no/?action=showroute&amp;id=3">https://bokbaten.no/?action=showroute&amp;id=3</a></p>
+<p>Then, Google image serach:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_6007.png" alt="google"></p>
+<p>From: <a target="_blank" rel="noopener" href="https://www.flickr.com/photos/12592562@N00/6934273856">https://www.flickr.com/photos/12592562@N00/6934273856</a></p>
+<p><strong>Mongstad, Hordaland Fylke, Norge</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_6009.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_6008.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_6010.png" alt="google"></p>
+<h3 id="answer-6"><a class="markdownIt-Anchor" href="#answer-6"></a> Answer</h3>
+<blockquote>
+<p>Epos is the name of the bookboat (a library on a boat) that serves portions of Norway for part of the year.</p>
+<p>Image A is Nordstrøno, Hordaland Fylke, Norway.</p>
+<p>Image B is the refinery at Mongstad.</p>
+<p>Image C is at Lepsøy.<br>
+Going from north to south, you would visit B-A-C (refinery-boathouse-bridge).</p>
+<p>Photo credit: Thomas Brevik</p>
+</blockquote>
+<h2 id="challenge-7-mystery-music-e"><a class="markdownIt-Anchor" href="#challenge-7-mystery-music-e"></a> Challenge 7 - Mystery music (E)</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_7001.png" alt="google"></p>
+<blockquote>
+<p>At the world’s fair for which this building was constructed, a composer heard a full orchestra playing a traditional form of music from an island that was once home to the Sunda Kingdom. In later years, he composed many pieces inspired by elements of this musical form.</p>
+<p>(1) Who was this composer?<br>
+(2) What is the name of this style of music?<br>
+(3) From what current-day country does it originate?<br>
+(4) Find an example of this traditional form of music you can hear.<br>
+(5) Find a musical score by this composer of an early 20th century piece that is heavily influenced by this music.<br>
+(6) What is the library closest to you that has the score?</p>
+</blockquote>
+<h3 id="hints-7"><a class="markdownIt-Anchor" href="#hints-7"></a> Hints</h3>
+<blockquote>
+<p>Here is how one searcher broke down the problem:</p>
+<ul>
+<li>What is that building and for what world’s fair was it constructed?</li>
+<li>Where is the Sunda Kingdom? What is it called now? What was it called during the world’s fair mentioned above?</li>
+<li>What music from that location was played as a full orchestral piece at the world’s fair mentioned above?</li>
+<li>What composer(s) heard that music? (Presumably, these are famous composers.)</li>
+<li>If more than one composer, which one went on to compose pieces inspired by that musical form?</li>
+<li>What is an example of this form of music to which I can listen?</li>
+<li>What pieces of music by the composer are said to be influenced by the form of music? What piece is said to be the earliest? (Is there debate about this?)</li>
+<li>Where can I find a copy of the musical score?</li>
+<li>What library near me has the musical score?</li>
+</ul>
+</blockquote>
+<h3 id="solution-7"><a class="markdownIt-Anchor" href="#solution-7"></a> Solution</h3>
+<p>You may find from wikipedia here: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Exposition_Universelle_(1889)">https://en.wikipedia.org/wiki/Exposition_Universelle_(1889)</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_7002.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_7003.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_7004.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_7005.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_7006.png" alt="google"></p>
+<p>From: <a target="_blank" rel="noopener" href="https://symposium.music.org/index.php?option=com_k2&amp;view=item&amp;id=22:claude-debussys-gamelan&amp;Itemid=116">https://symposium.music.org/index.php?option=com_k2&amp;view=item&amp;id=22:claude-debussys-gamelan&amp;Itemid=116</a></p>
+<h3 id="answer-7"><a class="markdownIt-Anchor" href="#answer-7"></a> Answer</h3>
+<blockquote>
+<p>Claude Debussy first heard a full Javanese gamelan orchestra (from current-day Indonesia) at the Exposition Universelle in Paris in 1889, for which the Eiffel Tower was originally constructed.</p>
+<p>So:<br>
+(1) Claude Debussy<br>
+(2) Gamelan<br>
+(3) Indonesia<br>
+(4) Find one piece of Gamelan to experience<br>
+(5) We found several scores which are beleived to be influenced by gamelan, including:<br>
+–Pour le Piano<br>
+–Estampes<br>
+–Nocturnes<br>
+–String Quartet (in G minor)<br>
+(6) The closest library to hold the score will depend on where you live and the score you pick.</p>
+</blockquote>
+<h2 id="challenge-8-climate-graph-e"><a class="markdownIt-Anchor" href="#challenge-8-climate-graph-e"></a> Challenge 8 - Climate graph (E)</h2>
+<p>From National Geographic:</p>
+<p>(1) Below is a climate graph showing average temperature and precipitation for a major city. Across the top are three cities. Research the climate for each city and decide which city fits the graph.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_8001.png" alt="google"><br>
+(2) What is the Köppen climate type(柯本气候分类) for the city that fits the graph, as expressed in letter symbols?<br>
+(3) Which of the city choices has a climate influenced by the southeast trade winds(东南信风)?</p>
+<h3 id="hints-8"><a class="markdownIt-Anchor" href="#hints-8"></a> Hints</h3>
+<blockquote>
+<p>Here’s how one searcher broke down the problem:</p>
+<ul>
+<li>Are there any terms that National Geographic uses in the asking of this question that I did not know before? Could they be discipline-sepcific terms that I can use effectively?</li>
+<li>Where in the world are Christchurch, Quezon City, and Port Moresby located? Do I know anything about climate patters that rule any of these out from the start?</li>
+<li>Is there any information that I might see that will vary among different sources, so that I’ll need to look at a number of sources and generalize to find my answer?</li>
+<li>What are the climates like in each of these cities?</li>
+<li>What is the Köppen climate type for the city that fits the graph, as expressed in letter symbols?</li>
+<li>What are the southeast trade winds?</li>
+<li>Is there a map of where the southeast trade winds blow?</li>
+</ul>
+</blockquote>
+<h3 id="solution-8"><a class="markdownIt-Anchor" href="#solution-8"></a> Solution</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_8002.png" alt="google"></p>
+<p>If you know some geography, that was a “<strong>piece of cake</strong>.” ==&gt; Christchurch from New Zealand.</p>
+<p>Obviously, Port Moresby in <strong>Papua New Guinea</strong> and Quezon(奎松) in <strong>Philippines</strong> are too hot 😃.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_8003.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_80031.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_80032.png" alt="google"></p>
+<p>From: <a target="_blank" rel="noopener" href="https://www.weatherbase.com/weather/weather-summary.php3?s=8739&amp;cityname=Christchurch%2C+Canterbury%2C+New+Zealand&amp;units=">https://www.weatherbase.com/weather/weather-summary.php3?s=8739&amp;cityname=Christchurch%2C+Canterbury%2C+New+Zealand&amp;units=</a></p>
+<p>Then, visit : <a target="_blank" rel="noopener" href="https://www.britannica.com/">google</a> (Access limited), so you  can use wikipedia instead.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_8004.png" alt="google"></p>
+<p>From: <a target="_blank" rel="noopener" href="https://www.britannica.com/place/Papua-New-Guinea/Climate">https://www.britannica.com/place/Papua-New-Guinea/Climate</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_80041.png" alt="google"></p>
+<p>And occasionally, found a cool website: <a target="_blank" rel="noopener" href="http://hint.fm/">http://hint.fm/</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_8005.png" alt="google"></p>
+<h3 id="answer-8"><a class="markdownIt-Anchor" href="#answer-8"></a> Answer</h3>
+<blockquote>
+<p>(1) Christchurch’s climate matches this climate graph.<br>
+(2) Cfb is the Köppen climate type for Christchurch.<br>
+(3) Port Moresby is influenced by the southeast trade winds. Christchurch is influenced by westerlies, and Quezon City by northeast trade winds.</p>
+</blockquote>
+<h2 id="challenge-9-name-that-notebook-m"><a class="markdownIt-Anchor" href="#challenge-9-name-that-notebook-m"></a> Challenge 9 - Name that notebook (M)</h2>
+<blockquote>
+<p>In the mid-1800’s literate people in the United States and elsewhere often carried a notebook with them to copy down passages of text or quotations that were particularly valuable or interesting to them. This notebook had a very particular name. What was this kind of notebook called?</p>
+</blockquote>
+<h3 id="hints-9"><a class="markdownIt-Anchor" href="#hints-9"></a> Hints</h3>
+<blockquote>
+<p>Here’s how one searcher broke down the problem:</p>
+<ul>
+<li>Are there any useful search terms here that are unique enough to find what I need?</li>
+<li>What do I know that I can work with to find my answer?</li>
+<li>Are there other ways I can say the same concepts (synonyms or other wording)?</li>
+<li>What tools are available to help me find what I want when the question does not offer clear keywords?</li>
+</ul>
+</blockquote>
+<h3 id="solution-9"><a class="markdownIt-Anchor" href="#solution-9"></a> Solution</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_9001.png" alt="google"></p>
+<p>From: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Commonplace_book">https://en.wikipedia.org/wiki/Commonplace_book</a></p>
+<h3 id="answer-9"><a class="markdownIt-Anchor" href="#answer-9"></a> Answer</h3>
+<blockquote>
+<p>This type of notebook was generally called a commonplace book. Many famous people kept commonplace books, including English writers Francis Bacon and John Milton, and US President Thomas Jefferson.</p>
+</blockquote>
+<h2 id="challenge-10-who-done-it-m"><a class="markdownIt-Anchor" href="#challenge-10-who-done-it-m"></a> Challenge 10 - Who done it?  (M)</h2>
+<blockquote>
+<p>Although best known for other works, this doctor ran as a parliamentary candidate for the Liberal Unionists. He also compared seals to slugs while working on a whaling ship. Later in life, he sent an open letter to the newspaper decrying the “greatest crime ever committed.”</p>
+<p>(1) What book did he write on the subject of this “great crime”?</p>
+<p>(2) What is the closest library to you that has a print copy of this book?</p>
+</blockquote>
+<h3 id="hints-10"><a class="markdownIt-Anchor" href="#hints-10"></a> Hints</h3>
+<blockquote>
+<p>Here’s how one searcher broke down the problem:</p>
+<ul>
+<li>There are lots of small pieces of information in this question, for which do I have enough information to actually find what I need with only what is here?</li>
+<li>Who compared seals to slugs while working on a whaling ship?</li>
+<li>Was this person a doctor?</li>
+<li>Did this person run as a parliamentary candidate for the Liberal Unionists?</li>
+<li>What did this person call the “greatest crime ever committed”?</li>
+<li>What was the title of the book on the “greatest crime”?</li>
+<li>What library closest to me has this book?</li>
+</ul>
+</blockquote>
+<h3 id="solution-10"><a class="markdownIt-Anchor" href="#solution-10"></a> Solution</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_10001.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_10002.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_10003.png" alt="google"></p>
+<p>From: <a target="_blank" rel="noopener" href="https://www.worldcat.org/title/crime-of-the-congo/oclc/1117885503&amp;referer=brief_results">https://www.worldcat.org/title/crime-of-the-congo/oclc/1117885503&amp;referer=brief_results</a></p>
+<h3 id="answer-10"><a class="markdownIt-Anchor" href="#answer-10"></a> Answer</h3>
+<blockquote>
+<p>The Crime of the Congo, by Arthur Conan Doyle, outlined the atrocities taking place in the Belgian Congo in the early 1900s. Doyle, most famous for his Sherlock Holmes detective stories, worked on a whaling ship while studying medicine and later ran for parliament. The closest library with a copy of the book depends on where you live.</p>
+</blockquote>
+<h2 id="challenge-11-next-world-heritage-site-m"><a class="markdownIt-Anchor" href="#challenge-11-next-world-heritage-site-m"></a> Challenge 11 - Next World Heritage site (M)</h2>
+<blockquote>
+<p>Suggest a new World Heritage site in your country.</p>
+<p>What are the criteria for becoming a World Heritage site? What are the existing locations near you? Identify three strong reasons that qualify the location you selected to become a World Heritage site.</p>
+</blockquote>
+<h3 id="hints-11"><a class="markdownIt-Anchor" href="#hints-11"></a> Hints</h3>
+<blockquote>
+<ul>
+<li>Here is how one searcher broke down the problem:</li>
+<li>What are the criteria for becoming a World Heritage site?</li>
+<li>What are the current World Heritage sites in my country or region?</li>
+<li>Which sites in my area have special significance?</li>
+<li>Are those sites cultural, natural, or mixed?</li>
+<li>Why do those sites meet the criteria for becoming a World Heritage site?</li>
+</ul>
+</blockquote>
+<p>To be continued, bla bla bla.</p>
+<h2 id="challenge-12-whats-that-bird-h"><a class="markdownIt-Anchor" href="#challenge-12-whats-that-bird-h"></a> Challenge 12 - What’s that bird? (H)</h2>
+<blockquote>
+<p>You were hiking in the Rio Platano Biosphere Reserve and saw this feather on the ground. You sketched it out so you could identify it later. To what kind of bird did it belong?</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_12001.png" alt="google"></p>
+<h3 id="hints-12"><a class="markdownIt-Anchor" href="#hints-12"></a> Hints</h3>
+<blockquote>
+<p>Here is how one searcher broke down the problem:</p>
+<ul>
+<li>Can I just identify this easily?</li>
+<li>How can I identify feathers? How do experts do it?</li>
+<li>Are there any sources that will help me identify an unknown feather?</li>
+<li>Where is the Rio Platano Biosphere Reserve?</li>
+<li>Once I identify the feather, can I find the range of that bird? What kind of source will most help me identify the range? How reliable is any one source?</li>
+<li>The reserve name looks like it is Spanish. If the park is located someplace that is Spanish-speaking, how can I search both English- and Spanish-language sources? (Or, just Spanish-language sources?)</li>
+<li>Does the bird I identified live in the area of the park?</li>
+</ul>
+</blockquote>
+<h3 id="solution-11"><a class="markdownIt-Anchor" href="#solution-11"></a> Solution</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_12002.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_12003.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_12004.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_12005.png" alt="google"></p>
+<p>From: <a target="_blank" rel="noopener" href="https://www.fws.gov/lab/featheratlas/idtool.php?button=Get+Started+with+Feather+Identification!">google</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_12006.png" alt="google"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_12007.png" alt="google"></p>
+<p>From Featherbase: <a target="_blank" rel="noopener" href="https://www.featherbase.info/en/home">https://www.featherbase.info/en/home</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/website/gooo/google_s_12008.png" alt="google"></p>
+<p>From Allaboutbirds: <a target="_blank" rel="noopener" href="https://www.allaboutbirds.org/">https://www.allaboutbirds.org/</a></p>
+<h3 id="answer-11"><a class="markdownIt-Anchor" href="#answer-11"></a> Answer</h3>
+<blockquote>
+<p>The feather belongs to the Colaptes auratus, which may commonly be referred to as the Northern Flicker or Guatemalan Flicker, or known more specifically as the Red-shafted Flicker.</p>
+</blockquote>
+<h2 id="references"><a class="markdownIt-Anchor"

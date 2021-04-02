@@ -3,11 +3,11 @@
   <title>Pinsflora</title>
   
   <subtitle>C&#39;est la magie</subtitle>
-  <link href="https://u.pinsflora.com/atom.xml" rel="self"/>
+  <link href="https://u.pinsflora.xyz/atom.xml" rel="self"/>
   
-  <link href="https://u.pinsflora.com/"/>
-  <updated>2020-06-16T16:00:00.000Z</updated>
-  <id>https://u.pinsflora.com/</id>
+  <link href="https://u.pinsflora.xyz/"/>
+  <updated>2018-04-11T13:58:44.000Z</updated>
+  <id>https://u.pinsflora.xyz/</id>
   
   <author>
     <name>Joaxin</name>
@@ -17,9 +17,91 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="https://u.pinsflora.xyz/Web/vue/Vue_lists/"/>
+    <id>https://u.pinsflora.xyz/Web/vue/Vue_lists/</id>
+    <published>2020-06-29T04:07:50.166Z</published>
+    <updated>2018-04-11T13:58:44.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://u.pinsflora.xyz/Web/vue/Vue_css/"/>
+    <id>https://u.pinsflora.xyz/Web/vue/Vue_css/</id>
+    <published>2020-06-29T04:05:20.977Z</published>
+    <updated>2018-04-11T14:27:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Klingon- Vol.1 - Introduction</title>
+    <link href="https://u.pinsflora.xyz/Lang/kl/duo_kl001_intro/"/>
+    <id>https://u.pinsflora.xyz/Lang/kl/duo_kl001_intro/</id>
+    <published>2020-06-26T16:00:00.000Z</published>
+    <updated>2020-06-26T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">Star Trek, tlhIngan Hol vIjatlh!</summary>
+    
+    
+    
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
+    
+    
+    <category term="Klingon" scheme="https://u.pinsflora.xyz/tags/Klingon/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>安卓 | 装机必备清单及习惯步骤</title>
+    <link href="https://u.pinsflora.xyz/Life/apps/life_apps_android_list/"/>
+    <id>https://u.pinsflora.xyz/Life/apps/life_apps_android_list/</id>
+    <published>2020-06-20T04:29:10.462Z</published>
+    <updated>2021-03-17T01:55:58.385Z</updated>
+    
+    
+    <summary type="html">安卓装机必备清单, 分为：必装/可有可无(但推荐安装)/用到时再装/小字(用过已卸载)</summary>
+    
+    
+    
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
+    
+    <category term="Apps" scheme="https://u.pinsflora.xyz/categories/Life/Apps/"/>
+    
+    
+    <category term="Apps" scheme="https://u.pinsflora.xyz/tags/Apps/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python - 操作图像</title>
-    <link href="https://u.pinsflora.com/Pysnista/Intro/files/py_pillow/"/>
-    <id>https://u.pinsflora.com/Pysnista/Intro/files/py_pillow/</id>
+    <link href="https://u.pinsflora.xyz/Pysnista/Intro/files/py_pillow/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Intro/files/py_pillow/</id>
     <published>2020-05-02T16:00:00.000Z</published>
     <updated>2020-06-16T16:00:00.000Z</updated>
     
@@ -28,19 +110,19 @@
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
     
-    <category term="Introduction" scheme="https://u.pinsflora.com/categories/Python/Introduction/"/>
+    <category term="Introduction" scheme="https://u.pinsflora.xyz/categories/Python/Introduction/"/>
     
     
-    <category term="images" scheme="https://u.pinsflora.com/tags/images/"/>
+    <category term="images" scheme="https://u.pinsflora.xyz/tags/images/"/>
     
   </entry>
   
   <entry>
     <title>Python - PDF &amp; Word</title>
-    <link href="https://u.pinsflora.com/Pysnista/Intro/files/py_files_pdf_word/"/>
-    <id>https://u.pinsflora.com/Pysnista/Intro/files/py_files_pdf_word/</id>
+    <link href="https://u.pinsflora.xyz/Pysnista/Intro/files/py_files_pdf_word/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Intro/files/py_files_pdf_word/</id>
     <published>2020-04-12T16:00:00.000Z</published>
     <updated>2020-07-10T16:00:00.000Z</updated>
     
@@ -49,21 +131,21 @@
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
     
-    <category term="Introduction" scheme="https://u.pinsflora.com/categories/Python/Introduction/"/>
+    <category term="Introduction" scheme="https://u.pinsflora.xyz/categories/Python/Introduction/"/>
     
     
-    <category term="Word" scheme="https://u.pinsflora.com/tags/Word/"/>
+    <category term="Word" scheme="https://u.pinsflora.xyz/tags/Word/"/>
     
-    <category term="PDF" scheme="https://u.pinsflora.com/tags/PDF/"/>
+    <category term="PDF" scheme="https://u.pinsflora.xyz/tags/PDF/"/>
     
   </entry>
   
   <entry>
-    <title>Duolingo - Norwegian - Vol.5 - Foods</title>
-    <link href="https://u.pinsflora.com/lang/no/duo_no005_foods/"/>
-    <id>https://u.pinsflora.com/lang/no/duo_no005_foods/</id>
+    <title>Norwegian - Vol.5 - Foods</title>
+    <link href="https://u.pinsflora.xyz/Lang/no/duo_no005_foods/"/>
+    <id>https://u.pinsflora.xyz/Lang/no/duo_no005_foods/</id>
     <published>2020-02-28T16:00:00.000Z</published>
     <updated>2020-02-28T16:00:00.000Z</updated>
     
@@ -72,17 +154,17 @@
     
     
     
-    <category term="Duolingo" scheme="https://u.pinsflora.com/categories/Duolingo/"/>
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
     
     
-    <category term="Norwegian" scheme="https://u.pinsflora.com/tags/Norwegian/"/>
+    <category term="Norwegian" scheme="https://u.pinsflora.xyz/tags/Norwegian/"/>
     
   </entry>
   
   <entry>
-    <title>Duolingo - Norwegian - Vol.4 - Animals</title>
-    <link href="https://u.pinsflora.com/lang/no/duo_no004_%20animals/"/>
-    <id>https://u.pinsflora.com/lang/no/duo_no004_%20animals/</id>
+    <title>Norwegian - Vol.4 - Animals</title>
+    <link href="https://u.pinsflora.xyz/Lang/no/duo_no004_%20animals/"/>
+    <id>https://u.pinsflora.xyz/Lang/no/duo_no004_%20animals/</id>
     <published>2020-02-26T16:00:00.000Z</published>
     <updated>2020-02-26T16:00:00.000Z</updated>
     
@@ -91,17 +173,17 @@
     
     
     
-    <category term="Duolingo" scheme="https://u.pinsflora.com/categories/Duolingo/"/>
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
     
     
-    <category term="Norwegian" scheme="https://u.pinsflora.com/tags/Norwegian/"/>
+    <category term="Norwegian" scheme="https://u.pinsflora.xyz/tags/Norwegian/"/>
     
   </entry>
   
   <entry>
     <title>Python Shutil &amp; Zip</title>
-    <link href="https://u.pinsflora.com/Pysnista/Intro/files/py_shutil_zip/"/>
-    <id>https://u.pinsflora.com/Pysnista/Intro/files/py_shutil_zip/</id>
+    <link href="https://u.pinsflora.xyz/Pysnista/Intro/files/py_shutil_zip/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Intro/files/py_shutil_zip/</id>
     <published>2020-02-23T16:00:00.000Z</published>
     <updated>2020-03-16T16:00:00.000Z</updated>
     
@@ -110,21 +192,21 @@
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
     
-    <category term="Introduction" scheme="https://u.pinsflora.com/categories/Python/Introduction/"/>
+    <category term="Introduction" scheme="https://u.pinsflora.xyz/categories/Python/Introduction/"/>
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/tags/Python/"/>
     
-    <category term="OS" scheme="https://u.pinsflora.com/tags/OS/"/>
+    <category term="OS" scheme="https://u.pinsflora.xyz/tags/OS/"/>
     
   </entry>
   
   <entry>
     <title>Python Subprocess</title>
-    <link href="https://u.pinsflora.com/Pysnista/Intro/files/py_subprocess/"/>
-    <id>https://u.pinsflora.com/Pysnista/Intro/files/py_subprocess/</id>
+    <link href="https://u.pinsflora.xyz/Pysnista/Intro/files/py_subprocess/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Intro/files/py_subprocess/</id>
     <published>2020-02-23T16:00:00.000Z</published>
     <updated>2020-03-16T16:00:00.000Z</updated>
     
@@ -139,21 +221,67 @@
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
     
-    <category term="Introduction" scheme="https://u.pinsflora.com/categories/Python/Introduction/"/>
+    <category term="Introduction" scheme="https://u.pinsflora.xyz/categories/Python/Introduction/"/>
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/tags/Python/"/>
     
-    <category term="subprocess" scheme="https://u.pinsflora.com/tags/subprocess/"/>
+    <category term="subprocess" scheme="https://u.pinsflora.xyz/tags/subprocess/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Valyrian - Vol.1 - Introduction</title>
+    <link href="https://u.pinsflora.xyz/Lang/hv/duo_hv001_intro/"/>
+    <id>https://u.pinsflora.xyz/Lang/hv/duo_hv001_intro/</id>
+    <published>2020-01-26T16:00:00.000Z</published>
+    <updated>2020-11-26T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">Basics and Phrases 4 High Valyrian</summary>
+    
+    
+    
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
+    
+    
+    <category term="Valyrian" scheme="https://u.pinsflora.xyz/tags/Valyrian/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常见符号，百度桌面版搜索结果</title>
+    <link href="https://u.pinsflora.xyz/Life/Internet/website_%E7%AC%A6%E5%8F%B7/"/>
+    <id>https://u.pinsflora.xyz/Life/Internet/website_%E7%AC%A6%E5%8F%B7/</id>
+    <published>2019-09-02T16:00:00.000Z</published>
+    <updated>2020-07-26T16:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
+    
+    <category term="Internet" scheme="https://u.pinsflora.xyz/categories/Life/Internet/"/>
+    
+    
+    <category term="Website" scheme="https://u.pinsflora.xyz/tags/Website/"/>
     
   </entry>
   
   <entry>
     <title>海姆达尔 - Heimdallr</title>
-    <link href="https://u.pinsflora.com/life/games/life_game_heimdallr/"/>
-    <id>https://u.pinsflora.com/life/games/life_game_heimdallr/</id>
+    <link href="https://u.pinsflora.xyz/Life/games/life_game_heimdallr/"/>
+    <id>https://u.pinsflora.xyz/Life/games/life_game_heimdallr/</id>
     <published>2019-07-30T16:00:00.000Z</published>
     <updated>2019-09-26T16:00:00.000Z</updated>
     
@@ -162,17 +290,19 @@
     
     
     
-    <category term="Life" scheme="https://u.pinsflora.com/categories/Life/"/>
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
     
-    <category term="Games" scheme="https://u.pinsflora.com/categories/Life/Games/"/>
+    <category term="Games" scheme="https://u.pinsflora.xyz/categories/Life/Games/"/>
     
+    
+    <category term="Games" scheme="https://u.pinsflora.xyz/tags/Games/"/>
     
   </entry>
   
   <entry>
-    <title>Duolingo - Norwegian - Vol.3 - Actions</title>
-    <link href="https://u.pinsflora.com/lang/no/duo_no003_actions/"/>
-    <id>https://u.pinsflora.com/lang/no/duo_no003_actions/</id>
+    <title>Norwegian - Vol.3 - Actions</title>
+    <link href="https://u.pinsflora.xyz/Lang/no/duo_no003_actions/"/>
+    <id>https://u.pinsflora.xyz/Lang/no/duo_no003_actions/</id>
     <published>2019-07-25T16:00:00.000Z</published>
     <updated>2020-02-12T16:00:00.000Z</updated>
     
@@ -181,17 +311,101 @@
     
     
     
-    <category term="Duolingo" scheme="https://u.pinsflora.com/categories/Duolingo/"/>
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
     
     
-    <category term="Norwegian" scheme="https://u.pinsflora.com/tags/Norwegian/"/>
+    <category term="Norwegian" scheme="https://u.pinsflora.xyz/tags/Norwegian/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>明日方舟Wiki</title>
+    <link href="https://u.pinsflora.xyz/Life/games/life_game_%EF%BB%BFarknights/"/>
+    <id>https://u.pinsflora.xyz/Life/games/life_game_%EF%BB%BFarknights/</id>
+    <published>2019-07-14T16:00:00.000Z</published>
+    <updated>2019-09-26T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/games/arknights/arknights_cover.jpg</summary>
+    
+    
+    
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
+    
+    <category term="Games" scheme="https://u.pinsflora.xyz/categories/Life/Games/"/>
+    
+    
+    <category term="Games" scheme="https://u.pinsflora.xyz/tags/Games/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>German - S4 - Nature</title>
+    <link href="https://u.pinsflora.xyz/Lang/de/duo_de_s4_nature/"/>
+    <id>https://u.pinsflora.xyz/Lang/de/duo_de_s4_nature/</id>
+    <published>2019-07-11T16:00:00.000Z</published>
+    <updated>2020-12-01T16:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
+    
+    
+    <category term="German" scheme="https://u.pinsflora.xyz/tags/German/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>German - S5 - Places </title>
+    <link href="https://u.pinsflora.xyz/Lang/de/duo_de_s5_Places/"/>
+    <id>https://u.pinsflora.xyz/Lang/de/duo_de_s5_Places/</id>
+    <published>2019-07-11T16:00:00.000Z</published>
+    <updated>2020-12-01T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">Dieses Schloss ist schön.</summary>
+    
+    
+    
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
+    
+    
+    <category term="German" scheme="https://u.pinsflora.xyz/tags/German/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>German - S6 - Stuff</title>
+    <link href="https://u.pinsflora.xyz/Lang/de/duo_de_s6_Stuff/"/>
+    <id>https://u.pinsflora.xyz/Lang/de/duo_de_s6_Stuff/</id>
+    <published>2019-07-11T16:00:00.000Z</published>
+    <updated>2020-12-01T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">Dieses Schloss ist schön.</summary>
+    
+    
+    
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
+    
+    
+    <category term="German" scheme="https://u.pinsflora.xyz/tags/German/"/>
     
   </entry>
   
   <entry>
     <title>U盘修复</title>
-    <link href="https://u.pinsflora.com/notes/it/notes_it_udisk_repair/"/>
-    <id>https://u.pinsflora.com/notes/it/notes_it_udisk_repair/</id>
+    <link href="https://u.pinsflora.xyz/Notes/it/notes_it_udisk_repair/"/>
+    <id>https://u.pinsflora.xyz/Notes/it/notes_it_udisk_repair/</id>
     <published>2019-07-02T16:00:00.000Z</published>
     <updated>2019-11-26T16:00:00.000Z</updated>
     
@@ -206,17 +420,82 @@
     
     
     
-    <category term="GardenTools" scheme="https://u.pinsflora.com/categories/GardenTools/"/>
+    <category term="GardenTools" scheme="https://u.pinsflora.xyz/categories/GardenTools/"/>
     
-    <category term="IT" scheme="https://u.pinsflora.com/categories/GardenTools/IT/"/>
+    <category term="IT" scheme="https://u.pinsflora.xyz/categories/GardenTools/IT/"/>
     
     
   </entry>
   
   <entry>
-    <title>Duolingo - Arabic - Vol.1 - Introduction</title>
-    <link href="https://u.pinsflora.com/lang/ar/duo_ar001_intro/"/>
-    <id>https://u.pinsflora.com/lang/ar/duo_ar001_intro/</id>
+    <title>漫画网站</title>
+    <link href="https://u.pinsflora.xyz/Life/Internet/website_comics/"/>
+    <id>https://u.pinsflora.xyz/Life/Internet/website_comics/</id>
+    <published>2019-06-11T16:00:00.000Z</published>
+    <updated>2020-12-26T16:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
+    
+    <category term="Internet" scheme="https://u.pinsflora.xyz/categories/Life/Internet/"/>
+    
+    
+    <category term="Website" scheme="https://u.pinsflora.xyz/tags/Website/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>阿拉伯语入门</title>
+    <link href="https://u.pinsflora.xyz/Lang/ar/duo_ar/"/>
+    <id>https://u.pinsflora.xyz/Lang/ar/duo_ar/</id>
+    <published>2019-05-26T16:00:00.000Z</published>
+    <updated>2020-01-26T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">阿拉伯语入门资源</summary>
+    
+    
+    
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
+    
+    
+    <category term="Arabic" scheme="https://u.pinsflora.xyz/tags/Arabic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Arabic - Vol.1 - Introduction</title>
+    <link href="https://u.pinsflora.xyz/Lang/ar/duo_ar001_intro/"/>
+    <id>https://u.pinsflora.xyz/Lang/ar/duo_ar001_intro/</id>
+    <published>2019-05-26T16:00:00.000Z</published>
+    <updated>2020-12-23T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">Arabic Introduction(Alphabet 1/Alphabet 2)</summary>
+    
+    
+    
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
+    
+    
+    <category term="Arabic" scheme="https://u.pinsflora.xyz/tags/Arabic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Dutch - Vol.1 - Introduction</title>
+    <link href="https://u.pinsflora.xyz/Lang/dn/duo_dn001_intro/"/>
+    <id>https://u.pinsflora.xyz/Lang/dn/duo_dn001_intro/</id>
     <published>2019-05-26T16:00:00.000Z</published>
     <updated>2019-12-23T16:00:00.000Z</updated>
     
@@ -231,42 +510,36 @@
     
     
     
-    <category term="Duolingo" scheme="https://u.pinsflora.com/categories/Duolingo/"/>
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
     
     
-    <category term="Arabic" scheme="https://u.pinsflora.com/tags/Arabic/"/>
+    <category term="Dutch" scheme="https://u.pinsflora.xyz/tags/Dutch/"/>
     
   </entry>
   
   <entry>
-    <title>Duolingo - Dutch - Vol.1 - Introduction</title>
-    <link href="https://u.pinsflora.com/lang/dn/duo_dn001_intro/"/>
-    <id>https://u.pinsflora.com/lang/dn/duo_dn001_intro/</id>
+    <title>意大利语入门</title>
+    <link href="https://u.pinsflora.xyz/Lang/it/duo_it/"/>
+    <id>https://u.pinsflora.xyz/Lang/it/duo_it/</id>
     <published>2019-05-26T16:00:00.000Z</published>
-    <updated>2019-12-23T16:00:00.000Z</updated>
+    <updated>2020-01-26T16:00:00.000Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
+    <summary type="html">意大利语入门资源</summary>
     
     
     
-    <category term="Duolingo" scheme="https://u.pinsflora.com/categories/Duolingo/"/>
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
     
     
-    <category term="Dutch" scheme="https://u.pinsflora.com/tags/Dutch/"/>
+    <category term="Italian" scheme="https://u.pinsflora.xyz/tags/Italian/"/>
     
   </entry>
   
   <entry>
-    <title>Duolingo - Polish - Vol.1 - Introduction</title>
-    <link href="https://u.pinsflora.com/lang/po/duo_po001_intro/"/>
-    <id>https://u.pinsflora.com/lang/po/duo_po001_intro/</id>
+    <title>Polish - Vol.1 - Introduction</title>
+    <link href="https://u.pinsflora.xyz/Lang/po/duo_po001_intro/"/>
+    <id>https://u.pinsflora.xyz/Lang/po/duo_po001_intro/</id>
     <published>2019-05-26T16:00:00.000Z</published>
     <updated>2019-06-04T16:00:00.000Z</updated>
     
@@ -281,17 +554,17 @@
     
     
     
-    <category term="Duolingo" scheme="https://u.pinsflora.com/categories/Duolingo/"/>
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
     
     
-    <category term="Polish" scheme="https://u.pinsflora.com/tags/Polish/"/>
+    <category term="Polish" scheme="https://u.pinsflora.xyz/tags/Polish/"/>
     
   </entry>
   
   <entry>
-    <title>Duolingo - Hebrew - Vol.1 - Introduction</title>
-    <link href="https://u.pinsflora.com/lang/he/duo_he001_intro/"/>
-    <id>https://u.pinsflora.com/lang/he/duo_he001_intro/</id>
+    <title>Hebrew - Vol.1 - Introduction</title>
+    <link href="https://u.pinsflora.xyz/Lang/he/duo_he001_intro/"/>
+    <id>https://u.pinsflora.xyz/Lang/he/duo_he001_intro/</id>
     <published>2019-05-19T16:00:00.000Z</published>
     <updated>2019-12-23T16:00:00.000Z</updated>
     
@@ -300,17 +573,17 @@
     
     
     
-    <category term="Duolingo" scheme="https://u.pinsflora.com/categories/Duolingo/"/>
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
     
     
-    <category term="Hebrew" scheme="https://u.pinsflora.com/tags/Hebrew/"/>
+    <category term="Hebrew" scheme="https://u.pinsflora.xyz/tags/Hebrew/"/>
     
   </entry>
   
   <entry>
     <title>Heroku Deploy</title>
-    <link href="https://u.pinsflora.com/notes/sys/Heroku/"/>
-    <id>https://u.pinsflora.com/notes/sys/Heroku/</id>
+    <link href="https://u.pinsflora.xyz/Notes/sys/Heroku/"/>
+    <id>https://u.pinsflora.xyz/Notes/sys/Heroku/</id>
     <published>2019-03-18T16:00:00.000Z</published>
     <updated>2019-03-20T16:00:00.000Z</updated>
     
@@ -319,44 +592,17 @@
     
     
     
-    <category term="System" scheme="https://u.pinsflora.com/categories/System/"/>
+    <category term="System" scheme="https://u.pinsflora.xyz/categories/System/"/>
     
-    <category term="Windows" scheme="https://u.pinsflora.com/categories/System/Windows/"/>
+    <category term="Windows" scheme="https://u.pinsflora.xyz/categories/System/Windows/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Django Blog Test</title>
-    <link href="https://u.pinsflora.com/Pysnista/Django/py_dj_Blog_test/"/>
-    <id>https://u.pinsflora.com/Pysnista/Django/py_dj_Blog_test/</id>
-    <published>2018-11-23T16:00:00.000Z</published>
-    <updated>2018-11-26T16:00:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
-    
-    <category term="Django" scheme="https://u.pinsflora.com/categories/Python/Django/"/>
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Leetcode 009 - Palindrome Number</title>
-    <link href="https://u.pinsflora.com/Pysnista/Algor/leetcode_Palindrome_Number/"/>
-    <id>https://u.pinsflora.com/Pysnista/Algor/leetcode_Palindrome_Number/</id>
+    <link href="https://u.pinsflora.xyz/Pysnista/Algor/leetcode_Palindrome_Number/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Algor/leetcode_Palindrome_Number/</id>
     <published>2018-10-23T16:00:00.000Z</published>
     <updated>2019-07-30T16:00:00.000Z</updated>
     
@@ -365,21 +611,21 @@
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
     
-    <category term="Leetcode" scheme="https://u.pinsflora.com/categories/Python/Leetcode/"/>
+    <category term="Leetcode" scheme="https://u.pinsflora.xyz/categories/Python/Leetcode/"/>
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/tags/Python/"/>
     
-    <category term="Leetcode" scheme="https://u.pinsflora.com/tags/Leetcode/"/>
+    <category term="Leetcode" scheme="https://u.pinsflora.xyz/tags/Leetcode/"/>
     
   </entry>
   
   <entry>
     <title>Leetcode 009 - Palindrome Strings</title>
-    <link href="https://u.pinsflora.com/Pysnista/Algor/leetcode_Palindrome_Strings/"/>
-    <id>https://u.pinsflora.com/Pysnista/Algor/leetcode_Palindrome_Strings/</id>
+    <link href="https://u.pinsflora.xyz/Pysnista/Algor/leetcode_Palindrome_Strings/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Algor/leetcode_Palindrome_Strings/</id>
     <published>2018-10-23T16:00:00.000Z</published>
     <updated>2019-07-30T16:00:00.000Z</updated>
     
@@ -388,69 +634,63 @@
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
     
-    <category term="Leetcode" scheme="https://u.pinsflora.com/categories/Python/Leetcode/"/>
+    <category term="Leetcode" scheme="https://u.pinsflora.xyz/categories/Python/Leetcode/"/>
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/tags/Python/"/>
     
-    <category term="Leetcode" scheme="https://u.pinsflora.com/tags/Leetcode/"/>
+    <category term="Leetcode" scheme="https://u.pinsflora.xyz/tags/Leetcode/"/>
     
   </entry>
   
   <entry>
     <title>Django Awesome Packages</title>
-    <link href="https://u.pinsflora.com/Pysnista/Django/py_dj_packages/"/>
-    <id>https://u.pinsflora.com/Pysnista/Django/py_dj_packages/</id>
+    <link href="https://u.pinsflora.xyz/Pysnista/Tools/py_packages/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Tools/py_packages/</id>
     <published>2018-10-23T16:00:00.000Z</published>
-    <updated>2020-05-27T16:00:00.000Z</updated>
+    <updated>2020-09-27T16:00:00.000Z</updated>
     
     
     <summary type="html">Django Awesome Packages (❛ᴗ❛๑ )۶</summary>
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
     
-    <category term="Django" scheme="https://u.pinsflora.com/categories/Python/Django/"/>
+    <category term="Tools" scheme="https://u.pinsflora.xyz/categories/Python/Tools/"/>
     
     
-    <category term="Packages" scheme="https://u.pinsflora.com/tags/Packages/"/>
+    <category term="Django" scheme="https://u.pinsflora.xyz/tags/Django/"/>
     
   </entry>
   
   <entry>
-    <title>web前端插件</title>
-    <link href="https://u.pinsflora.com/web/tools/web_tools/"/>
-    <id>https://u.pinsflora.com/web/tools/web_tools/</id>
+    <title>web前端资源与介绍</title>
+    <link href="https://u.pinsflora.xyz/Web/tools/web_tools/"/>
+    <id>https://u.pinsflora.xyz/Web/tools/web_tools/</id>
     <published>2018-10-19T16:00:00.000Z</published>
-    <updated>2019-03-26T16:00:00.000Z</updated>
+    <updated>2021-03-10T16:00:00.000Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;网站&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#网站&quot;&gt;&lt;/a&gt; 网站&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&quot;http://jsnice.org/&quot;&gt;http://jsnice.org/&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;教程&quot;&gt;&lt;a</summary>
-        
-      
+    <summary type="html">web前端资源与介绍</summary>
     
     
     
-    <category term="Web" scheme="https://u.pinsflora.com/categories/Web/"/>
+    <category term="Web" scheme="https://u.pinsflora.xyz/categories/Web/"/>
     
-    <category term="JS" scheme="https://u.pinsflora.com/categories/Web/JS/"/>
+    <category term="JS" scheme="https://u.pinsflora.xyz/categories/Web/JS/"/>
     
+    
+    <category term="Web" scheme="https://u.pinsflora.xyz/tags/Web/"/>
     
   </entry>
   
   <entry>
     <title>browser_developer_tools</title>
-    <link href="https://u.pinsflora.com/web/tools/web_console_tools/"/>
-    <id>https://u.pinsflora.com/web/tools/web_console_tools/</id>
+    <link href="https://u.pinsflora.xyz/Web/tools/web_console_tools/"/>
+    <id>https://u.pinsflora.xyz/Web/tools/web_console_tools/</id>
     <published>2018-10-19T16:00:00.000Z</published>
     <updated>2019-03-26T16:00:00.000Z</updated>
     
@@ -459,17 +699,17 @@
     
     
     
-    <category term="Web" scheme="https://u.pinsflora.com/categories/Web/"/>
+    <category term="Web" scheme="https://u.pinsflora.xyz/categories/Web/"/>
     
-    <category term="JS" scheme="https://u.pinsflora.com/categories/Web/JS/"/>
+    <category term="JS" scheme="https://u.pinsflora.xyz/categories/Web/JS/"/>
     
     
   </entry>
   
   <entry>
     <title>Extensions</title>
-    <link href="https://u.pinsflora.com/web/tools/extensions/web_extensions/"/>
-    <id>https://u.pinsflora.com/web/tools/extensions/web_extensions/</id>
+    <link href="https://u.pinsflora.xyz/Web/tools/extensions/web_extensions/"/>
+    <id>https://u.pinsflora.xyz/Web/tools/extensions/web_extensions/</id>
     <published>2018-10-19T16:00:00.000Z</published>
     <updated>2019-03-26T16:00:00.000Z</updated>
     
@@ -478,24 +718,23 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;what-are-extensions&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#what-are-extensions&quot;&gt;&lt;/a&gt; What are extensions?&lt;/h1&gt;
-&lt;p&gt;An extension adds</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
         
       
     
     
     
-    <category term="Web" scheme="https://u.pinsflora.com/categories/Web/"/>
+    <category term="Web" scheme="https://u.pinsflora.xyz/categories/Web/"/>
     
-    <category term="JS" scheme="https://u.pinsflora.com/categories/Web/JS/"/>
+    <category term="JS" scheme="https://u.pinsflora.xyz/categories/Web/JS/"/>
     
     
   </entry>
   
   <entry>
     <title>Windows 系统目录解析</title>
-    <link href="https://u.pinsflora.com/notes/sys/win_folder_notes/"/>
-    <id>https://u.pinsflora.com/notes/sys/win_folder_notes/</id>
+    <link href="https://u.pinsflora.xyz/Notes/sys/win_folder_notes/"/>
+    <id>https://u.pinsflora.xyz/Notes/sys/win_folder_notes/</id>
     <published>2018-10-16T16:00:00.000Z</published>
     <updated>2019-12-12T16:00:00.000Z</updated>
     
@@ -504,17 +743,17 @@
     
     
     
-    <category term="System" scheme="https://u.pinsflora.com/categories/System/"/>
+    <category term="System" scheme="https://u.pinsflora.xyz/categories/System/"/>
     
-    <category term="Windows" scheme="https://u.pinsflora.com/categories/System/Windows/"/>
+    <category term="Windows" scheme="https://u.pinsflora.xyz/categories/System/Windows/"/>
     
     
   </entry>
   
   <entry>
     <title>Google Advanced Searching Challenge</title>
-    <link href="https://u.pinsflora.com/Int/col_website_google/"/>
-    <id>https://u.pinsflora.com/Int/col_website_google/</id>
+    <link href="https://u.pinsflora.xyz/Life/Internet/website_google_search/"/>
+    <id>https://u.pinsflora.xyz/Life/Internet/website_google_search/</id>
     <published>2018-09-29T16:00:00.000Z</published>
     <updated>2019-10-04T16:00:00.000Z</updated>
     
@@ -523,19 +762,19 @@
     
     
     
-    <category term="Collection" scheme="https://u.pinsflora.com/categories/Collection/"/>
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
     
-    <category term="Website" scheme="https://u.pinsflora.com/categories/Collection/Website/"/>
+    <category term="Internet" scheme="https://u.pinsflora.xyz/categories/Life/Internet/"/>
     
     
-    <category term="Google" scheme="https://u.pinsflora.com/tags/Google/"/>
+    <category term="Google" scheme="https://u.pinsflora.xyz/tags/Google/"/>
     
   </entry>
   
   <entry>
     <title>Gitbook 笔记</title>
-    <link href="https://u.pinsflora.com/notes/it/notes_it_gitbook/"/>
-    <id>https://u.pinsflora.com/notes/it/notes_it_gitbook/</id>
+    <link href="https://u.pinsflora.xyz/Notes/it/notes_it_gitbook/"/>
+    <id>https://u.pinsflora.xyz/Notes/it/notes_it_gitbook/</id>
     <published>2018-09-27T16:00:00.000Z</published>
     <updated>2020-02-18T16:00:00.000Z</updated>
     
@@ -544,17 +783,17 @@
     
     
     
-    <category term="GardenTools" scheme="https://u.pinsflora.com/categories/GardenTools/"/>
+    <category term="GardenTools" scheme="https://u.pinsflora.xyz/categories/GardenTools/"/>
     
-    <category term="IT" scheme="https://u.pinsflora.com/categories/GardenTools/IT/"/>
+    <category term="IT" scheme="https://u.pinsflora.xyz/categories/GardenTools/IT/"/>
     
     
   </entry>
   
   <entry>
     <title>Github 笔记</title>
-    <link href="https://u.pinsflora.com/notes/it/notes_it_github/"/>
-    <id>https://u.pinsflora.com/notes/it/notes_it_github/</id>
+    <link href="https://u.pinsflora.xyz/Notes/it/notes_it_github/"/>
+    <id>https://u.pinsflora.xyz/Notes/it/notes_it_github/</id>
     <published>2018-09-27T16:00:00.000Z</published>
     <updated>2020-02-18T16:00:00.000Z</updated>
     
@@ -563,19 +802,19 @@
     
     
     
-    <category term="GardenTools" scheme="https://u.pinsflora.com/categories/GardenTools/"/>
+    <category term="GardenTools" scheme="https://u.pinsflora.xyz/categories/GardenTools/"/>
     
-    <category term="IT" scheme="https://u.pinsflora.com/categories/GardenTools/IT/"/>
+    <category term="IT" scheme="https://u.pinsflora.xyz/categories/GardenTools/IT/"/>
     
     
-    <category term="Github" scheme="https://u.pinsflora.com/tags/Github/"/>
+    <category term="Github" scheme="https://u.pinsflora.xyz/tags/Github/"/>
     
   </entry>
   
   <entry>
     <title>VuePress 笔记</title>
-    <link href="https://u.pinsflora.com/notes/it/notes_it_vuepress/"/>
-    <id>https://u.pinsflora.com/notes/it/notes_it_vuepress/</id>
+    <link href="https://u.pinsflora.xyz/Notes/it/notes_it_vuepress/"/>
+    <id>https://u.pinsflora.xyz/Notes/it/notes_it_vuepress/</id>
     <published>2018-09-27T16:00:00.000Z</published>
     <updated>2019-02-18T16:00:00.000Z</updated>
     
@@ -584,17 +823,17 @@
     
     
     
-    <category term="GardenTools" scheme="https://u.pinsflora.com/categories/GardenTools/"/>
+    <category term="GardenTools" scheme="https://u.pinsflora.xyz/categories/GardenTools/"/>
     
-    <category term="IT" scheme="https://u.pinsflora.com/categories/GardenTools/IT/"/>
+    <category term="IT" scheme="https://u.pinsflora.xyz/categories/GardenTools/IT/"/>
     
     
   </entry>
   
   <entry>
     <title>Mailserver - Mailcow</title>
-    <link href="https://u.pinsflora.com/notes/sys/Linux/Linux_mailcow/"/>
-    <id>https://u.pinsflora.com/notes/sys/Linux/Linux_mailcow/</id>
+    <link href="https://u.pinsflora.xyz/Notes/sys/Linux/Linux_mailcow/"/>
+    <id>https://u.pinsflora.xyz/Notes/sys/Linux/Linux_mailcow/</id>
     <published>2018-09-16T16:00:00.000Z</published>
     <updated>2019-05-12T16:00:00.000Z</updated>
     
@@ -603,19 +842,19 @@
     
     
     
-    <category term="System" scheme="https://u.pinsflora.com/categories/System/"/>
+    <category term="System" scheme="https://u.pinsflora.xyz/categories/System/"/>
     
-    <category term="Linux" scheme="https://u.pinsflora.com/categories/System/Linux/"/>
+    <category term="Linux" scheme="https://u.pinsflora.xyz/categories/System/Linux/"/>
     
     
-    <category term="email" scheme="https://u.pinsflora.com/tags/email/"/>
+    <category term="email" scheme="https://u.pinsflora.xyz/tags/email/"/>
     
   </entry>
   
   <entry>
     <title>94%</title>
-    <link href="https://u.pinsflora.com/life/games/life_game_94/"/>
-    <id>https://u.pinsflora.com/life/games/life_game_94/</id>
+    <link href="https://u.pinsflora.xyz/Life/games/life_game_94/"/>
+    <id>https://u.pinsflora.xyz/Life/games/life_game_94/</id>
     <published>2018-09-14T16:00:00.000Z</published>
     <updated>2018-09-26T16:00:00.000Z</updated>
     
@@ -624,19 +863,109 @@
     
     
     
-    <category term="Life" scheme="https://u.pinsflora.com/categories/Life/"/>
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
     
-    <category term="Games" scheme="https://u.pinsflora.com/categories/Life/Games/"/>
+    <category term="Games" scheme="https://u.pinsflora.xyz/categories/Life/Games/"/>
     
     
-    <category term="94%" scheme="https://u.pinsflora.com/tags/94/"/>
+    <category term="Games" scheme="https://u.pinsflora.xyz/tags/Games/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解密网易云音乐文件</title>
+    <link href="https://u.pinsflora.xyz/Life/apps/life_apps_wyy/"/>
+    <id>https://u.pinsflora.xyz/Life/apps/life_apps_wyy/</id>
+    <published>2018-09-02T16:00:00.000Z</published>
+    <updated>2020-07-26T16:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
+    
+    <category term="Apps" scheme="https://u.pinsflora.xyz/categories/Life/Apps/"/>
+    
+    
+    <category term="Music" scheme="https://u.pinsflora.xyz/tags/Music/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>注册信息生成(Registration information generation)</title>
+    <link href="https://u.pinsflora.xyz/Life/Internet/website_Anonemyous/"/>
+    <id>https://u.pinsflora.xyz/Life/Internet/website_Anonemyous/</id>
+    <published>2018-08-11T16:00:00.000Z</published>
+    <updated>2020-12-26T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">Registration information generation</summary>
+    
+    
+    
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
+    
+    <category term="Internet" scheme="https://u.pinsflora.xyz/categories/Life/Internet/"/>
+    
+    
+    <category term="Website" scheme="https://u.pinsflora.xyz/tags/Website/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图片工具网址收藏</title>
+    <link href="https://u.pinsflora.xyz/Life/Internet/website_pics2/"/>
+    <id>https://u.pinsflora.xyz/Life/Internet/website_pics2/</id>
+    <published>2018-08-11T16:00:00.000Z</published>
+    <updated>2020-12-26T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">图片工具网址收藏</summary>
+    
+    
+    
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
+    
+    <category term="Internet" scheme="https://u.pinsflora.xyz/categories/Life/Internet/"/>
+    
+    
+    <category term="Website" scheme="https://u.pinsflora.xyz/tags/Website/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>有趣的生成器网站汇总 - Generator</title>
+    <link href="https://u.pinsflora.xyz/Life/Internet/website_%E7%94%9F%E6%88%90%E5%99%A8/"/>
+    <id>https://u.pinsflora.xyz/Life/Internet/website_%E7%94%9F%E6%88%90%E5%99%A8/</id>
+    <published>2018-08-11T16:00:00.000Z</published>
+    <updated>2020-12-26T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">有趣的生成器网站汇总</summary>
+    
+    
+    
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
+    
+    <category term="Internet" scheme="https://u.pinsflora.xyz/categories/Life/Internet/"/>
+    
+    
+    <category term="Website" scheme="https://u.pinsflora.xyz/tags/Website/"/>
     
   </entry>
   
   <entry>
     <title>Leetcode - 41. First Missing Positive</title>
-    <link href="https://u.pinsflora.com/Pysnista/Algor/Arrays/leetcode_41_First%20Missing%20Positive/"/>
-    <id>https://u.pinsflora.com/Pysnista/Algor/Arrays/leetcode_41_First%20Missing%20Positive/</id>
+    <link href="https://u.pinsflora.xyz/Pysnista/Algor/Arrays/leetcode_41_First%20Missing%20Positive/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Algor/Arrays/leetcode_41_First%20Missing%20Positive/</id>
     <published>2018-07-23T16:00:00.000Z</published>
     <updated>2019-12-16T16:00:00.000Z</updated>
     
@@ -645,21 +974,21 @@
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
     
-    <category term="Leetcode" scheme="https://u.pinsflora.com/categories/Python/Leetcode/"/>
+    <category term="Leetcode" scheme="https://u.pinsflora.xyz/categories/Python/Leetcode/"/>
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/tags/Python/"/>
     
-    <category term="Leetcode" scheme="https://u.pinsflora.com/tags/Leetcode/"/>
+    <category term="Leetcode" scheme="https://u.pinsflora.xyz/tags/Leetcode/"/>
     
   </entry>
   
   <entry>
     <title>Leetcode - 17. Letter Combinations of a Phone Number</title>
-    <link href="https://u.pinsflora.com/Pysnista/Algor/Problems/leetcode_Letter%20Combinations%20_Phone%20Number_17_/"/>
-    <id>https://u.pinsflora.com/Pysnista/Algor/Problems/leetcode_Letter%20Combinations%20_Phone%20Number_17_/</id>
+    <link href="https://u.pinsflora.xyz/Pysnista/Algor/Problems/leetcode_Letter%20Combinations%20_Phone%20Number_17_/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Algor/Problems/leetcode_Letter%20Combinations%20_Phone%20Number_17_/</id>
     <published>2018-07-23T16:00:00.000Z</published>
     <updated>2019-12-16T16:00:00.000Z</updated>
     
@@ -668,21 +997,21 @@
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
     
-    <category term="Leetcode" scheme="https://u.pinsflora.com/categories/Python/Leetcode/"/>
+    <category term="Leetcode" scheme="https://u.pinsflora.xyz/categories/Python/Leetcode/"/>
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/tags/Python/"/>
     
-    <category term="Leetcode" scheme="https://u.pinsflora.com/tags/Leetcode/"/>
+    <category term="Leetcode" scheme="https://u.pinsflora.xyz/tags/Leetcode/"/>
     
   </entry>
   
   <entry>
     <title>Leetcode - 17. Letter Combinations of a Phone Number</title>
-    <link href="https://u.pinsflora.com/Pysnista/Algor/Problems/leetcode_N-Queens_51/"/>
-    <id>https://u.pinsflora.com/Pysnista/Algor/Problems/leetcode_N-Queens_51/</id>
+    <link href="https://u.pinsflora.xyz/Pysnista/Algor/Problems/leetcode_N-Queens_51/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Algor/Problems/leetcode_N-Queens_51/</id>
     <published>2018-07-23T16:00:00.000Z</published>
     <updated>2019-12-16T16:00:00.000Z</updated>
     
@@ -691,21 +1020,21 @@
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
     
-    <category term="Leetcode" scheme="https://u.pinsflora.com/categories/Python/Leetcode/"/>
+    <category term="Leetcode" scheme="https://u.pinsflora.xyz/categories/Python/Leetcode/"/>
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/tags/Python/"/>
     
-    <category term="Leetcode" scheme="https://u.pinsflora.com/tags/Leetcode/"/>
+    <category term="Leetcode" scheme="https://u.pinsflora.xyz/tags/Leetcode/"/>
     
   </entry>
   
   <entry>
     <title>Leetcode - K SUM Problem</title>
-    <link href="https://u.pinsflora.com/Pysnista/Algor/Sum/leetcode_4Sum/"/>
-    <id>https://u.pinsflora.com/Pysnista/Algor/Sum/leetcode_4Sum/</id>
+    <link href="https://u.pinsflora.xyz/Pysnista/Algor/Math/Sum/leetcode_4Sum/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Algor/Math/Sum/leetcode_4Sum/</id>
     <published>2018-07-23T16:00:00.000Z</published>
     <updated>2019-12-16T16:00:00.000Z</updated>
     
@@ -714,21 +1043,21 @@
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
     
-    <category term="Leetcode" scheme="https://u.pinsflora.com/categories/Python/Leetcode/"/>
+    <category term="Leetcode" scheme="https://u.pinsflora.xyz/categories/Python/Leetcode/"/>
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/tags/Python/"/>
     
-    <category term="Leetcode" scheme="https://u.pinsflora.com/tags/Leetcode/"/>
+    <category term="Leetcode" scheme="https://u.pinsflora.xyz/tags/Leetcode/"/>
     
   </entry>
   
   <entry>
     <title>Leetcode - K SUM Problem</title>
-    <link href="https://u.pinsflora.com/Pysnista/Algor/Sum/leetcode_sum/"/>
-    <id>https://u.pinsflora.com/Pysnista/Algor/Sum/leetcode_sum/</id>
+    <link href="https://u.pinsflora.xyz/Pysnista/Algor/Math/Sum/leetcode_sum/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Algor/Math/Sum/leetcode_sum/</id>
     <published>2018-07-23T16:00:00.000Z</published>
     <updated>2019-12-16T16:00:00.000Z</updated>
     
@@ -737,21 +1066,21 @@
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
     
-    <category term="Leetcode" scheme="https://u.pinsflora.com/categories/Python/Leetcode/"/>
+    <category term="Leetcode" scheme="https://u.pinsflora.xyz/categories/Python/Leetcode/"/>
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/tags/Python/"/>
     
-    <category term="Leetcode" scheme="https://u.pinsflora.com/tags/Leetcode/"/>
+    <category term="Leetcode" scheme="https://u.pinsflora.xyz/tags/Leetcode/"/>
     
   </entry>
   
   <entry>
     <title>Leetcode - K SUM Problem</title>
-    <link href="https://u.pinsflora.com/Pysnista/Algor/Sum/leetcode_sum_path/"/>
-    <id>https://u.pinsflora.com/Pysnista/Algor/Sum/leetcode_sum_path/</id>
+    <link href="https://u.pinsflora.xyz/Pysnista/Algor/Math/Sum/leetcode_sum_path/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Algor/Math/Sum/leetcode_sum_path/</id>
     <published>2018-07-23T16:00:00.000Z</published>
     <updated>2019-12-16T16:00:00.000Z</updated>
     
@@ -760,40 +1089,42 @@
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
     
-    <category term="Leetcode" scheme="https://u.pinsflora.com/categories/Python/Leetcode/"/>
+    <category term="Leetcode" scheme="https://u.pinsflora.xyz/categories/Python/Leetcode/"/>
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/tags/Python/"/>
     
-    <category term="Leetcode" scheme="https://u.pinsflora.com/tags/Leetcode/"/>
+    <category term="Leetcode" scheme="https://u.pinsflora.xyz/tags/Leetcode/"/>
     
   </entry>
   
   <entry>
     <title>Everybody Gone to the Rapture - 万众狂欢</title>
-    <link href="https://u.pinsflora.com/life/games/life_game_%EF%BB%BFEverybody%20Gone%20to%20the%20Rapture/"/>
-    <id>https://u.pinsflora.com/life/games/life_game_%EF%BB%BFEverybody%20Gone%20to%20the%20Rapture/</id>
+    <link href="https://u.pinsflora.xyz/Life/games/life_game_%EF%BB%BFEverybody%20Gone%20to%20the%20Rapture/"/>
+    <id>https://u.pinsflora.xyz/Life/games/life_game_%EF%BB%BFEverybody%20Gone%20to%20the%20Rapture/</id>
     <published>2018-07-14T16:00:00.000Z</published>
     <updated>2019-09-26T16:00:00.000Z</updated>
     
     
-    <summary type="html">From Mobile Game 94%, What&#39;s the most popular answers?</summary>
+    <summary type="html">Everybody Gone to the Rapture - 万众狂欢</summary>
     
     
     
-    <category term="Life" scheme="https://u.pinsflora.com/categories/Life/"/>
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
     
-    <category term="Games" scheme="https://u.pinsflora.com/categories/Life/Games/"/>
+    <category term="Games" scheme="https://u.pinsflora.xyz/categories/Life/Games/"/>
     
+    
+    <category term="Games" scheme="https://u.pinsflora.xyz/tags/Games/"/>
     
   </entry>
   
   <entry>
     <title>部分游评</title>
-    <link href="https://u.pinsflora.com/life/games/life_game_%EF%BB%BFcomments/"/>
-    <id>https://u.pinsflora.com/life/games/life_game_%EF%BB%BFcomments/</id>
+    <link href="https://u.pinsflora.xyz/Life/games/life_game_%EF%BB%BFcomments/"/>
+    <id>https://u.pinsflora.xyz/Life/games/life_game_%EF%BB%BFcomments/</id>
     <published>2018-07-14T16:00:00.000Z</published>
     <updated>2019-09-26T16:00:00.000Z</updated>
     
@@ -808,42 +1139,17 @@
     
     
     
-    <category term="Life" scheme="https://u.pinsflora.com/categories/Life/"/>
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
     
-    <category term="Games" scheme="https://u.pinsflora.com/categories/Life/Games/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>隐形守护者</title>
-    <link href="https://u.pinsflora.com/life/games/life_game_%EF%BB%BFinvisible/"/>
-    <id>https://u.pinsflora.com/life/games/life_game_%EF%BB%BFinvisible/</id>
-    <published>2018-07-14T16:00:00.000Z</published>
-    <updated>2019-09-26T16:00:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Life" scheme="https://u.pinsflora.com/categories/Life/"/>
-    
-    <category term="Games" scheme="https://u.pinsflora.com/categories/Life/Games/"/>
+    <category term="Games" scheme="https://u.pinsflora.xyz/categories/Life/Games/"/>
     
     
   </entry>
   
   <entry>
-    <title>Duolingo - Spanish - Phrases - School</title>
-    <link href="https://u.pinsflora.com/lang/es/duo_es003_school/"/>
-    <id>https://u.pinsflora.com/lang/es/duo_es003_school/</id>
+    <title>Spanish - Phrases - School</title>
+    <link href="https://u.pinsflora.xyz/Lang/es/duo_es003_school/"/>
+    <id>https://u.pinsflora.xyz/Lang/es/duo_es003_school/</id>
     <published>2018-06-30T16:00:00.000Z</published>
     <updated>2018-07-28T16:00:00.000Z</updated>
     
@@ -858,17 +1164,17 @@
     
     
     
-    <category term="Duolingo" scheme="https://u.pinsflora.com/categories/Duolingo/"/>
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
     
     
-    <category term="Spanish" scheme="https://u.pinsflora.com/tags/Spanish/"/>
+    <category term="Spanish" scheme="https://u.pinsflora.xyz/tags/Spanish/"/>
     
   </entry>
   
   <entry>
-    <title>Duolingo - Spanish - Phrases - People</title>
-    <link href="https://u.pinsflora.com/lang/es/duo_es003_foods/"/>
-    <id>https://u.pinsflora.com/lang/es/duo_es003_foods/</id>
+    <title>Spanish - Phrases - People</title>
+    <link href="https://u.pinsflora.xyz/Lang/es/duo_es003_foods/"/>
+    <id>https://u.pinsflora.xyz/Lang/es/duo_es003_foods/</id>
     <published>2018-06-28T16:00:00.000Z</published>
     <updated>2018-07-28T16:00:00.000Z</updated>
     
@@ -883,17 +1189,17 @@
     
     
     
-    <category term="Duolingo" scheme="https://u.pinsflora.com/categories/Duolingo/"/>
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
     
     
-    <category term="Spanish" scheme="https://u.pinsflora.com/tags/Spanish/"/>
+    <category term="Spanish" scheme="https://u.pinsflora.xyz/tags/Spanish/"/>
     
   </entry>
   
   <entry>
-    <title>Duolingo - Spanish - Phrases - People</title>
-    <link href="https://u.pinsflora.com/lang/es/duo_es003_people/"/>
-    <id>https://u.pinsflora.com/lang/es/duo_es003_people/</id>
+    <title>Spanish - Phrases - People</title>
+    <link href="https://u.pinsflora.xyz/Lang/es/duo_es003_people/"/>
+    <id>https://u.pinsflora.xyz/Lang/es/duo_es003_people/</id>
     <published>2018-06-28T16:00:00.000Z</published>
     <updated>2018-07-28T16:00:00.000Z</updated>
     
@@ -908,36 +1214,36 @@
     
     
     
-    <category term="Duolingo" scheme="https://u.pinsflora.com/categories/Duolingo/"/>
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
     
     
-    <category term="Spanish" scheme="https://u.pinsflora.com/tags/Spanish/"/>
+    <category term="Spanish" scheme="https://u.pinsflora.xyz/tags/Spanish/"/>
     
   </entry>
   
   <entry>
-    <title>Duolingo - Latin - Vol.1 - Introduction</title>
-    <link href="https://u.pinsflora.com/lang/la/duo_la001_intro/"/>
-    <id>https://u.pinsflora.com/lang/la/duo_la001_intro/</id>
+    <title>Latin - Vol.1 - Introduction</title>
+    <link href="https://u.pinsflora.xyz/Lang/la/duo_la001_intro/"/>
+    <id>https://u.pinsflora.xyz/Lang/la/duo_la001_intro/</id>
     <published>2018-06-28T16:00:00.000Z</published>
     <updated>2019-11-08T16:00:00.000Z</updated>
     
     
-    <summary type="html">Just to keep learning things interesting.</summary>
+    <summary type="html">SALVETE！Welcome to the Latin course!</summary>
     
     
     
-    <category term="Duolingo" scheme="https://u.pinsflora.com/categories/Duolingo/"/>
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
     
     
-    <category term="Latin" scheme="https://u.pinsflora.com/tags/Latin/"/>
+    <category term="Latin" scheme="https://u.pinsflora.xyz/tags/Latin/"/>
     
   </entry>
   
   <entry>
-    <title>Duolingo - Latin - Vol.1.2 - Introduction</title>
-    <link href="https://u.pinsflora.com/lang/la/duo_la001_intro2/"/>
-    <id>https://u.pinsflora.com/lang/la/duo_la001_intro2/</id>
+    <title>Latin - Vol.1.2 - Introduction</title>
+    <link href="https://u.pinsflora.xyz/Lang/la/duo_la001_intro2/"/>
+    <id>https://u.pinsflora.xyz/Lang/la/duo_la001_intro2/</id>
     <published>2018-06-28T16:00:00.000Z</published>
     <updated>2019-11-11T16:00:00.000Z</updated>
     
@@ -946,17 +1252,17 @@
     
     
     
-    <category term="Duolingo" scheme="https://u.pinsflora.com/categories/Duolingo/"/>
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
     
     
-    <category term="Latin" scheme="https://u.pinsflora.com/tags/Latin/"/>
+    <category term="Latin" scheme="https://u.pinsflora.xyz/tags/Latin/"/>
     
   </entry>
   
   <entry>
-    <title>Duolingo - Norwegian - Vol.1 - Introduction</title>
-    <link href="https://u.pinsflora.com/lang/no/duo_no001_intro/"/>
-    <id>https://u.pinsflora.com/lang/no/duo_no001_intro/</id>
+    <title>Norwegian - Vol.1 - Introduction</title>
+    <link href="https://u.pinsflora.xyz/Lang/no/duo_no001_intro/"/>
+    <id>https://u.pinsflora.xyz/Lang/no/duo_no001_intro/</id>
     <published>2018-06-28T16:00:00.000Z</published>
     <updated>2020-04-05T16:00:00.000Z</updated>
     
@@ -965,17 +1271,17 @@
     
     
     
-    <category term="Duolingo" scheme="https://u.pinsflora.com/categories/Duolingo/"/>
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
     
     
-    <category term="Norwegian" scheme="https://u.pinsflora.com/tags/Norwegian/"/>
+    <category term="Norwegian" scheme="https://u.pinsflora.xyz/tags/Norwegian/"/>
     
   </entry>
   
   <entry>
-    <title>Duolingo - Norwegian - Vol.2 - Phrases</title>
-    <link href="https://u.pinsflora.com/lang/no/duo_no002_phrases/"/>
-    <id>https://u.pinsflora.com/lang/no/duo_no002_phrases/</id>
+    <title>Norwegian - Vol.2 - Phrases</title>
+    <link href="https://u.pinsflora.xyz/Lang/no/duo_no002_phrases/"/>
+    <id>https://u.pinsflora.xyz/Lang/no/duo_no002_phrases/</id>
     <published>2018-06-26T16:00:00.000Z</published>
     <updated>2019-11-29T16:00:00.000Z</updated>
     
@@ -984,42 +1290,174 @@
     
     
     
-    <category term="Duolingo" scheme="https://u.pinsflora.com/categories/Duolingo/"/>
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
     
     
-    <category term="Norwegian" scheme="https://u.pinsflora.com/tags/Norwegian/"/>
+    <category term="Norwegian" scheme="https://u.pinsflora.xyz/tags/Norwegian/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bilibili Up主集</title>
+    <link href="https://u.pinsflora.xyz/Life/apps/life_apps_bilibili/"/>
+    <id>https://u.pinsflora.xyz/Life/apps/life_apps_bilibili/</id>
+    <published>2018-06-02T16:00:00.000Z</published>
+    <updated>2020-09-26T16:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
+    
+    
+    <category term="Apps" scheme="https://u.pinsflora.xyz/tags/Apps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bilibili梗</title>
+    <link href="https://u.pinsflora.xyz/Life/apps/life_apps_bilibili_/"/>
+    <id>https://u.pinsflora.xyz/Life/apps/life_apps_bilibili_/</id>
+    <published>2018-06-02T16:00:00.000Z</published>
+    <updated>2020-09-26T16:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
+    
+    
+    <category term="Apps" scheme="https://u.pinsflora.xyz/tags/Apps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用游戏网站</title>
+    <link href="https://u.pinsflora.xyz/Life/apps/life_apps_games/"/>
+    <id>https://u.pinsflora.xyz/Life/apps/life_apps_games/</id>
+    <published>2018-06-02T16:00:00.000Z</published>
+    <updated>2019-09-26T16:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
+    
+    <category term="Apps" scheme="https://u.pinsflora.xyz/categories/Life/Apps/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Google Apps</title>
+    <link href="https://u.pinsflora.xyz/Life/apps/life_apps_google/"/>
+    <id>https://u.pinsflora.xyz/Life/apps/life_apps_google/</id>
+    <published>2018-06-02T16:00:00.000Z</published>
+    <updated>2020-09-26T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">Google Apps</summary>
+    
+    
+    
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
+    
+    <category term="Apps" scheme="https://u.pinsflora.xyz/categories/Life/Apps/"/>
+    
+    
+    <category term="Apps" scheme="https://u.pinsflora.xyz/tags/Apps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用微信使用和运营技巧</title>
+    <link href="https://u.pinsflora.xyz/Life/apps/life_apps_wx/"/>
+    <id>https://u.pinsflora.xyz/Life/apps/life_apps_wx/</id>
+    <published>2018-06-02T16:00:00.000Z</published>
+    <updated>2019-09-26T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">常用微信技巧</summary>
+    
+    
+    
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
+    
+    <category term="Apps" scheme="https://u.pinsflora.xyz/categories/Life/Apps/"/>
+    
+    
+    <category term="Wechat" scheme="https://u.pinsflora.xyz/tags/Wechat/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微信小程序</title>
+    <link href="https://u.pinsflora.xyz/Life/apps/life_apps_wx_apps/"/>
+    <id>https://u.pinsflora.xyz/Life/apps/life_apps_wx_apps/</id>
+    <published>2018-06-02T16:00:00.000Z</published>
+    <updated>2020-04-18T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">微信小程序</summary>
+    
+    
+    
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
+    
+    <category term="Apps" scheme="https://u.pinsflora.xyz/categories/Life/Apps/"/>
+    
+    
+    <category term="Wechat" scheme="https://u.pinsflora.xyz/tags/Wechat/"/>
     
   </entry>
   
   <entry>
     <title>部分影评</title>
-    <link href="https://u.pinsflora.com/life/movies/life_movies_comments/"/>
-    <id>https://u.pinsflora.com/life/movies/life_movies_comments/</id>
+    <link href="https://u.pinsflora.xyz/Life/movies/life_movies_comments/"/>
+    <id>https://u.pinsflora.xyz/Life/movies/life_movies_comments/</id>
     <published>2018-06-02T16:00:00.000Z</published>
     <updated>2019-09-26T16:00:00.000Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
+    <summary type="html">在电影《一一》里面，有一句很让人动容的台词：电影发明以后，我们的生命至少延长了三倍，在电影里面，我们得到的生活经验至少是我们自己生活经验的双倍。</summary>
     
     
     
-    <category term="Life" scheme="https://u.pinsflora.com/categories/Life/"/>
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
     
     
-    <category term="电影" scheme="https://u.pinsflora.com/tags/%E7%94%B5%E5%BD%B1/"/>
+    <category term="电影" scheme="https://u.pinsflora.xyz/tags/%E7%94%B5%E5%BD%B1/"/>
     
   </entry>
   
   <entry>
     <title>电影推荐</title>
-    <link href="https://u.pinsflora.com/life/movies/life_movies_director/"/>
-    <id>https://u.pinsflora.com/life/movies/life_movies_director/</id>
+    <link href="https://u.pinsflora.xyz/Life/movies/life_movies_director/"/>
+    <id>https://u.pinsflora.xyz/Life/movies/life_movies_director/</id>
     <published>2018-06-02T16:00:00.000Z</published>
     <updated>2019-09-26T16:00:00.000Z</updated>
     
@@ -1034,17 +1472,17 @@
     
     
     
-    <category term="Life" scheme="https://u.pinsflora.com/categories/Life/"/>
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
     
     
-    <category term="电影" scheme="https://u.pinsflora.com/tags/%E7%94%B5%E5%BD%B1/"/>
+    <category term="电影" scheme="https://u.pinsflora.xyz/tags/%E7%94%B5%E5%BD%B1/"/>
     
   </entry>
   
   <entry>
     <title>恐怖片 - 词</title>
-    <link href="https://u.pinsflora.com/life/movies/life_movies_horror/"/>
-    <id>https://u.pinsflora.com/life/movies/life_movies_horror/</id>
+    <link href="https://u.pinsflora.xyz/Life/movies/life_movies_horror/"/>
+    <id>https://u.pinsflora.xyz/Life/movies/life_movies_horror/</id>
     <published>2018-06-02T16:00:00.000Z</published>
     <updated>2019-09-26T16:00:00.000Z</updated>
     
@@ -1053,19 +1491,19 @@
     
     
     
-    <category term="Life" scheme="https://u.pinsflora.com/categories/Life/"/>
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
     
-    <category term="Movies" scheme="https://u.pinsflora.com/categories/Life/Movies/"/>
+    <category term="Movies" scheme="https://u.pinsflora.xyz/categories/Life/Movies/"/>
     
     
-    <category term="Movies" scheme="https://u.pinsflora.com/tags/Movies/"/>
+    <category term="Movies" scheme="https://u.pinsflora.xyz/tags/Movies/"/>
     
   </entry>
   
   <entry>
-    <title>电影推荐</title>
-    <link href="https://u.pinsflora.com/life/movies/life_movies_rec/"/>
-    <id>https://u.pinsflora.com/life/movies/life_movies_rec/</id>
+    <title>解谜</title>
+    <link href="https://u.pinsflora.xyz/Life/thinking/life_puzzle/"/>
+    <id>https://u.pinsflora.xyz/Life/thinking/life_puzzle/</id>
     <published>2018-06-02T16:00:00.000Z</published>
     <updated>2019-09-26T16:00:00.000Z</updated>
     
@@ -1080,46 +1518,40 @@
     
     
     
-    <category term="Life" scheme="https://u.pinsflora.com/categories/Life/"/>
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
+    
+    <category term="Thinking" scheme="https://u.pinsflora.xyz/categories/Life/Thinking/"/>
     
     
-    <category term="电影" scheme="https://u.pinsflora.com/tags/%E7%94%B5%E5%BD%B1/"/>
+    <category term="Thinking" scheme="https://u.pinsflora.xyz/tags/Thinking/"/>
     
   </entry>
   
   <entry>
-    <title>常用微信技巧 | 技术向</title>
-    <link href="https://u.pinsflora.com/life/apps/life_apps_wx/"/>
-    <id>https://u.pinsflora.com/life/apps/life_apps_wx/</id>
+    <title>胡思乱想？？</title>
+    <link href="https://u.pinsflora.xyz/Life/thinking/life_thinking/"/>
+    <id>https://u.pinsflora.xyz/Life/thinking/life_thinking/</id>
     <published>2018-06-02T16:00:00.000Z</published>
     <updated>2019-09-26T16:00:00.000Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;strong&gt;如何在非微信客户端绕过“请在微信客户端打开链接”&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;检查当前UserAgent：&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td</summary>
-        
-      
+    <summary type="html">Good Heavens! That explains a lot!</summary>
     
     
     
-    <category term="Life" scheme="https://u.pinsflora.com/categories/Life/"/>
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
     
-    <category term="Apps" scheme="https://u.pinsflora.com/categories/Life/Apps/"/>
+    <category term="Thinking" scheme="https://u.pinsflora.xyz/categories/Life/Thinking/"/>
     
     
-    <category term="Wechat" scheme="https://u.pinsflora.com/tags/Wechat/"/>
+    <category term="Thinking" scheme="https://u.pinsflora.xyz/tags/Thinking/"/>
     
   </entry>
   
   <entry>
     <title>Python Web Crawle Pt.8 - Scrapy</title>
-    <link href="https://u.pinsflora.com/Pysnista/Crawler/py_Crawler08_scrapy/"/>
-    <id>https://u.pinsflora.com/Pysnista/Crawler/py_Crawler08_scrapy/</id>
+    <link href="https://u.pinsflora.xyz/Pysnista/Crawler/py_Crawler08_scrapy/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Crawler/py_Crawler08_scrapy/</id>
     <published>2018-04-21T16:00:00.000Z</published>
     <updated>2019-04-30T16:00:00.000Z</updated>
     
@@ -1134,69 +1566,57 @@
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
     
-    <category term="Crawler" scheme="https://u.pinsflora.com/categories/Python/Crawler/"/>
-    
-    
-    <category term="scrapy" scheme="https://u.pinsflora.com/tags/scrapy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Duolingo - Japanese - Vol.1 - Introduction</title>
-    <link href="https://u.pinsflora.com/lang/jp/duo_jp001_intro/"/>
-    <id>https://u.pinsflora.com/lang/jp/duo_jp001_intro/</id>
-    <published>2018-04-19T16:00:00.000Z</published>
-    <updated>2018-11-23T16:00:00.000Z</updated>
+    <category term="Crawler" scheme="https://u.pinsflora.xyz/categories/Python/Crawler/"/>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Duolingo" scheme="https://u.pinsflora.com/categories/Duolingo/"/>
-    
-    
-    <category term="Japanese" scheme="https://u.pinsflora.com/tags/Japanese/"/>
+    <category term="scrapy" scheme="https://u.pinsflora.xyz/tags/scrapy/"/>
     
   </entry>
   
   <entry>
-    <title>Duolingo - Japanese - Vol.2 - Phrases</title>
-    <link href="https://u.pinsflora.com/lang/jp/duo_jp002_phrases/"/>
-    <id>https://u.pinsflora.com/lang/jp/duo_jp002_phrases/</id>
+    <title>Japanese - Vol.1 - Introduction</title>
+    <link href="https://u.pinsflora.xyz/Lang/jp/duo_jp001_intro/"/>
+    <id>https://u.pinsflora.xyz/Lang/jp/duo_jp001_intro/</id>
     <published>2018-04-19T16:00:00.000Z</published>
     <updated>2018-11-23T16:00:00.000Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
+    <summary type="html">While many consider Japanese to be very difficult to learn for native English speakers, this is only partially true. Many aspects of the Japanese language are quite simple, such as the sound system, and yes, even most of the grammar.</summary>
     
     
     
-    <category term="Duolingo" scheme="https://u.pinsflora.com/categories/Duolingo/"/>
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
     
     
-    <category term="Japanese" scheme="https://u.pinsflora.com/tags/Japanese/"/>
+    <category term="Japanese" scheme="https://u.pinsflora.xyz/tags/Japanese/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Japanese - Vol.2 - Phrases</title>
+    <link href="https://u.pinsflora.xyz/Lang/jp/duo_jp002_phrases/"/>
+    <id>https://u.pinsflora.xyz/Lang/jp/duo_jp002_phrases/</id>
+    <published>2018-04-19T16:00:00.000Z</published>
+    <updated>2018-11-23T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">どうもありがとうございます</summary>
+    
+    
+    
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
+    
+    
+    <category term="Japanese" scheme="https://u.pinsflora.xyz/tags/Japanese/"/>
     
   </entry>
   
   <entry>
     <title>Learning ChIPseeker</title>
-    <link href="https://u.pinsflora.com/Ruita/html/bioc_ChIPseeker/"/>
-    <id>https://u.pinsflora.com/Ruita/html/bioc_ChIPseeker/</id>
+    <link href="https://u.pinsflora.xyz/Reverie/html/bioc_ChIPseeker/"/>
+    <id>https://u.pinsflora.xyz/Reverie/html/bioc_ChIPseeker/</id>
     <published>2018-04-15T16:00:00.000Z</published>
     <updated>2018-04-20T16:00:00.000Z</updated>
     
@@ -1205,19 +1625,19 @@
     
     
     
-    <category term="R" scheme="https://u.pinsflora.com/categories/R/"/>
+    <category term="R" scheme="https://u.pinsflora.xyz/categories/R/"/>
     
-    <category term="Bioinfomatics" scheme="https://u.pinsflora.com/categories/R/Bioinfomatics/"/>
+    <category term="Bioinfomatics" scheme="https://u.pinsflora.xyz/categories/R/Bioinfomatics/"/>
     
     
-    <category term="Bioconductor" scheme="https://u.pinsflora.com/tags/Bioconductor/"/>
+    <category term="Bioconductor" scheme="https://u.pinsflora.xyz/tags/Bioconductor/"/>
     
   </entry>
   
   <entry>
     <title>Python Web Crawler - Google</title>
-    <link href="https://u.pinsflora.com/Pysnista/Crawler/Crawler/py_Crawler_google/"/>
-    <id>https://u.pinsflora.com/Pysnista/Crawler/Crawler/py_Crawler_google/</id>
+    <link href="https://u.pinsflora.xyz/Pysnista/Crawler/Crawler/py_Crawler_google/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Crawler/Crawler/py_Crawler_google/</id>
     <published>2018-04-14T16:00:00.000Z</published>
     <updated>2018-04-14T16:00:00.000Z</updated>
     
@@ -1232,19 +1652,19 @@
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
     
-    <category term="Crawler" scheme="https://u.pinsflora.com/categories/Python/Crawler/"/>
+    <category term="Crawler" scheme="https://u.pinsflora.xyz/categories/Python/Crawler/"/>
     
     
-    <category term="Crawler" scheme="https://u.pinsflora.com/tags/Crawler/"/>
+    <category term="Crawler" scheme="https://u.pinsflora.xyz/tags/Crawler/"/>
     
   </entry>
   
   <entry>
     <title>Python Web Crawler - Weibo</title>
-    <link href="https://u.pinsflora.com/Pysnista/Crawler/Crawler/py_Crawler_weibo/"/>
-    <id>https://u.pinsflora.com/Pysnista/Crawler/Crawler/py_Crawler_weibo/</id>
+    <link href="https://u.pinsflora.xyz/Pysnista/Crawler/Crawler/py_Crawler_weibo/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Crawler/Crawler/py_Crawler_weibo/</id>
     <published>2018-04-14T16:00:00.000Z</published>
     <updated>2018-04-14T16:00:00.000Z</updated>
     
@@ -1259,19 +1679,19 @@
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
     
-    <category term="Crawler" scheme="https://u.pinsflora.com/categories/Python/Crawler/"/>
+    <category term="Crawler" scheme="https://u.pinsflora.xyz/categories/Python/Crawler/"/>
     
     
-    <category term="Weibo" scheme="https://u.pinsflora.com/tags/Weibo/"/>
+    <category term="Weibo" scheme="https://u.pinsflora.xyz/tags/Weibo/"/>
     
   </entry>
   
   <entry>
     <title>Genomic Ranges</title>
-    <link href="https://u.pinsflora.com/Ruita/html/Bioc_Ranges/"/>
-    <id>https://u.pinsflora.com/Ruita/html/Bioc_Ranges/</id>
+    <link href="https://u.pinsflora.xyz/Reverie/html/Bioc_Ranges/"/>
+    <id>https://u.pinsflora.xyz/Reverie/html/Bioc_Ranges/</id>
     <published>2018-04-14T16:00:00.000Z</published>
     <updated>2018-04-20T16:00:00.000Z</updated>
     
@@ -1280,21 +1700,21 @@
     
     
     
-    <category term="R" scheme="https://u.pinsflora.com/categories/R/"/>
+    <category term="R" scheme="https://u.pinsflora.xyz/categories/R/"/>
     
-    <category term="Bioinfomatics" scheme="https://u.pinsflora.com/categories/R/Bioinfomatics/"/>
+    <category term="Bioinfomatics" scheme="https://u.pinsflora.xyz/categories/R/Bioinfomatics/"/>
     
     
-    <category term="Bioconductor" scheme="https://u.pinsflora.com/tags/Bioconductor/"/>
+    <category term="Bioconductor" scheme="https://u.pinsflora.xyz/tags/Bioconductor/"/>
     
-    <category term="Ranges" scheme="https://u.pinsflora.com/tags/Ranges/"/>
+    <category term="Ranges" scheme="https://u.pinsflora.xyz/tags/Ranges/"/>
     
   </entry>
   
   <entry>
     <title>Emojifont</title>
-    <link href="https://u.pinsflora.com/Ruita/html/Bioc_emojifont/"/>
-    <id>https://u.pinsflora.com/Ruita/html/Bioc_emojifont/</id>
+    <link href="https://u.pinsflora.xyz/Reverie/html/Bioc_emojifont/"/>
+    <id>https://u.pinsflora.xyz/Reverie/html/Bioc_emojifont/</id>
     <published>2018-04-14T16:00:00.000Z</published>
     <updated>2018-04-20T16:00:00.000Z</updated>
     
@@ -1303,21 +1723,21 @@
     
     
     
-    <category term="R" scheme="https://u.pinsflora.com/categories/R/"/>
+    <category term="R" scheme="https://u.pinsflora.xyz/categories/R/"/>
     
-    <category term="Bioinfomatics" scheme="https://u.pinsflora.com/categories/R/Bioinfomatics/"/>
+    <category term="Bioinfomatics" scheme="https://u.pinsflora.xyz/categories/R/Bioinfomatics/"/>
     
     
-    <category term="Bioconductor" scheme="https://u.pinsflora.com/tags/Bioconductor/"/>
+    <category term="Bioconductor" scheme="https://u.pinsflora.xyz/tags/Bioconductor/"/>
     
-    <category term="Emoji" scheme="https://u.pinsflora.com/tags/Emoji/"/>
+    <category term="Emoji" scheme="https://u.pinsflora.xyz/tags/Emoji/"/>
     
   </entry>
   
   <entry>
     <title>Learning ggtree</title>
-    <link href="https://u.pinsflora.com/Ruita/html/Bioc_ggtree/"/>
-    <id>https://u.pinsflora.com/Ruita/html/Bioc_ggtree/</id>
+    <link href="https://u.pinsflora.xyz/Reverie/html/Bioc_ggtree/"/>
+    <id>https://u.pinsflora.xyz/Reverie/html/Bioc_ggtree/</id>
     <published>2018-04-04T16:00:00.000Z</published>
     <updated>2018-04-20T16:00:00.000Z</updated>
     
@@ -1326,21 +1746,40 @@
     
     
     
-    <category term="R" scheme="https://u.pinsflora.com/categories/R/"/>
+    <category term="R" scheme="https://u.pinsflora.xyz/categories/R/"/>
     
-    <category term="Bioinfomatics" scheme="https://u.pinsflora.com/categories/R/Bioinfomatics/"/>
+    <category term="Bioinfomatics" scheme="https://u.pinsflora.xyz/categories/R/Bioinfomatics/"/>
     
     
-    <category term="Bioconductor" scheme="https://u.pinsflora.com/tags/Bioconductor/"/>
+    <category term="Bioconductor" scheme="https://u.pinsflora.xyz/tags/Bioconductor/"/>
     
-    <category term="ggtree" scheme="https://u.pinsflora.com/tags/ggtree/"/>
+    <category term="ggtree" scheme="https://u.pinsflora.xyz/tags/ggtree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue.js V3</title>
+    <link href="https://u.pinsflora.xyz/Web/vue/WEB_js_vue/"/>
+    <id>https://u.pinsflora.xyz/Web/vue/WEB_js_vue/</id>
+    <published>2018-03-18T16:00:00.000Z</published>
+    <updated>2020-10-26T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">Vue (pronounced /vjuː/, like view) is an approachable,versatile,performant progressive javascript framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable.</summary>
+    
+    
+    
+    <category term="Web" scheme="https://u.pinsflora.xyz/categories/Web/"/>
+    
+    <category term="JS" scheme="https://u.pinsflora.xyz/categories/Web/JS/"/>
+    
     
   </entry>
   
   <entry>
     <title>Python Web Crawler - Netease Music Comments</title>
-    <link href="https://u.pinsflora.com/Pysnista/Crawler/Crawler/py_Crawler_NM/"/>
-    <id>https://u.pinsflora.com/Pysnista/Crawler/Crawler/py_Crawler_NM/</id>
+    <link href="https://u.pinsflora.xyz/Pysnista/Crawler/Crawler/py_Crawler_NM/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Crawler/Crawler/py_Crawler_NM/</id>
     <published>2018-03-14T16:00:00.000Z</published>
     <updated>2018-03-14T16:00:00.000Z</updated>
     
@@ -1349,19 +1788,57 @@
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
     
-    <category term="Crawler" scheme="https://u.pinsflora.com/categories/Python/Crawler/"/>
+    <category term="Crawler" scheme="https://u.pinsflora.xyz/categories/Python/Crawler/"/>
     
     
-    <category term="Crypto" scheme="https://u.pinsflora.com/tags/Crypto/"/>
+    <category term="Crypto" scheme="https://u.pinsflora.xyz/tags/Crypto/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>German - S2 - Animals</title>
+    <link href="https://u.pinsflora.xyz/Lang/de/duo_de_s2_animals/"/>
+    <id>https://u.pinsflora.xyz/Lang/de/duo_de_s2_animals/</id>
+    <published>2018-03-11T16:00:00.000Z</published>
+    <updated>2020-12-01T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">Guten Morgen, Spinne, auf Wiedersehen, Fliege!</summary>
+    
+    
+    
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
+    
+    
+    <category term="German" scheme="https://u.pinsflora.xyz/tags/German/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>German - S3 - Clothing</title>
+    <link href="https://u.pinsflora.xyz/Lang/de/duo_de_s3_clothing/"/>
+    <id>https://u.pinsflora.xyz/Lang/de/duo_de_s3_clothing/</id>
+    <published>2018-03-11T16:00:00.000Z</published>
+    <updated>2020-12-01T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">Die Kleidung</summary>
+    
+    
+    
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
+    
+    
+    <category term="German" scheme="https://u.pinsflora.xyz/tags/German/"/>
     
   </entry>
   
   <entry>
     <title>Xiami Jazz - Hiphop Artists</title>
-    <link href="https://u.pinsflora.com/Pysnista/Crawler/Crawler/py_Crawler_xiami/"/>
-    <id>https://u.pinsflora.com/Pysnista/Crawler/Crawler/py_Crawler_xiami/</id>
+    <link href="https://u.pinsflora.xyz/Pysnista/Crawler/Crawler/py_Crawler_xiami/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Crawler/Crawler/py_Crawler_xiami/</id>
     <published>2018-03-10T16:00:00.000Z</published>
     <updated>2018-03-14T16:00:00.000Z</updated>
     
@@ -1370,21 +1847,21 @@
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
     
-    <category term="Crawler" scheme="https://u.pinsflora.com/categories/Python/Crawler/"/>
+    <category term="Crawler" scheme="https://u.pinsflora.xyz/categories/Python/Crawler/"/>
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/tags/Python/"/>
     
-    <category term="Crawler" scheme="https://u.pinsflora.com/tags/Crawler/"/>
+    <category term="Crawler" scheme="https://u.pinsflora.xyz/tags/Crawler/"/>
     
   </entry>
   
   <entry>
     <title>Python Web Crawle Pt.7 - Selenium</title>
-    <link href="https://u.pinsflora.com/Pysnista/Crawler/py_Crawler07_selenium/"/>
-    <id>https://u.pinsflora.com/Pysnista/Crawler/py_Crawler07_selenium/</id>
+    <link href="https://u.pinsflora.xyz/Pysnista/Crawler/py_Crawler07_selenium/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Crawler/py_Crawler07_selenium/</id>
     <published>2018-03-06T21:22:32.000Z</published>
     <updated>2020-04-30T16:00:00.000Z</updated>
     
@@ -1399,19 +1876,19 @@
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
     
-    <category term="Crawler" scheme="https://u.pinsflora.com/categories/Python/Crawler/"/>
+    <category term="Crawler" scheme="https://u.pinsflora.xyz/categories/Python/Crawler/"/>
     
     
-    <category term="Selenium" scheme="https://u.pinsflora.com/tags/Selenium/"/>
+    <category term="Selenium" scheme="https://u.pinsflora.xyz/tags/Selenium/"/>
     
   </entry>
   
   <entry>
     <title>Python Web Crawler</title>
-    <link href="https://u.pinsflora.com/Pysnista/Crawler/Crawler/py_Crawler_examples/"/>
-    <id>https://u.pinsflora.com/Pysnista/Crawler/Crawler/py_Crawler_examples/</id>
+    <link href="https://u.pinsflora.xyz/Pysnista/Crawler/Crawler/py_Crawler_examples/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Crawler/Crawler/py_Crawler_examples/</id>
     <published>2018-03-06T21:22:32.000Z</published>
     <updated>2020-04-30T16:00:00.000Z</updated>
     
@@ -1426,38 +1903,40 @@
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
     
-    <category term="Crawler" scheme="https://u.pinsflora.com/categories/Python/Crawler/"/>
+    <category term="Crawler" scheme="https://u.pinsflora.xyz/categories/Python/Crawler/"/>
     
     
-    <category term="Crawler" scheme="https://u.pinsflora.com/tags/Crawler/"/>
+    <category term="Crawler" scheme="https://u.pinsflora.xyz/tags/Crawler/"/>
     
   </entry>
   
   <entry>
-    <title>Pug</title>
-    <link href="https://u.pinsflora.com/web/web_pug/"/>
-    <id>https://u.pinsflora.com/web/web_pug/</id>
-    <published>2018-03-01T16:00:00.000Z</published>
-    <updated>2019-05-20T16:00:00.000Z</updated>
+    <title>有趣、有意思的网站</title>
+    <link href="https://u.pinsflora.xyz/Life/Internet/website_%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E7%BD%91%E7%AB%99/"/>
+    <id>https://u.pinsflora.xyz/Life/Internet/website_%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E7%BD%91%E7%AB%99/</id>
+    <published>2018-03-02T16:00:00.000Z</published>
+    <updated>2020-07-26T16:00:00.000Z</updated>
     
     
-    <summary type="html">new Promise(resolve, reject)=&gt; ???</summary>
+    <summary type="html">有意思的网站</summary>
     
     
     
-    <category term="Web" scheme="https://u.pinsflora.com/categories/Web/"/>
+    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
     
-    <category term="Intro" scheme="https://u.pinsflora.com/categories/Web/Intro/"/>
+    <category term="Internet" scheme="https://u.pinsflora.xyz/categories/Life/Internet/"/>
     
+    
+    <category term="Website" scheme="https://u.pinsflora.xyz/tags/Website/"/>
     
   </entry>
   
   <entry>
     <title>JSON</title>
-    <link href="https://u.pinsflora.com/web/js/web_json/"/>
-    <id>https://u.pinsflora.com/web/js/web_json/</id>
+    <link href="https://u.pinsflora.xyz/Web/js/web_json/"/>
+    <id>https://u.pinsflora.xyz/Web/js/web_json/</id>
     <published>2018-03-01T16:00:00.000Z</published>
     <updated>2019-05-20T16:00:00.000Z</updated>
     
@@ -1466,19 +1945,38 @@
     
     
     
-    <category term="Web" scheme="https://u.pinsflora.com/categories/Web/"/>
+    <category term="Web" scheme="https://u.pinsflora.xyz/categories/Web/"/>
     
-    <category term="JS" scheme="https://u.pinsflora.com/categories/Web/JS/"/>
+    <category term="JS" scheme="https://u.pinsflora.xyz/categories/Web/JS/"/>
     
     
-    <category term="JSON" scheme="https://u.pinsflora.com/tags/JSON/"/>
+    <category term="JSON" scheme="https://u.pinsflora.xyz/tags/JSON/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pug</title>
+    <link href="https://u.pinsflora.xyz/Web/tools/web_pug/"/>
+    <id>https://u.pinsflora.xyz/Web/tools/web_pug/</id>
+    <published>2018-03-01T16:00:00.000Z</published>
+    <updated>2019-05-20T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">new Promise(resolve, reject)=&gt; ???</summary>
+    
+    
+    
+    <category term="Web" scheme="https://u.pinsflora.xyz/categories/Web/"/>
+    
+    <category term="Intro" scheme="https://u.pinsflora.xyz/categories/Web/Intro/"/>
+    
     
   </entry>
   
   <entry>
     <title>AJAX</title>
-    <link href="https://u.pinsflora.com/web/js/web_js_ajax/"/>
-    <id>https://u.pinsflora.com/web/js/web_js_ajax/</id>
+    <link href="https://u.pinsflora.xyz/Web/js/web_js_ajax/"/>
+    <id>https://u.pinsflora.xyz/Web/js/web_js_ajax/</id>
     <published>2018-03-01T16:00:00.000Z</published>
     <updated>2019-05-20T16:00:00.000Z</updated>
     
@@ -1487,38 +1985,40 @@
     
     
     
-    <category term="Web" scheme="https://u.pinsflora.com/categories/Web/"/>
+    <category term="Web" scheme="https://u.pinsflora.xyz/categories/Web/"/>
     
-    <category term="JS" scheme="https://u.pinsflora.com/categories/Web/JS/"/>
+    <category term="JS" scheme="https://u.pinsflora.xyz/categories/Web/JS/"/>
     
     
-    <category term="AJAX" scheme="https://u.pinsflora.com/tags/AJAX/"/>
+    <category term="AJAX" scheme="https://u.pinsflora.xyz/tags/AJAX/"/>
     
   </entry>
   
   <entry>
     <title>HTML Introduction</title>
-    <link href="https://u.pinsflora.com/web/html/web_html_intro/"/>
-    <id>https://u.pinsflora.com/web/html/web_html_intro/</id>
+    <link href="https://u.pinsflora.xyz/Web/html/web_html_intro/"/>
+    <id>https://u.pinsflora.xyz/Web/html/web_html_intro/</id>
     <published>2018-03-01T16:00:00.000Z</published>
-    <updated>2019-05-20T16:00:00.000Z</updated>
+    <updated>2019-11-20T16:00:00.000Z</updated>
     
     
-    <summary type="html">In this article, I will give you a basic understanding of HTML and its functions.</summary>
+    <summary type="html">This article will give you a basic understanding of HTML and its functions.</summary>
     
     
     
-    <category term="Web" scheme="https://u.pinsflora.com/categories/Web/"/>
+    <category term="Web" scheme="https://u.pinsflora.xyz/categories/Web/"/>
     
-    <category term="HTML" scheme="https://u.pinsflora.com/categories/Web/HTML/"/>
+    <category term="HTML" scheme="https://u.pinsflora.xyz/categories/Web/HTML/"/>
     
+    
+    <category term="HTML" scheme="https://u.pinsflora.xyz/tags/HTML/"/>
     
   </entry>
   
   <entry>
     <title>Python Introduction - CSV</title>
-    <link href="https://u.pinsflora.com/Pysnista/Intro/files/py_files_csv/"/>
-    <id>https://u.pinsflora.com/Pysnista/Intro/files/py_files_csv/</id>
+    <link href="https://u.pinsflora.xyz/Pysnista/Intro/files/py_files_csv/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Intro/files/py_files_csv/</id>
     <published>2018-02-24T16:00:00.000Z</published>
     <updated>2020-03-16T16:00:00.000Z</updated>
     
@@ -1527,19 +2027,19 @@
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
     
-    <category term="Introduction" scheme="https://u.pinsflora.com/categories/Python/Introduction/"/>
+    <category term="Introduction" scheme="https://u.pinsflora.xyz/categories/Python/Introduction/"/>
     
     
-    <category term="CSV" scheme="https://u.pinsflora.com/tags/CSV/"/>
+    <category term="CSV" scheme="https://u.pinsflora.xyz/tags/CSV/"/>
     
   </entry>
   
   <entry>
     <title>Python - Excel</title>
-    <link href="https://u.pinsflora.com/Pysnista/Intro/files/py_files_excel/"/>
-    <id>https://u.pinsflora.com/Pysnista/Intro/files/py_files_excel/</id>
+    <link href="https://u.pinsflora.xyz/Pysnista/Intro/files/py_files_excel/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Intro/files/py_files_excel/</id>
     <published>2018-02-23T16:00:00.000Z</published>
     <updated>2020-03-16T16:00:00.000Z</updated>
     
@@ -1548,17 +2048,17 @@
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
     
-    <category term="Introduction" scheme="https://u.pinsflora.com/categories/Python/Introduction/"/>
+    <category term="Introduction" scheme="https://u.pinsflora.xyz/categories/Python/Introduction/"/>
     
     
   </entry>
   
   <entry>
     <title>Docker</title>
-    <link href="https://u.pinsflora.com/notes/sys/Linux/Linux_docker/"/>
-    <id>https://u.pinsflora.com/notes/sys/Linux/Linux_docker/</id>
+    <link href="https://u.pinsflora.xyz/Notes/sys/Linux/Linux_docker/"/>
+    <id>https://u.pinsflora.xyz/Notes/sys/Linux/Linux_docker/</id>
     <published>2018-01-31T16:00:00.000Z</published>
     <updated>2019-12-12T16:00:00.000Z</updated>
     
@@ -1567,26 +2067,75 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;安装-install&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#安装-install&quot;&gt;&lt;/a&gt; 安装 | Install&lt;/h2&gt;
-&lt;figure class=&quot;highlight</summary>
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
         
       
     
     
     
-    <category term="System" scheme="https://u.pinsflora.com/categories/System/"/>
+    <category term="System" scheme="https://u.pinsflora.xyz/categories/System/"/>
     
-    <category term="Linux" scheme="https://u.pinsflora.com/categories/System/Linux/"/>
+    <category term="Linux" scheme="https://u.pinsflora.xyz/categories/System/Linux/"/>
     
     
-    <category term="Docker" scheme="https://u.pinsflora.com/tags/Docker/"/>
+    <category term="Docker" scheme="https://u.pinsflora.xyz/tags/Docker/"/>
     
   </entry>
   
   <entry>
-    <title>Duolingo - Hindi - Vol.1 - Introduction</title>
-    <link href="https://u.pinsflora.com/lang/hi/duo_hi001_intro/"/>
-    <id>https://u.pinsflora.com/lang/hi/duo_hi001_intro/</id>
+    <title>Mutilingual Chat</title>
+    <link href="https://u.pinsflora.xyz/Lang/lang_learning_chat/"/>
+    <id>https://u.pinsflora.xyz/Lang/lang_learning_chat/</id>
+    <published>2018-01-26T16:00:00.000Z</published>
+    <updated>2019-01-26T16:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
+    
+    
+    <category term="Study" scheme="https://u.pinsflora.xyz/tags/Study/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>德语入门</title>
+    <link href="https://u.pinsflora.xyz/Lang/de/duo_de/"/>
+    <id>https://u.pinsflora.xyz/Lang/de/duo_de/</id>
+    <published>2018-01-26T16:00:00.000Z</published>
+    <updated>2020-01-26T16:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
+    
+    
+    <category term="German" scheme="https://u.pinsflora.xyz/tags/German/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hindi - Vol.1 - Introduction</title>
+    <link href="https://u.pinsflora.xyz/Lang/hi/duo_hi001_intro/"/>
+    <id>https://u.pinsflora.xyz/Lang/hi/duo_hi001_intro/</id>
     <published>2018-01-26T16:00:00.000Z</published>
     <updated>2018-01-26T16:00:00.000Z</updated>
     
@@ -1601,17 +2150,17 @@
     
     
     
-    <category term="Duolingo" scheme="https://u.pinsflora.com/categories/Duolingo/"/>
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
     
     
-    <category term="Hindi" scheme="https://u.pinsflora.com/tags/Hindi/"/>
+    <category term="Hindi" scheme="https://u.pinsflora.xyz/tags/Hindi/"/>
     
   </entry>
   
   <entry>
-    <title>Duolingo - Hawaiian- Vol.1 - Introduction</title>
-    <link href="https://u.pinsflora.com/lang/hw/duo_hw001_intro/"/>
-    <id>https://u.pinsflora.com/lang/hw/duo_hw001_intro/</id>
+    <title>Hawaiian- Vol.1 - Introduction</title>
+    <link href="https://u.pinsflora.xyz/Lang/hw/duo_hw001_intro/"/>
+    <id>https://u.pinsflora.xyz/Lang/hw/duo_hw001_intro/</id>
     <published>2018-01-26T16:00:00.000Z</published>
     <updated>2019-11-26T16:00:00.000Z</updated>
     
@@ -1626,17 +2175,17 @@
     
     
     
-    <category term="Duolingo" scheme="https://u.pinsflora.com/categories/Duolingo/"/>
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
     
     
-    <category term="Hawaiian" scheme="https://u.pinsflora.com/tags/Hawaiian/"/>
+    <category term="Hawaiian" scheme="https://u.pinsflora.xyz/tags/Hawaiian/"/>
     
   </entry>
   
   <entry>
     <title>R - Strings</title>
-    <link href="https://u.pinsflora.com/Ruita/R_packages/"/>
-    <id>https://u.pinsflora.com/Ruita/R_packages/</id>
+    <link href="https://u.pinsflora.xyz/Reverie/R_packages/"/>
+    <id>https://u.pinsflora.xyz/Reverie/R_packages/</id>
     <published>2018-01-24T16:00:00.000Z</published>
     <updated>2018-04-20T16:00:00.000Z</updated>
     
@@ -1645,544 +2194,25 @@
     
     
     
-    <category term="R" scheme="https://u.pinsflora.com/categories/R/"/>
+    <category term="R" scheme="https://u.pinsflora.xyz/categories/R/"/>
     
-    <category term="Introduction" scheme="https://u.pinsflora.com/categories/R/Introduction/"/>
+    <category term="Introduction" scheme="https://u.pinsflora.xyz/categories/R/Introduction/"/>
     
     
-    <category term="R" scheme="https://u.pinsflora.com/tags/R/"/>
+    <category term="R" scheme="https://u.pinsflora.xyz/tags/R/"/>
     
-    <category term="Strings" scheme="https://u.pinsflora.com/tags/Strings/"/>
+    <category term="Strings" scheme="https://u.pinsflora.xyz/tags/Strings/"/>
     
   </entry>
   
   <entry>
-    <title>R Tests</title>
-    <link href="https://u.pinsflora.com/Ruita/html/R_stats_tests/"/>
-    <id>https://u.pinsflora.com/Ruita/html/R_stats_tests/</id>
+    <title>R - Tools</title>
+    <link href="https://u.pinsflora.xyz/Reverie/R_tools/"/>
+    <id>https://u.pinsflora.xyz/Reverie/R_tools/</id>
     <published>2018-01-24T16:00:00.000Z</published>
     <updated>2018-04-20T16:00:00.000Z</updated>
     
     
-    <summary type="html">R的各种检验</summary>
-    
-    
-    
-    <category term="R" scheme="https://u.pinsflora.com/categories/R/"/>
-    
-    <category term="Stats" scheme="https://u.pinsflora.com/categories/R/Stats/"/>
-    
-    
-    <category term="Stats" scheme="https://u.pinsflora.com/tags/Stats/"/>
-    
-    <category term="Statistical Test" scheme="https://u.pinsflora.com/tags/Statistical-Test/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R - OS</title>
-    <link href="https://u.pinsflora.com/Ruita/R_os/"/>
-    <id>https://u.pinsflora.com/Ruita/R_os/</id>
-    <published>2018-01-23T16:00:00.000Z</published>
-    <updated>2018-04-20T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">A string of similar strings</summary>
-    
-    
-    
-    <category term="R" scheme="https://u.pinsflora.com/categories/R/"/>
-    
-    
-    <category term="R" scheme="https://u.pinsflora.com/tags/R/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R ANOVA</title>
-    <link href="https://u.pinsflora.com/Ruita/html/R_stats_anova/"/>
-    <id>https://u.pinsflora.com/Ruita/html/R_stats_anova/</id>
-    <published>2018-01-21T16:00:00.000Z</published>
-    <updated>2018-04-20T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">R的ANOVA</summary>
-    
-    
-    
-    <category term="R" scheme="https://u.pinsflora.com/categories/R/"/>
-    
-    <category term="Stats" scheme="https://u.pinsflora.com/categories/R/Stats/"/>
-    
-    
-    <category term="Stats" scheme="https://u.pinsflora.com/tags/Stats/"/>
-    
-    <category term="anova" scheme="https://u.pinsflora.com/tags/anova/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R Distributions</title>
-    <link href="https://u.pinsflora.com/Ruita/html/R_stats_distribution/"/>
-    <id>https://u.pinsflora.com/Ruita/html/R_stats_distribution/</id>
-    <published>2018-01-21T16:00:00.000Z</published>
-    <updated>2018-04-20T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">R的Distributions</summary>
-    
-    
-    
-    <category term="R" scheme="https://u.pinsflora.com/categories/R/"/>
-    
-    <category term="Stats" scheme="https://u.pinsflora.com/categories/R/Stats/"/>
-    
-    
-    <category term="Stats" scheme="https://u.pinsflora.com/tags/Stats/"/>
-    
-    <category term="Distributions" scheme="https://u.pinsflora.com/tags/Distributions/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R Dirty Data</title>
-    <link href="https://u.pinsflora.com/Ruita/html/R_stats_dirty_data/"/>
-    <id>https://u.pinsflora.com/Ruita/html/R_stats_dirty_data/</id>
-    <published>2018-01-21T16:00:00.000Z</published>
-    <updated>2018-04-20T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">R的脏数据处理</summary>
-    
-    
-    
-    <category term="R" scheme="https://u.pinsflora.com/categories/R/"/>
-    
-    <category term="Stats" scheme="https://u.pinsflora.com/categories/R/Stats/"/>
-    
-    
-    <category term="Stats" scheme="https://u.pinsflora.com/tags/Stats/"/>
-    
-    <category term="Dirty Data" scheme="https://u.pinsflora.com/tags/Dirty-Data/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R Correlation</title>
-    <link href="https://u.pinsflora.com/Ruita/html/R_stats_corrlation/"/>
-    <id>https://u.pinsflora.com/Ruita/html/R_stats_corrlation/</id>
-    <published>2018-01-21T16:00:00.000Z</published>
-    <updated>2018-04-20T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">R的Corrlation</summary>
-    
-    
-    
-    <category term="R" scheme="https://u.pinsflora.com/categories/R/"/>
-    
-    <category term="Stats" scheme="https://u.pinsflora.com/categories/R/Stats/"/>
-    
-    
-    <category term="Stats" scheme="https://u.pinsflora.com/tags/Stats/"/>
-    
-    <category term="Correlation" scheme="https://u.pinsflora.com/tags/Correlation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R Data Manipulation</title>
-    <link href="https://u.pinsflora.com/Ruita/html/R_stats_mData/"/>
-    <id>https://u.pinsflora.com/Ruita/html/R_stats_mData/</id>
-    <published>2018-01-20T16:00:00.000Z</published>
-    <updated>2018-04-20T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">R的基本数据处理</summary>
-    
-    
-    
-    <category term="R" scheme="https://u.pinsflora.com/categories/R/"/>
-    
-    <category term="Stats" scheme="https://u.pinsflora.com/categories/R/Stats/"/>
-    
-    
-    <category term="Stats" scheme="https://u.pinsflora.com/tags/Stats/"/>
-    
-    <category term="Data Manipulation" scheme="https://u.pinsflora.com/tags/Data-Manipulation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R Error Bar</title>
-    <link href="https://u.pinsflora.com/Ruita/html/R_stats_graphics_errorbar/"/>
-    <id>https://u.pinsflora.com/Ruita/html/R_stats_graphics_errorbar/</id>
-    <published>2018-01-20T16:00:00.000Z</published>
-    <updated>2018-04-20T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">R的标准差(std. deviation)以及标准误(std.error)用法</summary>
-    
-    
-    
-    <category term="R" scheme="https://u.pinsflora.com/categories/R/"/>
-    
-    <category term="Stats" scheme="https://u.pinsflora.com/categories/R/Stats/"/>
-    
-    
-    <category term="Stats" scheme="https://u.pinsflora.com/tags/Stats/"/>
-    
-    <category term="Error Bar" scheme="https://u.pinsflora.com/tags/Error-Bar/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ggplot2 Themes</title>
-    <link href="https://u.pinsflora.com/Ruita/html/Graphics_ggplot2_theme/"/>
-    <id>https://u.pinsflora.com/Ruita/html/Graphics_ggplot2_theme/</id>
-    <published>2018-01-20T16:00:00.000Z</published>
-    <updated>2018-04-20T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">ggplot2的themes介绍</summary>
-    
-    
-    
-    <category term="R" scheme="https://u.pinsflora.com/categories/R/"/>
-    
-    <category term="Graphics" scheme="https://u.pinsflora.com/categories/R/Graphics/"/>
-    
-    
-    <category term="ggplot2" scheme="https://u.pinsflora.com/tags/ggplot2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R analysis of The US-born population in 2006</title>
-    <link href="https://u.pinsflora.com/Ruita/html/Graphics_ggplot2_usborn/"/>
-    <id>https://u.pinsflora.com/Ruita/html/Graphics_ggplot2_usborn/</id>
-    <published>2018-01-20T16:00:00.000Z</published>
-    <updated>2018-01-26T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">使用ggplot2对2006年在美国出生的婴儿的记录的简易分析</summary>
-    
-    
-    
-    <category term="R" scheme="https://u.pinsflora.com/categories/R/"/>
-    
-    <category term="Graphics" scheme="https://u.pinsflora.com/categories/R/Graphics/"/>
-    
-    
-    <category term="ggplot2" scheme="https://u.pinsflora.com/tags/ggplot2/"/>
-    
-    <category term="Data analysis" scheme="https://u.pinsflora.com/tags/Data-analysis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R Normal Distribution</title>
-    <link href="https://u.pinsflora.com/Ruita/html/R_stats_norm/"/>
-    <id>https://u.pinsflora.com/Ruita/html/R_stats_norm/</id>
-    <published>2018-01-19T16:00:00.000Z</published>
-    <updated>2018-04-20T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">R的正态分布</summary>
-    
-    
-    
-    <category term="R" scheme="https://u.pinsflora.com/categories/R/"/>
-    
-    <category term="Stats" scheme="https://u.pinsflora.com/categories/R/Stats/"/>
-    
-    
-    <category term="Stats" scheme="https://u.pinsflora.com/tags/Stats/"/>
-    
-    <category term="Distributions" scheme="https://u.pinsflora.com/tags/Distributions/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ggplot2 Introduction</title>
-    <link href="https://u.pinsflora.com/Ruita/html/Graphics_ggplot2_intro/"/>
-    <id>https://u.pinsflora.com/Ruita/html/Graphics_ggplot2_intro/</id>
-    <published>2018-01-19T16:00:00.000Z</published>
-    <updated>2018-04-20T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">ggplot2是Hadley Wickham写的一个very popular 的R可视化图形包,通过数据从根本上了解世界真的是一件非常，非常酷的事情。</summary>
-    
-    
-    
-    <category term="R" scheme="https://u.pinsflora.com/categories/R/"/>
-    
-    <category term="Graphics" scheme="https://u.pinsflora.com/categories/R/Graphics/"/>
-    
-    
-    <category term="Introduction" scheme="https://u.pinsflora.com/tags/Introduction/"/>
-    
-    <category term="ggplot2" scheme="https://u.pinsflora.com/tags/ggplot2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R Advanced Usage</title>
-    <link href="https://u.pinsflora.com/Ruita/html/R_08_adv/"/>
-    <id>https://u.pinsflora.com/Ruita/html/R_08_adv/</id>
-    <published>2018-01-18T16:00:00.000Z</published>
-    <updated>2018-04-21T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">R的一些高级用法</summary>
-    
-    
-    
-    <category term="R" scheme="https://u.pinsflora.com/categories/R/"/>
-    
-    <category term="Introduction" scheme="https://u.pinsflora.com/categories/R/Introduction/"/>
-    
-    
-    <category term="Environment" scheme="https://u.pinsflora.com/tags/Environment/"/>
-    
-    <category term="Functions" scheme="https://u.pinsflora.com/tags/Functions/"/>
-    
-    <category term="Types" scheme="https://u.pinsflora.com/tags/Types/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R Regressions</title>
-    <link href="https://u.pinsflora.com/Ruita/html/R_stats_regression/"/>
-    <id>https://u.pinsflora.com/Ruita/html/R_stats_regression/</id>
-    <published>2018-01-18T16:00:00.000Z</published>
-    <updated>2018-04-20T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">R的Regressions用法</summary>
-    
-    
-    
-    <category term="R" scheme="https://u.pinsflora.com/categories/R/"/>
-    
-    <category term="Stats" scheme="https://u.pinsflora.com/categories/R/Stats/"/>
-    
-    
-    <category term="Stats" scheme="https://u.pinsflora.com/tags/Stats/"/>
-    
-    <category term="Regressions" scheme="https://u.pinsflora.com/tags/Regressions/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R Base Graphics</title>
-    <link href="https://u.pinsflora.com/Ruita/html/Graphics_R_basic/"/>
-    <id>https://u.pinsflora.com/Ruita/html/Graphics_R_basic/</id>
-    <published>2018-01-17T16:00:00.000Z</published>
-    <updated>2018-04-20T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">R的基础画图</summary>
-    
-    
-    
-    <category term="R" scheme="https://u.pinsflora.com/categories/R/"/>
-    
-    <category term="Graphics" scheme="https://u.pinsflora.com/categories/R/Graphics/"/>
-    
-    
-    <category term="Graphics" scheme="https://u.pinsflora.com/tags/Graphics/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R S4 class</title>
-    <link href="https://u.pinsflora.com/Ruita/html/R_06_oop/"/>
-    <id>https://u.pinsflora.com/Ruita/html/R_06_oop/</id>
-    <published>2018-01-14T16:00:00.000Z</published>
-    <updated>2018-04-26T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">R的面向对象用法</summary>
-    
-    
-    
-    <category term="R" scheme="https://u.pinsflora.com/categories/R/"/>
-    
-    <category term="Introduction" scheme="https://u.pinsflora.com/categories/R/Introduction/"/>
-    
-    
-    <category term="OOP" scheme="https://u.pinsflora.com/tags/OOP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R Advanced Math</title>
-    <link href="https://u.pinsflora.com/Ruita/html/R_07_math2/"/>
-    <id>https://u.pinsflora.com/Ruita/html/R_07_math2/</id>
-    <published>2018-01-14T16:00:00.000Z</published>
-    <updated>2018-04-20T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">R数学的一些高级用法</summary>
-    
-    
-    
-    <category term="R" scheme="https://u.pinsflora.com/categories/R/"/>
-    
-    <category term="Introduction" scheme="https://u.pinsflora.com/categories/R/Introduction/"/>
-    
-    
-    <category term="math" scheme="https://u.pinsflora.com/tags/math/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode - Conversion</title>
-    <link href="https://u.pinsflora.com/Pysnista/Algor/leetcode_Conversion/"/>
-    <id>https://u.pinsflora.com/Pysnista/Algor/leetcode_Conversion/</id>
-    <published>2018-01-13T16:00:00.000Z</published>
-    <updated>2019-04-16T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">Leetcode - Conversion</summary>
-    
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/categories/Python/Leetcode/"/>
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode - Arrays | Best Time to Buy and Sell Stock</title>
-    <link href="https://u.pinsflora.com/Pysnista/Algor/Arrays/leetcode_arrays_Best%20Time%20to%20Buy%20and%20Sell%20Stock/"/>
-    <id>https://u.pinsflora.com/Pysnista/Algor/Arrays/leetcode_arrays_Best%20Time%20to%20Buy%20and%20Sell%20Stock/</id>
-    <published>2018-01-13T16:00:00.000Z</published>
-    <updated>2019-04-16T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">Best Time to Buy and Sell Stock</summary>
-    
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/categories/Python/Leetcode/"/>
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode - Arrays | Contains Duplicate</title>
-    <link href="https://u.pinsflora.com/Pysnista/Algor/Arrays/leetcode_arrays_Contains%20Duplicate/"/>
-    <id>https://u.pinsflora.com/Pysnista/Algor/Arrays/leetcode_arrays_Contains%20Duplicate/</id>
-    <published>2018-01-13T16:00:00.000Z</published>
-    <updated>2019-04-16T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">Contains Duplicate</summary>
-    
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/categories/Python/Leetcode/"/>
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode - Arrays | House Robber</title>
-    <link href="https://u.pinsflora.com/Pysnista/Algor/Arrays/leetcode_arrays_House_Robber/"/>
-    <id>https://u.pinsflora.com/Pysnista/Algor/Arrays/leetcode_arrays_House_Robber/</id>
-    <published>2018-01-13T16:00:00.000Z</published>
-    <updated>2019-04-16T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">House Robber</summary>
-    
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/categories/Python/Leetcode/"/>
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode - Arrays | Intervals</title>
-    <link href="https://u.pinsflora.com/Pysnista/Algor/Arrays/leetcode_arrays_Intervals/"/>
-    <id>https://u.pinsflora.com/Pysnista/Algor/Arrays/leetcode_arrays_Intervals/</id>
-    <published>2018-01-13T16:00:00.000Z</published>
-    <updated>2019-04-16T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">Leetcode - Arrays | Intervals</summary>
-    
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/categories/Python/Leetcode/"/>
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode - Arrays | Island </title>
-    <link href="https://u.pinsflora.com/Pysnista/Algor/Arrays/leetcode_arrays_islands/"/>
-    <id>https://u.pinsflora.com/Pysnista/Algor/Arrays/leetcode_arrays_islands/</id>
-    <published>2018-01-13T16:00:00.000Z</published>
-    <updated>2019-04-16T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">Island</summary>
-    
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/categories/Python/Leetcode/"/>
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode - Arrays</title>
-    <link href="https://u.pinsflora.com/Pysnista/Algor/Arrays/leetcode_arrays_longest_/"/>
-    <id>https://u.pinsflora.com/Pysnista/Algor/Arrays/leetcode_arrays_longest_/</id>
-    <published>2018-01-13T16:00:00.000Z</published>
-    <updated>2019-04-16T16:00:00.000Z</updated>
-    
-    
       
       
         
@@ -2193,130 +2223,14 @@
     
     
     
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
+    <category term="R" scheme="https://u.pinsflora.xyz/categories/R/"/>
     
-    <category term="Leetcode" scheme="https://u.pinsflora.com/categories/Python/Leetcode/"/>
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode - Arrays | Matrix</title>
-    <link href="https://u.pinsflora.com/Pysnista/Algor/Arrays/leetcode_arrays_matrix/"/>
-    <id>https://u.pinsflora.com/Pysnista/Algor/Arrays/leetcode_arrays_matrix/</id>
-    <published>2018-01-13T16:00:00.000Z</published>
-    <updated>2019-04-16T16:00:00.000Z</updated>
+    <category term="Introduction" scheme="https://u.pinsflora.xyz/categories/R/Introduction/"/>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
+    <category term="R" scheme="https://u.pinsflora.xyz/tags/R/"/>
     
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/categories/Python/Leetcode/"/>
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode - Arrays | Rotate  </title>
-    <link href="https://u.pinsflora.com/Pysnista/Algor/Arrays/leetcode_arrays_rotate/"/>
-    <id>https://u.pinsflora.com/Pysnista/Algor/Arrays/leetcode_arrays_rotate/</id>
-    <published>2018-01-13T16:00:00.000Z</published>
-    <updated>2019-04-16T16:00:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/categories/Python/Leetcode/"/>
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode - Arrays | Sorted Array</title>
-    <link href="https://u.pinsflora.com/Pysnista/Algor/Arrays/leetcode_arrays_sorted/"/>
-    <id>https://u.pinsflora.com/Pysnista/Algor/Arrays/leetcode_arrays_sorted/</id>
-    <published>2018-01-13T16:00:00.000Z</published>
-    <updated>2019-04-16T16:00:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/categories/Python/Leetcode/"/>
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode - Arrays | Subarray</title>
-    <link href="https://u.pinsflora.com/Pysnista/Algor/Arrays/leetcode_arrays_subarray/"/>
-    <id>https://u.pinsflora.com/Pysnista/Algor/Arrays/leetcode_arrays_subarray/</id>
-    <published>2018-01-13T16:00:00.000Z</published>
-    <updated>2019-04-16T16:00:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/categories/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/categories/Python/Leetcode/"/>
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.com/tags/Python/"/>
-    
-    <category term="Leetcode" scheme="https://u.pinsflora.com/tags/Leetcode/"/>
+    <category term="Strings" scheme="https://u.pinsflora.xyz/tags/Strings/"/>
     
   </entry>
   

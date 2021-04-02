@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/element3/lib/theme-chalk/index.css">
+</head>
+
+<body>
+    <div id="fruits-vue">
+        <el-button @click="visible = true">点我</el-button>
+        <el-dialog v-model:visible="visible" title="Hello world">
+            <p>开始使用Element3吧</p>
+        </el-dialog>
+        <el-table :data="tableData" stripe style="width: 100%">
+            <el-table-column prop="date" label="日期" width="180">
+            </el-table-column>
+            <el-table-column prop="name" label="水果" width="180">
+            </el-table-column>
+            <el-table-column prop="quantity" label="库存">
+            </el-table-column>
+        </el-table>
+    </div>
+</body>
+<script src="https://unpkg.com/vue@next"></script>
+<script src="https://unpkg.com/element3"></script>
+<script>
+    let fruits = {
+        data() {
+            return {
+            visible: false,
+            tableData: [{
+                    date: '2016-05-02',
+                    name: 'bananas',
+                    quantity: 100
+                },
+                {
+                    date: '2016-05-04',
+                    name: 'mangoes',
+                    quantity: 0
+                },
+                {
+                    date: '2016-05-01',
+                    name: 'nectarines',
+                    quantity: 10
+                },
+                {
+                    date: '2016-05-03',
+                    name: 'apples',
+                    quantity: 30
+                }
+            ]
+            }
+        }
+    }
+    Vue.createApp(fruits).use(Element3).mount('#fruits-vue')
+</script>
+
+</html>

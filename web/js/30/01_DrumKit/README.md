@@ -64,8 +64,17 @@ funciton remove(event) {
 }
 ````
 
+```
+border-bottom-color
+border-left-color
+border-right-color
+border-top-color
+box-shadow
+transform
+```
+
 ## 参考
 
-@CRIMX [Day 1 Drum Kit #JavaScript30](https://codepen.io/straybugs/pen/vdKYGQ) - https://codepen.io/straybugs/full/vdKYGQ
+@CRIMX [Day 1 Drum Kit #JavaScript30](https://codepen.io/straybugs/pen/vdKYGQ) - https://codepen.io/straybugs/pen/vdKYGQ
 
 JavaScript30中文指南 BY soyaine -  [GitHub](https://github.com/soyaine/JavaScript30)

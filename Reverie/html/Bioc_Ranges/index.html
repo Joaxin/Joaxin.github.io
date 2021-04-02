@@ -1,0 +1,423 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Genomic Ranges | Pinsflora</title><meta name="keywords" content="Bioconductor,Ranges"><meta name="author" content="Joaxin"><meta name="copyright" content="Joaxin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="Genomic ranges describe…  Annotations, e.g., exons, genes, binding sites, .. Data, e.g., aligned reads, called peaks, copy number regions">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Genomic Ranges">
+<meta property="og:url" content="https://u.pinsflora.xyz/Reverie/html/Bioc_Ranges/index.html">
+<meta property="og:site_name" content="Pinsflora">
+<meta property="og:description" content="Genomic ranges describe…  Annotations, e.g., exons, genes, binding sites, .. Data, e.g., aligned reads, called peaks, copy number regions">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/bioconductor/granges1.png">
+<meta property="article:published_time" content="2018-04-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2018-04-20T16:00:00.000Z">
+<meta property="article:author" content="Joaxin">
+<meta property="article:tag" content="Bioconductor">
+<meta property="article:tag" content="Ranges">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/bioconductor/granges1.png"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://u.pinsflora.xyz/Reverie/html/Bioc_Ranges/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-177831205-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-177831205-1');
+</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2018-04-21 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}const fontSizeVal = saveToLocal.get('global-font-size')
+if (fontSizeVal !== undefined) {
+  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+}})()</script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Pinsflora" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">333</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">110</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">34</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/bioconductor/granges1.png)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Pinsflora</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Genomic Ranges</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-04-14T16:00:00.000Z" title="Created 2018-04-15 00:00:00">2018-04-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2018-04-20T16:00:00.000Z" title="Updated 2018-04-21 00:00:00">2018-04-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/R/">R</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/R/Bioinfomatics/">Bioinfomatics</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">4.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>27min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container">
+
+<div class="toc" id="TOC">
+<ul>
+<li><a href="#rle">rle</a></li>
+<li><a href="#rle-1">Rle</a></li>
+<li><a href="#iranges">IRanges</a><ul>
+<li><a href="#ranges">Ranges</a></li>
+<li><a href="#intra-range-transformations">Intra-range transformations</a><ul>
+<li><a href="#shift">Shift</a></li>
+<li><a href="#narrow">Narrow</a></li>
+<li><a href="#flank">Flank</a></li>
+<li><a href="#reflect">Reflect</a></li>
+<li><a href="#promoters">Promoters</a></li>
+<li><a href="#resize">Resize</a></li>
+</ul></li>
+<li><a href="#inter-range-transformations">Inter-range transformations</a><ul>
+<li><a href="#coverage">coverage</a></li>
+<li><a href="#union">Union</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#granges">GRanges</a></li>
+<li><a href="#ggbio">GGbio</a></li>
+</ul>
+</div>
+<section class="main-content">
+<div class="section level1" id="rle">
+<h1>rle</h1>
+<p>Run Length Encoding Integer Ranges Interval Ranges</p>
+<figure class="highlight R"><table><tbody><tr><td class="code"><pre class="sourceCode r">chr.str &lt;-<span class="string"> </span><span class="keyword">c</span>(<span class="keyword">rep</span>(<span class="string">"ChrI"</span>, <span class="number">3000</span>), <span class="keyword">rep</span>(<span class="string">"ChrII"</span>, <span class="number">5000</span>), <span class="keyword">rep</span>(<span class="string">"ChrIII"</span>, <span class="number">2000</span>),<span class="keyword">rep</span>(<span class="string">"ChrIV"</span>, <span class="number">7000</span>))
+v &lt;-<span class="string"> </span><span class="keyword">rle</span>(chr.str)
+<span class="keyword">as.vector</span>(v)
+<span class="comment"># Run Length Encoding</span>
+<span class="comment">#   lengths: int [1:4] 3000 5000 2000 7000</span>
+<span class="comment">#   values : chr [1:4] "ChrI" "ChrII" "ChrIII" "ChrIV"</span>
+<span class="keyword">as.character</span>(v)
+<span class="comment"># [1] "c(3000, 5000, 2000, 7000)"                    </span>
+<span class="comment"># [2] "c(\"ChrI\", \"ChrII\", \"ChrIII\", \"ChrIV\")"</span>
+<span class="keyword">identical</span>(<span class="keyword">inverse.rle</span>(v),chr.str)
+<span class="comment"># TRUE</span></pre></td></tr></tbody></table></figure>
+<p>Even though factors are basically just integer vectors with some information about levels attached, the rle() function doesn’t work with factors. One issue that might be problematic is that each NA is treated as a run of length 1, even if the NA’s are next to each other.</p>
+<figure class="highlight R"><table><tbody><tr><td class="code"><pre class="sourceCode r"><span class="keyword">is.na</span>(chr.str) &lt;-<span class="string"> </span><span class="number">2</span><span class="string">:</span><span class="number">20</span>
+<span class="comment"># rle(factor(chr.str))</span>
+<span class="comment"># 'x' must be a vector of an atomic type</span>
+<span class="keyword">rle</span>(chr.str)
+<span class="comment"># Run Length Encoding</span>
+<span class="comment">#   lengths: int [1:24] 1 1 1 1 1 1 1 1 1 1 ...</span>
+<span class="comment">#   values : chr [1:24] "ChrI" NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA "ChrI" "ChrII" "ChrIII" "ChrIV"</span>
+rrle &lt;-<span class="string"> </span><span class="cf">function</span>(x,...){
+  cx &lt;-<span class="string"> </span><span class="keyword">as.character</span>(x)
+  cx[<span class="keyword">is.na</span>(cx)] &lt;-<span class="string"> "ZZZ"</span>
+  v &lt;-<span class="string"> </span><span class="keyword">rle</span>(cx)
+  <span class="comment"># Replace the ZZZ's with NA in the RLE-coded data</span>
+  v<span class="string">$</span>values[ v<span class="string">$</span>values<span class="string">==</span><span class="string">"ZZZ"</span> ] &lt;-<span class="string"> </span><span class="ot">NA</span>
+  <span class="keyword">return</span>(v)
+
+}
+<span class="keyword">rrle</span>(chr.str)
+<span class="keyword">rrle</span>(<span class="keyword">factor</span>(chr.str))
+<span class="comment"># Run Length Encoding</span>
+<span class="comment">#   lengths: int [1:6] 1 19 2980 5000 2000 7000</span>
+<span class="comment">#   values : chr [1:6] "ChrI" NA "ChrI" "ChrII" "ChrIII" "ChrIV"</span>
+
+<span class="comment"># object size</span>
+<span class="keyword">as.vector</span>(<span class="keyword">object.size</span>(<span class="keyword">rrle</span>(chr.str))<span class="string">/</span><span class="keyword">object.size</span>(chr.str))
+<span class="comment"># 0.006459569</span>
+
+<span class="comment"># but</span>
+<span class="keyword">set.seed</span>(<span class="number">1</span>)
+rchr.str &lt;-<span class="string"> </span>chr.str[<span class="keyword">sample</span>(<span class="keyword">length</span>(chr.str))]
+<span class="keyword">as.vector</span>(<span class="keyword">object.size</span>(<span class="keyword">rrle</span>(rchr.str))<span class="string">/</span><span class="keyword">object.size</span>(chr.str))
+<span class="comment"># 1.049797</span></pre></td></tr></tbody></table></figure>
+</div>
+<div class="section level1" id="rle-1">
+<h1>Rle</h1>
+<figure class="highlight R"><table><tbody><tr><td class="code"><pre class="sourceCode r"><span class="keyword">library</span>(IRanges)</pre></td></tr></tbody></table></figure>
+<figure class="highlight R"><table><tbody><tr><td class="code"><pre class="sourceCode r">chr.rle &lt;-<span class="string"> </span><span class="keyword">Rle</span>(chr.str) <span class="comment"># as(chr.str, "Rle")</span>
+<span class="comment"># character-Rle of length 17000 with 6 runs</span>
+<span class="comment">#   Lengths:        1       19     2980     5000     2000     7000</span>
+<span class="comment">#   Values :   "ChrI"     "NA"   "ChrI"  "ChrII" "ChrIII"  "ChrIV"</span>
+<span class="keyword">identical</span>(<span class="keyword">as.character</span>(chr.rle), chr.str)
+<span class="comment"># TRUE</span>
+
+chr.rle
+chr.rle<span class="string">@</span>values[<span class="number">2</span>] &lt;-<span class="string"> "ChrI"</span>
+chr.rle &lt;-<span class="string"> </span><span class="keyword">Rle</span>(<span class="keyword">as.character</span>(chr.rle))
+<span class="comment"># character-Rle of length 17000 with 4 runs</span>
+<span class="comment">#   Lengths:     3000     5000     2000     7000</span>
+<span class="comment">#   Values :   "ChrI"  "ChrII" "ChrIII"  "ChrIV"</span>
+chr.rle[<span class="number">1</span><span class="string">:</span><span class="number">5</span>] <span class="comment">#== chr.rle[IRanges(1,5)]</span>
+<span class="comment"># character-Rle of length 5 with 1 run</span>
+<span class="comment">#   Lengths:      5</span>
+<span class="comment">#   Values : "ChrI"</span>
+<span class="keyword">subset</span>(chr.rle,chr.rle<span class="string">&gt;=</span><span class="string">"ChrII"</span>)
+<span class="comment"># character-Rle of length 14000 with 3 runs</span>
+<span class="comment">#   Lengths:     5000     2000     7000</span>
+<span class="comment">#   Values :  "ChrII" "ChrIII"  "ChrIV"</span>
+<span class="keyword">c</span>(chr.rle,chr.rle) <span class="comment">#== rep(chr.rle,2) append(chr.rle,chr.rle)</span>
+<span class="comment"># character-Rle of length 34000 with 8 runs</span>
+<span class="comment">#   Lengths:     3000     5000 ...     2000     7000</span>
+<span class="comment">#   Values :   "ChrI"  "ChrII" ... "ChrIII"  "ChrIV"</span></pre></td></tr></tbody></table></figure>
+<figure class="highlight R"><table><tbody><tr><td class="code"><pre class="sourceCode r">chr.rle &lt;-<span class="string"> </span><span class="keyword">Rle</span>(<span class="dt">values =</span> <span class="keyword">c</span>(<span class="string">"ChrI"</span>, <span class="string">"ChrII"</span>, <span class="string">"ChrIII"</span>, <span class="string">"ChrIV"</span>, <span class="string">"ChrV"</span>,<span class="string">"ChrII"</span>),<span class="dt">lengths =</span> <span class="keyword">c</span>(<span class="number">1000</span>,<span class="number">2000</span>,<span class="number">4000</span>,<span class="number">3500</span>,<span class="number">1000</span>, <span class="number">500</span>))
+<span class="comment"># character-Rle of length 12000 with 6 runs</span>
+<span class="comment">#   Lengths:     1000     2000     4000     3500     1000      500</span>
+<span class="comment">#   Values :   "ChrI"  "ChrII" "ChrIII"  "ChrIV"   "ChrV"  "ChrII"</span>
+<span class="keyword">str</span>(chr.rle)
+<span class="comment"># Formal class 'Rle' [package "S4Vectors"] with 4 slots</span>
+<span class="comment">#   ..@ values         : chr [1:6] "ChrI" "ChrII" "ChrIII" "ChrIV" ...</span>
+<span class="comment">#   ..@ lengths        : int [1:6] 1000 2000 4000 3500 1000 500</span>
+<span class="comment">#   ..@ elementMetadata: NULL</span>
+<span class="comment">#   ..@ metadata       : list()</span>
+<span class="keyword">length</span>(chr.rle)
+<span class="comment"># [1] 12000</span>
+<span class="keyword">runLength</span>(chr.rle)
+<span class="comment"># 1000 2000 4000 3500 1000  500</span>
+<span class="keyword">runValue</span>(chr.rle)
+<span class="comment">#  "ChrI"   "ChrII"  "ChrIII" "ChrIV"  "ChrV"   "ChrII" </span>
+<span class="keyword">nrun</span>(chr.rle)
+<span class="comment"># 6</span>
+<span class="keyword">rbind</span>(<span class="keyword">start</span>(chr.rle),<span class="keyword">end</span>(chr.rle),<span class="keyword">width</span>(chr.rle))
+<span class="comment">#      [,1] [,2] [,3]  [,4]  [,5]  [,6]</span>
+<span class="comment"># [1,]    1 1001 3001  7001 10501 11501</span>
+<span class="comment"># [2,] 1000 3000 7000 10500 11500 12000</span>
+<span class="comment"># [3,] 1000 2000 4000  3500  1000   500</span>
+<span class="keyword">range</span>(chr.rle)
+<span class="comment"># [1] "ChrI" "ChrV"</span>
+
+<span class="keyword">runLength</span>(chr.rle) &lt;-<span class="string"> </span><span class="keyword">rep</span>(<span class="number">2500</span>, <span class="keyword">nrun</span>(chr.rle))
+<span class="keyword">runValue</span>(chr.rle)[<span class="number">3</span><span class="string">:</span><span class="number">4</span>] &lt;-<span class="string"> </span><span class="keyword">c</span>(<span class="string">"ChrIV"</span>, <span class="string">"ChrIIV"</span>)
+chr.rle
+<span class="comment"># character-Rle of length 15000 with 6 runs</span>
+<span class="comment">#   Lengths:     2500     2500     2500     2500     2500     2500</span>
+<span class="comment">#   Values :   "ChrI"  "ChrII"  "ChrIV" "ChrIIV"   "ChrV"  "ChrII"</span>
+
+<span class="keyword">identical</span>(<span class="keyword">as.factor</span>(chr.rle),<span class="keyword">factor</span>(<span class="keyword">as.character</span>(chr.rle)))
+<span class="comment"># TRUE</span></pre></td></tr></tbody></table></figure>
+<figure class="highlight R"><table><tbody><tr><td class="code"><pre class="sourceCode r"><span class="keyword">set.seed</span>(<span class="number">0</span>)
+rle1 &lt;-<span class="string"> </span><span class="keyword">Rle</span>(<span class="keyword">sample</span>(<span class="number">4</span>, <span class="number">6</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))
+rle2 &lt;-<span class="string"> </span><span class="keyword">Rle</span>(<span class="keyword">sample</span>(<span class="number">5</span>, <span class="number">12</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))
+<span class="comment"># rle1</span>
+<span class="comment"># Lengths: 2 1 1 1 1</span>
+<span class="comment"># Values : 2 4 1 4 2</span>
+<span class="comment"># rle2</span>
+<span class="comment"># Lengths: 1 2 1 2 1 1 1 1 1 1</span>
+<span class="comment"># Values : 5 2 3 5 2 4 5 3 4 2</span>
+
+<span class="keyword">identical</span>(rle1 <span class="string">+</span><span class="string"> </span>rle2,<span class="keyword">Rle</span>(<span class="keyword">as.integer</span>(rle1)<span class="string">+</span><span class="keyword">as.integer</span>(rle2)))
+<span class="comment"># TRUE</span>
+<span class="keyword">identical</span>(rle1 <span class="string">*</span><span class="string"> </span>rle2,<span class="keyword">Rle</span>(<span class="keyword">as.integer</span>(rle1)<span class="string">*</span><span class="keyword">as.integer</span>(rle2)))
+<span class="comment"># TRUE</span>
+<span class="keyword">sqrt</span>(rle1)
+<span class="comment"># numeric-Rle of length 6 with 5 runs</span>
+  <span class="comment"># Lengths:                1                2                1                1                1</span>
+  <span class="comment"># Values :                2  1.4142135623731 1.73205080756888                2                1</span>
+rle1 <span class="string">&gt;</span><span class="string"> </span><span class="number">2</span> <span class="string">|</span><span class="string"> </span>rle2 <span class="string">&gt;</span><span class="string"> </span><span class="number">4</span>
+<span class="comment"># logical-Rle of length 12 with 8 runs</span>
+<span class="comment">#   Lengths:     2     1     2     1     1     2     2     1</span>
+<span class="comment">#   Values :  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE</span>
+<span class="keyword">sum</span>(rle1 <span class="string">&gt;</span><span class="string"> </span><span class="number">2</span> <span class="string">|</span><span class="string"> </span>rle2 <span class="string">&gt;</span><span class="string"> </span><span class="number">4</span>)
+<span class="comment"># 7</span>
+
+<span class="keyword">paste</span>(rle1, rle2, <span class="dt">sep =</span> <span class="string">""</span>)
+<span class="comment"># character-Rle of length 12 with 12 runs</span>
+<span class="comment">#   Lengths:    1    1    1    1    1    1    1    1    1    1    1    1</span>
+<span class="comment">#   Values : "25" "22" "42" "13" "45" "25" "22" "24" "45" "13" "44" "22"</span></pre></td></tr></tbody></table></figure>
+</div>
+<div class="section level1" id="iranges">
+<h1>IRanges</h1>
+<div class="section level2" id="ranges">
+<h2>Ranges</h2>
+<figure class="highlight R"><table><tbody><tr><td class="code"><pre class="sourceCode r">ir1 &lt;-<span class="string"> </span><span class="keyword">IRanges</span>(<span class="dt">start =</span> <span class="number">1</span><span class="string">:</span><span class="number">10</span>, <span class="dt">width =</span> <span class="number">10</span><span class="string">:</span><span class="number">1</span>)
+<span class="comment"># IRanges object with 10 ranges and 0 metadata columns:</span>
+<span class="comment">#            start       end     width</span>
+<span class="comment">#        &lt;integer&gt; &lt;integer&gt; &lt;integer&gt;</span>
+<span class="comment">#    [1]         1        10        10</span>
+<span class="comment">#    [2]         2        10         9</span>
+<span class="comment">#    [3]         3        10         8</span>
+<span class="comment">#    [4]         4        10         7</span>
+<span class="comment">#    [5]         5        10         6</span>
+<span class="comment">#    [6]         6        10         5</span>
+<span class="comment">#    [7]         7        10         4</span>
+<span class="comment">#    [8]         8        10         3</span>
+<span class="comment">#    [9]         9        10         2</span>
+<span class="comment">#   [10]        10        10         1</span>
+<span class="keyword">head</span>(ir1)[<span class="number">1</span><span class="string">:</span><span class="number">2</span>];<span class="keyword">tail</span>(ir1)[<span class="number">1</span><span class="string">:</span><span class="number">2</span>];<span class="keyword">rev</span>(ir1)[<span class="number">1</span><span class="string">:</span><span class="number">2</span>]
+<span class="comment"># IRanges object with 2 ranges and 0 metadata columns:</span>
+<span class="comment">#           start       end     width</span>
+<span class="comment">#       &lt;integer&gt; &lt;integer&gt; &lt;integer&gt;</span>
+<span class="comment">#   [1]         1        10        10</span>
+<span class="comment">#   [2]         2        10         9</span>
+<span class="comment"># IRanges object with 2 ranges and 0 metadata columns:</span>
+<span class="comment">#           start       end     width</span>
+<span class="comment">#       &lt;integer&gt; &lt;integer&gt; &lt;integer&gt;</span>
+<span class="comment">#   [1]         5        10         6</span>
+<span class="comment">#   [2]         6        10         5</span>
+<span class="comment"># IRanges object with 2 ranges and 0 metadata columns:</span>
+<span class="comment">#           start       end     width</span>
+<span class="comment">#       &lt;integer&gt; &lt;integer&gt; &lt;integer&gt;</span>
+<span class="comment">#   [1]        10        10         1</span>
+<span class="comment">#   [2]         9        10         2</span>
+<span class="keyword">subset</span>(ir1,<span class="keyword">width</span>(ir1)<span class="string">&gt;=</span><span class="number">5</span>)
+<span class="comment"># IRanges object with 6 ranges and 0 metadata columns:</span>
+<span class="comment">#           start       end     width</span>
+<span class="comment">#       &lt;integer&gt; &lt;integer&gt; &lt;integer&gt;</span>
+<span class="comment">#   [1]         1        10        10</span>
+<span class="comment">#   [2]         2        10         9</span>
+<span class="comment">#   [3]         3        10         8</span>
+<span class="comment">#   [4]         4        10         7</span>
+<span class="comment">#   [5]         5        10         6</span>
+<span class="comment">#   [6]         6        10         5</span>
+ir1[<span class="keyword">IRanges</span>(<span class="dt">start =</span> <span class="keyword">c</span>(<span class="number">1</span>,<span class="number">2</span>),<span class="dt">width =</span> <span class="number">2</span>)]
+<span class="comment"># IRanges object with 4 ranges and 0 metadata columns:</span>
+<span class="comment">#           start       end     width</span>
+<span class="comment">#       &lt;integer&gt; &lt;integer&gt; &lt;integer&gt;</span>
+<span class="comment">#   [1]         1        10        10</span>
+<span class="comment">#   [2]         2        10         9</span>
+<span class="comment">#   [3]         2        10         9</span>
+<span class="comment">#   [4]         3        10         8</span>
+ir1[[<span class="number">2</span>]]
+<span class="comment"># [1]  2  3  4  5  6  7  8  9 10</span>
+
+ir2 &lt;-<span class="string"> </span>ir1
+<span class="keyword">start</span>(ir2) &lt;-<span class="string"> </span><span class="keyword">c</span>(<span class="number">6</span><span class="string">:</span><span class="number">10</span>,<span class="number">1</span><span class="string">:</span><span class="number">5</span>)
+<span class="keyword">window</span>(ir2,<span class="number">5</span>) <span class="comment">#== window(ir,5,10)</span>
+<span class="comment"># IRanges object with 6 ranges and 0 metadata columns:</span>
+<span class="comment">#           start       end     width</span>
+<span class="comment">#       &lt;integer&gt; &lt;integer&gt; &lt;integer&gt;</span>
+<span class="comment">#   [1]        10        10         1</span>
+<span class="comment">#   [2]         1        10        10</span>
+<span class="comment">#   [3]         2        10         9</span>
+<span class="comment">#   [4]         3        10         8</span>
+<span class="comment">#   [5]         4        10         7</span>
+<span class="comment">#   [6]         5        10         6</span>
+<span class="keyword">plotRanges</span>(ir2,<span class="dt">addlabel =</span> T)</pre></td></tr></tbody></table></figure>
+<p><img src="data:image/png;base64,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"><!-- --></p>
+<p>IRanges: endoapply~lapply, and sapply, for looping over sequences and two generics, aggregate and shiftApply, to perform calculations over subsequences.</p>
+<p>The aggregate function combines sequence extraction functionality of the window function with looping capabilities of the sapply function.</p>
+<figure class="highlight R"><table><tbody><tr><td class="code"><pre class="sourceCode r"><span class="keyword">aggregate</span>(ir2, <span class="dt">start =</span> <span class="number">1</span><span class="string">:</span><span class="number">8</span>, <span class="dt">width =</span> <span class="number">3</span>, <span class="dt">FUN =</span> mean)
+<span class="comment">#      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]</span>
+<span class="comment"># [1,]  8.0  8.5  9.0  9.5 10.0  5.5  6.0  6.5</span>
+<span class="comment"># [2,]  8.5  9.0  9.5 10.0  5.5  6.0  6.5  7.0</span>
+<span class="comment"># [3,]  9.0  9.5 10.0  5.5  6.0  6.5  7.0  7.5</span></pre></td></tr></tbody></table></figure>
+<p>The shiftApply function is a looping operation involving two sequences whose elements are lined up via a positional shift operation.</p>
+<figure class="highlight R"><table><tbody><tr><td class="code"><pre class="sourceCode r">idx &lt;-<span class="string"> </span><span class="keyword">seq</span>(<span class="number">9</span>)
+shifts &lt;-<span class="string">  </span><span class="keyword">shiftApply</span>(idx,ir2,ir1,identical)
+<span class="keyword">plot</span>(<span class="dt">x=</span>idx,<span class="dt">y=</span>shifts,<span class="dt">type=</span><span class="string">"b"</span>)</pre></td></tr></tbody></table></figure>
+<p><img src="data:image/png;base64,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

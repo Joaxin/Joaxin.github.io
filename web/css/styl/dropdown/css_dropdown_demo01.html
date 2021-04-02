@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+	<style>
+ul {
+	list-style-type: none;
+	margin: 0;
+}
+
+ul.dropdown-01 {
+	padding: 5px 10px 5px;
+}
+
+a:link,
+a:visited {
+	width: 120px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: purple;
+	text-align: center;
+	padding: 4px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+a:hover,
+a:active {
+	background-color: Fuchsia;
+}
+
+ul.dropdown-01>li {
+	float: left;
+}
+
+ul.dropdown-menu {
+	clear: left;
+	padding-left: 206px;
+	visibility: hidden;
+}
+
+li.dropdown:hover+.dropdown-menu {
+	visibility: visible;
+}
+
+.dropdown-menu:hover {
+	visibility: visible;
+}
+
+	</style>
+</head>
+
+<body>
+	<ul class="dropdown-01" role="navigation">
+		<li><a href="#home">Home</a></li>
+		<li><a href="#news">News</a></li>
+		<li><a href="#contact">Contact</a></li>
+		<li class="dropdown"><a href="#about">about</a></li>
+		<ul class="dropdown-menu">
+			<li><a href="#">link1</a></li>
+			<li> <a href="#">link2</a></li>
+			<li><a href="#">link3</a></li>
+		</ul>
+	</ul>
+</body>
+
+</html>

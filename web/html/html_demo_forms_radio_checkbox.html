@@ -1,0 +1,105 @@
+<html>
+
+<head>
+    <title>Code Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        body {
+            text-align: center;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            float: top;
+            overflow: scroll;
+            display: inline-block;
+            background: #f1f1f9;
+            font-family: Courier, sans-serif;
+            font-size: 1.05em;
+        }
+
+        iframe {
+            bottom: 0;
+            position: relative;
+            width: 100%;
+            height: 60%;
+        }
+    </style>
+<!-- <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.2/styles/docco.min.css" rel="stylesheet"> -->
+</head>
+
+<body>
+
+    <textarea id="html" placeholder="" class="code">
+<fieldset>
+    <legend>What is your favorite meal?</legend>
+    
+            <ul>
+                <li>
+                <label for="soup">Soup</label>
+                <input type="radio" checked id="soup" name="meal" value="soup">
+                </li>
+                <li>
+                <label for="curry">Curry</label>
+                <input type="radio" id="curry" name="meal" value="curry">
+                </li>
+                <li>
+                <label for="pizza">Pizza</label>
+                <input type="radio" id="pizza" name="meal" value="pizza">
+                </li>
+                <li>
+                <label for="tacos">Tacos</label>
+                <input type="radio" id="tacos" name="meal" value="tacos">
+                </li>
+                <li>
+                <label for="bolognaise">Bolognaise</label>
+                <input type="radio" id="bolognaise" name="meal"  value="bolognaise">
+                </li>
+            </ul>
+    </fieldset>
+    <fieldset>
+    <legend>What is your favorite meal?</legend>
+    
+            <ul>
+                <li>
+                <label for="soup">Soup</label>
+                <input type="checkbox" checked id="soup" name="meal" value="soup">
+                </li>
+                <li>
+                <label for="curry">Curry</label>
+                <input type="checkbox" id="curry" name="meal" value="curry">
+                </li>
+                <li>
+                <label for="pizza">Pizza</label>
+                <input type="checkbox" id="pizza" name="meal" value="pizza">
+                </li>
+                <li>
+                <label for="tacos">Tacos</label>
+                <input type="checkbox" id="tacos" name="meal" value="tacos">
+                </li>
+                <li>
+                <label for="bolognaise">Bolognaise</label>
+                <input type="checkbox" id="bolognaise" name="meal"  value="bolognaise">
+                </li>
+            </ul>
+    </fieldset>
+    </textarea>
+
+    <iframe id="code"></iframe>
+<!--     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script> -->
+    <script>
+    function compile() {
+            let html = document.getElementById("html");
+            let code = document.getElementById("code").contentWindow.document;
+            code.open();
+            code.writeln(html.value)
+            code.close();
+    };
+    compile();
+    window.addEventListener("click", compile);
+    </script>
+</body>
+
+</html>

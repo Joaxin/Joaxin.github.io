@@ -1,0 +1,252 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Django Introduction Part 2 - Models | Pinsflora</title><meta name="keywords" content="Django"><meta name="author" content="Joaxin"><meta name="copyright" content="Joaxin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="Designing Django Models">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django Introduction Part 2 - Models">
+<meta property="og:url" content="https://u.pinsflora.xyz/Pysnista/Django/dj_intro2_models/index.html">
+<meta property="og:site_name" content="Pinsflora">
+<meta property="og:description" content="Designing Django Models">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/py/django_cover.png">
+<meta property="article:published_time" content="2018-01-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-09-04T16:00:00.000Z">
+<meta property="article:author" content="Joaxin">
+<meta property="article:tag" content="Django">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/py/django_cover.png"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://u.pinsflora.xyz/Pysnista/Django/dj_intro2_models/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-177831205-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-177831205-1');
+</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-09-05 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}const fontSizeVal = saveToLocal.get('global-font-size')
+if (fontSizeVal !== undefined) {
+  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+}})()</script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Pinsflora" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">333</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">110</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">34</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/py/django_cover.png)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Pinsflora</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Django Introduction Part 2 - Models</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-01-23T16:00:00.000Z" title="Created 2018-01-24 00:00:00">2018-01-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-09-04T16:00:00.000Z" title="Updated 2020-09-05 00:00:00">2020-09-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/">Python</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/Django/">Django</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">3.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>23min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>Django web applications access and manage data through Python objects referred to as models.</p>
+<p>Models define the <em>structure</em> of stored data, including the field <em>types</em> and possibly also their maximum size, default values, selection list options, help text for documentation, label text for forms, etc.</p>
+<p>Models are usually defined in an application’s <strong><a target="_blank" rel="noopener" href="http://models.py">models.py</a></strong> file. They are implemented as subclasses of <code>django.db.models.Model</code>, and can include fields, methods and metadata.</p>
+<h2 id="designing-the-models"><a class="markdownIt-Anchor" href="#designing-the-models"></a> Designing the Models</h2>
+<blockquote>
+<p>Before you jump in and start coding the models, it’s worth taking a few minutes to think about what data we need to store and the relationships between the different objects.</p>
+</blockquote>
+<p>Here, for example, we need to store information about movies.</p>
+<p>Let us take the <code>Aquaman</code> for example,</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Title: Aquaman	[海王]</span><br><span class="line">Poster: https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2541280047.webp</span><br><span class="line">Release Date: 2018 7 December(China)	[2018-12-07(中国大陆)/2018-12-21(美国)]</span><br><span class="line">Director: James Wan	[温子仁]</span><br><span class="line">Summary： Arthur Curry learns that he is the heir to the underwater kingdom of Atlantis, and must step forward to lead his people and be a hero to the world.</span><br><span class="line">[许多年前，亚特兰蒂斯女王...宿命推动着亚瑟，去寻找失落已久的三叉戟，建立一个更加开明的海底王国……]</span><br><span class="line">Genre: Action, Adventure, Fantasy	[动作/奇幻/冒险]</span><br><span class="line">Language: English(mainly)	[英语/...]</span><br><span class="line">Time: 2h 23min(143 min)	[143分钟]</span><br><span class="line">Rating_IMDB: 7.6(IMDB)</span><br><span class="line">Rating_Douban: 7.8(Douban)</span><br><span class="line">URL_IMDB: https://www.imdb.com/title/tt1477834/</span><br><span class="line">URL_Douban: https://movie.douban.com/subject/3878007/</span><br></pre></td></tr></tbody></table></figure>
+<p>At the first time, we won’t include them all, coz we need to make the concepts more concise and the code more clear, we will take these attributes:</p>
+<blockquote>
+<p>Title,poster,release date,director,summarygenre,language,rating_IMDB,url_IMDB</p>
+</blockquote>
+<p>And Django allows you to define relationships that are one to one (<code>OneToOneField</code>), one to many (<code>ForeignKey</code>) and many to many (<code>ManyToManyField</code>).</p>
+<blockquote>
+<p>The field name is used to refer to it in queries and templates.</p>
+</blockquote>
+<blockquote>
+<p>Fields also have a label, which is either specified as an argument (<code>verbose_name</code>) or inferred by capitalising the first letter of the field’s variable name and replacing any underscores with a space (for example <code>my_field_name</code> would have a default label of <em>My field name</em>).</p>
+</blockquote>
+<p>Edit the <code>apps/models.py</code> file so it looks like this:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Genre</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    <span class="string">"""Model representing a movie genre."""</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">## Fields</span></span><br><span class="line">    <span class="comment">## CharField  will contain strings of alphanumeric characters,which is used to describe the genre (this is limited to 50 characters here).</span></span><br><span class="line">    <span class="comment">## help_text provides a text label to display to help users know what value to provide when this value is to be entered by a user via an HTML form.</span></span><br><span class="line">    genre_name = models.CharField(max_length=<span class="number">50</span>, help_text=<span class="string">'Enter a movie genre (e.g. Adventure)'</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">		<span class="string">"""String for representing the Question object (in Admin site etc.)."""</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br></pre></td></tr></tbody></table></figure>
+<p>This model is used to store information about the movie genres — for example whether it is Action or Adventure, Crime, Fantasy, Historical, Horror, Romance,Science fiction or Animation, etc.</p>
+<p>At the end of the model we declare a <code>__str__()</code> method, which simply returns the name of the genre defined by a particular record. No verbose name has been defined, so the field will be called <code>Name</code> in forms.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> reverse <span class="comment">## Used to generate URLs by reversing the URL patterns</span></span><br><span class="line"><span class="keyword">from</span> django.utils <span class="keyword">import</span> timezone</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Movie</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    <span class="string">"""Model representing a movie."""</span></span><br><span class="line">    </span><br><span class="line">    movie_title = models.CharField(max_length = <span class="number">200</span>, help_text = <span class="string">'Plz enter your movie\'s name.'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">## We will explain this later</span></span><br><span class="line">    movie_poster = models.ImageField(upload_to = <span class="string">'mirages/'</span>, default = <span class="string">"https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2541280047.jpg"</span>)</span><br><span class="line">    </span><br><span class="line">    movie_summary = models.TextField(max_length = <span class="number">2000</span>, blank = <span class="literal">True</span>, help_text=<span class="string">'Enter a brief description of the movie.'</span>)</span><br><span class="line">                                 </span><br><span class="line">    movie_rating_imdb = models.DecimalField(<span class="string">'IMDB Rating'</span>, max_digits = <span class="number">3</span>, decimal_places = <span class="number">1</span>, help_text = <span class="string">'Rating from 1 to 10 &lt;a href="https://www.imdb.com/"&gt;IMDB&lt;/a&gt;'</span>)</span><br><span class="line">    </span><br><span class="line">    movie_url_imdb = models.URLField(<span class="string">'IMDB Movie URL'</span>, blank = <span class="literal">True</span>, help_text = <span class="string">'The IMDB movie url &lt;a href="https://www.imdb.com/"&gt;IMDB&lt;/a&gt;'</span>)                                 </span><br><span class="line">    <span class="comment">## ManyToManyField used because genre can contain many movies. Movies can cover many genres.</span></span><br><span class="line">    genre = models.ManyToManyField(Genre, help_text = <span class="string">'Select a genre for this movie.'</span>) </span><br><span class="line"></span><br><span class="line">    director = models.ForeignKey(</span><br><span class="line">        <span class="string">'Director'</span>, on_delete = models.SET_NULL, null = <span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    language = models.ForeignKey(</span><br><span class="line">        <span class="string">'Language'</span>, on_delete = models.SET_NULL, null = <span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    movie_release_date = models.DateField(</span><br><span class="line">        <span class="string">'Release Date'</span>, default = timezone.now)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">## Metadata</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span> </span><br><span class="line">    <span class="comment">## character fields are sorted alphabetically, while date fields are sorted in chronological order</span></span><br><span class="line">        ordering = [<span class="string">'-release_date'</span>,<span class="string">'movie_title'</span>]</span><br><span class="line">    <span class="comment">## a verbose name for the class in singular and plural form, will show in the admin site</span></span><br><span class="line">        verbose_name = <span class="string">'movie'</span></span><br><span class="line">        verbose_name_plural = <span class="string">'movies'</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">## Minimally, in every model you should define the standard Python class method __str__() to return a human-readable string for each object. To represent individual records in the administration site (and anywhere else you need to refer to a model instance).</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.movie_title</span><br><span class="line">	</span><br><span class="line">	<span class="comment">## This method returns a URL for displaying individual model records on the website (if you define this method then Django will automatically add a "View on Site" button to the model's record editing screens in the Admin site).</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_absolute_url</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">"""Returns the url to access a particular instance of this movie."""</span></span><br><span class="line">        <span class="keyword">return</span> reverse(<span class="string">'movie-detail'</span>, args = [str(self.id)])  </span><br></pre></td></tr></tbody></table></figure>
+<p>The movie model represents all information about an available movie in a general sense.</p>
+<p>The genre is a ManyToManyField, so that a movie can have multiple genres and a genre can have many books. The director and language are declared as ForeignKey, so each movie will only have one director and one language (in practice a movie might have many directors and many languages, but not in this implementation.)</p>
+<p>The final method, <code>get_absolute_url()</code> returns a URL that can be used to access a detail record for this model</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> uuid <span class="comment"># Required for unique movie watching status instances    </span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rating</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    <span class="string">"""Model representing a specific watching status of a movie."""</span></span><br><span class="line">    id = models.UUIDField(primary_key=<span class="literal">True</span>, default=uuid.uuid4, help_text=<span class="string">'Unique ID for this particular movie watching status'</span>)</span><br><span class="line">    </span><br><span class="line">    movie = models.ForeignKey(<span class="string">'Movie'</span>, on_delete=models.CASCADE,verbose_name=<span class="string">"the related movie"</span>)</span><br><span class="line"></span><br><span class="line">    rating_movie = models.IntegerField(</span><br><span class="line">        default = <span class="number">7</span>,</span><br><span class="line">        validators=[</span><br><span class="line">            MaxValueValidator(<span class="number">10</span>),</span><br><span class="line">            MinValueValidator(<span class="number">1</span>)</span><br><span class="line">        ])</span><br><span class="line"></span><br><span class="line">    rating_time = models.DateTimeField(auto_now_add=<span class="literal">True</span>, editable=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    watching_status = (</span><br><span class="line">        (<span class="string">'n'</span>,<span class="string">'Not interested'</span>),</span><br><span class="line">        (<span class="string">'a'</span>, <span class="string">'Add to Watchlist'</span>),</span><br><span class="line">        (<span class="string">'h'</span>, <span class="string">'Have Watched'</span>),</span><br><span class="line">        (<span class="string">'w'</span>, <span class="string">'Waiting / Watching'</span>),</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    rating_status = models.CharField(</span><br><span class="line">        max_length=<span class="number">1</span>,</span><br><span class="line">        choices=watching_status,</span><br><span class="line">        default=<span class="string">'n'</span>,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    rating_comment = models.CharField(max_length=<span class="number">250</span>, blank=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        ordering = [<span class="string">'-rating_time'</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">"""String for representing the Model object."""</span></span><br><span class="line">        <span class="string">"""string interpolation syntax (also known as f-strings)"""</span></span><br><span class="line">        <span class="string">"""older expression=='{0} ({1})'.format(self.id,self.movies.title)).</span></span><br><span class="line"><span class="string">        '{0} ({1})'.format(self.id,self.book.title))."""</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">f'<span class="subst">{self.id}</span> (<span class="subst">{self.movies.title}</span>)'</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li><code>UUIDField</code> is used for the <code>id</code> field to set it as the <code>primary_key</code> for this model. This type of field allocates a globally unique value for each instance (one for every user movie watching status you can find in the library).</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Director</span>(<span class="params">models.Model</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="string">"""Model representing an author."""</span></span><br><span class="line">    director_name = models.CharField(max_length=<span class="number">150</span>)</span><br><span class="line">    director_last_name = models.CharField(max_length=<span class="number">150</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        ordering = [<span class="string">'last_name'</span>, <span class="string">'first_name'</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_absolute_url</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">"""Returns the url to access a particular author instance."""</span></span><br><span class="line">        <span class="keyword">return</span> reverse(<span class="string">'director-detail'</span>, args=[str(self.id)])</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">"""String for representing the Model object."""</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">f'<span class="subst">{self.last_name}</span>, <span class="subst">{self.first_name}</span>'</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Language</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    <span class="string">"""Model representing a language."""</span></span><br><span class="line">    language_name = models.CharField(</span><br><span class="line">        max_length=<span class="number">100</span>, help_text=<span class="string">"Plz enter the main language of this movie."</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        ordering = [<span class="string">'language'</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_absolute_url</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">"""Returns the url to access a particular language instance."""</span></span><br><span class="line">        <span class="keyword">return</span> reverse(<span class="string">'language-detail'</span>, args=[str(self.id)])</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">"""String for representing the Model object."""</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">f'<span class="subst">{self.language}</span>'</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="common-field-arguments"><a class="markdownIt-Anchor" href="#common-field-arguments"></a> Common field arguments</h2>
+<p>The following common arguments can be used when declaring many/most of the different field types:</p>
+<ul>
+<li>
+<p>help_text: Provides a text label for HTML forms (e.g. in the admin site), as described above.</p>
+<p>Note that this value is <em>not</em> HTML-escaped in automatically-generated forms. This lets you include HTML if you so desire. For example:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help_text=<span class="string">"Please use the following format: &lt;em&gt;YYYY-MM-DD&lt;/em&gt;."</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>verbose_name: A human-readable name for the field. If the verbose name isn’t given, Django will automatically create it using the field’s attribute name, converting underscores to spaces.</p>
+<p>In this example, the verbose name is <code>"person's first name"</code>:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">first_name = models.CharField(<span class="string">"person's first name"</span>, max_length=<span class="number">30</span>)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>validators: A list of validators to run for this field.</p>
+<p>A validator is a callable that takes a value and raises a <code>ValidationError</code> if it doesn’t meet some criteria. Validators can be useful for re-using validation logic between different types of fields.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.core.exceptions <span class="keyword">import</span> ValidationError</span><br><span class="line"><span class="keyword">from</span> django.utils.translation <span class="keyword">import</span> gettext_lazy <span class="keyword">as</span> _</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">validate_even</span>(<span class="params">value</span>):</span></span><br><span class="line">    <span class="keyword">if</span> value % <span class="number">2</span> != <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">raise</span> ValidationError(</span><br><span class="line">            _(<span class="string">'%(value)s is not an even number'</span>),</span><br><span class="line">            params={<span class="string">'value'</span>: value},</span><br><span class="line">        )</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyModel</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    even_field = models.IntegerField(validators=[validate_even])</span><br></pre></td></tr></tbody></table></figure>
+<p>See the <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/3.1/ref/validators/">validators documentation</a> for more information.</p>
+</li>
+<li>
+<p>default: The default value for the field. This can be a value or a callable object, in which case the object will be called every time a new record is created.</p>
+<p>The default can’t be a mutable object (model instance, <code>list</code>, <code>set</code>, etc.), as a reference to the same instance of that object would be used as the default value in all new model instances. Instead, wrap the desired default in a callable. For example, if you want to specify a default <code>dict</code> for <code>JSONField</code>, use a function:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">contact_default</span>():</span></span><br><span class="line">	<span class="keyword">return</span> {<span class="string">"email"</span>: <span class="string">"to1@example.com"</span>}</span><br><span class="line"></span><br><span class="line">contact_info = JSONField(<span class="string">"ContactInfo"</span>, default=contact_default)</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>null: If <code>True</code>, Django will store blank values as <code>NULL</code> in the database for fields where this is appropriate (a <code>CharField</code> or <code>TextField</code>  will instead store an empty string). The default is <code>False</code>.</p>
+<blockquote>
+<p>When a <code>CharField</code> has both <code>unique=True</code> and <code>blank=True</code> set. In this situation, <code>null=True</code> is required to avoid unique constraint violations when saving multiple objects with blank values.</p>
+</blockquote>
+</li>
+<li>
+<p>blank: For both string-based and non-string-based fields, you will need to set <code>blank=True</code> if you wish to permit empty values in forms, as the <code>null</code> parameter only affects database storage .</p>
+<p>This is often used with <code>null=True</code> , because if you’re going to allow blank values, you also want the database to be able to represent them appropriately.</p>
+<p>The default is <code>False</code>, which means that Django’s form validation will force you to enter a value, and the field value will be required.</p>
+</li>
+<li>
+<p>choices: An iterable (e.g., a list or tuple) consisting itself of iterables of exactly two items (e.g. <code>[(A, B),(A, B) ...]</code>) to use as choices for this field.</p>
+<p>The first element in each tuple is the actual value to be set on the model, and the second element is the human-readable name.</p>
+<p>For example:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">YEAR_IN_SCHOOL_CHOICES = (</span><br><span class="line">    (<span class="string">'FR'</span>, <span class="string">'Freshman'</span>),</span><br><span class="line">    (<span class="string">'SO'</span>, <span class="string">'Sophomore'</span>),</span><br><span class="line">    (<span class="string">'JR'</span>, <span class="string">'Junior'</span>),</span><br><span class="line">    (<span class="string">'SR'</span>, <span class="string">'Senior'</span>),</span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
+<p>Unless <code>blank=False</code> is set on the field along with a <code>default</code>then a label containing <code>"---------"</code> will be rendered with the select box. To override this behavior, add a tuple to <code>choices</code> containing <code>None</code>; e.g. <code>(None, 'Your String For Display')</code>. Alternatively, you can use an empty string instead of <code>None</code> where this makes sense.</p>
+<p>Generally, it’s best to define choices inside a model class, and to define a suitably-named constant for each value:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    FRESHMAN = <span class="string">'FR'</span></span><br><span class="line">    SOPHOMORE = <span class="string">'SO'</span></span><br><span class="line">    JUNIOR = <span class="string">'JR'</span></span><br><span class="line">    SENIOR = <span class="string">'SR'</span></span><br><span class="line">    GRADUATE = <span class="string">'GR'</span></span><br><span class="line">    YEAR_IN_SCHOOL_CHOICES = [</span><br><span class="line">        (FRESHMAN, <span class="string">'Freshman'</span>),</span><br><span class="line">        (SOPHOMORE, <span class="string">'Sophomore'</span>),</span><br><span class="line">        (JUNIOR, <span class="string">'Junior'</span>),</span><br><span class="line">        (SENIOR, <span class="string">'Senior'</span>),</span><br><span class="line">        (GRADUATE, <span class="string">'Graduate'</span>),</span><br><span class="line">    ]</span><br><span class="line">    year_in_school = model

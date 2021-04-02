@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				font-family: Verdana, '宋体'; 
+			}
+			body {
+				width: 80%;
+				height: 100vh;
+				margin: 0px auto;
+				background-image: url(dark-wood.jpg);
+				
+			}
+
+			#header, #main, #footer {
+				background-color: lightgray;
+				margin: 25px 0;
+			}
+
+			#header{
+				height:calc(20% - 20px);
+			}
+			#main{
+				height:calc(60% - 60px);
+				background: transparent;
+			}
+
+			#header h1 {
+				height: 75%;
+				display:flex;
+				justify-content: center;
+				align-items:center; 
+			}
+
+			#nav {
+				height: 25%;
+			}
+			#nav ul{
+				display:flex;
+				justify-content: space-around;
+				align-items:center; 
+
+			}
+
+			a {
+				text-decoration: none;
+			}
+			a:link, a:visited, a:active {
+				color: black;
+			}
+			#nav ul li:hover a{
+				color: magenta;
+			}
+
+
+			.feature {
+				height: 60%;
+				text-align: center;
+				background-color: #ADD8E6;
+			}
+			.one, .two, .three {
+				width: 30%;
+				height: calc(40% - 10px);
+				float: left;
+			}
+			.one {
+				margin: 10px 2.5% 0 0;
+				background-color: #FFEBCD;
+			}
+			.two {
+				margin: 10px 2.5% ;
+				background-color: coral;
+			}
+			.three {
+				margin: 10px 0 0 2.5% ;
+				background-color: darkseagreen;
+			}
+
+			#footer {
+				height:calc(20% - 20px);
+				text-align: center;
+				line-height: 45px;
+				font-size: 1.2em;
+				clear: left;
+				display:flex;
+				justify-content: center;
+				align-items:center; 
+			}
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			<h1>Logo</h1>
+			<div id="nav">
+				<ul>
+					<li><a href="">Home</a></li>
+					<li><a href="">Products</a></li>
+					<li><a href="">Services</a></li>
+					<li><a href="">About</a></li>
+					<li><a href="">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="main">
+			<div class="feature">
+				<!-- 这一块相当于是页面的最主要的区域 -->
+			</div>
+			<div class="one"></div>
+			<div class="two"></div>
+			<div class="three"></div>
+		</div>
+		<div id="footer">
+			&copy; Copyright 2011
+		</div>
+	</body>
+</html>

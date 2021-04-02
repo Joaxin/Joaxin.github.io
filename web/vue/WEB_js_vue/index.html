@@ -1,0 +1,263 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Vue.js V3 | Pinsflora</title><meta name="author" content="Joaxin"><meta name="copyright" content="Joaxin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="Vue (pronounced &#x2F;vjuː&#x2F;, like view) is an approachable,versatile,performant progressive javascript framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue.js V3">
+<meta property="og:url" content="https://u.pinsflora.xyz/Web/vue/WEB_js_vue/index.html">
+<meta property="og:site_name" content="Pinsflora">
+<meta property="og:description" content="Vue (pronounced &#x2F;vjuː&#x2F;, like view) is an approachable,versatile,performant progressive javascript framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the g">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_grass_in_the_snow.jpg">
+<meta property="article:published_time" content="2018-03-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-10-26T16:00:00.000Z">
+<meta property="article:author" content="Joaxin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_grass_in_the_snow.jpg"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://u.pinsflora.xyz/Web/vue/WEB_js_vue/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-177831205-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-177831205-1');
+</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-10-27 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}const fontSizeVal = saveToLocal.get('global-font-size')
+if (fontSizeVal !== undefined) {
+  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+}})()</script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Pinsflora" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">333</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">110</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">34</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_grass_in_the_snow.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Pinsflora</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Vue.js V3</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-03-18T16:00:00.000Z" title="Created 2018-03-19 00:00:00">2018-03-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-10-26T16:00:00.000Z" title="Updated 2020-10-27 00:00:00">2020-10-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Web/">Web</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Web/JS/">JS</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>8min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>Vue (读音 /vjuː/，类似于 <strong>view</strong>) 是一套用于构建用户界面的<strong>渐进式框架</strong>，这里记录一下学习<code>Vue.js</code>  Ver 3.0 的笔记。</p>
+<h2 id="安装install"><a class="markdownIt-Anchor" href="#安装install"></a> 安装(Install)</h2>
+<ol>
+<li>从CDN服务器加载安装</li>
+</ol>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- development version, includes helpful console warnings --&gt;</span><br><span class="line">&lt;script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"&gt;&lt;/script&gt;</span><br><span class="line">&lt;!-- production version, optimized for size and speed --&gt;</span><br><span class="line">&lt;script src="https://cdn.jsdelivr.net/npm/vue"&gt;&lt;/script&gt;</span><br><span class="line">&lt;!-- Vue3 --&gt;</span><br><span class="line">&lt;script src="https://unpkg.com/vue@next"&gt;&lt;/script&gt;</span><br></pre></td></tr></tbody></table></figure>
+<ol start="2">
+<li>npm安装</li>
+</ol>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># update npm to 6.14.8</span></span><br><span class="line">$ npm install -g npm </span><br><span class="line"><span class="comment"># npm install -g cnpm</span></span><br><span class="line"><span class="comment"># cnpm -v</span></span><br><span class="line"><span class="comment"># npm install -g n </span></span><br><span class="line"><span class="comment"># n stable</span></span><br><span class="line">$ npm install vue@next</span><br></pre></td></tr></tbody></table></figure>
+<ol start="3">
+<li>CLI安装</li>
+</ol>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install vue-cli</span></span><br><span class="line">$ npm install -g @vue/cli</span><br><span class="line"><span class="comment"># 之后在vue项目中执行以下命令即可升级Vue3</span></span><br><span class="line">$ vue upgrade --next</span><br></pre></td></tr></tbody></table></figure>
+<p>在Vue2中我们可以用命令，<code>vue init webpack my-project</code>来初始化vue项目，其中用到了webpack，但这里尤大推荐使用<code>Vite</code>（github：<a target="_blank" rel="noopener" href="https://github.com/vitejs/vite">https://github.com/vitejs/vite</a>)。</p>
+<blockquote>
+<p>Vite 是一个由原生 ESM 驱动的 Web 开发构建工具。在开发环境下基于浏览器原生 ES imports 开发，在生产环境下基于 Rollup 打包。</p>
+<p>具体参见这篇zhihu专栏：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/150083887">@牧遥</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm init vite-app &lt;project-name&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;project-name&gt;</span><br><span class="line">$ npm install</span><br><span class="line">$ npm run dev</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">├── index.html</span><br><span class="line">├── package.json</span><br><span class="line">├── public</span><br><span class="line">│   └── favicon.ico</span><br><span class="line">└── src</span><br><span class="line">    ├── App.vue</span><br><span class="line">    ├── assets</span><br><span class="line">    │   └── logo.png</span><br><span class="line">    ├── components</span><br><span class="line">    │   └── HelloWorld.vue</span><br><span class="line">    ├── index.css</span><br><span class="line">    └── main.js</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="声明式渲染"><a class="markdownIt-Anchor" href="#声明式渲染"></a> 声明式渲染</h2>
+<p>我们先通过一个简单的HelloWorld Demo来学习一下Vue3如何采用简洁的模板语法来将数据渲染进HTML：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id="hello-vue"&gt;</span><br><span class="line">    {{ message }}</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">const HelloVueApp = {</span><br><span class="line">    data() {</span><br><span class="line">        return {</span><br><span class="line">        message: 'Hello Vue!!'  </span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">Vue.createApp(HelloVueApp).mount('#hello-vue')  // 数据绑定</span><br></pre></td></tr></tbody></table></figure>
+<p>温故一下你在Vue2中学过的条件和循环、事件绑定等如下：</p>
+<p><strong>条件</strong></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"Math.random() &gt; 0.5"</span>&gt;</span></span><br><span class="line">    I'm so sorry.</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else-if</span> =<span class="string">"Math.random() &gt; 0.1"</span>&gt;</span></span><br><span class="line">    You're close.</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span></span><br><span class="line">    Lucky u!</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>完整的例子如下：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"fruits-vue"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Fruits<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"f in fruits"</span>&gt;</span></span><br><span class="line">            {{ f.name }} - {{ f.quantity }}</span><br><span class="line">            <span class="tag">&lt;<span class="name">del</span> <span class="attr">v-if</span>=<span class="string">"f.quantity === 0"</span>&gt;</span> Sold Out <span class="tag">&lt;/<span class="name">del</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-else-if</span>=<span class="string">"f.quantity &gt;= 50"</span> <span class="attr">style</span>=<span class="string">"color:magenta"</span>&gt;</span> 20% OFF <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">sup</span> <span class="attr">v-else</span> <span class="attr">style</span>=<span class="string">"color:red"</span>&gt;</span> Hot Sale <span class="tag">&lt;/<span class="name">sup</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"f.quantity += 1"</span>&gt;</span></span><br><span class="line">				+</span><br><span class="line">			<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"f.quantity -= 1"</span>&gt;</span></span><br><span class="line">				-</span><br><span class="line">            <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">v-model.number</span>=<span class="string">"f.quantity"</span> <span class="attr">min</span>=<span class="string">"0"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Total：{{ totalQuantity }}<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fruits = {</span><br><span class="line">    data() {</span><br><span class="line">        <span class="keyword">return</span> {</span><br><span class="line">            fruits: [</span><br><span class="line">                {<span class="string">"id"</span>: <span class="number">1</span>, <span class="string">"name"</span>: <span class="string">"bananas"</span>, <span class="string">"quantity"</span>: <span class="number">100</span>},</span><br><span class="line">                {<span class="string">"id"</span>: <span class="number">2</span>, <span class="string">"name"</span>: <span class="string">"mangoes"</span>, <span class="string">"quantity"</span>: <span class="number">0</span>},</span><br><span class="line">                {<span class="string">"id"</span>: <span class="number">3</span>, <span class="string">"name"</span>: <span class="string">"peaches"</span>, <span class="string">"quantity"</span>: <span class="number">10</span>},</span><br><span class="line">                {<span class="string">"id"</span>: <span class="number">4</span>, <span class="string">"name"</span>: <span class="string">"nectarines "</span>, <span class="string">"quantity"</span>: <span class="number">0</span>},</span><br><span class="line">                {<span class="string">"id"</span>: <span class="number">5</span>, <span class="string">"name"</span>: <span class="string">"apples "</span>, <span class="string">"quantity"</span>: <span class="number">30</span>}</span><br><span class="line">            ]</span><br><span class="line">        }</span><br><span class="line">    },</span><br><span class="line">	computed: {</span><br><span class="line">	totalQuantity() {</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>.fruits.reduce(<span class="function">(<span class="params">sum, fruit</span>) =&gt;</span> {</span><br><span class="line">			<span class="keyword">return</span> sum + fruit.quantity</span><br><span class="line">		}, <span class="number">0</span>);</span><br><span class="line">	}</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line">    </span><br><span class="line">Vue.createApp(fruits).mount(<span class="string">'#fruits-vue'</span>)     </span><br></pre></td></tr></tbody></table></figure>
+<p>示例如下：</p>
+<p><a href="/web/vue/intro/vue_fruits_demo.html">vue_fruits_demo</a></p>
+<p>也可以通过JSON加载数据，代码如下：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fruits = {</span><br><span class="line">    data() {</span><br><span class="line">        <span class="keyword">return</span> {</span><br><span class="line">            fruits: []</span><br><span class="line">        }</span><br><span class="line">    },</span><br><span class="line">    created() {</span><br><span class="line">        fetch(<span class="string">'XXX'</span>)</span><br><span class="line">            .then(<span class="function"><span class="params">response</span> =&gt;</span> response.json())</span><br><span class="line">            .then(<span class="function"><span class="params">json</span> =&gt;</span> {</span><br><span class="line">            <span class="built_in">this</span>.fruits = json</span><br><span class="line">        });</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- &lt;div id="app"  v-anything_you_like:hello.vue.js="You_got_it"&gt;</span><br><span class="line">&lt;/div&gt; --&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">Vue.directive('anything_you_like', {</span><br><span class="line">  bind: function (el, binding, vnode) {</span><br><span class="line">    var s = JSON.stringify</span><br><span class="line">    el.innerHTML =</span><br><span class="line">      'name: '       + s(binding.name) + '&lt;br&gt;' +</span><br><span class="line">      'value: '      + s(binding.value) + '&lt;br&gt;' +</span><br><span class="line">      'expression: ' + s(binding.expression) + '&lt;br&gt;' +</span><br><span class="line">      'argument: '   + s(binding.arg) + '&lt;br&gt;' +</span><br><span class="line">      'modifiers: '  + s(binding.modifiers) + '&lt;br&gt;' +</span><br><span class="line">      'vnode keys: ' + Object.keys(vnode).join(', ')</span><br><span class="line">  }</span><br><span class="line">})</span><br><span class="line">new Vue({</span><br><span class="line">  el: '#app',</span><br><span class="line">  data: {</span><br><span class="line">    You_got_it: 'HELLO VUE.JS!'</span><br><span class="line">  }</span><br><span class="line">})</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></tbody></table></figure>
+<p>name: “anything_you_like”<br>
+value: “HELLO VUE.JS!”<br>
+expression: “You_got_it”<br>
+argument: “hello”<br>
+modifiers: {“vue”:true,“js”:true}<br>
+vnode keys: tag, data, children, text, elm, ns, context, fnContext, fnOptions, fnScopeId, key, componentOptions, componentInstance, parent, raw, isStatic, isRootInsert, isComment, isCloned, isOnce, asyncFactory, asyncMeta, isAsyncPlaceholder</p>
+<h3 id="if"><a class="markdownIt-Anchor" href="#if"></a> If</h3>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="binding-message"><a class="markdownIt-Anchor" href="#binding-message"></a> Binding Message</h3>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id="app"&gt;</span><br><span class="line">&lt;input v-model="message" style="width:500px;"&gt;</span><br><span class="line">&lt;br&gt;</span><br><span class="line">&lt;span v-bind:title="message"&gt;</span><br><span class="line">Hello Vue.js</span><br><span class="line">&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">var app = new Vue({</span><br><span class="line">  el: '#app',</span><br><span class="line">  data: {</span><br><span class="line">    message: 'You loaded this page on ' + new Date().toLocaleString()</span><br><span class="line">    }</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="binding-style"><a class="markdownIt-Anchor" href="#binding-style"></a> Binding Style</h3>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--&lt;div id="app"&gt;</span><br><span class="line">    &lt;div v-css="{ color: 'yellow', text: 'Some Text Here!' }"&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;--&gt;</span><br><span class="line">Vue.directive('css', function (el, binding) {</span><br><span class="line">    el.innerHTML = binding.value.text</span><br><span class="line">    el.style.backgroundColor = binding.value.color</span><br><span class="line">})</span><br><span class="line">new Vue({</span><br><span class="line">  el: '#app'</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;a v-bind:href="url"&gt;&lt;p :style="{ color: activeColor, fontSize: fontSize + 'px'}"&gt;Statements&lt;/p&gt;&lt;/a&gt;</span><br><span class="line">new Vue({</span><br><span class="line">  el: '#app',</span><br><span class="line">  data: {</span><br><span class="line">	url: '#',</span><br><span class="line">    activeColor: 'green',</span><br><span class="line">    fontSize: 30,</span><br><span class="line">  }</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="binding-css"><a class="markdownIt-Anchor" href="#binding-css"></a> Binding CSS</h3>
+<p><a href="/vue/Vue_css.html">CSS</a></p>
+<h3 id="checkbox"><a class="markdownIt-Anchor" href="#checkbox"></a> CheckBox</h3>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"baidu"</span> <span class="attr">value</span>=<span class="string">"Baidu"</span> <span class="attr">v-model</span>=<span class="string">"checkedNames"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"checkbox"</span>&gt;</span>Baidu<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"google"</span> <span class="attr">value</span>=<span class="string">"Google"</span> <span class="attr">v-model</span>=<span class="string">"checkedNames"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"checkbox"</span>&gt;</span>Google<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"bing"</span> <span class="attr">value</span>=<span class="string">"Bing"</span> <span class="attr">v-model</span>=<span class="string">"checkedNames"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"checkbox"</span>&gt;</span>Bing<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>{{ checkedNames }}<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">new Vue({</span><br><span class="line">  el: '#app',</span><br><span class="line">  data: {</span><br><span class="line">	  checked : false,</span><br><span class="line">       checkedNames: []</span><br><span class="line">	}</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="list"><a class="markdownIt-Anchor" href="#list"></a> List</h3>
+<p><a href="/vue/Vue_lists.html">List</a></p>
+<h3 id="vuecomponent"><a class="markdownIt-Anchor" href="#vuecomponent"></a> Vue.component</h3>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"seen"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"todo in todos"</span>&gt;</span></span><br><span class="line">      {{todo.text}}</span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">todo-item</span></span></span><br><span class="line"><span class="tag">		<span class="attr">v-for</span>=<span class="string">"item in groceryList"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">v-bind:todo</span>=<span class="string">"item"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">v-bind:key</span>=<span class="string">"item.id"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">todo-item</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"seen = 'false'"</span>&gt;</span>Show<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">var app = new Vue({</span><br><span class="line">  el: '#app',</span><br><span class="line">  data: {</span><br><span class="line">		seen:true,</span><br><span class="line">		todos: [</span><br><span class="line">      { text: 'Learn JavaScript' },</span><br><span class="line">      { text: 'Learn Vue' },</span><br><span class="line">      { text: 'Build something awesome' }</span><br><span class="line">    ],</span><br><span class="line">    groceryList: [</span><br><span class="line">      { id: 0, text: 'Vegetables' },</span><br><span class="line">      { id: 1, text: 'Cheese' },</span><br><span class="line">      { id: 2, text: 'Whatever else humans are supposed to eat' }</span><br><span class="line">    ]</span><br><span class="line">  }</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">Vue.component('todo-item', {</span><br><span class="line">  props: ['todo'],</span><br><span class="line">  template: '&lt;li&gt;{{ todo.text }}&lt;/li&gt;'</span><br><span class="line">})</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></tbody></table></figure>
+<ol>
+<li>
+<p>Learn JavaScript</p>
+</li>
+<li>
+<p>Learn Vue</p>
+</li>
+<li>
+<p>Build something awesome</p>
+</li>
+<li>
+<p>Learn JavaScript</p>
+</li>
+<li>
+<p>Learn Vue</p>
+</li>
+<li>
+<p>Build something awesome</p>
+</li>
+<li>
+<p>Vegetables</p>
+</li>
+<li>
+<p>Cheese</p>
+</li>
+<li>
+<p>Whatever else humans are supposed to eat</p>
+</li>
+</ol>
+<h2 id="router"><a class="markdownIt-Anchor" href="#router"></a> Router</h2>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">&lt;script src="https://cdn.bootcss.com/vue-router/3.0.1/vue-router.min.js"&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id="app"&gt;</span><br><span class="line">  &lt;h1&gt;Hello App!&lt;/h1&gt;</span><br><span class="line">  &lt;p&gt;</span><br><span class="line">    &lt;router-link to="/foo"&gt;Go to Foo&lt;/router-link&gt;</span><br><span class="line">    &lt;router-link to="/bar"&gt;Go to Bar&lt;/router-link&gt;</span><br><span class="line">  &lt;/p&gt;</span><br><span class="line">  &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">--&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">const Foo = { template: '&lt;div&gt;foo&lt;/div&gt;' }</span><br><span class="line">const Bar = { template: '&lt;div&gt;bar&lt;/div&gt;' }</span><br><span class="line"></span><br><span class="line">const routes = [</span><br><span class="line">  { path: '/foo', component: Foo },</span><br><span class="line">  { path: '/bar', component: Bar }</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">const router = new VueRouter({</span><br><span class="line">  routes // routes: routes</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">const app = new Vue({</span><br><span class="line">  router</span><br><span class="line">}).$mount('#app')</span><b

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				font-family: Verdana, '宋体'; 
+			}
+			body {
+				width: 80%;
+/*				height: calc(100vh - 20px);
+				margin: 10px auto;*/
+				/*注意10px这里不生效，因为margin边距叠加取最大*/
+				/*这会导致HTML高度增加20px*/
+				height: 100vh;
+				margin: 0px auto;
+				background-image: url(dark-wood.jpg);
+				overflow: hidden;
+			}
+
+			/*总的margin为100px 分配*/
+			#header{
+				height:calc(20% - 20px);
+			}
+			#main{
+				height:calc(60% - 60px);
+
+			}
+			#footer{
+				height:calc(20% - 20px);
+			}
+
+            /*注意margin叠加*/
+			#header, #main, #footer {
+				background-color: lightgray;
+			/*属性值为百分比时的边距是基于父元素的宽度来计*/
+			/*The [margin] percentage is calculated with respect to the width of the generated box's containing block.*/
+/*			margin: 2.5% 0;*/
+			/*margin-top的bug，子元素的margin-top会渗透到父级 所以body上分有25px的margin-top*/
+				margin: 25px 0;
+			}
+
+
+		</style>
+	</head>
+	<body>
+		<div id="header">
+		</div>
+		<div id="main">
+		</div>
+		<div id="footer">
+		</div>
+	</body>
+</html>

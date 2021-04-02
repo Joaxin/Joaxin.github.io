@@ -1,10 +1,21 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HTML Video and audio content | Pinsflora</title><meta name="description" content="In this article, I will introduce you how to embed video and audio content into a webpage, and add captions&#x2F;subtitles to video."><meta name="author" content="Joaxin"><meta name="copyright" content="Joaxin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://u.pinsflora.com/web/html/web_audio_video/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="HTML Video and audio content"><meta property="og:url" content="https://u.pinsflora.com/web/html/web_audio_video/"><meta property="og:site_name" content="Pinsflora"><meta property="og:description" content="In this article, I will introduce you how to embed video and audio content into a webpage, and add captions&#x2F;subtitles to video."><meta property="og:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_tree_dawnlights.jpg"><meta property="article:published_time" content="2017-11-04T16:00:00.000Z"><meta property="article:modified_time" content="2019-05-20T16:00:00.000Z"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-177831205-1"></script><script>window.dataLayer = window.dataLayer || [];
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HTML Video and audio content | Pinsflora</title><meta name="author" content="Joaxin"><meta name="copyright" content="Joaxin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="This article will introduce you how to embed video and audio content into a webpage, and add captions&#x2F;subtitles to video.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML Video and audio content">
+<meta property="og:url" content="https://u.pinsflora.xyz/Web/html/web_audio_video/index.html">
+<meta property="og:site_name" content="Pinsflora">
+<meta property="og:description" content="This article will introduce you how to embed video and audio content into a webpage, and add captions&#x2F;subtitles to video.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_red_dim_flower.jpg">
+<meta property="article:published_time" content="2017-11-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-05-20T16:00:00.000Z">
+<meta property="article:author" content="Joaxin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_red_dim_flower.jpg"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://u.pinsflora.xyz/Web/html/web_audio_video/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-177831205-1"></script><script>window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'UA-177831205-1');
 </script><script>var GLOBAL_CONFIG = { 
   root: '/',
-  hexoversion: '5.1.1',
   algolia: undefined,
   localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
   translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
@@ -15,22 +26,32 @@ gtag('config', 'UA-177831205-1');
     error: 'Copy error',
     noSupport: 'The browser does not support'
   },
-  bookmark: {
-    message_prev: 'Press',
-    message_next: 'to bookmark this page'
+  relativeDate: {
+    homepage: false,
+    post: false
   },
   runtime: 'days',
-  date_suffix: {"one_hour":"Just","hours":"hours ago","day":"days ago"},
-  copyright: undefined,
-  ClickShowText: undefined,
-  medium_zoom: false,
-  fancybox: true,
-  Snackbar: {"bookmark":{"message_prev":"Press","message_next":"to bookmark this page"},"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
-  justifiedGallery: {
-    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
-    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
   },
-  baiduPush: false,
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
   isPhotoFigcaption: false,
   islazyload: false,
   isanchor: false
@@ -45,7 +66,7 @@ var saveToLocal = {
       expiry: now.getTime() + expiryDay,
     }
     localStorage.setItem(key, JSON.stringify(item))
-    },
+  },
 
   get: function getWithExpiry(key) {
     const itemStr = localStorage.getItem(key)
@@ -62,68 +83,96 @@ var saveToLocal = {
     }
     return item.value
   }
-}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
   isPost: true,
   isHome: false,
   isHighlightShrink: false,
-  isSidebar: true,
+  isToc: true,
   postUpdate: '2019-05-21 00:00:00'
 }</script><noscript><style type="text/css">
-#nav {
-  opacity: 1
-}
-.justified-gallery img {
-  opacity: 1
-}
-</style></noscript><script>var activateDarkMode = function () {
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+  #nav {
+    opacity: 1
   }
-}
-var activateLightMode = function () {
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+  .justified-gallery img {
+    opacity: 1
   }
-}
 
-var autoChangeMode = 'false'
-var t = saveToLocal.get('theme')
-if (autoChangeMode === '1') {
-  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-  if (t === undefined) {
-    if (isLightMode) activateLightMode()
-    else if (isDarkMode) activateDarkMode()
-    else if (isNotSpecified || hasNoSupport) {
-      var now = new Date()
-      var hour = now.getHours()
-      var isNight = hour <= 6 || hour >= 18
-      isNight ? activateDarkMode() : activateLightMode()
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
     }
-    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-      if (saveToLocal.get('theme') === undefined) {
-        e.matches ? activateDarkMode() : activateLightMode()
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
       }
-    })
-  } else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else if (autoChangeMode === '2') {
-  now = new Date()
-  hour = now.getHours()
-  isNight = hour <= 6 || hour >= 18
-  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else {
-  if (t === 'dark') activateDarkMode()
-  else if (t === 'light') activateLightMode()
-}</script><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="Pinsflora" type="application/atom+xml">
-</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">274</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">99</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">34</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fa fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div></div></div><div id="body-wrap"><div id="web_bg" data-type="photo"></div><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#the-video-element"><span class="toc-number">1.</span> <span class="toc-text"> The &lt;video&gt; element</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#supporting-multiple-formats"><span class="toc-number">2.</span> <span class="toc-text"> Supporting multiple formats</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#the-audio-element"><span class="toc-number">3.</span> <span class="toc-text"> The &lt;audio&gt; element</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webvtt"><span class="toc-number">4.</span> <span class="toc-text"> WebVTT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#advanced-topics"><span class="toc-number">5.</span> <span class="toc-text"> Advanced Topics</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#an-js-demo"><span class="toc-number">5.1.</span> <span class="toc-text"> An JS Demo</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#exploring-the-html"><span class="toc-number">5.1.1.</span> <span class="toc-text"> Exploring the HTML</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#exploring-the-css"><span class="toc-number">5.1.2.</span> <span class="toc-text"> Exploring the CSS</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#implementing-the-javascript"><span class="toc-number">5.2.</span> <span class="toc-text"> Implementing the JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#playing-and-pausing-the-video"><span class="toc-number">5.2.1.</span> <span class="toc-text"> Playing and pausing the video</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#stopping-the-video"><span class="toc-number">5.2.2.</span> <span class="toc-text"> Stopping the video</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#seeking-back-and-forth"><span class="toc-number">5.2.3.</span> <span class="toc-text"> Seeking back and forth</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#updating-the-elapsed-time"><span class="toc-number">5.2.4.</span> <span class="toc-text"> Updating the elapsed time</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fixing-play-and-pause"><span class="toc-number">5.2.5.</span> <span class="toc-text"> Fixing play and pause</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#restarting-media-playback"><span class="toc-number">5.3.</span> <span class="toc-text"> Restarting media playback</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#detecting-track-addition-and-removal"><span class="toc-number">5.4.</span> <span class="toc-text"> Detecting track addition and removal</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#references"><span class="toc-number">6.</span> <span class="toc-text"> REFERENCES</span></a></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_tree_dawnlights.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Pinsflora</a></span><span id="menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fa fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">HTML Video and audio content</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-11-04T16:00:00.000Z" title="Created 2017-11-05 00:00:00">2017-11-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2019-05-20T16:00:00.000Z" title="Updated 2019-05-21 00:00:00">2019-05-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Web/">Web</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Web/HTML/">HTML</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">5.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>32min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><p>Now that we are comfortable with adding simple <code>images</code> to a webpage, the next step is to start adding video and audio players to your HTML documents!</p>
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}const fontSizeVal = saveToLocal.get('global-font-size')
+if (fontSizeVal !== undefined) {
+  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+}})()</script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Pinsflora" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">333</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">110</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">34</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_red_dim_flower.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Pinsflora</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">HTML Video and audio content</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-11-04T16:00:00.000Z" title="Created 2017-11-05 00:00:00">2017-11-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2019-05-20T16:00:00.000Z" title="Updated 2019-05-21 00:00:00">2019-05-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Web/">Web</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Web/HTML/">HTML</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">5.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>32min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>Now that we are comfortable with adding simple <code>images</code> to a webpage, the next step is to start adding video and audio players to your HTML documents!</p>
 <blockquote>
 <p>Web developers have wanted to use video and audio on the Web for a long time, ever since the early 2000s, when we started to have bandwidth fast enough to support any kind of video (video files are much larger than text or even images.) In the early days, native web technologies such as HTML didn’t have the ability to embed video and audio on the Web, so proprietary (or plugin-based) technologies like <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Adobe_Flash">Flash</a> (and later, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Microsoft_Silverlight">Silverlight</a>) became popular for handling such content. This kind of technology worked ok, but it had a number of problems, including not working well with HTML/CSS features, security issues, and accessibility issues.</p>
 </blockquote>
@@ -244,11 +293,11 @@ if (autoChangeMode === '1') {
 <p>Open the HTML index file. You’ll see a number of features; the HTML is dominated by the video player and its controls:</p>
 <figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"player"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">video</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"video/sintel-short.mp4"</span> <span class="attr">type</span>=<span class="string">"video/mp4"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"video/sintel-short.webm"</span> <span class="attr">type</span>=<span class="string">"video/webm"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- fallback content here --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"controls"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"play"</span> <span class="attr">data-icon</span>=<span class="string">"P"</span> <span class="attr">aria-label</span>=<span class="string">"play pause toggle"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"stop"</span> <span class="attr">data-icon</span>=<span class="string">"S"</span> <span class="attr">aria-label</span>=<span class="string">"stop"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"timer"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">aria-label</span>=<span class="string">"timer"</span>&gt;</span>00:00<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"rwd"</span> <span class="attr">data-icon</span>=<span class="string">"B"</span> <span class="attr">aria-label</span>=<span class="string">"rewind"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"fwd"</span> <span class="attr">data-icon</span>=<span class="string">"F"</span> <span class="attr">aria-label</span>=<span class="string">"fast forward"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 <ul>
-<li>The whole player is wrapped in a <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div">``</a> element, so it can all be styled as one unit if needed.</li>
-<li>The <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source"><code>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video) element contains two [</code></a> elements so that different formats can be loaded depending on the browser viewing the site.</li>
+<li>The whole player is wrapped in a div element, so it can all be styled as one unit if needed.</li>
+<li>The video element contains two source elements so that different formats can be loaded depending on the browser viewing the site.</li>
 <li>The controls HTML is probably the most interesting:
 <ul>
-<li>We have four <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button">``</a>s — play/pause, stop, rewind, and fast forward.</li>
+<li>We have four buttons — play/pause, stop, rewind, and fast forward.</li>
 <li>Each <code>&lt;button&gt;</code> has a <code>class</code> name, a <code>data-icon</code> attribute for defining what icon should be shown on each button (we’ll show how this works in the below section), and an <code>aria-label</code> attribute to provide an understandable description of each button, since we’re not providing a human-readable label inside the tags. The contents of <code>aria-label</code> attributes are read out by screenreaders when their users focus on the elements that contain them.</li>
 <li>There is also a timer <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span"><code>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div), which will report the elapsed time when the video is playing. Just for fun, we are providing two reporting mechanisms — a [</code></a>containing the elapsed time in minutes and seconds, and an extra <code>&lt;div&gt;</code> that we will use to create a horizontal indicator bar that gets longer as the time elapses. To get an idea of what the finished product will look like, <a target="_blank" rel="noopener" href="https://mdn.github.io/learning-area/javascript/apis/video-audio/finished/">check out our finished version</a>.</li>
 </ul>
@@ -273,245 +322,4 @@ if (autoChangeMode === '1') {
 </ul>
 <p>Icon fonts are very cool for many reasons — cutting down on HTTP requests because you don’t need to download those icons as image files, great scalability, and the fact that you can use text properties to style them — like <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color"><code>color</code></a> and <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow"><code>text-shadow</code></a>.</p>
 <p>Last but not least, let’s look at the CSS for the timer:</p>
-<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.timer</span> {</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">38px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">font-family</span>: monospace;</span><br><span class="line">  <span class="attribute">text-shadow</span>: <span class="number">1px</span> <span class="number">1px</span> <span class="number">0px</span> black;</span><br><span class="line">  <span class="attribute">color</span>: white;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">5</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.timer</span> <span class="selector-tag">div</span> {</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.2</span>);</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">38px</span>;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">2</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.timer</span> <span class="selector-tag">span</span> {</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">3</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">19px</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<ul>
-<li>We set the outer <code>.timer</code> <code>&lt;div&gt;</code> to have flex: 5, so it takes up most of the width of the controls bar. We also give it <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"><code>position</code></a><code>: relative</code>, so that we can position elements inside it conveniently according to it’s boundaries, and not the boundaries of the <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body">``</a>element.</li>
-<li>The inner <code>&lt;div&gt;</code> is absolutely positioned to sit directly on top of the outer <code>&lt;div&gt;</code>. It is also given an initial width of 0, so you can’t see it at all. As the video plays, the width will be increased via JavaScript as the video elapses.</li>
-<li>The <code>&lt;span&gt;</code> is also absolutely positioned to sit near the left hand side of the timer bar.</li>
-<li>We also give our inner <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> the right amount of <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/z-index"><code>z-index</code></a> so that the timer will be displayed on top, and the inner <code>&lt;div&gt;</code> below that. This way, we make sure we can see all the information — one box is not obscuring another.</li>
-</ul>
-<h3 id="implementing-the-javascript"><a class="markdownIt-Anchor" href="#implementing-the-javascript"></a> Implementing the JavaScript</h3>
-<p>We’ve got a fairly complete HTML and CSS interface already; now we just need to wire up all the buttons to get the controls working.</p>
-<ol>
-<li>
-<p>Create a new JavaScript file in the same directory level as your index.html file. Call it <code>custom-player.js</code>.</p>
-</li>
-<li>
-<p>At the top of this file, insert the following code:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> media = <span class="built_in">document</span>.querySelector(<span class="string">'video'</span>);</span><br><span class="line"><span class="keyword">var</span> controls = <span class="built_in">document</span>.querySelector(<span class="string">'.controls'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> play = <span class="built_in">document</span>.querySelector(<span class="string">'.play'</span>);</span><br><span class="line"><span class="keyword">var</span> stop = <span class="built_in">document</span>.querySelector(<span class="string">'.stop'</span>);</span><br><span class="line"><span class="keyword">var</span> rwd = <span class="built_in">document</span>.querySelector(<span class="string">'.rwd'</span>);</span><br><span class="line"><span class="keyword">var</span> fwd = <span class="built_in">document</span>.querySelector(<span class="string">'.fwd'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> timerWrapper = <span class="built_in">document</span>.querySelector(<span class="string">'.timer'</span>);</span><br><span class="line"><span class="keyword">var</span> timer = <span class="built_in">document</span>.querySelector(<span class="string">'.timer span'</span>);</span><br><span class="line"><span class="keyword">var</span> timerBar = <span class="built_in">document</span>.querySelector(<span class="string">'.timer div'</span>);</span><br></pre></td></tr></tbody></table></figure>
-<p>Here we are creating variables to hold references to all the objects we want to manipulate. We have three groups:</p>
-<ul>
-<li>The <code>&lt;video&gt;</code> element, and the controls bar.</li>
-<li>The play/pause, stop, rewind, and fast forward buttons.</li>
-<li>The outer timer wrapper <code>&lt;div&gt;</code>, the digital timer readout <code>&lt;span&gt;</code>, and the inner <code>&lt;div&gt;</code> that gets wider as the time elapses.</li>
-</ul>
-</li>
-<li>
-<p>Next, insert the following at the bottom of your code:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">media.removeAttribute(<span class="string">'controls'</span>);</span><br><span class="line">controls.style.visibility = <span class="string">'visible'</span>;</span><br></pre></td></tr></tbody></table></figure>
-<p>These two lines remove the default browser controls from the video, and make the custom controls visible.</p>
-</li>
-</ol>
-<h4 id="playing-and-pausing-the-video"><a class="markdownIt-Anchor" href="#playing-and-pausing-the-video"></a> Playing and pausing the video</h4>
-<p>Let’s implement probably the most important control — the play/pause button.</p>
-<ol>
-<li>
-<p>First of all, add the following to the bottom of your code, so that the <code>playPauseMedia()</code>function is invoked when the play button is clicked:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">play.addEventListener(<span class="string">'click'</span>, playPauseMedia);</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li>
-<p>Now to define <code>playPauseMedia()</code> — add the following, again at the bottom of your code:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">playPauseMedia</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">if</span>(media.paused) {</span><br><span class="line">    play.setAttribute(<span class="string">'data-icon'</span>,<span class="string">'u'</span>);</span><br><span class="line">    media.play();</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">    play.setAttribute(<span class="string">'data-icon'</span>,<span class="string">'P'</span>);</span><br><span class="line">    media.pause();</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>Here we use an <code>if</code> statement to check whether the video is paused. The <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/paused"><code>HTMLMediaElement.paused</code></a> property returns true if the media is paused, which is any time the video is not playing, including when it is set at 0 duration after it first loads. If it is paused, we set the <code>data-icon</code> attribute value on the play button to “u”, which is a “paused” icon, and invoke the <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play"><code>HTMLMediaElement.play()</code></a> method to play the media.</p>
-<p>On the second click, the button will be toggled back again — the “play” icon will be shown again, and the video will be paused with <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/paused"><code>HTMLMediaElement.paused()</code></a>.</p>
-</li>
-</ol>
-<h4 id="stopping-the-video"><a class="markdownIt-Anchor" href="#stopping-the-video"></a> Stopping the video</h4>
-<ol>
-<li>
-<p>Next, let’s add functionality to handle stopping the video. Add the following <code>addEventListener()</code> lines below the previous one you added:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stop.addEventListener(<span class="string">'click'</span>, stopMedia);</span><br><span class="line">media.addEventListener(<span class="string">'ended'</span>, stopMedia);</span><br></pre></td></tr></tbody></table></figure>
-<p>The <code>click</code> event is obvious — we want to stop the video by running our <code>stopMedia()</code>function when the stop button is clicked. We do however also want to stop the video when it finishes playing — this is marked by the <code>ended</code> event firing, so we also set up a listener to run the function on that event firing too.</p>
-</li>
-<li>
-<p>Next, let’s define <code>stopMedia()</code> — add the following function below <code>playPauseMedia()</code>:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">stopMedia</span>(<span class="params"></span>) </span>{</span><br><span class="line">  media.pause();</span><br><span class="line">  media.currentTime = <span class="number">0</span>;</span><br><span class="line">  play.setAttribute(<span class="string">'data-icon'</span>,<span class="string">'P'</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>there is no <code>stop()</code> method on the HTMLMediaElement API — the equivalent is to <code>pause()</code> the video, and set its <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/currentTime"><code>currentTime</code></a> property to 0. Setting <code>currentTime</code> to a value (in seconds) immediately jumps the media to that position.</p>
-<p>All there is left to do after that is to set the displayed icon to the “play” icon. Regardless of whether the video was paused or playing when the stop button is pressed, you want it to be ready to play afterwards.</p>
-</li>
-</ol>
-<h4 id="seeking-back-and-forth"><a class="markdownIt-Anchor" href="#seeking-back-and-forth"></a> Seeking back and forth</h4>
-<p>There are many ways that you can implement rewind and fast forward functionality; here we are showing you a relatively complex way of doing it, which doesn’t break when the different buttons are pressed in an unexpected order.</p>
-<ol>
-<li>
-<p>First of all, add the following two <code>addEventListener()</code> lines below the previous ones:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rwd.addEventListener(<span class="string">'click'</span>, mediaBackward);</span><br><span class="line">fwd.addEventListener(<span class="string">'click'</span>, mediaForward);</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li>
-<p>Now on to the event handler functions — add the following code below your previous functions to define <code>mediaBackward()</code> and <code>mediaForward()</code>:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> intervalFwd;</span><br><span class="line"><span class="keyword">var</span> intervalRwd;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mediaBackward</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="built_in">clearInterval</span>(intervalFwd);</span><br><span class="line">  fwd.classList.remove(<span class="string">'active'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(rwd.classList.contains(<span class="string">'active'</span>)) {</span><br><span class="line">    rwd.classList.remove(<span class="string">'active'</span>);</span><br><span class="line">    <span class="built_in">clearInterval</span>(intervalRwd);</span><br><span class="line">    media.play();</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">    rwd.classList.add(<span class="string">'active'</span>);</span><br><span class="line">    media.pause();</span><br><span class="line">    intervalRwd = <span class="built_in">setInterval</span>(windBackward, <span class="number">200</span>);</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mediaForward</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="built_in">clearInterval</span>(intervalRwd);</span><br><span class="line">  rwd.classList.remove(<span class="string">'active'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(fwd.classList.contains(<span class="string">'active'</span>)) {</span><br><span class="line">    fwd.classList.remove(<span class="string">'active'</span>);</span><br><span class="line">    <span class="built_in">clearInterval</span>(intervalFwd);</span><br><span class="line">    media.play();</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">    fwd.classList.add(<span class="string">'active'</span>);</span><br><span class="line">    media.pause();</span><br><span class="line">    intervalFwd = <span class="built_in">setInterval</span>(windForward, <span class="number">200</span>);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>You’ll notice that first we initialize two variables — <code>intervalFwd</code> and <code>intervalRwd</code> — you’ll find out what they are for later on.</p>
-<p>Let’s step through <code>mediaBackward()</code> (the functionality for <code>mediaForward()</code> is exactly the same, but in reverse):</p>
-<ol>
-<li>We clear any classes and intervals that are set on the fast forward functionality — we do this because if we press the <code>rwd</code> button after pressing the <code>fwd</code> button, we want to cancel any fast forward functionality and replace it with the rewind functionality. If we tried to do both at one, the player would break.</li>
-<li>We use an <code>if</code> statement to check whether the <code>active</code> class has been set on the <code>rwd</code> button, indicating that it has already been pressed. The <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/ClassList"><code>classList</code></a> is a rather handy property that exists on every element — it contains a list of all the classes set on the element, as well as methods for adding/removing classes, etc. We use the <code>classList.contains()</code> method to check whether the list contains the <code>active</code>class. This returns a boolean <code>true</code>/<code>false</code> result.</li>
-<li>If <code>active</code> has been set on the <code>rwd</code> button, we remove it using <code>classList.remove()</code>, clear the interval that has been set when the button was first pressed (see below for more explanation), and use <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play"><code>HTMLMediaElement.play()</code></a> to cancel the rewind and start the video playing normally.</li>
-<li>If it hasn’t yet been set, we add the <code>active</code> class to the <code>rwd</code> button using <code>classList.add()</code>, pause the video using <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/pause"><code>HTMLMediaElement.pause()</code></a>, then set the <code>intervalRwd</code> variable to equal a <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval"><code>setInterval()</code></a> call. When invoked, <code>setInterval()</code> creates an active interval, meaning that it runs the function given as the first parameter every x milliseconds, where x is the value of the 2nd parameter. So here we are running the <code>windBackward()</code> function every 200 milliseconds — we’ll use this function to wind the video backwards constantly. To stop a <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval"><code>setInterval()</code></a> running, you have to call <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/clearInterval"><code>clearInterval()</code></a>, giving it the identifying name of the interval to clear, which in this case is the variable name <code>intervalRwd</code> (see the <code>clearInterval()</code> call earlier on in the function).</li>
-</ol>
-</li>
-<li>
-<p>last of all for this section, we need to define the <code>windBackward()</code> and <code>windForward()</code>functions invoked in the <code>setInterval()</code> calls. Add the following below your two previous functions:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">windBackward</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">if</span>(media.currentTime &lt;= <span class="number">3</span>) {</span><br><span class="line">    rwd.classList.remove(<span class="string">'active'</span>);</span><br><span class="line">    <span class="built_in">clearInterval</span>(intervalRwd);</span><br><span class="line">    stopMedia();</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">    media.currentTime -= <span class="number">3</span>;</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">windForward</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">if</span>(media.currentTime &gt;= media.duration - <span class="number">3</span>) {</span><br><span class="line">    fwd.classList.remove(<span class="string">'active'</span>);</span><br><span class="line">    <span class="built_in">clearInterval</span>(intervalFwd);</span><br><span class="line">    stopMedia();</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">    media.currentTime += <span class="number">3</span>;</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>Again, we’ll just run through the first one of these functions as they work almost identically, but in reverse to one another. In <code>windBackward()</code> we do the following — bear in mind that when the interval is active, this function is being run once every 200 milliseconds.</p>
-<ol>
-<li>We start off with an <code>if</code> statement that checks to see whether the current time is less than 3 seconds, i.e., if rewinding by another three seconds would take it back past the start of the video. This would cause strange behaviour, so if this is the case we stop the video playing by calling <code>stopMedia()</code>, remove the <code>active</code> class from the rewind button, and clear the <code>intervalRwd</code> interval to stop the rewind functionality. If we didn’t do this last step, the video would just keep rewinding forever.</li>
-<li>If the current time is not within 3 seconds of the start of the video, we simply remove three seconds from the current time by executing <code>media.currentTime -= 3</code>. So in effect, we are rewinding the video by 3 seconds, once every 200 milliseconds.</li>
-</ol>
-</li>
-</ol>
-<h4 id="updating-the-elapsed-time"><a class="markdownIt-Anchor" href="#updating-the-elapsed-time"></a> Updating the elapsed time</h4>
-<p>The very last piece of our media player to implement is the time elapsed displays. To do this we’ll run a function to update the time displays every time the <code>timeupdate</code> event is fired on the <code>&lt;video&gt;</code> element. This frequency with which this event fires depends on your browser, CPU power, etc (<a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/9678177/how-often-does-the-timeupdate-event-fire-for-an-html5-video">see this stackoverflow post</a>).</p>
-<p>Add the following <code>addEventListener()</code> line just below the others:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">media.addEventListener(<span class="string">'timeupdate'</span>, setTime);</span><br></pre></td></tr></tbody></table></figure>
-<p>Now to define the <code>setTime()</code> function. Add the following at the bottom of your file:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setTime</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">var</span> minutes = <span class="built_in">Math</span>.floor(media.currentTime / <span class="number">60</span>);</span><br><span class="line">  <span class="keyword">var</span> seconds = <span class="built_in">Math</span>.floor(media.currentTime - minutes * <span class="number">60</span>);</span><br><span class="line">  <span class="keyword">var</span> minuteValue;</span><br><span class="line">  <span class="keyword">var</span> secondValue;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (minutes &lt; <span class="number">10</span>) {</span><br><span class="line">    minuteValue = <span class="string">'0'</span> + minutes;</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">    minuteValue = minutes;</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (seconds &lt; <span class="number">10</span>) {</span><br><span class="line">    secondValue = <span class="string">'0'</span> + seconds;</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">    secondValue = seconds;</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> mediaTime = minuteValue + <span class="string">':'</span> + secondValue;</span><br><span class="line">  timer.textContent = mediaTime;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> barLength = timerWrapper.clientWidth * (media.currentTime/media.duration);</span><br><span class="line">  timerBar.style.width = barLength + <span class="string">'px'</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>This is a fairly long function, so let’s go through it step by step:</p>
-<ol>
-<li>First of all, we work out the number of minutes and seconds in the <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/currentTime"><code>HTMLMediaElement.currentTime</code></a> value.</li>
-<li>Then we initialize two more variables — <code>minuteValue</code> and <code>secondValue</code>.</li>
-<li>The two <code>if</code> statements work out whether the number of minutes and seconds are less than 10. If so, they add a leading zero to the values, in the same way that a digital clock display works.</li>
-<li>The actual time value to display is set as <code>minuteValue</code> plus a colon character plus <code>secondValue</code>.</li>
-<li>The <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent"><code>Node.textContent</code></a> value of the timer is set to the time value, so it displays in the UI.</li>
-<li>The length we should set the inner <code>&lt;div&gt;</code> to is worked out by first working out the width of the outer <code>&lt;div&gt;</code> (any element’s <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/clientWidth"><code>clientWidth</code></a> property will contain its length), and then multiplying it by the <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/currentTime"><code>HTMLMediaElement.currentTime</code></a> divided by the total <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/duration"><code>HTMLMediaElement.duration</code></a> of the media.</li>
-<li>We set the width of the inner <code>&lt;div&gt;</code> to equal the calculated bar length, plus “px”, so it will be set to that number of pixels.</li>
-</ol>
-<h4 id="fixing-play-and-pause"><a class="markdownIt-Anchor" href="#fixing-play-and-pause"></a> Fixing play and pause</h4>
-<p>There is one problem left to fix. If the play/pause or stop buttons are pressed while the rewind or fast forward functionality is active, they just don’t work. How can we fix it so that they cancel the <code>rwd</code>/<code>fwd</code> button functionality and play/stop the video as you’d expect? This is fairly easy to fix.</p>
-<p>First of all, add the following lines inside the <code>stopMedia()</code> function — anywhere will do:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rwd.classList.remove(<span class="string">'active'</span>);</span><br><span class="line">fwd.classList.remove(<span class="string">'active'</span>);</span><br><span class="line"><span class="built_in">clearInterval</span>(intervalRwd);</span><br><span class="line"><span class="built_in">clearInterval</span>(intervalFwd);</span><br></pre></td></tr></tbody></table></figure>
-<p>Now add the same lines again, at the very start of the <code>playPauseMedia()</code> function (just before the start of the <code>if</code> statement).</p>
-<p>At this point, you could delete the equivalent lines from the <code>windBackward()</code> and <code>windForward()</code> functions, as that functionality has been implemented in the <code>stopMedia()</code>function instead.</p>
-<p>Note: You could also further improve the efficiency of the code by creating a separate function that runs these lines, then calling that anywhere it is needed, rather than repeating the lines multiple times in the code. But we’ll leave that one up to you.</p>
-<p>Here are some suggestions for ways you could enhance the existing example we’ve built up:</p>
-<ol>
-<li>
-<p>The time display currently breaks if the video is an hour long or more (well, it won’t display hours; just minutes and seconds). Can you figure out how to change the example to make it display hours?</p>
-</li>
-<li>
-<p>Because <code>&lt;audio&gt;</code> elements have the same <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement"><code>HTMLMediaElement</code></a> functionality available to them, you could easily get this player to work for an <code>&lt;audio&gt;</code> element too. Try doing so.</p>
-</li>
-<li>
-<p>Can you work out a way to turn the timer inner <code>&lt;div&gt;</code> element into a true seek bar/scrobbler — i.e., when you click somewhere on the bar, it jumps to that relative position in the video playback? As a hint, you can find out the X and Y values of the element’s left/right and top/bottom sides via the <code>getBoundingClientRect()</code> method, and you can find the coordinates of a mouse click via the event object of the click event, called on the <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Document"><code>Document</code></a> object. For example:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(e.x) + <span class="string">','</span> + <span class="built_in">console</span>.log(e.y)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-</li>
-</ol>
-<h3 id="restarting-media-playback"><a class="markdownIt-Anchor" href="#restarting-media-playback"></a> Restarting media playback</h3>
-<p>At any time, you can reset the media to the beginning—including the process of selecting the best media source, if more than one is specified using source elements—by calling the element’s <code>load()</code> method:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mediaElem = <span class="built_in">document</span>.getElementById(<span class="string">"my-media-element"</span>);</span><br><span class="line">mediaElem.load();</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="detecting-track-addition-and-removal"><a class="markdownIt-Anchor" href="#detecting-track-addition-and-removal"></a> Detecting track addition and removal</h3>
-<p>You can monitor the track lists within a media element to detect when tracks are added to or removed from the element’s media. For example, you can watch for the <code>addtrack</code> event being fired on the associated <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/AudioTrackList"><code>AudioTrackList</code></a> object (retrieved via <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/audioTracks"><code>HTMLMediaElement.audioTracks</code></a>) to be informed when audio tracks are added to the media:</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mediaElem = <span class="built_in">document</span>.querySelector(<span class="string">"video"</span>);</span><br><span class="line">mediaElem.audioTracks.onaddtrack = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{</span><br><span class="line">  audioTrackAdded(event.track);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>You’ll find more information about this in our <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/TrackEvent"><code>TrackEvent</code></a> documentation.</p>
-<h2 id="references"><a class="markdownIt-Anchor" href="#references"></a> REFERENCES</h2>
-<ul>
-<li>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio</a></p>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content">Video and audio content</a> — simple guide to <code>&lt;video&gt;</code> and <code>&lt;audio&gt;</code> HTML.</p>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video</a></p>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source</a></p>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track</a></p>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement</a></p>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Guide/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video">https://developer.mozilla.org/en-US/docs/Web/Guide/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video</a></p>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Apps/Fundamentals/Audio_and_video_manipulation">Audio and video manipulation</a> — detailed guide to manipulating audio and video, e.g. with <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">Canvas API</a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">Web Audio API</a>, and more.</p>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API">https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API</a></p>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/Apps/Build/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video">Adding captions and subtitles to HTML5 video</a></p>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Apps/Fundamentals/Audio_and_video_delivery">Audio and video delivery</a> — detailed guide to delivering media inside the browser, with many tips, tricks, and links to further more advanced tutorials.</p>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Apps/Fundamentals/Audio_and_video_delivery">Audio and Video delivery</a>: A LOT of detail about putting audio and video onto web pages using HTML and JavaScript.</p>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Apps/Fundamentals/Audio_and_video_manipulation">Audio and Video manipulation</a>: A LOT of detail about manipulating audio and video using JavaScript (for example adding filters.)</p>
-</li>
-<li>
-<p>Automated options to <a target="_blank" rel="noopener" href="http://www.inwhatlanguage.com/blog/translate-video-audio/">translate multimedia</a>.</p>
-</li>
-</ul>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script></div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Joaxin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://u.pinsflora.com/web/html/web_audio_video/">https://u.pinsflora.com/web/html/web_audio_video/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="addtoany"><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_wechat"></a><a class="a2a_button_sina_weibo"></a><a class="a2a_button_facebook_messenger"></a><a class="a2a_button_email"></a><a class="a2a_button_copy_link"></a><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a></div></div><script async="async" src="https://static.addtoany.com/menu/page.js"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/notes/hexo/hexo_Markdown_Test/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/hexo/hexo_markdown.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Markdown Test</div></div></a></div><div class="next-post pull-right"><a href="/notes/it/notes_it_shutdown/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_stars_man_orchard_photos.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">电脑关机</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div></div></div></div></article></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_tree_dawnlights.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 By Joaxin</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Refine, the Life</div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="Switch Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
-  if (window.mermaidJsLoad) mermaid.init()
-  else {
-    $.getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js', function () {
-      window.mermaidJsLoad = true
-      mermaid.initialize({
-        theme: 'default',
-      })
-      false && mermaid.init()
-    })
-  }
-}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script defer="defer" id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="fasle"></script><script src="/js/third-party/activate-power-mode.js"></script><script>POWERMODE.colorful = true;
-POWERMODE.shake = true;
-document.body.addEventListener('input', POWERMODE);
-</script><script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/fae45343.js","daovoice")
-</script><script>var isChatBtn = true
-daovoice('init', {
-  app_id: 'fae45343',},{
-  launcher: { 
-     disableLauncherIcon: isChatBtn // 悬浮 ICON 是否显示
-  },
-});
-daovoice('update');
-
-if (isChatBtn) {
-  var chatBtnFn = () => {
-    var chatBtn = document.getElementById("chat_btn")
-    chatBtn.addEventListener("click", function(){
-      daovoice('show')
-    });
-  }
-  chatBtnFn()
-} else {
-  if (true) {
-    function chatBtnHide () {
-      daovoice('update', {},{
-        launcher: { 
-        disableLauncherIcon: true // 悬浮 ICON 是否显示
-        },
-      });
-    }
-    function chatBtnShow () {
-      daovoice('update', {},{
-        launcher: { 
-        disableLauncherIcon: false // 悬浮 ICON 是否显示
-        },
-      });
-    }
-  }
-}</script></div></body></html>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><

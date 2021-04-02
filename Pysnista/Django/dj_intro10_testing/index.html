@@ -1,0 +1,250 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Django Introduction Part10 - Testing a Django web application | Pinsflora</title><meta name="keywords" content="Django"><meta name="author" content="Joaxin"><meta name="copyright" content="Joaxin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="As websites grow they become harder to test manually. Not only is there more to test, but, as interactions between components become more complex, a small change in one area can impact other areas, so">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django Introduction Part10 - Testing a Django web application">
+<meta property="og:url" content="https://u.pinsflora.xyz/Pysnista/Django/dj_intro10_testing/index.html">
+<meta property="og:site_name" content="Pinsflora">
+<meta property="og:description" content="As websites grow they become harder to test manually. Not only is there more to test, but, as interactions between components become more complex, a small change in one area can impact other areas, so">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_seeds.jpg">
+<meta property="article:published_time" content="2018-01-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-09-04T16:00:00.000Z">
+<meta property="article:author" content="Joaxin">
+<meta property="article:tag" content="Django">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_seeds.jpg"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://u.pinsflora.xyz/Pysnista/Django/dj_intro10_testing/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-177831205-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-177831205-1');
+</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-09-05 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}const fontSizeVal = saveToLocal.get('global-font-size')
+if (fontSizeVal !== undefined) {
+  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+}})()</script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Pinsflora" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">333</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">110</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">34</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_seeds.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Pinsflora</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Django Introduction Part10 - Testing a Django web application</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-01-23T16:00:00.000Z" title="Created 2018-01-24 00:00:00">2018-01-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-09-04T16:00:00.000Z" title="Updated 2020-09-05 00:00:00">2020-09-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/">Python</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/Django/">Django</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">5.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>35min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>As websites grow they become harder to test manually. Not only is there more to test, but, as interactions between components become more complex, a small change in one area can impact other areas, so more changes will be required to ensure everything keeps working and errors are not introduced as more changes are made. One way to mitigate these problems is to write automated tests, which can easily and reliably be run every time you make a change.</p>
+<h2 id="overview"><a class="markdownIt-Anchor" href="#overview"></a> Overview</h2>
+<p>Automated tests can really help with this problem! The obvious benefits are that they can be run much faster than manual tests, can test to a much lower level of detail, and test exactly the same functionality every time (human testers are nowhere near as reliable!) Because they are fast, automated tests can be executed more regularly, and if a test fails, they point to exactly where code is not performing as expected.</p>
+<p>In addition, automated tests can act as the first real-world “user” of your code, forcing you to be rigorous about defining and documenting how your website should behave. Often they are the basis for your code examples and documentation. For these reasons, some software development processes start with test definition and implementation, after which the code is written to match the required behavior (e.g. <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Test-driven_development">test-driven</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Behavior-driven_development">behaviour-driven</a> development).</p>
+<p>This article shows how to write automated tests for Django, by adding a number of tests to the <em>LocalLibrary</em> website.</p>
+<h3 id="types-of-testing"><a class="markdownIt-Anchor" href="#types-of-testing"></a> Types of testing</h3>
+<p>There are numerous types, levels, and classifications of tests and testing approaches. The most important automated tests are:</p>
+<ul>
+<li>
+<p>Unit tests</p>
+<p>Verify functional behavior of individual components, often to class and function level.</p>
+</li>
+<li>
+<p>Regression tests</p>
+<p>Tests that reproduce historic bugs. Each test is initially run to verify that the bug has been fixed, and then re-run to ensure that it has not been reintroduced following later changes to the code.</p>
+</li>
+<li>
+<p>Integration tests</p>
+<p>Verify how groupings of components work when used together. Integration tests are aware of the required interactions between components, but not necessarily of the internal operations of each component. They may cover simple groupings of components through to the whole website.</p>
+</li>
+</ul>
+<p><strong>Note:</strong> Other common types of tests include black box, white box, manual, automated, canary, smoke, conformance, acceptance, functional, system, performance, load, and stress tests. Look them up for more information.</p>
+<h3 id="what-does-django-provide-for-testing"><a class="markdownIt-Anchor" href="#what-does-django-provide-for-testing"></a> What does Django provide for testing?</h3>
+<p>Testing a website is a complex task, because it is made of several layers of logic – from HTTP-level request handling, queries models, to form validation and processing, and template rendering.</p>
+<p>Django provides a test framework with a small hierarchy of classes that build on the Python standard <code>unittest</code> library. Despite the name, this test framework is suitable for both unit and integration tests. The Django framework adds API methods and tools to help test web and Django-specific behaviour. These allow you to simulate requests, insert test data, and inspect your application’s output. Django also provides an API LiveServerTestCase and tools for using different testing frameworks, for example you can integrate with the popular <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Your_own_automation_environment">Selenium</a> framework to simulate a user interacting with a live browser.</p>
+<p>To write a test you derive from any of the Django (or <em>unittest</em>) test base classes and then write separate methods to check that specific functionality works as expected (tests use “assert” methods to test that expressions result in <code>True</code> or <code>False</code> values, or that two values are equal, etc.) When you start a test run, the framework executes the chosen test methods in your derived classes. The test methods are run independently, with common setup and/or tear-down behaviour defined in the class, as shown below.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">YourTestClass</span>(<span class="params">TestCase</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setUp</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="comment"># Setup run before every test method.</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tearDown</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="comment"># Clean up run after every test method.</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_something_that_will_pass</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.assertFalse(<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_something_that_will_fail</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.assertTrue(<span class="literal">False</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>The best base class for most tests is django.test.TestCase. This test class creates a clean database before its tests are run, and runs every test function in its own transaction. The class also owns a test Client that you can use to simulate a user interacting with the code at the view level.</p>
+<h2 id="test-structure-overview"><a class="markdownIt-Anchor" href="#test-structure-overview"></a> Test structure overview</h2>
+<p>Before we go into the detail of “what to test”, let’s first briefly look at <em>where</em> and <em>how</em> tests are defined.</p>
+<p>Django uses the unittest module’s <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/unittest.html#unittest-test-discovery">built-in test discovery</a>, which will discover tests under the current working directory in any file named with the pattern <strong>test*.py</strong>. Provided you name the files appropriately, you can use any structure you like. We recommend that you create a module for your test code, and have separate files for models, views, forms, and any other types of code you need to test. For example:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">movie/</span><br><span class="line">  /tests/</span><br><span class="line">    __init__.py</span><br><span class="line">    test_models.py</span><br><span class="line">    test_forms.py</span><br><span class="line">    test_views.py</span><br></pre></td></tr></tbody></table></figure>
+<p>Delete the skeleton <code>test.py</code> file as we won’t need it.</p>
+<p>Open <strong>/tests/test_models.py</strong>. The file should import <code>django.test.TestCase</code>, as shown:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.test <span class="keyword">import</span> TestCase</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create your tests here.</span></span><br></pre></td></tr></tbody></table></figure>
+<p>Often you will add a test class for each model/view/form you want to test, with individual methods for testing specific functionality. In other cases you may wish to have a separate class for testing a specific use case, with individual test functions that test aspects of that use-case (for example, a class to test that a model field is properly validated, with functions to test each of the possible failure cases). Again, the structure is very much up to you, but it is best if you are consistent.</p>
+<p>Add the test class below to the bottom of the file. The class demonstrates how to construct a test case class by deriving from <code>TestCase</code>.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">YourTestClass</span>(<span class="params">TestCase</span>):</span></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setUpTestData</span>(<span class="params">cls</span>):</span></span><br><span class="line">        print(<span class="string">"setUpTestData: Run once to set up non-modified data for all class methods."</span>)</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setUp</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">"setUp: Run once for every test method to setup clean data."</span>)</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_false_is_false</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">"Method: test_false_is_false."</span>)</span><br><span class="line">        self.assertFalse(<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_false_is_true</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">"Method: test_false_is_true."</span>)</span><br><span class="line">        self.assertTrue(<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_one_plus_one_equals_two</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">"Method: test_one_plus_one_equals_two."</span>)</span><br><span class="line">        self.assertEqual(<span class="number">1</span> + <span class="number">1</span>, <span class="number">2</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>The new class defines two methods that you can use for pre-test configuration (for example, to create any models or other objects you will need for the test):</p>
+<ul>
+<li><code>setUpTestData()</code> is called once at the beginning of the test run for class-level setup. You’d use this to create objects that aren’t going to be modified or changed in any of the test methods.</li>
+<li><code>setUp()</code> is called before every test function to set up any objects that may be modified by the test (every test function will get a “fresh” version of these objects).</li>
+</ul>
+<p>The test classes also have a <code>tearDown()</code> method which we haven’t used. This method isn’t particularly useful for database tests, since the <code>TestCase</code> base class takes care of database teardown for you.</p>
+<p>Below those we have a number of test methods, which use <code>Assert</code> functions to test whether conditions are true, false or equal (<code>AssertTrue</code>, <code>AssertFalse</code>, <code>AssertEqual</code>). If the condition does not evaluate as expected then the test will fail and report the error to your console.</p>
+<p>The <code>AssertTrue</code>, <code>AssertFalse</code>, <code>AssertEqual</code> are standard assertions provided by <strong>unittest</strong>. There are other standard assertions in the framework, and also Django-specific assertions to test if a view redirects (<code>assertRedirects</code>), to test if a particular template has been used (<code>assertTemplateUsed</code>), etc.</p>
+<p>You should <strong>not</strong> normally include <strong>print()</strong> functions in your tests as shown above. We do that here only so that you can see the order that the setup functions are called in the console (in the following section).</p>
+<h2 id="how-to-run-the-tests"><a class="markdownIt-Anchor" href="#how-to-run-the-tests"></a> How to run the tests</h2>
+<p>The easiest way to run all the tests is to use the command:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py <span class="built_in">test</span></span><br></pre></td></tr></tbody></table></figure>
+<p>If you get errors similar to: <code>ValueError: Missing staticfiles manifest entry ...</code> this may be because testing does not run <em>collectstatic</em> by default and your app is using a storage class that requires it (see <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/3.1/ref/contrib/staticfiles/#django.contrib.staticfiles.storage.ManifestStaticFilesStorage.manifest_strict">manifest_strict</a> for more information). There are a number of ways you can overcome this problem - the easiest is to simply run <em>collectstatic</em> before running the tests:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 manage.py collectstatic</span><br></pre></td></tr></tbody></table></figure>
+<p>Run the tests in the root directory of <em>yourproject</em>. You should see an output like the one below.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&gt; python3 manage.py <span class="built_in">test</span></span><br><span class="line"></span><br><span class="line">Creating <span class="built_in">test</span> database <span class="keyword">for</span> <span class="built_in">alias</span> <span class="string">'default'</span>...</span><br><span class="line">setUpTestData: Run once to <span class="built_in">set</span> up non-modified data <span class="keyword">for</span> all class methods.</span><br><span class="line">setUp: Run once <span class="keyword">for</span> every <span class="built_in">test</span> method to setup clean data.</span><br><span class="line">Method: test_false_is_false.</span><br><span class="line">setUp: Run once <span class="keyword">for</span> every <span class="built_in">test</span> method to setup clean data.</span><br><span class="line">Method: test_false_is_true.</span><br><span class="line">setUp: Run once <span class="keyword">for</span> every <span class="built_in">test</span> method to setup clean data.</span><br><span class="line">Method: test_one_plus_one_equals_two.</span><br><span class="line">.</span><br><span class="line">======================================================================</span><br><span class="line">FAIL: test_false_is_true (catalog.tests.tests_models.YourTestClass)</span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"...\tests\tests_models.py"</span>, line 22, <span class="keyword">in</span> test_false_is_true</span><br><span class="line">    self.assertTrue(False)</span><br><span class="line">AssertionError: False is not <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line">Ran 3 tests <span class="keyword">in</span> 0.072s</span><br><span class="line"></span><br><span class="line">FAILED (failures=1)</span><br><span class="line">Destroying <span class="built_in">test</span> database <span class="keyword">for</span> <span class="built_in">alias</span> <span class="string">'default'</span>...</span><br></pre></td></tr></tbody></table></figure>
+<p>Here we see that we had one test failure, and we can see exactly what function failed and why (this failure is expected, because <code>False</code> is not <code>True</code>!).</p>
+<p><strong>Tip:</strong> The most important thing to learn from the test output above is that it is much more valuable if you use descriptive/informative names for your objects and methods.</p>
+<p><strong>Showing more test information</strong></p>
+<p>If you want to get more information about the test run you can change the <em>verbosity</em>. For example, to list the test successes as well as failures (and a whole bunch of information about how the testing database is set up) you can set the verbosity to “2” as shown:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 manage.py <span class="built_in">test</span> --verbosity 2</span><br></pre></td></tr></tbody></table></figure>
+<p>The allowed verbosity levels are 0, 1, 2, and 3, with the default being “1”.</p>
+<p><strong>Running specific tests</strong></p>
+<p>If you want to run a subset of your tests you can do so by specifying the full dot path to the package(s), module, <code>TestCase</code> subclass or method:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Run the specified module</span></span><br><span class="line">python3 manage.py <span class="built_in">test</span> movie.tests</span><br><span class="line"></span><br><span class="line"><span class="comment"># Run the specified module</span></span><br><span class="line">python3 manage.py <span class="built_in">test</span> movie.tests.test_models</span><br><span class="line"></span><br><span class="line"><span class="comment"># Run the specified class</span></span><br><span class="line">python3 manage.py <span class="built_in">test</span> movie.tests.test_models.YourTestClass</span><br><span class="line"></span><br><span class="line"><span class="comment"># Run the specified method</span></span><br><span class="line">python3 manage.py <span class="built_in">test</span> movie.tests.test_models.YourTestClass.test_one_plus_one_equals_two</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="practical-examples"><a class="markdownIt-Anchor" href="#practical-examples"></a> Practical examples</h2>
+<p>Now we know how to run our tests and what sort of things we need to test, let’s look at some practical examples.</p>
+<h3 id="models"><a class="markdownIt-Anchor" href="#models"></a> Models</h3>
+<p>For example, consider the <code>Author</code> model below. Here we should test the labels for all the fields, because even though we haven’t explicitly specified most of them, we have a design that says what these values should be. If we don’t test the values, then we don’t know that the field labels have their intended values. Similarly while we trust that Django will create a field of the specified length, it is worthwhile to specify a test for this length to ensure that it was implemented as planned.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Author</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    first_name = models.CharField(max_length=<span class="number">100</span>)</span><br><span class="line">    last_name = models.CharField(max_length=<span class="number">100</span>)</span><br><span class="line">    date_of_birth = models.DateField(null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    date_of_death = models.DateField(<span class="string">'Died'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_absolute_url</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> reverse(<span class="string">'author-detail'</span>, args=[str(self.id)])</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">f'<span class="subst">{self.last_name}</span>, <span class="subst">{self.first_name}</span>'</span></span><br></pre></td></tr></tbody></table></figure>
+<p>Open our <strong>test_models.py</strong>, here you’ll see that we first import <code>TestCase</code> and derive our test class (<code>AuthorModelTest</code>) from it, using a descriptive name so we can easily identify any failing tests in the test output. We then call <code>setUpTestData()</code> to create an author object that we will use but not modify in any of the tests.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.test <span class="keyword">import</span> TestCase</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> catalog.models <span class="keyword">import</span> Author</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AuthorModelTest</span>(<span class="params">TestCase</span>):</span></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setUpTestData</span>(<span class="params">cls</span>):</span></span><br><span class="line">        <span class="comment"># Set up non-modified objects used by all test methods</span></span><br><span class="line">        Author.objects.create(first_name=<span class="string">'Big'</span>, last_name=<span class="string">'Bob'</span>)</span><br><span class="line">       </span><br><span class="line">    <span class="comment"># The field tests check that the values of the field labels (`verbose_name`) and that the size of the character fields are as expected. </span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_first_name_label</span>(<span class="params">self</span>):</span></span><br><span class="line">        author = Author.objects.get(id=<span class="number">1</span>)</span><br><span class="line">        field_label = author._meta.get_field(<span class="string">'first_name'</span>).verbose_name</span><br><span class="line">        self.assertEquals(field_label, <span class="string">'first name'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_date_of_death_label</span>(<span class="params">self</span>):</span></span><br><span class="line">        author=Author.objects.get(id=<span class="number">1</span>)</span><br><span class="line">        field_label = author._meta.get_field(<span class="string">'date_of_death'</span>).verbose_name</span><br><span class="line">        self.assertEquals(field_label, <span class="string">'died'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_first_name_max_length</span>(<span class="params">self</span>):</span></span><br><span class="line">        author = Author.objects.get(id=<span class="number">1</span>)</span><br><span class="line">        max_length = author._meta.get_field(<span class="string">'first_name'</span>).max_length</span><br><span class="line">        self.assertEquals(max_length, <span class="number">100</span>)</span><br><span class="line">    <span class="comment"># check that the object name was constructed as we expected using "Last Name", "First Name" format</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_object_name_is_last_name_comma_first_name</span>(<span class="params">self</span>):</span></span><br><span class="line">        author = Author.objects.get(id=<span class="number">1</span>)</span><br><span class="line">        expected_object_name = <span class="string">f'<span class="subst">{author.last_name}</span>, <span class="subst">{author.first_name}</span>'</span></span><br><span class="line">        self.assertEquals(expected_object_name, str(author))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_get_absolute_url</span>(<span class="params">self</span>):</span></span><br><span class="line">        author = Author.objects.get(id=<span class="number">1</span>)</span><br><span class="line">        <span class="comment"># This will also fail if the urlconf is not defined.</span></span><br><span class="line">        self.assertEquals(author.get_absolute_url(), <span class="string">'/catalog/author/1'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>Run the tests now. If you created the Author model as we described in the models tutorial it is quite likely that you will get an error for the <code>date_of_death</code> label as shown below. The test is failing because it was written expecting the label definition to follow Django’s convention of not capitalising the first letter of the label.</p>
+<h3 id="forms"><a class="markdownIt-Anchor" href="#forms"></a> Forms</h3>
+<p>The philosophy for testing your forms is the same as for testing your models; you need to test anything that you’ve coded or your design specifies, but not the behaviour of the underlying framework and other third party libraries.</p>
+<p>Consider our form for renewing books. This has just one field for the renewal date, which will have a label and help text that we will need to verify.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RenewBookForm</span>(<span class="params">forms.Form</span>):</span></span><br><span class="line">    <span class="string">"""Form for a librarian to renew books."""</span></span><br><span class="line">    renewal_date = forms.DateField(help_text=<span class="string">"Enter a date between now and 4 weeks (default 3)."</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">clean_renewal_date</span>(<span class="params">self</span>):</span></span><br><span class="line">        data = self.cleaned_data[<span class="string">'renewal_date'</span>]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Check if a date is not in the past.</span></span><br><span class="line">        <span class="keyword">if</span> data &lt; datetime.date.today():</span><br><span class="line">            <span class="keyword">raise</span> ValidationError(_(<span class="string">'Invalid date - renewal in past'</span>))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Check if date is in the allowed range (+4 weeks from today).</span></span><br><span class="line">        <span class="keyword">if</span> data &gt; datetime.date.today() + datetime.timedelta(weeks=<span class="number">4</span>):</span><br><span c

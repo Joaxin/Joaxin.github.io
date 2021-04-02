@@ -59,8 +59,10 @@
 
 <script>
   function removeTransition(event) {
-    if (event.propertyName !== 'transform') return; // 过滤其中一种事件
+    console.log(event.propertyName);
+    if (event.propertyName !== 'transform') return ; // 过滤其中一种事件
     event.target.classList.remove('playing'); // 移除高亮的样式
+    console.log('remove playing');
   }
 
   function playSound(event) {
@@ -73,8 +75,9 @@
     audio.play(); // 播放相应音效
   }
 
-  const keys = Array.from(document.querySelectorAll('.key')); // 获取页面所有按钮元素
-  keys.forEach(key => key.addEventListener('transitionend', removeTransition)); // 添加 transition 事件监听
+  // const keys = Array.from(document.querySelectorAll('.key')); 
+  // keys.forEach(key => key.addEventListener('transitionend', removeTransition)); 
+  document.querySelectorAll('.key').forEach(key => key.addEventListener('transitionend', removeTransition)); 
   window.addEventListener('keydown', playSound);
 </script>
 

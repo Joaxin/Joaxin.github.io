@@ -1,0 +1,273 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Django Introduction Part6 - Generic list and detail views | Pinsflora</title><meta name="keywords" content="Django"><meta name="author" content="Joaxin"><meta name="copyright" content="Joaxin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="In this article we’re going to complete the first version of the movie website by adding list and detail pages.  Movie list page The movielist page will display a list of all the available movie recor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django Introduction Part6 - Generic list and detail views">
+<meta property="og:url" content="https://u.pinsflora.xyz/Pysnista/Django/dj_intro6_views/index.html">
+<meta property="og:site_name" content="Pinsflora">
+<meta property="og:description" content="In this article we’re going to complete the first version of the movie website by adding list and detail pages.  Movie list page The movielist page will display a list of all the available movie recor">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_red_dim_flower.jpg">
+<meta property="article:published_time" content="2018-01-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-09-04T16:00:00.000Z">
+<meta property="article:author" content="Joaxin">
+<meta property="article:tag" content="Django">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_red_dim_flower.jpg"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://u.pinsflora.xyz/Pysnista/Django/dj_intro6_views/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-177831205-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-177831205-1');
+</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-09-05 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}const fontSizeVal = saveToLocal.get('global-font-size')
+if (fontSizeVal !== undefined) {
+  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+}})()</script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Pinsflora" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">333</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">110</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">34</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_red_dim_flower.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Pinsflora</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Django Introduction Part6 - Generic list and detail views</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-01-23T16:00:00.000Z" title="Created 2018-01-24 00:00:00">2018-01-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-09-04T16:00:00.000Z" title="Updated 2020-09-05 00:00:00">2020-09-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/">Python</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/Django/">Django</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>13min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>In this article we’re going to complete the first version of the movie website by adding list and detail pages.</p>
+<h2 id="movie-list-page"><a class="markdownIt-Anchor" href="#movie-list-page"></a> Movie list page</h2>
+<p>The movielist page will display a list of all the available movie records in the page with the title being a hyperlink to the associated movie detail page.</p>
+<h3 id="url-mapping"><a class="markdownIt-Anchor" href="#url-mapping"></a> URL mapping</h3>
+<p>Open <strong>/catalog/urls.py</strong> and copy in the line shown in bold below. As for the index page, this <code>path()</code> function defines a pattern to match against the URL (<strong>‘movies/’</strong>), a view function that will be called if the URL matches (<code>views.MovieListView.as_view()</code>), and a name for this particular mapping.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">''</span>, views.index, name=<span class="string">'index'</span>),</span><br><span class="line">    path(<span class="string">'movies/'</span>, views.MovieListView.as_view(), name=<span class="string">'movies'</span>),</span><br><span class="line">]</span><br></pre></td></tr></tbody></table></figure>
+<p>For Django class-based views we access an appropriate view function by calling the class method <code>as_view()</code>. This does all the work of creating an instance of the class, and making sure that the right handler methods are called for incoming HTTP requests.</p>
+<h3 id="view-cbv"><a class="markdownIt-Anchor" href="#view-cbv"></a> View (CBV)</h3>
+<p>Now, Let Us Use generic views: Less code is better.</p>
+<p>We could quite easily write the movie list view as a regular function, which would query the database for all movies, and then call <code>render()</code> to pass the list to a specified template. Instead, however, we’re going to use a class-based generic list view (<code>ListView</code>) — a class that display a list of objects.</p>
+<p>Because the <code>generic view</code> already implements most of the functionality we need and follows Django best-practice, we will be able to create a more robust list view with less code, less repetition, and ultimately less maintenance.</p>
+<p>Open <strong>movie/views.py</strong>, and copy the following code into the bottom of the file:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.views <span class="keyword">import</span> generic</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MovieListView</span>(<span class="params">generic.ListView</span>):</span></span><br><span class="line">    <span class="comment"># queryset = Movie.objects.all()</span></span><br><span class="line">    model = Movie</span><br><span class="line">    <span class="comment"># context_object_name = 'movie_list'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_queryset</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> Movie.objects.order_by(<span class="string">'movie_title'</span>)[:<span class="number">20</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> ListView</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MovieListView</span>(<span class="params">ListView</span>):</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></tbody></table></figure>
+<p>That’s it! The generic view will query the database to get all records for the specified model (<code>Movie</code>) ,within the template you can access the list of movies with the template variable named <code>object_list</code> OR <code>movie_list</code> (i.e. generically “<code>*the_model_name*_list</code>”).</p>
+<blockquote>
+<p>The view passes the context (list of movies) by default as <code>object_list</code> and <code>book_list</code>aliases; either will work.</p>
+</blockquote>
+<p><strong>Note</strong>: This awkward path for the template location isn’t a misprint — the generic views look for templates in <code>/*application_name*/*the_model_name*_list.html</code>inside the application’s <code>/*application_name*/templates/</code> directory (<code>/movie/templates/)</code>.</p>
+<p>You can add attributes to change the default behaviour above. For example, you can specify another template file Possibly the most useful variation is to change/filter the subset of results that are returned — so instead of listing all movies you might list top 5 movies that were read by other users.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> View</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MovieListView</span>(<span class="params">generic.ListView</span>):</span></span><br><span class="line">    model = Movie  <span class="comment">#== queryset = Movie.objects.all() </span></span><br><span class="line">    context_object_name = <span class="string">'my_movie_list'</span>   <span class="comment"># your own name for the list as a template variable, default is movie_list</span></span><br><span class="line">    queryset = Movie.objects.filter(movie_title__icontains=<span class="string">'star'</span>)[:<span class="number">5</span>] <span class="comment"># Get 5 movies containing the title war</span></span><br><span class="line">    template_name = <span class="string">'movie/my_arbitrary_template_name_list.html'</span>  <span class="comment"># Specify your own template name/location</span></span><br></pre></td></tr></tbody></table></figure>
+<p>While we don’t need to do so here, you can also override some of the class methods.</p>
+<p>For example, we can override the <code>get_queryset()</code> method to change the list of records returned. This is more flexible than just setting the <code>queryset</code> attribute as we did in the preceding code fragment (though there is no real benefit in this case):</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MovieListView</span>(<span class="params">generic.ListView</span>):</span></span><br><span class="line">    model = Book</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_queryset</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> queryset = Movie.objects.filter(movie_title__icontains=<span class="string">'star'</span>)[:<span class="number">5</span>]</span><br></pre></td></tr></tbody></table></figure>
+<p>We might also override <code>get_context_data()</code> in order to pass additional context variables to the template (e.g. the list of movies is passed by default). The fragment below shows how to add a variable named “<code>some_data</code>” to the context (it would then be available as a template variable).</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MovieListView</span>(<span class="params">generic.ListView</span>):</span></span><br><span class="line">    model = Book</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_context_data</span>(<span class="params">self, **kwargs</span>):</span></span><br><span class="line">        <span class="comment"># Call the base implementation first to get the context</span></span><br><span class="line">        context = super(MovieListView, self).get_context_data(**kwargs)</span><br><span class="line">        <span class="comment"># Create any data and add it to the context</span></span><br><span class="line">        context[<span class="string">'some_data'</span>] = <span class="string">'This is just some data'</span></span><br><span class="line">        <span class="keyword">return</span> context</span><br></pre></td></tr></tbody></table></figure>
+<p>When doing this it is important to follow the pattern used above:</p>
+<ul>
+<li>First get the existing context from our superclass.</li>
+<li>Then add your new context information.</li>
+<li>Then return the new (updated) context.</li>
+</ul>
+<h2 id="movie-detail-page"><a class="markdownIt-Anchor" href="#movie-detail-page"></a> Movie detail page</h2>
+<p>The movie detail page will display information about a specific movie, , we’ll also list the ratings of the the related movies including the watching  status.</p>
+<h3 id="url-mapping-2"><a class="markdownIt-Anchor" href="#url-mapping-2"></a> URL mapping</h3>
+<p>In this case we use <code>'&lt;int:pk&gt;'</code> to capture the movieid, which must be a specially formatted string and pass it to the view as a parameter named <code>pk</code> (short for primary key). This is the id that is being used to store the movieuniquely in the database, as defined in the movieModel.</p>
+<p><strong>Important</strong>: The generic class-based detail view <em>expects</em> to be passed a parameter named <strong>pk</strong>. If you’re writing your own function view you can use whatever parameter name you like, or indeed pass the information in an unnamed argument.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">''</span>, views.index, name=<span class="string">'index'</span>),</span><br><span class="line">    path(<span class="string">'movies/'</span>, views.MovieListView.as_view(), name=<span class="string">'movies'</span>),</span><br><span class="line">    path(<span class="string">'movie/&lt;int:pk&gt;'</span>, views.MovieDetailView.as_view(), name=<span class="string">'movie-detail'</span>),</span><br><span class="line">]</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>Note that the The <code>DetailView</code> generic view expects the primary key value captured from the URL to be called <code>"pk"</code>,  so the name patterns has changed from <code>&lt;movie_id&gt;</code> to <code>&lt;pk&gt;</code>.</p>
+</blockquote>
+<p>The pattern matching provided by <code>path()</code> is simple and useful for the (very common) cases where you just want to capture <em>any</em> string or integer. If you need more refined filtering (for example, to filter only strings that have a certain number of characters) then you can use the <code>re_path()</code> method.</p>
+<p>This method is used just like <code>path()</code> except that it allows you to specify a pattern using a Regular expression. For example, the previous path could have been written as shown below:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">re_path(r'^movie/(?P&lt;pk&gt;\d+)$', views.BookDetailView.as_view(), name='book-detail'),</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>(?P&lt;<em>name</em>&gt;…) - Capture the pattern (indicated by …) as a named variable (in this case “name”). The captured values are passed to the view with the name specified. Your view must therefore declare an argument with the same name!</p>
+</blockquote>
+<p>Let’s consider a few real examples of patterns:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Pattern</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>r’^movie/(?P<pk>\d+)$'</pk></strong></td>
+<td style="text-align:left">This is the RE used in our URL mapper. It captures all the digits <strong>(?P<pk>\d+)</pk></strong> and passes them to the view in a parameter named ‘pk’. <strong>The captured values are always passed as a string!</strong> For example, this would match <code>movie/1234</code> , and send a variable <code>pk='1234'</code> to the view.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>r’^movie/(\d+)$'</strong></td>
+<td style="text-align:left">This matches the same URLs as the preceding case.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>r’^movie/(?P<stub>[-\w]+)$'</stub></strong></td>
+<td style="text-align:left">This matches a string that has <code>book/</code> at the start of the line (<strong>^movie/</strong>), then has one or more characters that are <em>either</em> a ‘-’ or a word character (<strong>[-\w]+</strong>), and then ends.</td>
+</tr>
+</tbody>
+</table>
+<p>One feature that we haven’t used here, but which you may find valuable, is that you can declare and pass additional options to the view.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">path(<span class="string">'url/'</span>, views.my_reused_view, {<span class="string">'my_template_name'</span>: <span class="string">'some_path'</span>}, name=<span class="string">'aurl'</span>),</span><br><span class="line">path(<span class="string">'anotherurl/'</span>, views.my_reused_view, {<span class="string">'my_template_name'</span>: <span class="string">'another_path'</span>}, name=<span class="string">'anotherurl'</span>),</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>Slug</strong></p>
+<p>A “slug” is a way of generating a valid URL, generally using data already obtained. For instance, a slug uses the title of an article to generate a URL.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># models.py</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Movie</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    t_create = models.DateTimeField(auto_now_add=<span class="literal">True</span>)</span><br><span class="line">    slug = models.SlugField(max_length=<span class="number">250</span>, unique_for_date=<span class="string">'t_create'</span>) </span><br><span class="line">    <span class="comment"># ......</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_absolute_url</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> reverse(<span class="string">'movie:movie_detail'</span>, args=[self.t_create.year, self.t_create.month, self.t_create.day, self.slug])</span><br><span class="line"><span class="comment"># admin.py</span></span><br><span class="line">prepopulated_fields = {<span class="string">'slug'</span>: (<span class="string">'movie_title'</span>,)}</span><br><span class="line"><span class="comment"># views.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">movie_detail</span>(<span class="params">request, year, month, day, movie</span>):</span></span><br><span class="line">    m = get_object_or_404(Movie, slug=movie, t_create__year=year, t_create__month=month,t_create__day=day)</span><br><span class="line">     <span class="keyword">return</span> render(request, <span class="string">'movie/movie_detail.html'</span>, context={<span class="string">'movie'</span>: movie})</span><br><span class="line"><span class="comment"># urls.py</span></span><br><span class="line">path(<span class="string">'&lt;int:year&gt;/&lt;int:month&gt;/&lt;int:day&gt;/&lt;slug:movie&gt;/'</span>, views.movie_detail, name=<span class="string">'movie_detail'</span>),</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="view-cbv-2"><a class="markdownIt-Anchor" href="#view-cbv-2"></a> View (CBV)</h3>
+<p>Open <strong>catalog/views.py</strong>, and copy the following code into the bottom of the file:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MovieDetailView</span>(<span class="params">generic.DetailView</span>):</span></span><br><span class="line">    model = Movie</span><br></pre></td></tr></tbody></table></figure>
+<p>That’s it! All you need to do now is create a template called <strong>movie_detail.html</strong>, and the view will pass it the database information for the specific <code>Movie</code> record extracted by the URL mapper. Within the template you can access the list of movies with the template variable named <code>object</code> OR <code>movie</code>(i.e. generically “<code>*the_model_name*</code>”).</p>
+<blockquote>
+<p>If a requested record does not exist then the generic class-based detail view will raise an <code>Http404</code> exception for you automatically — in production, this will automatically display an appropriate “resource not found” page, which you can customise if desired.</p>
+</blockquote>
+<p>Just to give you some idea of how this works, the code fragment below demonstrates how you would implement the class-based view as a function if you were <strong>not</strong> using the generic class-based detail view.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">movie_detail_view</span>(<span class="params">request, primary_key</span>):</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        movie= Movie.objects.get(pk=primary_key)</span><br><span class="line">    <span class="keyword">except</span> Movie.DoesNotExist:</span><br><span class="line">        <span class="keyword">raise</span> Http404(<span class="string">'movie does not exist'</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">'movie/movie_detail.html'</span>, context={<span class="string">'movie'</span>: movie})</span><br></pre></td></tr></tbody></table></figure>
+<p>Alternatively, we can use the <code>get_object_or_404()</code> function as a shortcut to to raise an <code>Http404</code> exception if the record is not found.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> get_object_or_404</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">movie_detail_view</span>(<span class="params">request, primary_key</span>):</span></span><br><span class="line">    movie = get_object_or_404(Movie, pk=primary_key)</span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">'movie/movie_detail.html'</span>, context={<span class="string">'movie'</span>: movie})</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="pagination"><a class="markdownIt-Anchor" href="#pagination"></a> Pagination</h2>
+<p>If you’ve just got a few records, our movie list page will look fine. However, as you get into the tens or hundreds of records the page will take progressively longer to load (and have far too much content to browse sensibly). The solution to this problem is to add pagination to your list views, reducing the number of items displayed on each page.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.core.paginator <span class="keyword">import</span> Paginator</span><br><span class="line">all_movies = Movie.objects.all()</span><br><span class="line">paginator = Paginator(all_movies, <span class="number">10</span>)  <span class="comment"># 10 movies in each page</span></span><br><span class="line"><span class="comment"># &lt;django.core.paginator.Paginator at 0x551ffd0&gt;</span></span><br><span class="line">paginator.count</span><br><span class="line"><span class="comment"># 37</span></span><br><span class="line">paginator.num_pages</span><br><span class="line"><span class="comment"># 4</span></span><br><span class="line">type(paginator.page_range)</span><br><span class="line"><span class="comment"># range</span></span><br><span class="line">paginator.page_range</span><br><span class="line"><span class="comment"># range(1, 5)</span></span><br><span class="line"></span><br><span class="line">page1 = paginator.page(<span class="number">1</span>)</span><br><span class="line">page1</span><br><span class="line"><span class="comment"># &lt;Page 1 of 4&gt;</span></span><br><span class="line">page1.object_list</span><br><span class="line"><span class="comment"># &lt;QuerySet [&lt;Movie: Avatar: The Way of Water(2022-12-16)&gt;,...]&gt;</span></span><br><span class="line"></span><br><span class="line">page2 = paginator.page(<span class="number">2</span>)</span><br><span class="line">page2.has_next()</span><br><span class="line"><span class="comment"># True</span></span><br><span class="line">page2.has_previous()</span><br><span class="line"><span class="comment"># True</span></span><br><span class="line">page2.has_other_pages()</span><br><span class="line"><span class="comment"># True</span></span><br><span class="line">page2.next_page_number()</span><br><span class="line"><span class="comment"># 3</span></span><br><span class="line">page2.previous_page_number()</span><br><span class="line"><span class="comment"># 1</span></span><br><span class="line">page2.start_index() <span class="comment"># The 1-based index of the first item on this page</span></span><br><span class="line"><span class="comment"># 11</span></span><br><span class="line">page2.end_index() <span class="comment"># The 1-based index of the last item on this page</span></span><br><span class="line"><span class="comment"># 19</span></span><br><span class="line"></span><br><span class="line">paginator.page(<span class="number">0</span>)</span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line"><span class="comment"># EmptyPage: That page number is less than 1</span></span><br><span class="line">paginator.page(<span class="number">5</span>)</span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line"><span class="comment"># EmptyPage: That page contains no results</span></span><br></pre></td></tr></tbody></table></figure>
+<p>Django has excellent inbuilt support for pagination. Even better, this is built into the generic class-based list views so you don’t have to do very much to enable it!</p>
+<h3 id="viewscbv"><a class="markdownIt-Anchor" href="#viewscbv"></a> Views(CBV)</h3>
+<p>Open <strong>movie/views.py</strong>, and add the <code>paginate_by</code> line shown in bold below.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> ListView</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MovieListView</span>(<span class="params">generic.ListView</span>):</span></span><br><span class="line">    model = Movie</span><br><span class="line">    paginate_by = <span class="number">10</span></span><br></pre></td></tr></tbody></table></figure>
+<p>With this addition, as soon as you have more than 10 records the view will start paginating the data it sends to the template.</p>
+<h3 id="templates"><a class="markdownIt-Anchor" href="#templates"></a> Templates</h3>
+<p>Now that the data is paginated, we need to add support to the template to scroll through the results set. Because we might want to do this in all list views, we’ll do this in a way that can be added to the base template.</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">{% include 'pagination.html' with page=page_obj %}</span><br><span class="line">{% comment %} {% if is_paginated %} {% endcomment %}</span><br></pre></td></tr></tbody></table></figure>
+<p>Open <strong>/templates/pagination.html</strong> and copy in the following pagination code.</p>
+<figure class="highlight django"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">{% <span class="name"><span class="name">block</span></span> pagination %}</span></span><br><span class="line"><span class="xml">    </span><span class="template-tag">{% <span class="name"><span class="name">if</span></span> is_paginated %}</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pagination"</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"page-links"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                </span><span class="template-tag">{% <span class="name"><span class="name">if</span></span> page_obj.has_previous %}</span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"</span></span></span><span class="template-variable">{{ request.path }}</span><span class="xml"><span class="tag"><span class="string">?page=</span></span></span><span class="template-variable">{{ page_obj.previous_page_number }}</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span>previous<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="xml">                </span><span class="template-tag">{% <span class="name"><span class="name">endif</span></span> %}</span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"page-current"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    Page </span><span class="template-variable">{{ page_obj.number }}</span><span class="xml"> of </span><span class="template-variable">{{ page_obj.paginator.num_pages }}</span><span class="xml">.</span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="xml">                </span><span class="template-tag">{% <span class="name"><span class="name">if</span></span> page_obj.has_next %}</span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"</span></span></span><span class="template-variable">{{ request.path }}</span><span class="xml"><span class="tag"><span class="string">?page=</span></span></span><span class="template-variable">{{ page_obj.next_page_number }}</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span>next<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="xml">                </span><span class="template-tag">{% <span class="name"><span class="name">endif</span></span> %}</span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">    </span><span class="template-tag">{% <span class="name"><span class="name">endif</span></span> %}</span></span><br><span class="line"><span class="template-tag">{% <span class="name"><s

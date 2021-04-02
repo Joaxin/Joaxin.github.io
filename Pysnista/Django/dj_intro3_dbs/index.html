@@ -1,0 +1,246 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Django Introduction Part3 - Database | Pinsflora</title><meta name="keywords" content="Django"><meta name="author" content="Joaxin"><meta name="copyright" content="Joaxin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="Django uses an Object-Relational-Mapper (ORM) to map model definitions in the Django code to the data structure used by the underlying database. As we change our model definitions, Django tracks the c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django Introduction Part3 - Database">
+<meta property="og:url" content="https://u.pinsflora.xyz/Pysnista/Django/dj_intro3_dbs/index.html">
+<meta property="og:site_name" content="Pinsflora">
+<meta property="og:description" content="Django uses an Object-Relational-Mapper (ORM) to map model definitions in the Django code to the data structure used by the underlying database. As we change our model definitions, Django tracks the c">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_tree_dawnlights.jpg">
+<meta property="article:published_time" content="2018-01-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-09-04T16:00:00.000Z">
+<meta property="article:author" content="Joaxin">
+<meta property="article:tag" content="Django">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_tree_dawnlights.jpg"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://u.pinsflora.xyz/Pysnista/Django/dj_intro3_dbs/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-177831205-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-177831205-1');
+</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-09-05 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}const fontSizeVal = saveToLocal.get('global-font-size')
+if (fontSizeVal !== undefined) {
+  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+}})()</script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Pinsflora" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">333</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">110</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">34</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_tree_dawnlights.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Pinsflora</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Django Introduction Part3 - Database</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-01-23T16:00:00.000Z" title="Created 2018-01-24 00:00:00">2018-01-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-09-04T16:00:00.000Z" title="Updated 2020-09-05 00:00:00">2020-09-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/">Python</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/Django/">Django</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>11min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>Django uses an Object-Relational-Mapper (ORM) to map model definitions in the Django code to the data structure used by the underlying database. As we change our model definitions, Django tracks the changes and can create database migration scripts (in <strong>/yourproject/yourapps/migrations/</strong>) to automatically migrate the underlying data structure in the database to match the model.</p>
+<h2 id="makemigrations-migrate"><a class="markdownIt-Anchor" href="#makemigrations-migrate"></a> Makemigrations &amp; Migrate</h2>
+<p>When we created the website Django automatically added a number of models for use by the admin section of the site (which we’ll look at later). Run the following commands to define tables for those models in the database (make sure you are in the directory that contains <strong><a target="_blank" rel="noopener" href="http://manage.py">manage.py</a></strong>):</p>
+<p>Some of these applications make use of at least one database table, though, so we need to create the tables in the database before we can use them. To do that, run the following command:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$python</span> manage.py makemigrations</span><br><span class="line"><span class="variable">$python</span> manage.py migrate</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p><strong>Important</strong>:</p>
+<p>You’ll need to run the above commands every time your models change in a way that will affect the structure of the data that needs to be stored (including both addition and removal of whole models and individual fields).</p>
+</blockquote>
+<p>The <code>makemigrations</code> command <em>creates</em> (but does not apply) the migrations for all applications installed in your project (you can specify the application name as well to just run a migration for a single project). This gives you a chance to checkout the code for these migrations before they are applied — when you’re a Django expert you may choose to tweak them slightly!</p>
+<p>The <code>migrate</code> command actually applies the migrations to your database (Django tracks which ones have been added to the current database).</p>
+<p>You can see from your <code>yourapps/migrations/0001_initial.py</code>that would be like this:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> django.core.validators</span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> migrations, models</span><br><span class="line"><span class="keyword">import</span> django.db.models.deletion</span><br><span class="line"><span class="keyword">import</span> django.utils.timezone</span><br><span class="line"><span class="keyword">import</span> uuid</span><br><span class="line">...</span><br><span class="line">                (<span class="string">'rating_status'</span>, models.CharField(choices=[(<span class="string">'n'</span>, <span class="string">'Not interested'</span>), (<span class="string">'a'</span>, <span class="string">'Add to Watchlist'</span>), (<span class="string">'h'</span>, <span class="string">'Have Watched'</span>), (<span class="string">'w'</span>, <span class="string">'Waiting / Watching'</span>)], default=<span class="string">'n'</span>, max_length=<span class="number">1</span>)),</span><br><span class="line">                (<span class="string">'rating_comment'</span>, models.CharField(blank=<span class="literal">True</span>, max_length=<span class="number">250</span>)),</span><br><span class="line">                (<span class="string">'movie'</span>, models.ForeignKey(null=<span class="literal">True</span>, on_delete=django.db.models.deletion.CASCADE, to=<span class="string">'movie.movie'</span>)),</span><br><span class="line">            ],</span><br><span class="line">            options={</span><br><span class="line">                <span class="string">'ordering'</span>: [<span class="string">'-rating_time'</span>],</span><br><span class="line">            },</span><br><span class="line">        ),</span><br><span class="line">    ]</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>Let’s run another command to print the sql grammar like code, the <code>sqlmigrate</code> command takes migration names and returns their SQL (0001_initial.py):</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py sqlmigrate movie 0001</span><br></pre></td></tr></tbody></table></figure>
+<p>You should see something similar to the following (we’ve reformatted it for readability)::</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BEGIN</span>;</span><br><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="comment">-- Create model Director</span></span><br><span class="line"><span class="comment">--</span></span><br><span class="line">...</span><br><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="comment">-- Create model Rating</span></span><br><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">"movie_rating"</span> (</span><br><span class="line">    <span class="string">"id"</span> <span class="built_in">char</span>(<span class="number">32</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> PRIMARY <span class="keyword">KEY</span>, </span><br><span class="line">    <span class="string">"rating_movie"</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>, </span><br><span class="line">    <span class="string">"votes"</span> <span class="built_in">integer</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>, </span><br><span class="line">    <span class="string">"rating_time"</span> datetime <span class="keyword">NOT</span> <span class="literal">NULL</span>, </span><br><span class="line">    <span class="string">"rating_status"</span> <span class="built_in">varchar</span>(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>, </span><br><span class="line">    <span class="string">"rating_comment"</span> <span class="built_in">varchar</span>(<span class="number">250</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>, </span><br><span class="line">    <span class="string">"movie_id"</span> <span class="built_in">integer</span> <span class="literal">NULL</span> <span class="keyword">REFERENCES</span> <span class="string">"movie_movie"</span> (<span class="string">"id"</span>) DEFERRABLE <span class="keyword">INITIALLY</span> <span class="keyword">DEFERRED</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> <span class="string">"movie_movie_director_id_0c15103f"</span> <span class="keyword">ON</span> <span class="string">"movie_movie"</span> (<span class="string">"director_id"</span>);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">UNIQUE</span> <span class="keyword">INDEX</span> <span class="string">"movie_movie_genre_movie_id_genre_id_71670816_uniq"</span> <span class="keyword">ON</span> <span class="string">"movie_movie_genre"</span> (<span class="string">"movie_id"</span>, <span class="string">"genre_id"</span>);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> <span class="string">"movie_movie_genre_movie_id_eb49a2f5"</span> <span class="keyword">ON</span> <span class="string">"movie_movie_genre"</span> (<span class="string">"movie_id"</span>);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> <span class="string">"movie_movie_genre_genre_id_42d26c87"</span> <span class="keyword">ON</span> <span class="string">"movie_movie_genre"</span> (<span class="string">"genre_id"</span>);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> <span class="string">"movie_rating_movie_id_4dfd52d9"</span> <span class="keyword">ON</span> <span class="string">"movie_rating"</span> (<span class="string">"movie_id"</span>);</span><br><span class="line"><span class="keyword">COMMIT</span>;</span><br></pre></td></tr></tbody></table></figure>
+<p>Note the following:</p>
+<ul>
+<li>The exact output will vary depending on the database you are using. The example above is generated for SQLite.</li>
+<li>Table names are automatically generated by combining the name of the app  and the lowercase name of the model. (You can override this.)</li>
+<li>Primary keys (IDs) are added automatically. (You can override this, too.)</li>
+<li>By convention, Django appends <code>"_id"</code> to the foreign key field name. (Yes, you can override this, as well.)</li>
+<li>The foreign key relationship is made explicit by a <code>FOREIGN KEY</code> constraint. Don’t worry about the <code>DEFERRABLE</code> parts; that’s just telling SQLite to not enforce the foreign key until the end of the transaction.</li>
+<li>It’s tailored to the database you’re using, so database-specific field types such as <code>auto_increment</code> (MySQL), <code>serial</code> (PostgreSQL), or <code>integer primary key autoincrement</code> (SQLite) are handled for you automatically.</li>
+</ul>
+<p>If you’re interested, you can also run <code>python manage.py check</code>; this checks for any problems in your project without making migrations or touching the database.</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System check identified no issues (0 silenced).</span><br></pre></td></tr></tbody></table></figure>
+<p>Now that we’ve updated our models, we’ll need to make fresh migrations on the project and then apply those migrations:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python manage.py makemigrations</span><br><span class="line">python manage.py migrate</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="playing-with-the-api"><a class="markdownIt-Anchor" href="#playing-with-the-api"></a> Playing with the API</h2>
+<p>Now, let’s hop into the interactive Python shell and play around with the free API Django gives you. To invoke the Python shell, use this command:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python manage.py shell</span><br></pre></td></tr></tbody></table></figure>
+<p>You can search for records that match a certain criteria using the model’s <code>objects</code> attribute (provided by the base class).</p>
+<p>We can get all records for a model as a <code>QuerySet</code>, using <code>objects.all()</code>. The <code>QuerySet</code> is an iterable object, meaning that it contains a number of objects that we can iterate/loop through.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## Import the model classes we just wrote.</span></span><br><span class="line"><span class="keyword">from</span> movie.models <span class="keyword">import</span> Movie, Director, Rating</span><br><span class="line"></span><br><span class="line">all_movies = Movie.objects.all()</span><br><span class="line">all_movies_10 = Movie.objects.all()[:<span class="number">10</span>]</span><br><span class="line"></span><br><span class="line">all_movies</span><br><span class="line"><span class="comment"># &lt;QuerySet [&lt;Movie: Aquaman&gt;, &lt;Movie: Inception&gt;, ..., &lt;Movie: Rebecca&gt;]&gt;</span></span><br><span class="line">all_movies.count()</span><br><span class="line"><span class="comment"># 31</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## print all movie titles</span></span><br><span class="line"><span class="keyword">for</span> e <span class="keyword">in</span> Movie.objects.all():</span><br><span class="line">    print(e.movie_title)</span><br><span class="line"></span><br><span class="line"><span class="comment">## order</span></span><br><span class="line">all_movies.order_by(<span class="string">'movie_title'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>Django’s <code>filter()</code> method allows us to filter the returned <code>QuerySet</code> to match a specified <strong>text</strong> or <strong>numeric</strong> field against a particular criteria. For example, to filter for directors that contain “hitchcock” in his/her name  filter for movie directors that contain “hitchcock” in his/her name or and then count them, we could do the following.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Director.objects.filter(director_name__contains=<span class="string">'hitchcock'</span>).count()</span><br><span class="line"><span class="comment"># 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Use double underscores to separate relationships.</span></span><br><span class="line">Movie.objects.filter(director__director_name__contains=<span class="string">'hitchcock'</span>,director__director_name_CN__contains=<span class="string">'希区柯克'</span>).count()</span><br><span class="line"><span class="comment">##==</span></span><br><span class="line">Movie.objects.filter(director__director_name__contains=<span class="string">'hitchcock'</span>).filter(director__director_name_CN__contains=<span class="string">'希区柯克'</span>).exclude(director__director_name__startswith=<span class="string">'James'</span>).count()</span><br><span class="line"><span class="comment"># 10</span></span><br></pre></td></tr></tbody></table></figure>
+<p>The fields to match and the type of match are defined in the filter parameter name, using the format: <code>field_name__match_type</code> (note the <em>double underscore</em> between <code>title</code> and <code>contains</code> above). Above we’re filtering <code>title</code> with a case-sensitive match. There are many other types of matches you can do: <code>icontains</code> (case insensitive), <code>iexact</code> (case-insensitive exact match), <code>exact</code> (case-sensitive exact match) and <code>in</code>, <code>gt</code> (greater than), <code>startswith</code>, etc.</p>
+<p>Django provides a rich database lookup API that’s entirely driven by keyword arguments.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Movie.objects.filter(movie_title__startswith=<span class="string">'Saw'</span>)</span><br><span class="line"><span class="comment"># &lt;QuerySet [&lt;Movie: Saw II(2005-10-28)&gt;, &lt;Movie: Saw(2004-01-19)&gt;]&gt;</span></span><br><span class="line"></span><br><span class="line">Movie.objects.filter(id=<span class="number">1</span>)</span><br><span class="line"><span class="comment">#  &lt;QuerySet [&lt;Movie: Inception(2010-07-16)&gt;]&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Request an ID that doesn't exist, this will raise an exception.</span></span><br><span class="line">Movie.objects.get(id=<span class="number">2020</span>)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">    ...</span><br><span class="line">DoesNotExist: Movie matching query does <span class="keyword">not</span> exist.</span><br><span class="line"></span><br><span class="line"><span class="comment">## Lookup by a primary key is the most common case, so Django provides a</span></span><br><span class="line"><span class="comment">## shortcut for primary-key exact lookups.</span></span><br><span class="line"><span class="comment">## The following is identical to Movie.objects.get(id=1).</span></span><br><span class="line">Movie.objects.get(pk=<span class="number">1</span>)</span><br><span class="line"><span class="comment">#  &lt;Movie: Inception(2010-07-16)&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>We can also create a new Movie.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.utils <span class="keyword">import</span> timezone</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line">timezone.now()</span><br><span class="line"><span class="comment"># datetime.datetime(2018, 12, 3, 14, 24, 44, 318870, tzinfo=&lt;UTC&gt;)</span></span><br><span class="line">m = Movie(movie_title=<span class="string">"Strangers on a Train"</span>,movie_title_CN=<span class="string">"火车怪客"</span>,movie_country =<span class="string">"美国"</span>,movie_release_date=datetime.date(<span class="number">1951</span>, <span class="number">6</span>, <span class="number">30</span>))</span><br><span class="line"><span class="comment">## Save the object into the database. You have to call save() explicitly.</span></span><br><span class="line">m.save()</span><br><span class="line"><span class="comment">## Now it has an ID.</span></span><br><span class="line">m.id</span><br><span class="line"><span class="comment"># 10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Access model field values via Python attributes.</span></span><br><span class="line">m.movie_release_date</span><br><span class="line"><span class="comment"># datetime.date(1951, 6, 30)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Change values by changing the attributes, then calling save().</span></span><br><span class="line">m.movie_title = <span class="string">"Spellbound"</span></span><br><span class="line">m.save()</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">m2 = Movie.objects.get(pk=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## Display any movie url from the related object set -- none so far.</span></span><br><span class="line">m2.movieURL_set.all()</span><br><span class="line">&lt;QuerySet []&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">## Create movie url.</span></span><br><span class="line">m2.movieURL_set.create(movie_url_anno=<span class="string">'Bilibili'</span>, movie_url=<span class="string">"https://www.bilibili.com/bangumi/play/ss29019"</span>)</span><br><span class="line">m2.movieURL_set.create(movie_url_anno=<span class="string">'iqiyi'</span>, movie_url=<span class="string">"https://www.iqiyi.com/v_19rrho68iw.html"</span>)</span><br><span class="line">movie_url = m2.movieURL_set.create(movie_url_anno=<span class="string">'Tecent'</span>, movie_url=<span class="string">"https://v.qq.com/x/cover/2tzm7pjuff47voq.html"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## Movie URL objects have API access to their related Movie objects.</span></span><br><span class="line">movie_url.movie</span><br><span class="line"><span class="comment"># : &lt;Movie: Strangers on a Train(1951-06-30)&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## And vice versa: Movie objects get access to movie_url objects.</span></span><br><span class="line">m2.movieURL_set.count()</span><br><span class="line"><span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Let's delete one of the movie urls. Use delete() for that.</span></span><br><span class="line">movie_url.delete()</span><br><span class="line"><span class="comment">#(1, {'movie.movieURL': 1})</span></span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>We’re using this instead of simply typing “python”, because <code>manage.py</code> sets the <code>DJANGO_SETTINGS_MODULE</code> environment variable, which gives Django the Python import path to your <code>movies/settings.py</code> file.</p>
+</blockquote>
+<blockquote>
+<p>It’s important to add <code>__str__()</code>methods to your models, not only for your own convenience when dealing with the interactive prompt, but also because objects’ representations are used throughout Django’s automatically-generated admin.</p>
+</blockquote>
+<p>Note these are normal Python methods. Let’s add a custom method, just for demonstration:</p>
+<p><code>ratings/models.py</code></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"><span class="keyword">from</span> django.utils <span class="keyword">import</span> timezone</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Movie</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line">    <span class="comment"># Methods</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">release_date</span>(<span class="params">self, n</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.movie_release_date &lt;= timezone.now().date() + datetime.timedelta(days=n)</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>Note the addition of <code>import datetime</code> and <code>from django.utils import timezone</code>, to reference Python’s standard <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/datetime.html#module-datetime"><code>datetime</code></a>module and Django’s time-zone-related utilities in <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/3.1/ref/utils/#module-django.utils.timezone"><code>django.utils.timezone</code></a>, respectively. If you aren’t familiar with time zone handling in Python, you can learn more in the <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/3.1/topics/i18n/timezones/">time zone support docs</a>.</p>
+</blockquote>
+<p>Save these changes and start a new Python interactive shell by running <code>python manage.py shell</code> again:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Get the question that was published this year.</span></span><br><span class="line"><span class="keyword">from</span> django.utils <span class="keyword">import</span> timezone</span><br><span class="line">current_year = timezone.now().year</span><br><span class="line">m = Movie.objects.get(movie_release_date__year=<span class="number">2022</span>)</span><br><span class="line"><span class="comment">#  &lt;Movie: Avatar: The Way of Water(2022-12-16)&gt;</span></span><br><span class="line">m.release_date(<span class="number">720</span>)</span><br><span class="line"><span class="comment"># False</span></span><br></pre></td></tr></tbody></table></figure>
+<p>we can also this API to create users here:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth.models <span class="keyword">import</span> User</span><br><span class="line">user = User.objects.create_user(<span class="string">'john'</span>, <span class="string">'lennon@thebeatles.com'</span>, <span class="string">'johnpassword'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># At this point, user is a User object that has already been saved</span></span><br><span class="line"><span class="comment"># to the database. You can continue to change its attributes</span></span><br><span class="line"><span class="comment"># if you want to change other fields.</span></span><br><span class="line">user.last_name = <span class="string">'Lennon'</span></span><br><span class="line">user.save()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Changing passwords</span></span><br><span class="line">u = User.objects.get(username=<span class="string">'john'</span>)</span><br><span class="line">u.set_password(<span class="string">'new password'</span>)</span><br><span class="line">u.save()</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="mysql-database"><a class="markdownIt-Anchor" href="#mysql-database"></a> MYSQL Database</h2>
+<p>Because we are using <code>SQLite</code>, we don’t need to do any further setup above. Let’s move on to set up using mysql!</p>
+<p>Coz django is one of the best known web frameworks for Python, and the good news is that it works out of the box with MySQL Server 8.</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysqld.exe -install</span><br><span class="line"></span><br><span class="line">net start mysql</span><br><span class="line"></span><br><span class="line">mysql -u root -p</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>If you encounter the error like<code>MySQL 服务无法启动。服务没有报告任何错误。</code> on your computer.</p>
+<p>You cam try:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysqld -remove MySQL</span><br><span class="line"></span><br><span class="line">mysqld --initialize-insecure</span><br><span class="line"></span><br><span class="line">mysqld -install</span><br><span class="line"></span><br><span class="line">net start mysql</span><br></pre></td></tr></tbody></table></figure>
+<p>Then ，using Navicat for MYSQL，it connected！</p>
+<p><img src="https://s1.ax1x.com/2018/12/12/FteKaD.png" alt="navicat for sql"></p>
+<p>If you want to create a user, it will more complicated then MYSQL5.7,</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> <span class="string">'flur'</span>@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'florence'</span>;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">privileges</span> <span class="keyword">on</span> *.* <span class="keyword">to</span> <span class="string">'flur'</span>@<span class="string">'%'</span> <span class="keyword">with</span> <span class="keyword">grant</span> <span class="keyword">option</span>;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span

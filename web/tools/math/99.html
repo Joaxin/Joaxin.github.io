@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>九九乘法表</title>
+		<style>
+			p {
+				width: 100px;
+				text-align: center;
+				margin: 0px;
+				font-size: 18px;
+				background-color: lavenderblush;
+				border-left: 1px solid #000000;
+				border-top: 1px solid #000000;
+			}
+
+            div.line:last-child p{
+				border-right: 1px solid #000000;
+            }
+
+            div.line p:last-child{
+				border-bottom: 1px solid #000000;
+            }
+			
+			div.container {
+				display: flex;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>9*9乘法表</h1>
+		<div id="99" class="container"></div>
+	</body>
+	<script>
+		window.onload = function() {
+			for(var i = 1; i <= 9; i++) {
+				ps = document.getElementById("99").innerHTML += "<div class='line'></div>";
+				for(var j = 1; j <= i; j++) {
+					document.getElementById("99").getElementsByTagName("div")[i - 1].innerHTML += "<p>" + j + " x " + i + " = " + (j * i) + "</p>";
+				}
+			}
+		}
+	</script>
+
+</html>

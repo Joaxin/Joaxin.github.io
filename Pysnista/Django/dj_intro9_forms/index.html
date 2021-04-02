@@ -1,0 +1,348 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Django Introduction Part9 - Working with forms | Pinsflora</title><meta name="keywords" content="Django"><meta name="author" content="Joaxin"><meta name="copyright" content="Joaxin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="In this article, we&#39;re going to show you a few of the ways you can create and work with forms, and in particular, how the generic editing form views can significantly reduce the amount of work you nee">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django Introduction Part9 - Working with forms">
+<meta property="og:url" content="https://u.pinsflora.xyz/Pysnista/Django/dj_intro9_forms/index.html">
+<meta property="og:site_name" content="Pinsflora">
+<meta property="og:description" content="In this article, we&#39;re going to show you a few of the ways you can create and work with forms, and in particular, how the generic editing form views can significantly reduce the amount of work you nee">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_sea_stairs.jpg">
+<meta property="article:published_time" content="2018-01-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-09-04T16:00:00.000Z">
+<meta property="article:author" content="Joaxin">
+<meta property="article:tag" content="Django">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_sea_stairs.jpg"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://u.pinsflora.xyz/Pysnista/Django/dj_intro9_forms/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-177831205-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-177831205-1');
+</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-09-05 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}const fontSizeVal = saveToLocal.get('global-font-size')
+if (fontSizeVal !== undefined) {
+  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+}})()</script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Pinsflora" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">333</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">110</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">34</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_sea_stairs.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Pinsflora</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Django Introduction Part9 - Working with forms</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-01-23T16:00:00.000Z" title="Created 2018-01-24 00:00:00">2018-01-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-09-04T16:00:00.000Z" title="Updated 2020-09-05 00:00:00">2020-09-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/">Python</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/Django/">Django</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">6.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>40min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>An HTML Form is a group of one or more fields/widgets on a web page, which can be used to collect information from users for submission to a server. Forms are a flexible mechanism for collecting user input because there are suitable widgets for entering many different types of data, including text boxes, checkboxes, radio buttons, date pickers, etc.</p>
+<p>Forms are also a relatively secure way of sharing data with the server, as they allow us to send data in <code>POST</code> requests with cross-site request forgery(CSRF)  protection.</p>
+<p>Working with forms can be complicated! Developers need to write HTML for the form, validate and properly sanitise entered data on the server (and possibly also in the browser), repost the form with error messages to inform users of any invalid fields, handle the data when it has successfully been submitted, and finally respond to the user in some way to indicate success.</p>
+<h1 id="form-fields"><a class="markdownIt-Anchor" href="#form-fields"></a> Form fields¶</h1>
+<p>The <code>Form</code> class is the heart of Django’s form handling system. It specifies the fields in the form, their layout, display widgets, labels, initial values, valid values, and (once validated) the error messages associated with invalid fields. The class also provides methods for rendering itself in templates using predefined formats (tables, lists, etc.) or for getting the value of any element (enabling fine-grained manual rendering).</p>
+<h2 id="declaring-a-form"><a class="markdownIt-Anchor" href="#declaring-a-form"></a> Declaring a Form</h2>
+<p>The declaration syntax for a <code>Form</code> is very similar to that for declaring a <code>Model</code>, and shares the same field types (and some similar parameters). This makes sense because in both cases we need to ensure that each field handles the right types of data, is constrained to valid data, and has a description for display/documentation.</p>
+<p>Form data is stored in an application’s <code>forms.py</code> file,to create a <code>Form</code>, we import the <code>forms</code> library, derive from the <code>Form</code> class, and declare the form’s fields. A very basic email form class would be like this :</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django <span class="keyword">import</span> forms</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EmailCommentsForm</span>(<span class="params">forms.Form</span>):</span></span><br><span class="line">    name = forms.CharField(max_length=<span class="number">50</span>)</span><br><span class="line">    email = forms.EmailField(help_text=<span class="string">"Enter a valid email address."</span>)</span><br><span class="line">    comments = forms.CharField(required=<span class="literal">False</span>, widget=forms.Textarea)</span><br></pre></td></tr></tbody></table></figure>
+<p>Although the primary way you’ll use <code>Field</code> classes is in <code>Form</code> classes, you can also instantiate them and use them directly to get a better idea of how they work. Each <code>Field</code> instance has a <code>clean()</code> method, which takes a single argument and either raises a <code>django.core.exceptions.ValidationError</code> exception or returns the clean value:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django <span class="keyword">import</span> forms</span><br><span class="line">f = forms.EmailField()</span><br><span class="line">f.clean(<span class="string">'foo@example.com'</span>)</span><br><span class="line"><span class="comment"># 'foo@example.com'</span></span><br><span class="line">f.clean(<span class="string">'invalid email address'</span>)</span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line"><span class="comment"># ValidationError: ['Enter a valid email address.']</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="core-field-arguments"><a class="markdownIt-Anchor" href="#core-field-arguments"></a> Core field arguments</h2>
+<p>The arguments that are common to most fields are listed below :</p>
+<ul>
+<li>
+<p>required: If <code>True</code>, the field may not be left blank or given a <code>None</code> value. Fields are required by default, so you would set <code>required=False</code> to allow blank values in the form.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django <span class="keyword">import</span> forms</span><br><span class="line">f = forms.CharField()</span><br><span class="line">f.clean(<span class="string">'foo'</span>)</span><br><span class="line"><span class="comment"># 'foo'</span></span><br><span class="line">f.clean(<span class="string">''</span>)</span><br><span class="line">f.clean(<span class="literal">None</span>)</span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line"><span class="comment"># ValidationError: ['This field is required.']</span></span><br><span class="line">f.clean(<span class="string">' '</span>)</span><br><span class="line"><span class="comment"># ' '</span></span><br><span class="line">f.clean(<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># 'True'</span></span><br><span class="line"></span><br><span class="line">f2 = forms.CharField(required=<span class="literal">False</span>)</span><br><span class="line">f2.clean(<span class="string">''</span>)</span><br><span class="line"><span class="comment"># ''</span></span><br><span class="line">f2.clean(<span class="literal">None</span>)</span><br><span class="line"><span class="comment"># ''</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>label: The label to use when rendering the field in HTML. If a label is not specified, Django will generate one from the field name by capitalizing the first letter and replacing underscores with spaces .</p>
+<p>Here’s a full example <code>Form</code> that implements <code>label</code> for two of its fields. We’ve specified <code>auto_id=False</code> to simplify the output:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django <span class="keyword">import</span> forms</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CommentForm</span>(<span class="params">forms.Form</span>):</span></span><br><span class="line">    name = forms.CharField(label=<span class="string">'Your name'</span>)</span><br><span class="line">    url = forms.URLField(label=<span class="string">'Your website'</span>, required=<span class="literal">False</span>)</span><br><span class="line">    comment = forms.CharField()</span><br><span class="line">f = CommentForm(auto_id=<span class="literal">False</span>)</span><br><span class="line">print(f)</span><br><span class="line"><span class="comment"># &lt;tr&gt;&lt;th&gt;Your name:&lt;/th&gt;&lt;td&gt;&lt;input type="text" name="name" required&gt;&lt;/td&gt;&lt;/tr&gt;</span></span><br><span class="line"><span class="comment"># &lt;tr&gt;&lt;th&gt;Your website:&lt;/th&gt;&lt;td&gt;&lt;input type="url" name="url"&gt;&lt;/td&gt;&lt;/tr&gt;</span></span><br><span class="line"><span class="comment"># &lt;tr&gt;&lt;th&gt;Comment:&lt;/th&gt;&lt;td&gt;&lt;input type="text" name="comment" required&gt;&lt;/td&gt;&lt;/tr&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>label_suffix: By default a colon is displayed after the label . This argument allows you to specify a different suffix containing other character.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ContactForm</span>(<span class="params">forms.Form</span>):</span></span><br><span class="line">    age = forms.IntegerField()</span><br><span class="line">    nationality = forms.CharField()</span><br><span class="line">    captcha_answer = forms.IntegerField(label=<span class="string">'2 + 2'</span>, label_suffix=<span class="string">' ='</span>)</span><br><span class="line">f = ContactForm(label_suffix=<span class="string">'?'</span>)</span><br><span class="line">print(f.as_p())</span><br><span class="line"><span class="comment"># &lt;p&gt;&lt;label for="id_age"&gt;Age?&lt;/label&gt; &lt;input id="id_age" name="age" type="number" required&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="comment"># &lt;p&gt;&lt;label for="id_nationality"&gt;Nationality?&lt;/label&gt; &lt;input id="id_nationality" name="nationality" type="text" required&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="comment"># &lt;p&gt;&lt;label for="id_captcha_answer"&gt;2 + 2 =&lt;/label&gt; &lt;input id="id_captcha_answer" name="captcha_answer" type="number" required&gt;&lt;/p&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>Use the form separately in templates:</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">{{ f.as_p }}</span><br><span class="line"></span><br><span class="line">{% for field in f %}</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        {{ field.errors }}</span><br><span class="line">        {{ field.label_tag }} {{ field }}</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">{% endfor %}</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>initial: The initial value for the field when the form is displayed.</p>
+<p>The use-case for this is when you want to display an “empty” form in which a field is initialized to a particular value. For example:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django <span class="keyword">import</span> forms</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CommentForm</span>(<span class="params">forms.Form</span>):</span></span><br><span class="line">    name = forms.CharField(initial=<span class="string">'Your name'</span>)</span><br><span class="line">    url = forms.URLField(initial=<span class="string">'http://'</span>)</span><br><span class="line">    comment = forms.CharField()</span><br><span class="line">f = CommentForm(auto_id=<span class="literal">False</span>)</span><br><span class="line">print(f)</span><br><span class="line"><span class="comment"># &lt;tr&gt;&lt;th&gt;Name:&lt;/th&gt;&lt;td&gt;&lt;input type="text" name="name" value="Your name" required&gt;&lt;/td&gt;&lt;/tr&gt;</span></span><br><span class="line"><span class="comment"># &lt;tr&gt;&lt;th&gt;Url:&lt;/th&gt;&lt;td&gt;&lt;input type="url" name="url" value="http://" required&gt;&lt;/td&gt;&lt;/tr&gt;</span></span><br><span class="line"><span class="comment"># &lt;tr&gt;&lt;th&gt;Comment:&lt;/th&gt;&lt;td&gt;&lt;input type="text" name="comment" required&gt;&lt;/td&gt;&lt;/tr&gt;</span></span><br><span class="line">f.is_bound</span><br><span class="line"><span class="comment"># False</span></span><br></pre></td></tr></tbody></table></figure>
+<p>You may be thinking, why not just pass a dictionary of the initial values as data when displaying the form? Well, if you do that, you’ll trigger validation, and the HTML output will include any validation errors:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CommentForm</span>(<span class="params">forms.Form</span>):</span></span><br><span class="line">    name = forms.CharField()</span><br><span class="line">    url = forms.URLField()</span><br><span class="line">    comment = forms.CharField()</span><br><span class="line">default_data = {<span class="string">'name'</span>: <span class="string">'Your name'</span>, <span class="string">'url'</span>: <span class="string">'http://'</span>}</span><br><span class="line">f = CommentForm(default_data, auto_id=<span class="literal">False</span>)</span><br><span class="line">print(f)</span><br><span class="line"><span class="comment"># &lt;tr&gt;&lt;th&gt;Name:&lt;/th&gt;&lt;td&gt;&lt;input type="text" name="name" value="Your name" required&gt;&lt;/td&gt;&lt;/tr&gt;</span></span><br><span class="line"><span class="comment"># &lt;tr&gt;&lt;th&gt;Url:&lt;/th&gt;&lt;td&gt;&lt;ul class="errorlist"&gt;&lt;li&gt;Enter a valid URL.&lt;/li&gt;&lt;/ul&gt;&lt;input type="url" # name="url" value="http://" required&gt;&lt;/td&gt;&lt;/tr&gt;</span></span><br><span class="line"><span class="comment"># &lt;tr&gt;&lt;th&gt;Comment:&lt;/th&gt;&lt;td&gt;&lt;ul class="errorlist"&gt;&lt;li&gt;This field is required.&lt;/li&gt;&lt;/ul&gt;&lt;input # type="text" name="comment" required&gt;&lt;/td&gt;&lt;/tr&gt;</span></span><br><span class="line">f.is_bound</span><br><span class="line"><span class="comment"># True</span></span><br></pre></td></tr></tbody></table></figure>
+<p>This is why <code>initial</code> values are only displayed for unbound forms. For bound forms, the HTML output will use the bound data.</p>
+<blockquote>
+<p>A Form instance is either bound to a set of data, or unbound.</p>
+</blockquote>
+<blockquote>
+<p>If it’s <strong>bound</strong> to a set of data, it’s capable of validating that data and rendering the form as HTML with the data displayed in the HTML.<br>
+If it’s <strong>unbound</strong>, it cannot do validation (because there’s no data to validate!), but it can still render the blank form as HTML.</p>
+</blockquote>
+<p>Also note that <code>initial</code> values are <em>not</em> used as “fallback” data in validation if a particular field’s value is not given. <code>initial</code> values are <em>only</em> intended for initial form display:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CommentForm</span>(<span class="params">forms.Form</span>):</span></span><br><span class="line">    name = forms.CharField(initial=<span class="string">'Your name'</span>)</span><br><span class="line">    url = forms.URLField(initial=<span class="string">'http://'</span>)</span><br><span class="line">    comment = forms.CharField()</span><br><span class="line">data = {<span class="string">'name'</span>: <span class="string">''</span>, <span class="string">'url'</span>: <span class="string">''</span>, <span class="string">'comment'</span>: <span class="string">'Foo'</span>}</span><br><span class="line">f = CommentForm(data)</span><br><span class="line">f.is_valid()</span><br><span class="line"><span class="comment"># False</span></span><br><span class="line"><span class="comment">## The form does *not* fall back to using the initial values.</span></span><br></pre></td></tr></tbody></table></figure>
+<p>Access the errors attribute to get a dictionary of error messages</p>
+<p>The form’s data will be validated the first time either you call is_valid() or access errors.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">f.errors</span><br><span class="line"><span class="comment"># {'url': ['This field is required.'], 'name': ['This field is required.']}</span></span><br><span class="line">f.errors.as_data()</span><br><span class="line"><span class="comment"># {'name': [ValidationError(['This field is required.'])], 'url': [ValidationError(['This field is required.'])], 'comment': [ValidationError(['This field is required.'])]}</span></span><br><span class="line">f.errors.as_json()</span><br><span class="line"><span class="comment"># '{"name": [{"message": "This field is required.", "code": "required"}], "url": [{"message": "This field is required.", "code": "required"}], "comment": [{"message": "This field is required.", "code": "required"}]}'</span></span><br></pre></td></tr></tbody></table></figure>
+<p>Instead of a constant, you can also pass any callable:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DateForm</span>(<span class="params">forms.Form</span>):</span></span><br><span class="line">    day = forms.DateField(initial=datetime.date.today)</span><br><span class="line">print(DateForm())</span><br><span class="line"><span class="comment"># &lt;tr&gt;&lt;th&gt;Day:&lt;/th&gt;&lt;td&gt;&lt;input type="text" name="day" value="12/23/2008" required&gt;&lt;td&gt;&lt;/tr&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>The callable will be evaluated only when the unbound form is displayed, not when it is defined.</p>
+</li>
+<li>
+<p>widget: The display widget to use.</p>
+<p>The <code>widget</code> argument lets you specify a <code>Widget</code> class to use when rendering this <code>Field</code>. See <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/3.1/ref/forms/widgets/">Widgets</a> for more information.</p>
+</li>
+<li>
+<p>help_text : Additional text that can be displayed in forms to explain how to use the field.</p>
+<p>Here’s a full example <code>Form</code> that implements <code>help_text</code> for two of its fields. We’ve specified <code>auto_id=False</code> to simplify the output:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django <span class="keyword">import</span> forms</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelpTextContactForm</span>(<span class="params">forms.Form</span>):</span></span><br><span class="line">     subject = forms.CharField(max_length=<span class="number">100</span>, help_text=<span class="string">'100 characters max.'</span>)</span><br><span class="line">     message = forms.CharField()</span><br><span class="line">     sender = forms.EmailField(help_text=<span class="string">'A valid email address, please.'</span>)</span><br><span class="line">     cc_myself = forms.BooleanField(required=<span class="literal">False</span>)</span><br><span class="line">f = HelpTextContactForm(auto_id=<span class="literal">False</span>)</span><br><span class="line">print(f.as_table())</span><br><span class="line"><span class="comment"># &lt;tr&gt;&lt;th&gt;Subject:&lt;/th&gt;&lt;td&gt;&lt;input type="text" name="subject" maxlength="100" required&gt;&lt;br&gt;&lt;span class="helptext"&gt;100 characters max.&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;</span></span><br><span class="line"><span class="comment"># &lt;tr&gt;&lt;th&gt;Message:&lt;/th&gt;&lt;td&gt;&lt;input type="text" name="message" required&gt;&lt;/td&gt;&lt;/tr&gt;</span></span><br><span class="line"><span class="comment"># &lt;tr&gt;&lt;th&gt;Sender:&lt;/th&gt;&lt;td&gt;&lt;input type="email" name="sender" required&gt;&lt;br&gt;A valid email address, please.&lt;/td&gt;&lt;/tr&gt;</span></span><br><span class="line"><span class="comment"># &lt;tr&gt;&lt;th&gt;Cc myself:&lt;/th&gt;&lt;td&gt;&lt;input type="checkbox" name="cc_myself"&gt;&lt;/td&gt;&lt;/tr&gt;</span></span><br><span class="line">print(f.as_ul())</span><br><span class="line"><span class="comment"># &lt;li&gt;Subject: &lt;input type="text" name="subject" maxlength="100" required&gt; &lt;span class="helptext"&gt;100 characters max.&lt;/span&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="comment"># &lt;li&gt;Message: &lt;input type="text" name="message" required&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="comment"># &lt;li&gt;Sender: &lt;input type="email" name="sender" required&gt; A valid email address, please.&lt;/li&gt;</span></span><br><span class="line"><span class="comment"># &lt;li&gt;Cc myself: &lt;input type="checkbox" name="cc_myself"&gt;&lt;/li&gt;</span></span><br><span class="line">print(f.as_p())</span><br><span class="line"><span class="comment"># &lt;p&gt;Subject: &lt;input type="text" name="subject" maxlength="100" required&gt; &lt;span class="helptext"&gt;100 characters max.&lt;/span&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="comment"># &lt;p&gt;Message: &lt;input type="text" name="message" required&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="comment"># &lt;p&gt;Sender: &lt;input type="email" name="sender" required&gt; A valid email address, please.&lt;/p&gt;</span></span><br><span class="line"><span class="comment"># &lt;p&gt;Cc myself: &lt;input type="checkbox" name="cc_myself"&gt;&lt;/p&gt;</span></span><br><span class="line"></span><br><span class="line">data = {<span class="string">'subject'</span>: <span class="string">'hello'</span>,</span><br><span class="line">         <span class="string">'message'</span>: <span class="string">'Hi there'</span>,</span><br><span class="line">         <span class="string">'sender'</span>: <span class="string">'foo@example.com'</span>,</span><br><span class="line">         <span class="string">'cc_myself'</span>: <span class="literal">True</span>}</span><br><span class="line">f = HelpTextContactForm(data)</span><br><span class="line">f.is_valid()</span><br><span class="line"><span class="comment"># True</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>error_messages: A list of error messages for the field. You can override these with your own messages if needed.</p>
+<p>The <code>error_messages</code> argument lets you override the default messages that the field will raise. Pass in a dictionary with keys matching the error messages you want to override.</p>
+<p>And here is a custom error message:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">name = forms.CharField(error_messages={<span class="string">'required'</span>: <span class="string">'Please enter your name'</span>})</span><br><span class="line">name.clean(<span class="string">''</span>)</span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment">#   ...</span></span><br><span class="line"><span class="comment"># ValidationError: ['Please enter your name']</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>validators: A list of functions that will be called on the field when it is validated.</p>
+<p>See the <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/3.1/ref/validators/">validators documentation</a> for more information.</p>
+</li>
+<li>
+<p>localize: Enables the localization of form data input .</p>
+<p>See the <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/3.1/topics/i18n/formatting/">format localization</a> documentation for more information.</p>
+</li>
+<li>
+<p>disabled: The field is displayed but its value cannot be edited if this is <code>True</code>. The default is <code>False</code>.</p>
+</li>
+</ul>
+<p>The <code>has_changed()</code> method is used to determine if the field value has changed from the initial value. Returns <code>True</code> or <code>False</code>.</p>
+<p>See the <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/3.1/ref/forms/api/#django.forms.Form.has_changed"><code>Form.has_changed()</code></a> documentation for more information.</p>
+<h2 id="built-in-field-classes"><a class="markdownIt-Anchor" href="#built-in-field-classes"></a> Built-in Field classes</h2>
+<p>Naturally, the <code>forms</code> library comes with a set of <code>Field</code> classes that represent common validation needs. This section documents each built-in field.</p>
+<p>For each field, we describe the default widget used if you don’t specify <code>widget</code>. We also specify the value returned when you provide an empty value.</p>
+<h3 id="booleanfield"><a class="markdownIt-Anchor" href="#booleanfield"></a> BooleanField</h3>
+<ul>
+<li>
+<p>Default widget: <code>CheckboxInput</code></p>
+<ul>
+<li><code>input_type</code>: <code>'checkbox'</code></li>
+<li><code>template_name</code>: <code>'django/forms/widgets/checkbox.html'</code></li>
+<li>Renders as: <code>&lt;input type="checkbox" ...&gt;</code></li>
+</ul>
+<p>Takes one optional argument:</p>
+<ul>
+<li>
+<p><code>check_test</code></p>
+<p>A callable that takes the value of the <code>CheckboxInput</code> and returns <code>True</code> if the checkbox should be checked for that value.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Empty value: <code>False</code></p>
+</li>
+<li>
+<p>Normalizes to: A Python <code>True</code> or <code>False</code> value.</p>
+</li>
+<li>
+<p>Validates that the value is <code>True</code> (e.g. the check box is checked) if the field has <code>required=True</code>.</p>
+</li>
+<li>
+<p>Error message keys: <code>required</code></p>
+</li>
+</ul>
+<blockquote>
+<p>If you want to include a boolean in your form that can be either <code>True</code> or <code>False</code> (e.g. a checked or unchecked checkbox), you must remember to pass in <code>required=False</code> when creating the <code>BooleanField</code>.</p>
+</blockquote>
+<h3 id="charfield"><a class="markdownIt-Anchor" href="#charfield"></a> CharField</h3>
+<ul>
+<li>Default widget: <code>TextInput</code>
+<ul>
+<li><code>input_type</code>: <code>'text'</code></li>
+<li><code>template_name</code>: <code>'django/forms/widgets/text.html'</code></li>
+<li>Renders as: <code>&lt;input type="text" ...&gt;</code></li>
+</ul>
+</li>
+<li>Empty value: Whatever you’ve given as <code>empty_value</code>.</li>
+<li>Normalizes to: A string.</li>
+<li>Uses <code>MaxLengthValidator</code> and <code>MinLengthValidator</code> if <code>max_length</code> and <code>min_length</code> are provided. Otherwise, all inputs are valid.</li>
+<li>Error message keys: <code>required</code>, <code>max_length</code>, <code>min_length</code></li>
+</ul>
+<p>Has four optional arguments for validation:</p>
+<ul>
+<li>
+<p><code>max_length</code> / <code>min_length</code></p>
+<p>If provided, these arguments ensure that the string is at most or at least the given length.</p>
+</li>
+<li>
+<p><code>strip</code></p>
+<p>If <code>True</code> , the value will be stripped of leading and trailing whitespace.</p>
+</li>
+<li>
+<p><code>empty_value</code></p>
+<p>The value to use to represent “empty”. Defaults to an empty string.</p>
+</li>
+</ul>
+<h3 id="choicefield"><a class="markdownIt-Anchor" href="#choicefield"></a> ChoiceField</h3>
+<ul>
+<li>Default widget: <code>Select</code>
+<ul>
+<li><code>template_name</code>: <code>'django/forms/widgets/select.html'</code></li>
+<li><code>option_template_name</code>: <code>'django/forms/widgets/select_option.html'</code></li>
+<li>Renders as: <code>&lt;select&gt;&lt;option ...&gt;...&lt;/select&gt;</code></li>
+</ul>
+</li>
+<li>Empty value: <code>''</code> (an empty string)</li>
+<li>Normalizes to: A string.</li>
+<li>Validates that the given value exists in the list of choices.</li>
+<li>Error message keys: <code>required</code>, <code>invalid_choice</code></li>
+</ul>
+<p>The <code>invalid_choice</code> error message may contain <code>%(value)s</code>, which will be replaced with the selected choice.</p>
+<p>Also see  <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/3.1/ref/forms/fields/#typedchoicefield"><code>TypedChoiceField</code></a>, <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/3.1/ref/forms/fields/#multiplechoicefield"><code>MultipleChoiceField</code></a>, <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/3.1/ref/forms/fields/#typedmultiplechoicefield"><code>TypedMultipleChoiceField</code></a></p>
+<h3 id="datefielddatetimefieldtimefield"><a class="markdownIt-Anchor" href="#datefielddatetimefieldtimefield"></a> DateField/DateTimeField/TimeField</h3>
+<ul>
+<li>Default widget: <code>DateInput</code>
+<ul>
+<li><code>input_type</code>: <code>'text'</code></li>
+<li><code>template_name</code>: <code>'django/forms/widgets/date.html(datetime.html/time.html)'</code></li>
+<li>Renders as: <code>&lt;input type="text" ...&gt;</code></li>
+</ul>
+</li>
+<li>Empty value: <code>None</code></li>
+<li

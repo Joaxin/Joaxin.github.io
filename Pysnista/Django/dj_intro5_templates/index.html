@@ -1,0 +1,260 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Django Introduction Part 5 - Templates | Pinsflora</title><meta name="keywords" content="Django"><meta name="author" content="Joaxin"><meta name="copyright" content="Joaxin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="Overview After we defined our models and created some initial movie records to work with, it’s time to write the code that presents that information to users. The first thing we need to do is determi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django Introduction Part 5 - Templates">
+<meta property="og:url" content="https://u.pinsflora.xyz/Pysnista/Django/dj_intro5_templates/index.html">
+<meta property="og:site_name" content="Pinsflora">
+<meta property="og:description" content="Overview After we defined our models and created some initial movie records to work with, it’s time to write the code that presents that information to users. The first thing we need to do is determi">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_little_girl_phone.jpg">
+<meta property="article:published_time" content="2018-01-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-08-04T16:00:00.000Z">
+<meta property="article:author" content="Joaxin">
+<meta property="article:tag" content="Django">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_little_girl_phone.jpg"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="https://u.pinsflora.xyz/Pysnista/Django/dj_intro5_templates/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-177831205-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-177831205-1');
+</script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-08-05 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}const fontSizeVal = saveToLocal.get('global-font-size')
+if (fontSizeVal !== undefined) {
+  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+}})()</script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Pinsflora" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">333</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">110</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">34</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_little_girl_phone.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Pinsflora</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Django Introduction Part 5 - Templates</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-01-23T16:00:00.000Z" title="Created 2018-01-24 00:00:00">2018-01-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-08-04T16:00:00.000Z" title="Updated 2020-08-05 00:00:00">2020-08-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/">Python</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/Django/">Django</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">4.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>26min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="overview"><a class="markdownIt-Anchor" href="#overview"></a> Overview</h2>
+<p>After we defined our models and created some initial movie records to work with, it’s time to write the code that presents that information to users. The first thing we need to do is determine what information we want to display in our pages, and define the URLs to use for returning those resources. Then we’ll create a URL mapper, views, and templates to display the pages.</p>
+<h2 id="defining-the-resource-urls"><a class="markdownIt-Anchor" href="#defining-the-resource-urls"></a> Defining the resource URLs</h2>
+<p>As this part is essentially read-only for end users, we just need to provide a landing page for the site (a home page), and pages that <em>display</em> list and detail views .</p>
+<p>The URLs that we’ll need for our pages are:</p>
+<ul>
+<li><code>movies/</code> — The home (index) page.</li>
+<li><code>movies/list/</code> — A list of all movies.</li>
+<li><code>movies/director/</code> — A list of all directors.</li>
+<li><code>movies/*&lt;id&gt;*</code> — The detail view for a particular movie, with a field primary key of <code>*&lt;id&gt;*</code> (the default).</li>
+<li><code>movies/director/*&lt;id&gt;*</code> — The detail view for the specific director with a primary key field of <em>&lt;id&gt;.</em></li>
+</ul>
+<p>Whichever approach you use, the URLs should be kept clean, logical, and readable, as <a target="_blank" rel="noopener" href="https://www.w3.org/Provider/Style/URI">recommended by the W3C</a>.</p>
+<h2 id="creating-the-list-page"><a class="markdownIt-Anchor" href="#creating-the-list-page"></a> Creating the list page</h2>
+<p>The first page we’ll create is the list page . The index page will include some static HTML, along with generated “counts” of different records in the database. To make this work we’ll create a URL mapping, a view, and a template.</p>
+<h3 id="url-mapping"><a class="markdownIt-Anchor" href="#url-mapping"></a> URL mapping</h3>
+<p>We firstly updated the <strong>yourproject/urls.py</strong> file to ensure that whenever an URL that starts with <code>movies/</code>  is received, the <em>URLConf</em> module <code>movies.urls</code> will process the remaining substring.</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns += [</span><br><span class="line">    path('movies/', include('movies.urls')),</span><br><span class="line">]</span><br></pre></td></tr></tbody></table></figure>
+<p>We also created a placeholder file for the <em>URLConf</em> module, named <strong>/movies/urls.py</strong>. Add the following lines to that file:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> views</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    <span class="comment"># ex: /movies/</span></span><br><span class="line">    path(<span class="string">''</span>, views.index, name=<span class="string">'index'</span>),</span><br><span class="line">    <span class="comment"># ex: /movies/list/</span></span><br><span class="line">    path(<span class="string">'/list/'</span>, views.movie_list, name=<span class="string">'movie_list'</span>),</span><br><span class="line">    <span class="comment"># ex: /movies/5</span></span><br><span class="line">    path(<span class="string">'&lt;int:movie_id&gt;/'</span>, views.movie_detail, name=<span class="string">'movie_detail'</span>),</span><br><span class="line">...</span><br><span class="line">]</span><br></pre></td></tr></tbody></table></figure>
+<p>The <code>path()</code> function also specifies a <code>name</code> parameter, which is a unique identifier for this particular URL mapping. You can use the name to “reverse” the mapper, i.e.  to dynamically create a URL that  points to the resource that the mapper is designed to handle.</p>
+<p>For example, we can use the name parameter to link to our home page from any other page by adding the following link in a template:</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"{% url 'index' %}"</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">a</span>&gt;</span>.</span><br></pre></td></tr></tbody></table></figure>
+<p>And now let’s add a very simple views to ,these views are slightly different, because they take an argument:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">movie_detail</span>(<span class="params">request, movie_id</span>):</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">"You're looking at movie %s."</span> % movie_id)</span><br><span class="line"></span><br><span class="line"><span class="comment">## OR</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">movie_detail</span>(<span class="params">request, question_id</span>):</span></span><br><span class="line">    response = <span class="string">"You're looking at the results of movie %s."</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(response % movie_id)</span><br></pre></td></tr></tbody></table></figure>
+<p>Your view can read records from a database, or not. It can use a template syste  or a third-party Python template system such as jinjia2. It can generate a PDF file, output XML, create a ZIP file on the fly, anything you want, using whatever Python libraries you want.</p>
+<p>Here’s one stab at a new <code>movie_list()</code> view, which displays the latest 5 movies and separated by commas, according to movie_release_date:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> Movie</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">movie_list</span>(<span class="params">request</span>):</span></span><br><span class="line">    latest_movie_list = Movie.objects.order_by(<span class="string">'-movie_release_date'</span>)[:<span class="number">5</span>]</span><br><span class="line">    output = <span class="string">', '</span>.join([m.movie_title <span class="keyword">for</span> m <span class="keyword">in</span> latest_movie_list])</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(output)</span><br></pre></td></tr></tbody></table></figure>
+<p>Then, we need to create a very simple template for render the <code>latest_movie_list</code>. Django will look for templates in there.</p>
+<p>Put the following code in that template:</p>
+<p><code>movie/templates/movie/movie-list.html</code></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">{% if latest_movie_list %}</span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    {% for m in latest_movie_list %}</span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/movies/{{ m.id }}/"</span>&gt;</span>{{ m.movie_title }}<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    {% endfor %}</span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">{% else %}</span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>No movies are available.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">{% endif %}</span><br></pre></td></tr></tbody></table></figure>
+<p>Remember, when we wrote the link to a movie i, the link was partially hardcoded like this:</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/movies/{{ m.id }}/"</span>&gt;</span>{{ m.movie_title }}<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>You can remove a reliance on specific URL paths defined in your url configurations by using the <code>{% url %}</code> template tag:</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"{% url 'movie_detail' m.id %}"</span>&gt;</span>{{ m.movie_title  }}<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>Now let’s update our view  to use the template:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"><span class="keyword">from</span> django.template <span class="keyword">import</span> loader</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> Movie</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">movie_list</span>(<span class="params">request</span>):</span></span><br><span class="line">    latest_movie_list = Movie.objects.order_by(<span class="string">'-movie_release_date'</span>)[:<span class="number">5</span>]</span><br><span class="line">    template = loader.get_template(<span class="string">'movie/movie-list.html'</span>)</span><br><span class="line">    context = {</span><br><span class="line">        <span class="string">'latest_movie_list'</span>: latest_movie_list,</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(template.render(context, request))</span><br></pre></td></tr></tbody></table></figure>
+<p>It’s a very common idiom to load a template, fill a context and return an <code>HttpResponse</code>object with the result of the rendered template. Django provides a shortcut.</p>
+<p>The <code>render()</code> function takes the request object as its first argument, a template name as its second argument and a dictionary as its optional third argument.Here’s the full rewritten:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="comment"># we no longer need to import loader and HttpResponse</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">movie_list</span>(<span class="params">request</span>):</span></span><br><span class="line">    latest_movie_list = Movie.objects.order_by(<span class="string">'-movie_release_date'</span>)[:<span class="number">5</span>]</span><br><span class="line">    context = {<span class="string">'latest_movie_list'</span>: latest_movie_list}</span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">'movie/movie-list.html'</span>, context)</span><br></pre></td></tr></tbody></table></figure>
+<p>Now we want to raising a 404 error:</p>
+<p>the page that displays the question text for a given poll. Here’s the view:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> Http404</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">movie_detail</span>(<span class="params">request,movie_id</span>):</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        movie = Movie.objects.get(pk=movie_id)</span><br><span class="line">    <span class="keyword">except</span> Movie.DoesNotExist:</span><br><span class="line">        <span class="keyword">raise</span> Http404(<span class="string">"Movie does not exist"</span>)</span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">'movie/movie_detail.html'</span>, {<span class="string">'movie'</span>: movie})</span><br></pre></td></tr></tbody></table></figure>
+<p>The new concept here: The view raises the <code>Http404</code> exception if a movie with the requested ID doesn’t exist.</p>
+<p>It’s a very common idiom to use <code>get()</code> and raise <code>Http404</code> if the object doesn’t exist. Django provides a shortcut. Here’s the <code>detail()</code>view, rewritten:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> get_object_or_404, render</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">movie_detail</span>(<span class="params">request,movie_id</span>):</span></span><br><span class="line">    movie = get_object_or_404(Movie, pk=movie_id)</span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">'movie/movie_detail.html'</span>, {<span class="string">'movie'</span>: movie})</span><br></pre></td></tr></tbody></table></figure>
+<p>The <code>get_object_or_404()</code> function takes a Django model as its first argument and an arbitrary number of keyword arguments, which it passes to the <code>get()</code> function of the model’s manager. It raises <code>Http404</code> if the object doesn’t exist.</p>
+<p>There’s also a <code>get_list_or_404()</code> function, which works just as <code>get_object_or_404()</code> – except using <code>filter()</code> instead of <code>get()</code>. It raises <code>Http404</code> if the list is empty.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> get_list_or_404</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">movie_list</span>(<span class="params">request</span>):</span></span><br><span class="line">    movie_list = get_list_or_404(Movie, movie_is_fav=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># This example is equivalent to:</span></span><br><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> Http404</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">movie_list</span>(<span class="params">request</span>):</span></span><br><span class="line">    movie_list = list(Movie.objects.filter(movie_is_fav=<span class="literal">True</span>))</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> movie_list:</span><br><span class="line">        <span class="keyword">raise</span> Http404(<span class="string">"No Movie matches the given query."</span>)</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="view-function-based"><a class="markdownIt-Anchor" href="#view-function-based"></a> View (function-based)</h3>
+<p>A view is a function that processes an HTTP request, fetches the required data from the database, renders the data in an HTML page using an HTML template, and then returns the generated HTML in an HTTP response to display the page to the user.</p>
+<p>For example, in a blog application, you might have the following views:</p>
+<ul>
+<li>Blog homepage – displays the latest few entries.</li>
+<li>Entry “detail” page – permalink page for a single entry.</li>
+<li>Year-based archive page – displays all months with entries in the given year.</li>
+<li>Month-based archive page – displays all days with entries in the given month.</li>
+<li>Day-based archive page – displays all entries in the given day.</li>
+<li>Comment action – handles posting comments to a given entry.</li>
+</ul>
+<p>Open <strong>yourapps/views.py</strong> and note that the file already imports the render() shortcut function to generate HTML file using a template and data:</p>
+<p>Paste the following lines at the bottom of the file:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render, redirect,get_object_or_404</span><br><span class="line"><span class="keyword">from</span> django.db.models <span class="keyword">import</span> Q</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> View</span><br><span class="line"><span class="comment"># imports the model classes that we'll use to access data in all our views.</span></span><br><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> Movie, Director, Rating</span><br><span class="line"><span class="keyword">from</span> taggit.models <span class="keyword">import</span> Tag</span><br><span class="line"><span class="keyword">from</span> django.core.paginator <span class="keyword">import</span> Paginator, EmptyPage, PageNotAnInteger</span><br><span class="line"><span class="keyword">from</span> django.db.models <span class="keyword">import</span> Q</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">movie_list</span>(<span class="params">request, tag_slug=None</span>):</span></span><br><span class="line">    <span class="comment"># Fetches the number of records using the `objects.all()`attribute on the model classes.</span></span><br><span class="line">    <span class="comment"># Generate counts of some of the main objects</span></span><br><span class="line">    num_movies = Movie.objects.all().count()</span><br><span class="line">    <span class="comment"># The 'all()' is implied by default.  </span></span><br><span class="line">    num_ratings = Rating.objects.count()  </span><br><span class="line">    <span class="comment"># movie watched</span></span><br><span class="line">    num_movies_watched= Rating.objects.filter(rating_status__exact=<span class="string">'h'</span>).count()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># if you are using django-taggit in your project</span></span><br><span class="line">    <span class="comment"># https://pypi.org/project/django-taggit/</span></span><br><span class="line">    <span class="keyword">if</span> tag_slug:</span><br><span class="line">        tag = get_object_or_404(Tag, slug=tag_slug)</span><br><span class="line">        object_list = Movie.objects.filter(tags__in=[tag])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        object_list = Movie.objects.all()</span><br><span class="line">        tag = <span class="literal">None</span></span><br><span class="line">        </span><br><span class="line">    <span class="comment"># query, We'll talk more about this later</span></span><br><span class="line">    query = request.GET.get(<span class="string">"q"</span>)</span><br><span class="line">    <span class="keyword">if</span> query:</span><br><span class="line">        object_list = object_list.filter(</span><br><span class="line">        Q(movie_title__icontains=query) |</span><br><span class="line">        Q(director__director_name__icontains=query) |</span><br><span class="line">        Q(movie_summary__icontains=query) |</span><br><span class="line">        Q(movie_release_date_year__icontains=query) |</span><br><span class="line">        Q(tags__name__icontains=query)</span><br><span class="line">    ).distinct()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># paginator, We'll talk more about this later</span></span><br><span class="line">    paginator = Paginator(object_list,<span class="number">25</span>)</span><br><span class="line">    page = request.GET.get(<span class="string">'page'</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        movies = paginator.page(page)</span><br><span class="line">    <span class="keyword">except</span> PageNotAnInteger:</span><br><span class="line">        movies = paginator.page(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">except</span> EmptyPage:</span><br><span class="line">        <span class="comment"># last page</span></span><br><span class="line">        movies = paginator.page(paginator.num_pages)</span><br><span class="line"></span><br><span class="line">    context = {</span><br><span class="line">        <span class="string">'page'</span>: page,</span><br><span class="line">        <span class="string">'movies'</span>: movies,</span><br><span class="line">        <span class="string">'tag'</span>: tag,</span><br><span class="line">        <span class="string">'num_movies'</span>: num_movies,</span><br><span class="line">        <span class="string">'num_ratings'</span>: num_ratings,</span><br><span class="line">        <span class="string">'num_movies_watched'</span>: num_movies_watched,</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">'movies/movie_list.html'</span>, context)</span><br></pre></td></tr></tbody></table></figure>
+<p>At the end of the view function we call the <code>render()</code> function to create an HTML page and return the page as a response. This shortcut function wraps a number of other functions to simplify a very common use case. The <code>render()</code> function accepts the following parameters:</p>
+<ul>
+<li>the original <code>request</code> object, which is an <code>HttpRequest</code>.</li>
+<li>an HTML template with placeholders for the data.</li>
+<li>a <code>context</code> variable, which is a Python dictionary, containing the data to insert into the placeholders.</li>
+</ul>
+<p>We’ll talk more about templates and the <code>context</code> variable in the next section.</p>
+<h2 id="staticfiles"><a class="markdownIt-Anchor" href="#staticfiles"></a> Staticfiles</h2>
+<p>Django does not serve static files like CSS, JavaScript, and images by default, but it can be useful for the development web server to do so while you’re creating your site. As a final addition to this URL mapper, you can enable the serving of static files during development by appending the following lines.</p>
+<p>Open <code>fragments/urls.py</code>:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">from</span> django.conf <span class="keyword">import</span> settings</span><br><span class="line"><span class="keyword">from</span> django.conf.urls.static <span class="keyword">import</span> static</span><br><span class="line">urlpatterns = [</span><br><span class="line">...</span><br><span class="line">] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)</span><br><span class="line"></span><br><span class="line"><span class="comment"># This helper function works only in debug mode and only if the given prefix is local (e.g. /static/) and not a URL (e.g. http://static.example.com/).</span></span><br></pre></td></tr></tbody></table></figure>
+<p>In addition, we included the import line (<code>from django.urls import include</code>) with the code that uses it (so it is easy to see what we’ve added), but it is common to include all your import lines at the top of a Python file.</p>
+<p>Aside from the HTML generated by the server, web applications generally need to serve additional files — such as images, JavaScript, or CSS — necessary to render the complete web page. In Django, we refer to these files as “static files”.</p>
+<p>For small projects, this isn’t a big deal, because you can just keep the static files somewhere your web server can find it. However, in bigger projects – especially those comprised of multiple apps – dealing with the multiple sets of static files provided by each application starts to get tricky.</p>
+<p>That’s what <code>django.contrib.staticfiles</code> is for: it collects static files from each of your applications (and any other places you specify) into a single location that can easily be served in production.</p>
+<p><code>First</code>, create a directory called <code>static</code> in your project directory. Django will look for static files there, Django’s <code>STATICFILES_FINDERS</code> setting contains a list of finders that know how to discover static files from various sources.</p>
+<figure class="highlight django"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">{% <span class="name"><span class="name">load</span></span> static %}</span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"</span></span></span><span class="template-tag">{% <span class="name"><span class="name">static</span></span> 'movie/css/style.css' %}</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure>
+<p>The <code>{% static %}</code> template tag generates the absolute URL of static files,which means <code>&lt;link rel="stylesheet" type="text/css" href="/static/ratings/css/style.css"&gt;</code>, you will find this file in <code>http://127.0.0.1:8080/static/movie/css/style.css</code></p>
+<p>That’s all you need to do for development.</p>
+<p>Next, we’ll create a subdirectory for images. Create an <code>images</code> subdirectory in the <code>movie/static/movie/images</code> directory.  In other words, put your image in <code>movie/static/movie/images/yourname.jpg</code>.</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> {</span><br><span class="line">    <span class="attribute">background</span>: white <span class="built_in">url</span>(<span class="string">"images/demo.jpg"</span>) no-repeat <span class="number">0px</span> <spa

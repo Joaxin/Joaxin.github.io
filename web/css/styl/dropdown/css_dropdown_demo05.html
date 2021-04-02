@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+	<style>
+a:link,
+a:visited {
+	width: 120px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #d84747;
+	text-align: center;
+	padding: 4px;
+	text-decoration: none;
+	text-transform: uppercase;
+	display: block;
+}
+
+a:hover,
+a:active {
+	background-color: orangered;
+}
+
+nav>div {
+    position: relative;
+    float: left;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a{
+    width: inherit;
+}
+
+.dropdown-content a:hover {
+    box-shadow: inset 1px 1px 3px 1px  #d84747;
+}
+
+.dropdown-content a:first-child {
+    width: 100px;
+}
+
+.dropdown-content a:nth-child(2) {
+    width: 150px;
+}
+
+.dropdown-content a:nth-child(3) {
+    width: 200px;
+}
+
+.dropdown-content:last-child {
+    width: 250px;
+}          
+                
+	</style>
+</head>
+
+<body>
+    <nav>
+        <div class="dropdown"><a href="#">Home</a>
+            <div class="dropdown-content">
+                <a href="#">HTML</a>
+                <a href="#">CSS</a>
+                <a href="#">JAVASCRIPT</a>
+                <a href="#">JQERY</a>
+                <a href="#">react</a>
+                <a href="#">Vue.js</a>
+            </div>
+        </div>
+        <div><a href="#">News</a>
+        </div>
+    <div class="dropdown"><a href="#">Contact</a>
+    <div class="dropdown-content">
+        <a href="#">email</a>
+        <a href="#">facebook</a>
+        <a href="#">twitter</a>
+        <a href="#">github</a>
+    </div>
+    </div>
+    <div><a href="#">About</a>
+    </div>
+    </nav>
+
+</body>
+
+</html>
