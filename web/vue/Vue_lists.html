@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue List</title>
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+</head>
+
+<style>
+.color{
+  background: #444;
+  color: #eee;
+}
+</style>
+
+
+<body>
+<div id="app">
+ <ol v-bind:class="{'color': color}">
+  <li v-for="animal in animals1">
+    {{ animal.name }}
+  </li>
+</ol>
+
+<template v-for="(animal,name) in animals2">
+<li>{{name}}:{{animal}}</li>
+<li>--------------</li>
+</template>
+
+<label>Color </label><input type="checkbox" v-model="color">
+</div>
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    color:false,
+    animals1:[
+    {name:'sheep'},
+    {name:'cow'},
+    {name:'tiger'},
+    {name:'wildcat'},
+    {name:'elephant'},
+    {name:'rabbit'}
+    ],
+    animals2:{
+    one:'sheep',
+    two:'cow',
+    three:'tiger',
+    four:'wildcat',
+    five:'elephant',
+    six:'rabbit'
+    }
+  }
+})
+</script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>German - Vol.6 - Adverbs | Pinsflora</title><meta name="keywords" content="German"><meta name="author" content="Joaxin"><meta name="copyright" content="Joaxin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="Adverbs">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>German - Vol.6 - Adverbs | Pinsflora</title><meta name="keywords" content="German"><meta name="author" content="Joaxin"><meta name="copyright" content="Joaxin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Adverbs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="German - Vol.6 - Adverbs">
 <meta property="og:url" content="https://u.pinsflora.xyz/Lang/de/duo_de006_adverb/index.html">
@@ -15,13 +15,13 @@
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'UA-177831205-1');
-</script><script>var GLOBAL_CONFIG = { 
+</script><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
   translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
-  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  noticeOutdate: {"limitDay":600,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: 'Copy successfully',
     error: 'Copy error',
@@ -56,54 +56,11 @@ gtag('config', 'UA-177831205-1');
   isPhotoFigcaption: false,
   islazyload: false,
   isanchor: false
-};
-
-var saveToLocal = {
-  set: function setWithExpiry(key, value, ttl) {
-    const now = new Date()
-    const expiryDay = ttl * 86400000
-    const item = {
-      value: value,
-      expiry: now.getTime() + expiryDay,
-    }
-    localStorage.setItem(key, JSON.stringify(item))
-  },
-
-  get: function getWithExpiry(key) {
-    const itemStr = localStorage.getItem(key)
-
-    if (!itemStr) {
-      return undefined
-    }
-    const item = JSON.parse(itemStr)
-    const now = new Date()
-
-    if (now.getTime() > item.expiry) {
-      localStorage.removeItem(key)
-      return undefined
-    }
-    return item.value
-  }
-}
-
-// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
-const getScript = url => new Promise((resolve, reject) => {
-  const script = document.createElement('script')
-  script.src = url
-  script.async = true
-  script.onerror = reject
-  script.onload = script.onreadystatechange = function() {
-    const loadState = this.readyState
-    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-    script.onload = script.onreadystatechange = null
-    resolve()
-  }
-  document.head.appendChild(script)
-})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
   isPost: true,
   isHome: false,
   isHighlightShrink: false,
-  isToc: false,
+  isToc: true,
   postUpdate: '2019-05-30 00:00:00'
 }</script><noscript><style type="text/css">
   #nav {
@@ -117,63 +74,141 @@ const getScript = url => new Promise((resolve, reject) => {
   #post-meta time {
     display: inline !important
   }
-</style></noscript><script>(function () {  window.activateDarkMode = function () {
-    document.documentElement.setAttribute('data-theme', 'dark')
-    if (document.querySelector('meta[name="theme-color"]') !== null) {
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-    }
-  }
-  window.activateLightMode = function () {
-    document.documentElement.setAttribute('data-theme', 'light')
-   if (document.querySelector('meta[name="theme-color"]') !== null) {
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-    }
-  }
-  const autoChangeMode = 'false'
-  const t = saveToLocal.get('theme')
-  if (autoChangeMode === '1') {
-    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-    if (t === undefined) {
-      if (isLightMode) activateLightMode()
-      else if (isDarkMode) activateDarkMode()
-      else if (isNotSpecified || hasNoSupport) {
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
         const now = new Date()
-        const hour = now.getHours()
-        const isNight = hour <= 6 || hour >= 18
-        isNight ? activateDarkMode() : activateLightMode()
-      }
-      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-        if (saveToLocal.get('theme') === undefined) {
-          e.matches ? activateDarkMode() : activateLightMode()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
         }
-      })
-    } else if (t === 'light') activateLightMode()
-    else activateDarkMode()
-  } else if (autoChangeMode === '2') {
-    const now = new Date()
-    const hour = now.getHours()
-    const isNight = hour <= 6 || hour >= 18
-    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
-    else if (t === 'light') activateLightMode()
-    else activateDarkMode()
-  } else {
-    if (t === 'dark') activateDarkMode()
-    else if (t === 'light') activateLightMode()
-  }const asideStatus = saveToLocal.get('aside-status')
-if (asideStatus !== undefined) {
-   if (asideStatus === 'hide') {
-     document.documentElement.classList.add('hide-aside')
-   } else {
-     document.documentElement.classList.remove('hide-aside')
-   }
-}const fontSizeVal = saveToLocal.get('global-font-size')
-if (fontSizeVal !== undefined) {
-  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
-}})()</script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Pinsflora" type="application/atom+xml">
-</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">333</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">110</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">34</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/duo/duolingo_de.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Pinsflora</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">German - Vol.6 - Adverbs</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-06-26T16:00:00.000Z" title="Created 2017-06-27 00:00:00">2017-06-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2019-05-29T16:00:00.000Z" title="Updated 2019-05-30 00:00:00">2019-05-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Duolingo/">Duolingo</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">206</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>1min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>Du bist nicht dran!</strong></p>
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Pinsflora" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">340</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">110</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">34</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Galleries"><i class="fa-fw /gallery/"></i><span> 0</span></a></li><li><a class="site-page child" href="/Movie"><i class="fa-fw /movies/"></i><span> 1</span></a></li><li><a class="site-page child" href="/Games"><i class="fa-fw /games/"></i><span> 2</span></a></li><li><a class="site-page child" href="/Tools"><i class="fa-fw /tools/"></i><span> 3</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/duo/duolingo_de.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Pinsflora</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Galleries"><i class="fa-fw /gallery/"></i><span> 0</span></a></li><li><a class="site-page child" href="/Movie"><i class="fa-fw /movies/"></i><span> 1</span></a></li><li><a class="site-page child" href="/Games"><i class="fa-fw /games/"></i><span> 2</span></a></li><li><a class="site-page child" href="/Tools"><i class="fa-fw /tools/"></i><span> 3</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">German - Vol.6 - Adverbs</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-06-26T16:00:00.000Z" title="Created 2017-06-27 00:00:00">2017-06-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2019-05-29T16:00:00.000Z" title="Updated 2019-05-30 00:00:00">2019-05-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Duolingo/">Duolingo</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">573</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="German - Vol.6 - Adverbs"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="conjunctions"><a class="markdownIt-Anchor" href="#conjunctions"></a> Conjunctions</h2>
+<p>Conjunctions are words that combine phrases!</p>
+<p>For example, I like fruits <strong>and</strong> vegetables, or He left <strong>because</strong> he was tired.</p>
+<p>Some German conjunctions push the verb to the end of the phrase.</p>
+<p>Du trinkst, <strong>weil</strong> du Durst hast.</p>
+<ul>
+<li>You drink <strong>because</strong> you are thirsty.</li>
+</ul>
+<p>Ich mag es, <strong>wenn</strong> es einfach ist.</p>
+<ul>
+<li>I like it <strong>if</strong> it is easy.</li>
+</ul>
+<p>Ich esse die Kartoffel, <strong>weil</strong> ich Kartoffeln mag!</p>
+<ul>
+<li>I eat the potato <strong>because</strong> I like potatoes!</li>
+</ul>
+<p>Der Käse ist gut, <strong>obwohl</strong> er alt ist.</p>
+<ul>
+<li>The cheese is good, <strong>although</strong> it is old.</li>
+</ul>
+<hr>
+<p><strong>Because I hungry am!</strong></p>
+<p>If you begin a sentence with one of these pushy conjunctions, the verb just goes to the end of the phrase. Then, after that, you put a comma and then start with the verb from the next part of the sentence!</p>
+<p><strong>Sobald</strong> sie Wasser hat, trinkt sie.</p>
+<ul>
+<li><strong>As soon as</strong> she has water, she drinks.</li>
+</ul>
+<p><strong>Solange</strong> der Hund schläft, ist er süß.</p>
+<ul>
+<li>**As long as **the dog sleeps, he is cute.</li>
+</ul>
+<p><strong>Because I am hungry!</strong><br>
+These rules don’t apply to a handful of conjunctions, such as und . The following words can also be added to a sentence and nothing needs to change:</p>
+<p>Ich mag keine Orangen, <strong>aber</strong> ich mag Äpfel.</p>
+<ul>
+<li>I don’t like oranges, <strong>but</strong> I like apples.</li>
+</ul>
+<p>Die Frauen trinken das Wasser nicht, <strong>denn</strong> es ist schmutzig.</p>
+<ul>
+<li>The women don’t drink the water <strong>because</strong> it is dirty.</li>
+</ul>
+<p>Der Junge hat Hunger, <strong>doch</strong> er isst nicht.</p>
+<ul>
+<li>The boy is hungry, <strong>yet</strong> he doesn’t eat.</li>
+</ul>
+<p><strong>Ich mag ihn, weil er für das Essen bezahlt.</strong></p>
+<p>I like him since he is paying for the food.</p>
+<p><strong>Er sieht, dass Sie ein Buch haben.</strong></p>
+<p>He sees that you have a book.</p>
+<p><strong>Der Junge hat Hunger, doch er isst nicht.</strong></p>
+<p>The boy is hungry, but he doesn’t eat.</p>
+<p>The boy is hungry, yet he does not eat.</p>
+<p><strong>Ich esse es, obwohl ich es nicht mag.</strong></p>
+<p>I am eating it although I do not like it.</p>
+<p><strong>Da ich keinen Hunger habe, esse ich nicht.</strong></p>
+<p>Since I am not <em>hungry</em>, I am not eating.</p>
+<p><strong>Die Schuhe sind nicht groß, sondern klein.</strong></p>
+<p>The shoes are not big, but small.</p>
+<hr>
+<p><strong>Du bist nicht dran!</strong></p>
 <p>It is not your turn.</p>
 <p><strong>Du bist noch nicht dran.</strong></p>
 <blockquote>
@@ -228,7 +263,7 @@ if (fontSizeVal !== undefined) {
             });
             document.body.appendChild(img);
           });
-      </script></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Joaxin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://u.pinsflora.xyz/Lang/de/duo_de006_adverb/">https://u.pinsflora.xyz/Lang/de/duo_de006_adverb/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/German/">German</a></div><div class="post_share"><div class="addtoany"><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_wechat"></a><a class="a2a_button_sina_weibo"></a><a class="a2a_button_facebook_messenger"></a><a class="a2a_button_email"></a><a class="a2a_button_copy_link"></a><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a></div></div><script async="async" src="https://static.addtoany.com/menu/page.js"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/Lang/de/duo_de005_Questions%20/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/duo/duolingo_de.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">German - Vol.5 - Questions and statements</div></div></a></div><div class="next-post pull-right"><a href="/Lang/de/duo_de_german_sounds/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/duo/duolingo_de.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">German - Vol.0 - German Sounds</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> Related Articles</span></div><div class="relatedPosts-list"><div><a href="/Lang/de/duo_de/" title="德语入门"><img class="cover" src="http://5b0988e595225.cdn.sohucs.com/images/20181024/a83f47691e6e4d1e8f53c521a4a3feff.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2020-01-27</div><div class="title">德语入门</div></div></a></div><div><a href="/Lang/de/duo_de001_intro/" title="German - Vol.1 - Introduction"><img class="cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/duo/duolingo_de.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2019-11-30</div><div class="title">German - Vol.1 - Introduction</div></div></a></div><div><a href="/Lang/de/duo_de002_phrases/" title="German - Vol.2 - Phrases"><img class="cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/duo/duolingo_de.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2019-12-01</div><div class="title">German - Vol.2 - Phrases</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Joaxin</div><div class="author-info__description">When I close my eyes, I'm in my own ♡cean 🐟aves.</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">333</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">110</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">34</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/joaxin"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/joaxin" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:lotility@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">感謝訪問本站，若喜歡請收藏 ^_^</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/Web/vue/Vue_lists/" title="No title"><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_sea_stairs.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/Web/vue/Vue_lists/" title="No title">No title</a><time datetime="2020-06-29T04:07:50.166Z" title="Created 2020-06-29 12:07:50">2020-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Web/vue/Vue_css/" title="No title"><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_sea_stairs.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/Web/vue/Vue_css/" title="No title">No title</a><time datetime="2020-06-29T04:05:20.977Z" title="Created 2020-06-29 12:05:20">2020-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Lang/kl/duo_kl001_intro/" title="Klingon- Vol.1 - Introduction"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Klingon- Vol.1 - Introduction"/></a><div class="content"><a class="title" href="/Lang/kl/duo_kl001_intro/" title="Klingon- Vol.1 - Introduction">Klingon- Vol.1 - Introduction</a><time datetime="2020-06-26T16:00:00.000Z" title="Created 2020-06-27 00:00:00">2020-06-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Life/apps/life_apps_android_list/" title="安卓 | 装机必备清单及习惯步骤"><img src="https://www.kamilet.cn/wp-content/uploads/android-new-logo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="安卓 | 装机必备清单及习惯步骤"/></a><div class="content"><a class="title" href="/Life/apps/life_apps_android_list/" title="安卓 | 装机必备清单及习惯步骤">安卓 | 装机必备清单及习惯步骤</a><time datetime="2020-06-20T04:29:10.462Z" title="Created 2020-06-20 12:29:10">2020-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Pysnista/Intro/files/py_pillow/" title="Python - 操作图像"><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_writing-letters-french.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python - 操作图像"/></a><div class="content"><a class="title" href="/Pysnista/Intro/files/py_pillow/" title="Python - 操作图像">Python - 操作图像</a><time datetime="2020-05-02T16:00:00.000Z" title="Created 2020-05-03 00:00:00">2020-05-03</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/duo/duolingo_de.jpg)"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Joaxin</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Refine, the Life</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="Increase font size"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="Decrease font size"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="Switch Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+      </script></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Joaxin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://u.pinsflora.xyz/Lang/de/duo_de006_adverb/">https://u.pinsflora.xyz/Lang/de/duo_de006_adverb/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/German/">German</a></div><div class="post_share"><div class="addtoany"><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_wechat"></a><a class="a2a_button_sina_weibo"></a><a class="a2a_button_facebook_messenger"></a><a class="a2a_button_email"></a><a class="a2a_button_copy_link"></a><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a></div></div><script async="async" src="https://static.addtoany.com/menu/page.js"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/Lang/de/duo_de005_Questions/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/duo/duolingo_de.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">German - Vol.5 - Questions and statements</div></div></a></div><div class="next-post pull-right"><a href="/Lang/de/duo_de_german_sounds/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/duo/duolingo_de.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">German - Vol.0 - German Sounds</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> Related Articles</span></div><div class="relatedPosts-list"><div><a href="/Lang/de/duo_de001_intro/" title="German - Vol.1 - Introduction"><img class="cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/duo/duolingo_de.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2019-11-30</div><div class="title">German - Vol.1 - Introduction</div></div></a></div><div><a href="/Lang/de/duo_de/" title="德语入门"><img class="cover" src="http://5b0988e595225.cdn.sohucs.com/images/20181024/a83f47691e6e4d1e8f53c521a4a3feff.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2020-01-27</div><div class="title">德语入门</div></div></a></div><div><a href="/Lang/de/duo_de002_phrases/" title="German - Vol.2 - Phrases"><img class="cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/duo/duolingo_de.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2019-12-01</div><div class="title">German - Vol.2 - Phrases</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Joaxin</div><div class="author-info__description">When I close my eyes, I'm in my own ♡cean 🐟aves.</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">340</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">110</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">34</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/joaxin"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/joaxin" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:lotility@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">感謝訪問本站，若喜歡請收藏 ^_^</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#conjunctions"><span class="toc-number">1.</span> <span class="toc-text"> Conjunctions</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/Lang/es/duo_es/" title="No title"><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_seeds.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/Lang/es/duo_es/" title="No title">No title</a><time datetime="2020-06-29T03:44:49.224Z" title="Created 2020-06-29 11:44:49">2020-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Lang/kl/duo_kl001_intro/" title="Klingon- Vol.1 - Introduction"><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_little_girl_phone.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Klingon- Vol.1 - Introduction"/></a><div class="content"><a class="title" href="/Lang/kl/duo_kl001_intro/" title="Klingon- Vol.1 - Introduction">Klingon- Vol.1 - Introduction</a><time datetime="2020-06-26T16:00:00.000Z" title="Created 2020-06-27 00:00:00">2020-06-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Life/apps/life_apps_android_list/" title="安卓 | 装机必备清单及习惯步骤"><img src="https://i.postimg.cc/KYPmhV8w/android-new-logo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="安卓 | 装机必备清单及习惯步骤"/></a><div class="content"><a class="title" href="/Life/apps/life_apps_android_list/" title="安卓 | 装机必备清单及习惯步骤">安卓 | 装机必备清单及习惯步骤</a><time datetime="2020-06-20T04:29:10.462Z" title="Created 2020-06-20 12:29:10">2020-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Pysnista/Intro/files/py_pillow/" title="Python - 操作图像"><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_little_girl_phone.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python - 操作图像"/></a><div class="content"><a class="title" href="/Pysnista/Intro/files/py_pillow/" title="Python - 操作图像">Python - 操作图像</a><time datetime="2020-05-02T16:00:00.000Z" title="Created 2020-05-03 00:00:00">2020-05-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Pysnista/Intro/files/py_files_pdf_word/" title="Python - PDF &amp; Word"><img src="https://i.loli.net/2020/07/09/6ALoRXnITgcuvy2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python - PDF &amp; Word"/></a><div class="content"><a class="title" href="/Pysnista/Intro/files/py_files_pdf_word/" title="Python - PDF &amp; Word">Python - PDF &amp; Word</a><time datetime="2020-04-12T16:00:00.000Z" title="Created 2020-04-13 00:00:00">2020-04-13</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/duo/duolingo_de.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Joaxin</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Refine, the Life</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="Increase font size"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="Decrease font size"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="Switch Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
   if (window.mermaidJsLoad) mermaid.init()
   else {
     getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
@@ -239,7 +274,7 @@ if (fontSizeVal !== undefined) {
       false && mermaid.init()
     })
   }
-}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="fasle"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="fasle"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
 POWERMODE.shake = true;
 POWERMODE.mobile = false;
 document.body.addEventListener('input', POWERMODE);
@@ -278,4 +313,4 @@ if (isChatBtn) {
       });
     }
   }
-}</script></div></body></html>
+}</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

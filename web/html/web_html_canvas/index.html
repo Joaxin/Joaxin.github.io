@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HTML Canvas | Pinsflora</title><meta name="keywords" content="HTML,Canvas"><meta name="author" content="Joaxin"><meta name="copyright" content="Joaxin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="An introduction to HTML Canvas.">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HTML Canvas | Pinsflora</title><meta name="keywords" content="HTML,Canvas"><meta name="author" content="Joaxin"><meta name="copyright" content="Joaxin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="An introduction to HTML Canvas.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTML Canvas">
 <meta property="og:url" content="https://u.pinsflora.xyz/Web/html/web_html_canvas/index.html">
@@ -16,13 +16,13 @@
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'UA-177831205-1');
-</script><script>var GLOBAL_CONFIG = { 
+</script><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
   translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
-  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  noticeOutdate: {"limitDay":600,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: 'Copy successfully',
     error: 'Copy error',
@@ -57,50 +57,7 @@ gtag('config', 'UA-177831205-1');
   isPhotoFigcaption: false,
   islazyload: false,
   isanchor: false
-};
-
-var saveToLocal = {
-  set: function setWithExpiry(key, value, ttl) {
-    const now = new Date()
-    const expiryDay = ttl * 86400000
-    const item = {
-      value: value,
-      expiry: now.getTime() + expiryDay,
-    }
-    localStorage.setItem(key, JSON.stringify(item))
-  },
-
-  get: function getWithExpiry(key) {
-    const itemStr = localStorage.getItem(key)
-
-    if (!itemStr) {
-      return undefined
-    }
-    const item = JSON.parse(itemStr)
-    const now = new Date()
-
-    if (now.getTime() > item.expiry) {
-      localStorage.removeItem(key)
-      return undefined
-    }
-    return item.value
-  }
-}
-
-// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
-const getScript = url => new Promise((resolve, reject) => {
-  const script = document.createElement('script')
-  script.src = url
-  script.async = true
-  script.onerror = reject
-  script.onload = script.onreadystatechange = function() {
-    const loadState = this.readyState
-    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-    script.onload = script.onreadystatechange = null
-    resolve()
-  }
-  document.head.appendChild(script)
-})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
   isPost: true,
   isHome: false,
   isHighlightShrink: false,
@@ -118,63 +75,82 @@ const getScript = url => new Promise((resolve, reject) => {
   #post-meta time {
     display: inline !important
   }
-</style></noscript><script>(function () {  window.activateDarkMode = function () {
-    document.documentElement.setAttribute('data-theme', 'dark')
-    if (document.querySelector('meta[name="theme-color"]') !== null) {
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-    }
-  }
-  window.activateLightMode = function () {
-    document.documentElement.setAttribute('data-theme', 'light')
-   if (document.querySelector('meta[name="theme-color"]') !== null) {
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-    }
-  }
-  const autoChangeMode = 'false'
-  const t = saveToLocal.get('theme')
-  if (autoChangeMode === '1') {
-    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-    if (t === undefined) {
-      if (isLightMode) activateLightMode()
-      else if (isDarkMode) activateDarkMode()
-      else if (isNotSpecified || hasNoSupport) {
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
         const now = new Date()
-        const hour = now.getHours()
-        const isNight = hour <= 6 || hour >= 18
-        isNight ? activateDarkMode() : activateLightMode()
-      }
-      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-        if (saveToLocal.get('theme') === undefined) {
-          e.matches ? activateDarkMode() : activateLightMode()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
         }
-      })
-    } else if (t === 'light') activateLightMode()
-    else activateDarkMode()
-  } else if (autoChangeMode === '2') {
-    const now = new Date()
-    const hour = now.getHours()
-    const isNight = hour <= 6 || hour >= 18
-    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
-    else if (t === 'light') activateLightMode()
-    else activateDarkMode()
-  } else {
-    if (t === 'dark') activateDarkMode()
-    else if (t === 'light') activateLightMode()
-  }const asideStatus = saveToLocal.get('aside-status')
-if (asideStatus !== undefined) {
-   if (asideStatus === 'hide') {
-     document.documentElement.classList.add('hide-aside')
-   } else {
-     document.documentElement.classList.remove('hide-aside')
-   }
-}const fontSizeVal = saveToLocal.get('global-font-size')
-if (fontSizeVal !== undefined) {
-  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
-}})()</script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Pinsflora" type="application/atom+xml">
-</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">333</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">110</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">34</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/web/intro/html_canvas_hexo_cover.png)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Pinsflora</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-file-image-o"></i><span> Galleries</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-film"></i><span> Movie</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> Games</span></a></li><li><a class="site-page" href="/tools/"><i class="fa-fw fas fa-wrench"></i><span> Tools</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">HTML Canvas</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-08-20T16:00:00.000Z" title="Created 2017-08-21 00:00:00">2017-08-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2019-05-20T16:00:00.000Z" title="Updated 2019-05-21 00:00:00">2019-05-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Web/">Web</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Web/HTML/">HTML</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">4.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>26min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>Long long ago, the Web was originally just text, which was very boring, so images were introduced — first via the img element and later via CSS properties such as background-image, and SVG.</p>
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Pinsflora" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">340</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">110</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">34</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Galleries"><i class="fa-fw /gallery/"></i><span> 0</span></a></li><li><a class="site-page child" href="/Movie"><i class="fa-fw /movies/"></i><span> 1</span></a></li><li><a class="site-page child" href="/Games"><i class="fa-fw /games/"></i><span> 2</span></a></li><li><a class="site-page child" href="/Tools"><i class="fa-fw /tools/"></i><span> 3</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/web/intro/html_canvas_hexo_cover.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Pinsflora</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Galleries"><i class="fa-fw /gallery/"></i><span> 0</span></a></li><li><a class="site-page child" href="/Movie"><i class="fa-fw /movies/"></i><span> 1</span></a></li><li><a class="site-page child" href="/Games"><i class="fa-fw /games/"></i><span> 2</span></a></li><li><a class="site-page child" href="/Tools"><i class="fa-fw /tools/"></i><span> 3</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">HTML Canvas</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-08-20T16:00:00.000Z" title="Created 2017-08-21 00:00:00">2017-08-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2019-05-20T16:00:00.000Z" title="Updated 2019-05-21 00:00:00">2019-05-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Web/">Web</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Web/HTML/">HTML</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">4.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>26min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="HTML Canvas"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>Long long ago, the Web was originally just text, which was very boring, so images were introduced — first via the img element and later via CSS properties such as background-image, and SVG.</p>
 <p>Canvas provides many useful tools for creating 2D animations, games, data visualizations, and other types of app, especially when combined with some of the other APIs the web platform provides.</p>
 <p>在很久很久以前，Web最初只有文本，单调而无聊，所以不久以后呢，图像就被引入了，我们可以通过img元素，通过CSS属性（例如background-image）还有今天要讲的SVG元素引入图像。</p>
 <p>&lt;canvas&gt; 毋庸置疑是 HTML5新增的，一个可以使用JS脚本在其中绘制图像的 HTML 元素。Canvas提供了许多有用的工具来创建2D动画，游戏，数据可视化以及其他类型的应用程序，还可以与Web平台提供的其他一些API结合使用时，也可以进行实时的视频处理和渲染。</p>
@@ -358,4 +334,136 @@ createRadialGradient(x,y,r,x1,y1,r1): Creates a radial/circular gradient</p>
 <ol start="4">
 <li>
 <p>We’ll add some variables to keep track of the position the sprite is to be drawn on the screen, and the sprite number we want to display.</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sprite = <span c
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sprite = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> posX = <span class="number">0</span>;</span><br></pre></td></tr></tbody></table></figure>
+<p>Let’s explain the spritesheet image (which we have respectfully borrowed from Mike Thomas’ <a target="_blank" rel="noopener" href="http://atomicrobotdesign.com/blog/htmlcss/create-a-sprite-sheet-walk-cycle-using-using-css-animation/">Create a sprite sheet walk cycle using using CSS animation</a>). The image looks like this:</p>
+<p><img src="https://mdn.mozillademos.org/files/14847/walk-right.png" alt="img"></p>
+<p>It contains six sprites that make up the whole walking sequence — each one is 102 pixels wide and 148 pixels high. To display each sprite cleanly we will have to use <code>drawImage()</code> to chop out a single sprite image from the spritesheet and display only that part, like we did above with the Firefox logo. The X coordinate of the slice will have to be a multiple of 102, and the Y coordinate will always be 0. The slice size will always be 102 by 148 pixels.</p>
+</li>
+<li>
+<p>Now let’s insert an empty <code>draw()</code> function at the bottom of the code, ready for filling up with some code:</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>{</span><br><span class="line"></span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>the rest of the code in this section goes inside <code>draw()</code>. First, add the following line, which clears the canvas to prepare for drawing each frame. Notice that we have to specify the top-left corner of the rectangle as <code>-(width/2), -(height/2)</code> because we specified the origin position as <code>width/2, height/2</code> earlier on.</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.fillRect(-(width/<span class="number">2</span>), -(height/<span class="number">2</span>), width, height);</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>Next, we’ll draw our image using drawImage — the 9-parameter version. Add the following:</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.drawImage(image, (sprite*<span class="number">102</span>), <span class="number">0</span>, <span class="number">102</span>, <span class="number">148</span>, <span class="number">0</span>+posX, <span class="number">-74</span>, <span class="number">102</span>, <span class="number">148</span>);</span><br></pre></td></tr></tbody></table></figure>
+<p>As you can see:</p>
+<ul>
+<li>We specify <code>image</code> as the image to embed.</li>
+<li>Parameters 2 and 3 specify the top-left corner of the slice to cut out of the source image, with the X value as <code>sprite</code> multiplied by 102 (where <code>sprite</code> is the sprite number between 0 and 5) and the Y value always 0.</li>
+<li>Parameters 4 and 5 specify the size of the slice to cut out — 102 pixels by 148 pixels.</li>
+<li>Parameters 6 and 7 specify the top-left corner of the box into which to draw the slice on the canvas — the X position is 0 + <code>posX</code>, meaning that we can alter the drawing position by altering the <code>posX</code> value.</li>
+<li>Parameters 8 and 9 specify the size of the image on the canvas. We just want to keep its original size, so we specify 102 and 148 as the width and height.</li>
+</ul>
+</li>
+<li>
+<p>Now we’ll alter the <code>sprite</code> value after each draw — well, after some of them anyway. Add the following block to the bottom of the <code>draw()</code> function:</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (posX % <span class="number">13</span> === <span class="number">0</span>) {</span><br><span class="line">    <span class="keyword">if</span> (sprite === <span class="number">5</span>) {</span><br><span class="line">      sprite = <span class="number">0</span>;</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">      sprite++;</span><br><span class="line">    }</span><br><span class="line">  }</span><br></pre></td></tr></tbody></table></figure>
+<p>We are wrapping the whole block in <code>if (posX % 13 === 0) { ... }</code>. We use the modulo (<code>%</code>) operator to check whether the <code>posX</code>value can be exactly divided by 13 with no remainder. If so, we move on  to the next sprite by incrementing <code>sprite</code> (wrapping to 0 after we’re done with sprite #5). This effectively means that we are only updating the sprite on every 13th frame, or roughly about 5 frames a second (<code>requestAnimationFrame()</code> calls us at up to 60 frames per second if possible). We are deliberately slowing down the frame rate because we only have six sprites to work with, and if we display one every 60th of a second, our character will move way too fast!</p>
+<p>Inside the outer block we use an <code>if ... else</code> statement to check whether the <code>sprite</code>value is at 5 (the last sprite, given that the sprite numbers run from 0 to 5). If we are showing the last sprite already, we reset <code>sprite</code> back to 0; if not we just increment it by 1.</p>
+</li>
+<li>
+<p>Next we need to work out how to change the <code>posX</code> value on each frame — add the following code block just below your last one.</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(posX &gt; width/<span class="number">2</span>) {</span><br><span class="line">    newStartPos = -((width/<span class="number">2</span>) + <span class="number">102</span>);</span><br><span class="line">    posX = <span class="built_in">Math</span>.ceil(newStartPos / <span class="number">13</span>) * <span class="number">13</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(posX);</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">    posX += <span class="number">2</span>;</span><br><span class="line">  }</span><br></pre></td></tr></tbody></table></figure>
+<p>We are using another <code>if ... else</code> statement to see if the value of <code>posX</code> has become greater than <code>width/2</code>, which means our character has walked off the right edge of the screen. If so, we calculate a position that would put the character just to the left of the left side of the screen, and then set <code>posX</code> to equal the multiple of 13 closest to that number. This has to be a multiple of 13 because otherwise the previous code block won’t work, since <code>posX</code> would never equal a multiple of 13!</p>
+<p>If our character hasn’t yet walked off the edge of the screen, we simply increment <code>posX</code>by 2. This will make him move a little bit to the right the next time we draw him.</p>
+</li>
+<li>
+<p>Finally, we need to make the animation loop by calling <code>requestAnimationFrame()</code> at the bottom of the <code>draw()</code> function:</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.requestAnimationFrame(draw);</span><br></pre></td></tr></tbody></table></figure>
+</li>
+</ol>
+<p>That’s it! The final example should look like <a href="/web/canvas/web_canvas_demo_animations.html" target="_blank">here!.</a></p>
+<h2 id="a-simple-drawing-application"><a class="markdownIt-Anchor" href="#a-simple-drawing-application"></a> A simple drawing application</h2>
+<p>The final drawing application should look like <a href="/web/canvas/web_canvas_demo_drawing.html" target="_blank">here!.</a></p>
+<p>Let’s look at the most interesting parts. First of all, we keep track of the mouse’s X and Y coordinates and whether it is being clicked or not with three variables: <code>curX</code>, <code>curY</code>, and <code>pressed</code>. When the mouse moves, we fire a function set as the <code>onmousemove</code> event handler, which captures the current X and Y values. We also use <code>onmousedown</code> and <code>onmouseup</code> event handlers to change the value of <code>pressed</code> to <code>true</code> when the mouse button is pressed, and back to <code>false</code> again when it is released.</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> curX;</span><br><span class="line"><span class="keyword">var</span> curY;</span><br><span class="line"><span class="keyword">var</span> pressed = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.onmousemove = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>{</span><br><span class="line">  curX = (<span class="built_in">window</span>.Event) ? e.pageX : e.clientX + (<span class="built_in">document</span>.documentElement.scrollLeft ? <span class="built_in">document</span>.documentElement.scrollLeft : <span class="built_in">document</span>.body.scrollLeft);</span><br><span class="line">  curY = (<span class="built_in">window</span>.Event) ? e.pageY : e.clientY + (<span class="built_in">document</span>.documentElement.scrollTop ? <span class="built_in">document</span>.documentElement.scrollTop : <span class="built_in">document</span>.body.scrollTop);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">canvas.onmousedown = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">  pressed = <span class="literal">true</span>;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">canvas.onmouseup = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">  pressed = <span class="literal">false</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>When the “Clear canvas” button is pressed, we run a simple function that clears the whole canvas back to black, the same way we’ve seen before:</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clearBtn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">  ctx.fillStyle = <span class="string">'rgb(0, 0, 0)'</span>;</span><br><span class="line">  ctx.fillRect(<span class="number">0</span>, <span class="number">0</span>, width, height);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>The drawing loop is pretty simple this time around — if pressed is <code>true</code>, we draw a circle with a fill style equal to the value in the color picker, and a radius equal to the value set in the range input.</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">if</span>(pressed) {</span><br><span class="line">    ctx.fillStyle = colorPicker.value;</span><br><span class="line">    ctx.beginPath();</span><br><span class="line">    ctx.arc(curX, curY<span class="number">-85</span>, sizePicker.value, degToRad(<span class="number">0</span>), degToRad(<span class="number">360</span>), <span class="literal">false</span>);</span><br><span class="line">    ctx.fill();</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  requestAnimationFrame(draw);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">draw();</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>Note</strong>: The input range<code>and</code>color<code>types are supported fairly well across browsers, with the exception of Internet Explorer versions less than 10; also Safari doesn't yet support</code>color`. If your browser doesn’t support these inputs, they will fall back to simple text fields and you’ll just have to enter valid color/number values yourself.</p>
+<h2 id="references"><a class="markdownIt-Anchor" href="#references"></a> REFERENCES</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_building_practice">https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_building_practice</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes">https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_text">https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_text</a></li>
+</ul>
+<h2 id="resources"><a class="markdownIt-Anchor" href="#resources"></a> RESOURCES</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial">Canvas tutorial</a> — A very detailed tutorial series explaining what you should know about 2D canvas in much more detail than was covered here. Essential reading.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mdn/violent-theremin">Violent theramin</a> — Uses the Web Audio API to generate sound, and canvas to generate a pretty visualization to go along with it.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mdn/voice-change-o-matic">Voice change-o-matic</a> — Uses a canvas to visualize real-time audio data from the Web Audio API.</li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Joaxin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://u.pinsflora.xyz/Web/html/web_html_canvas/">https://u.pinsflora.xyz/Web/html/web_html_canvas/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/HTML/">HTML</a><a class="post-meta__tags" href="/tags/Canvas/">Canvas</a></div><div class="post_share"><div class="addtoany"><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_wechat"></a><a class="a2a_button_sina_weibo"></a><a class="a2a_button_facebook_messenger"></a><a class="a2a_button_email"></a><a class="a2a_button_copy_link"></a><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a></div></div><script async="async" src="https://static.addtoany.com/menu/page.js"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/Lang/kr/duo_kr001_intro/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_tree_dawnlights.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Korean - Vol.1 - Introduction</div></div></a></div><div class="next-post pull-right"><a href="/Web/js/WEB_js_intro_/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/web/intro/js/loop_js-02-farm.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Javascript Intrduction</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> Related Articles</span></div><div class="relatedPosts-list"><div><a href="/Web/html/web_html_intro/" title="HTML Introduction"><img class="cover" src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover_posts/web/html/html_attribute.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2019-11-21</div><div class="title">HTML Introduction</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/8346164?s=460&amp;v=4" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Joaxin</div><div class="author-info__description">When I close my eyes, I'm in my own ♡cean 🐟aves.</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">340</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">110</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">34</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/joaxin"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/joaxin" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:lotility@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">感謝訪問本站，若喜歡請收藏 ^_^</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#getting-started-with-a-canvas"><span class="toc-number">1.</span> <span class="toc-text"> Getting started with a canvas</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#creating-and-sizing-our-canvas"><span class="toc-number">1.1.</span> <span class="toc-text"> Creating and sizing our canvas</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#simple-shapes"><span class="toc-number">1.2.</span> <span class="toc-text"> Simple Shapes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strokes-and-line-widths"><span class="toc-number">1.3.</span> <span class="toc-text"> Strokes and line widths</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#drawing-paths"><span class="toc-number">1.4.</span> <span class="toc-text"> Drawing paths</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#drawing-lines"><span class="toc-number">1.4.1.</span> <span class="toc-text"> Drawing lines</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#drawing-circles"><span class="toc-number">1.4.2.</span> <span class="toc-text"> Drawing circles</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#text"><span class="toc-number">1.5.</span> <span class="toc-text"> Text</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#drawing-images"><span class="toc-number">1.6.</span> <span class="toc-text"> Drawing images</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#loops-and-animations"><span class="toc-number">2.</span> <span class="toc-text"> Loops and animations</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#creating-a-loop"><span class="toc-number">2.1.</span> <span class="toc-text"> Creating a loop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#animations"><span class="toc-number">2.2.</span> <span class="toc-text"> Animations</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#a-simple-drawing-application"><span class="toc-number">3.</span> <span class="toc-text"> A simple drawing application</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#references"><span class="toc-number">4.</span> <span class="toc-text"> REFERENCES</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#resources"><span class="toc-number">5.</span> <span class="toc-text"> RESOURCES</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/Lang/es/duo_es/" title="No title"><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_seeds.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/Lang/es/duo_es/" title="No title">No title</a><time datetime="2020-06-29T03:44:49.224Z" title="Created 2020-06-29 11:44:49">2020-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Lang/kl/duo_kl001_intro/" title="Klingon- Vol.1 - Introduction"><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_little_girl_phone.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Klingon- Vol.1 - Introduction"/></a><div class="content"><a class="title" href="/Lang/kl/duo_kl001_intro/" title="Klingon- Vol.1 - Introduction">Klingon- Vol.1 - Introduction</a><time datetime="2020-06-26T16:00:00.000Z" title="Created 2020-06-27 00:00:00">2020-06-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Life/apps/life_apps_android_list/" title="安卓 | 装机必备清单及习惯步骤"><img src="https://i.postimg.cc/KYPmhV8w/android-new-logo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="安卓 | 装机必备清单及习惯步骤"/></a><div class="content"><a class="title" href="/Life/apps/life_apps_android_list/" title="安卓 | 装机必备清单及习惯步骤">安卓 | 装机必备清单及习惯步骤</a><time datetime="2020-06-20T04:29:10.462Z" title="Created 2020-06-20 12:29:10">2020-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Pysnista/Intro/files/py_pillow/" title="Python - 操作图像"><img src="https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/cover/cover_little_girl_phone.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python - 操作图像"/></a><div class="content"><a class="title" href="/Pysnista/Intro/files/py_pillow/" title="Python - 操作图像">Python - 操作图像</a><time datetime="2020-05-02T16:00:00.000Z" title="Created 2020-05-03 00:00:00">2020-05-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Pysnista/Intro/files/py_files_pdf_word/" title="Python - PDF &amp; Word"><img src="https://i.loli.net/2020/07/09/6ALoRXnITgcuvy2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python - PDF &amp; Word"/></a><div class="content"><a class="title" href="/Pysnista/Intro/files/py_files_pdf_word/" title="Python - PDF &amp; Word">Python - PDF &amp; Word</a><time datetime="2020-04-12T16:00:00.000Z" title="Created 2020-04-13 00:00:00">2020-04-13</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/joaxin/img_bed/img/web/intro/html_canvas_hexo_cover.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Joaxin</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Refine, the Life</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="Increase font size"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="Decrease font size"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="Switch Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="fasle"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/fae45343.js","daovoice")
+</script><script>var isChatBtn = true
+daovoice('init', {
+  app_id: 'fae45343',},{
+  launcher: { 
+     disableLauncherIcon: isChatBtn // 悬浮 ICON 是否显示
+  },
+});
+daovoice('update');
+
+if (isChatBtn) {
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      daovoice('show')
+    });
+  }
+  chatBtnFn()
+} else {
+  if (true) {
+    function chatBtnHide () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: true // 悬浮 ICON 是否显示
+        },
+      });
+    }
+    function chatBtnShow () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: false // 悬浮 ICON 是否显示
+        },
+      });
+    }
+  }
+}</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

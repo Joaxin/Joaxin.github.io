@@ -6,7 +6,7 @@
   <link href="https://u.pinsflora.xyz/atom.xml" rel="self"/>
   
   <link href="https://u.pinsflora.xyz/"/>
-  <updated>2018-04-11T13:58:44.000Z</updated>
+  <updated>2021-04-10T04:27:25.535Z</updated>
   <id>https://u.pinsflora.xyz/</id>
   
   <author>
@@ -18,31 +18,10 @@
   
   <entry>
     <title></title>
-    <link href="https://u.pinsflora.xyz/Web/vue/Vue_lists/"/>
-    <id>https://u.pinsflora.xyz/Web/vue/Vue_lists/</id>
-    <published>2020-06-29T04:07:50.166Z</published>
-    <updated>2018-04-11T13:58:44.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://u.pinsflora.xyz/Web/vue/Vue_css/"/>
-    <id>https://u.pinsflora.xyz/Web/vue/Vue_css/</id>
-    <published>2020-06-29T04:05:20.977Z</published>
-    <updated>2018-04-11T14:27:00.000Z</updated>
+    <link href="https://u.pinsflora.xyz/Lang/es/duo_es/"/>
+    <id>https://u.pinsflora.xyz/Lang/es/duo_es/</id>
+    <published>2020-06-29T03:44:49.224Z</published>
+    <updated>2021-04-10T04:27:25.535Z</updated>
     
     
       
@@ -82,7 +61,7 @@
     <link href="https://u.pinsflora.xyz/Life/apps/life_apps_android_list/"/>
     <id>https://u.pinsflora.xyz/Life/apps/life_apps_android_list/</id>
     <published>2020-06-20T04:29:10.462Z</published>
-    <updated>2021-03-17T01:55:58.385Z</updated>
+    <updated>2021-04-09T02:24:50.836Z</updated>
     
     
     <summary type="html">安卓装机必备清单, 分为：必装/可有可无(但推荐安装)/用到时再装/小字(用过已卸载)</summary>
@@ -252,20 +231,14 @@
   </entry>
   
   <entry>
-    <title>常见符号，百度桌面版搜索结果</title>
+    <title>常见键盘符号，百度桌面版搜索结果</title>
     <link href="https://u.pinsflora.xyz/Life/Internet/website_%E7%AC%A6%E5%8F%B7/"/>
     <id>https://u.pinsflora.xyz/Life/Internet/website_%E7%AC%A6%E5%8F%B7/</id>
     <published>2019-09-02T16:00:00.000Z</published>
-    <updated>2020-07-26T16:00:00.000Z</updated>
+    <updated>2021-03-26T16:00:00.000Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
+    <summary type="html">常见键盘符号，百度桌面版搜索结果</summary>
     
     
     
@@ -403,6 +376,50 @@
   </entry>
   
   <entry>
+    <title>German - S7 - People</title>
+    <link href="https://u.pinsflora.xyz/Lang/de/duo_de_s7_people/"/>
+    <id>https://u.pinsflora.xyz/Lang/de/duo_de_s7_people/</id>
+    <published>2019-07-11T16:00:00.000Z</published>
+    <updated>2020-12-01T16:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
+    
+    
+    <category term="German" scheme="https://u.pinsflora.xyz/tags/German/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>German - S4 - Number</title>
+    <link href="https://u.pinsflora.xyz/Lang/de/duo_de_s8_number/"/>
+    <id>https://u.pinsflora.xyz/Lang/de/duo_de_s8_number/</id>
+    <published>2019-07-11T16:00:00.000Z</published>
+    <updated>2020-12-01T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">Ein Sechstel reicht.</summary>
+    
+    
+    
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
+    
+    
+    <category term="German" scheme="https://u.pinsflora.xyz/tags/German/"/>
+    
+  </entry>
+  
+  <entry>
     <title>U盘修复</title>
     <link href="https://u.pinsflora.xyz/Notes/it/notes_it_udisk_repair/"/>
     <id>https://u.pinsflora.xyz/Notes/it/notes_it_udisk_repair/</id>
@@ -493,31 +510,6 @@
   </entry>
   
   <entry>
-    <title>Dutch - Vol.1 - Introduction</title>
-    <link href="https://u.pinsflora.xyz/Lang/dn/duo_dn001_intro/"/>
-    <id>https://u.pinsflora.xyz/Lang/dn/duo_dn001_intro/</id>
-    <published>2019-05-26T16:00:00.000Z</published>
-    <updated>2019-12-23T16:00:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
-    
-    
-    <category term="Dutch" scheme="https://u.pinsflora.xyz/tags/Dutch/"/>
-    
-  </entry>
-  
-  <entry>
     <title>意大利语入门</title>
     <link href="https://u.pinsflora.xyz/Lang/it/duo_it/"/>
     <id>https://u.pinsflora.xyz/Lang/it/duo_it/</id>
@@ -558,6 +550,25 @@
     
     
     <category term="Polish" scheme="https://u.pinsflora.xyz/tags/Polish/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Dutch - Vol.1 - Introduction</title>
+    <link href="https://u.pinsflora.xyz/Lang/dn/duo_dn001_intro/"/>
+    <id>https://u.pinsflora.xyz/Lang/dn/duo_dn001_intro/</id>
+    <published>2019-05-26T16:00:00.000Z</published>
+    <updated>2019-12-23T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">Welkom!</summary>
+    
+    
+    
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
+    
+    
+    <category term="Dutch" scheme="https://u.pinsflora.xyz/tags/Dutch/"/>
     
   </entry>
   
@@ -667,6 +678,25 @@
   </entry>
   
   <entry>
+    <title>browser_developer_tools</title>
+    <link href="https://u.pinsflora.xyz/Web/tools/web_console_tools/"/>
+    <id>https://u.pinsflora.xyz/Web/tools/web_console_tools/</id>
+    <published>2018-10-19T16:00:00.000Z</published>
+    <updated>2019-03-26T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">工欲善其事，必先利其器。</summary>
+    
+    
+    
+    <category term="Web" scheme="https://u.pinsflora.xyz/categories/Web/"/>
+    
+    <category term="JS" scheme="https://u.pinsflora.xyz/categories/Web/JS/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>web前端资源与介绍</title>
     <link href="https://u.pinsflora.xyz/Web/tools/web_tools/"/>
     <id>https://u.pinsflora.xyz/Web/tools/web_tools/</id>
@@ -684,25 +714,6 @@
     
     
     <category term="Web" scheme="https://u.pinsflora.xyz/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>browser_developer_tools</title>
-    <link href="https://u.pinsflora.xyz/Web/tools/web_console_tools/"/>
-    <id>https://u.pinsflora.xyz/Web/tools/web_console_tools/</id>
-    <published>2018-10-19T16:00:00.000Z</published>
-    <updated>2019-03-26T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">工欲善其事，必先利其器。</summary>
-    
-    
-    
-    <category term="Web" scheme="https://u.pinsflora.xyz/categories/Web/"/>
-    
-    <category term="JS" scheme="https://u.pinsflora.xyz/categories/Web/JS/"/>
-    
     
   </entry>
   
@@ -758,7 +769,7 @@
     <updated>2019-10-04T16:00:00.000Z</updated>
     
     
-    <summary type="html">The way I solved Google Advanced Searching Problems.</summary>
+    <summary type="html">You probably use Google many times a day, and this article decribes how I solved Google Advanced Searching Problems.</summary>
     
     
     
@@ -896,48 +907,6 @@
     
     
     <category term="Music" scheme="https://u.pinsflora.xyz/tags/Music/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>注册信息生成(Registration information generation)</title>
-    <link href="https://u.pinsflora.xyz/Life/Internet/website_Anonemyous/"/>
-    <id>https://u.pinsflora.xyz/Life/Internet/website_Anonemyous/</id>
-    <published>2018-08-11T16:00:00.000Z</published>
-    <updated>2020-12-26T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">Registration information generation</summary>
-    
-    
-    
-    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
-    
-    <category term="Internet" scheme="https://u.pinsflora.xyz/categories/Life/Internet/"/>
-    
-    
-    <category term="Website" scheme="https://u.pinsflora.xyz/tags/Website/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>图片工具网址收藏</title>
-    <link href="https://u.pinsflora.xyz/Life/Internet/website_pics2/"/>
-    <id>https://u.pinsflora.xyz/Life/Internet/website_pics2/</id>
-    <published>2018-08-11T16:00:00.000Z</published>
-    <updated>2020-12-26T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">图片工具网址收藏</summary>
-    
-    
-    
-    <category term="Life" scheme="https://u.pinsflora.xyz/categories/Life/"/>
-    
-    <category term="Internet" scheme="https://u.pinsflora.xyz/categories/Life/Internet/"/>
-    
-    
-    <category term="Website" scheme="https://u.pinsflora.xyz/tags/Website/"/>
     
   </entry>
   
@@ -1148,8 +1117,8 @@
   
   <entry>
     <title>Spanish - Phrases - School</title>
-    <link href="https://u.pinsflora.xyz/Lang/es/duo_es003_school/"/>
-    <id>https://u.pinsflora.xyz/Lang/es/duo_es003_school/</id>
+    <link href="https://u.pinsflora.xyz/Lang/es/duo_es_s10_school/"/>
+    <id>https://u.pinsflora.xyz/Lang/es/duo_es_s10_school/</id>
     <published>2018-06-30T16:00:00.000Z</published>
     <updated>2018-07-28T16:00:00.000Z</updated>
     
@@ -1173,8 +1142,8 @@
   
   <entry>
     <title>Spanish - Phrases - People</title>
-    <link href="https://u.pinsflora.xyz/Lang/es/duo_es003_foods/"/>
-    <id>https://u.pinsflora.xyz/Lang/es/duo_es003_foods/</id>
+    <link href="https://u.pinsflora.xyz/Lang/es/duo_es_s1_foods/"/>
+    <id>https://u.pinsflora.xyz/Lang/es/duo_es_s1_foods/</id>
     <published>2018-06-28T16:00:00.000Z</published>
     <updated>2018-07-28T16:00:00.000Z</updated>
     
@@ -1198,8 +1167,8 @@
   
   <entry>
     <title>Spanish - Phrases - People</title>
-    <link href="https://u.pinsflora.xyz/Lang/es/duo_es003_people/"/>
-    <id>https://u.pinsflora.xyz/Lang/es/duo_es003_people/</id>
+    <link href="https://u.pinsflora.xyz/Lang/es/duo_es_s7_people/"/>
+    <id>https://u.pinsflora.xyz/Lang/es/duo_es_s7_people/</id>
     <published>2018-06-28T16:00:00.000Z</published>
     <updated>2018-07-28T16:00:00.000Z</updated>
     
@@ -1369,6 +1338,8 @@
     
     <category term="Apps" scheme="https://u.pinsflora.xyz/categories/Life/Apps/"/>
     
+    
+    <category term="Apps" scheme="https://u.pinsflora.xyz/tags/Apps/"/>
     
   </entry>
   
@@ -1635,33 +1606,6 @@
   </entry>
   
   <entry>
-    <title>Python Web Crawler - Google</title>
-    <link href="https://u.pinsflora.xyz/Pysnista/Crawler/Crawler/py_Crawler_google/"/>
-    <id>https://u.pinsflora.xyz/Pysnista/Crawler/Crawler/py_Crawler_google/</id>
-    <published>2018-04-14T16:00:00.000Z</published>
-    <updated>2018-04-14T16:00:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
-    
-    <category term="Crawler" scheme="https://u.pinsflora.xyz/categories/Python/Crawler/"/>
-    
-    
-    <category term="Crawler" scheme="https://u.pinsflora.xyz/tags/Crawler/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Python Web Crawler - Weibo</title>
     <link href="https://u.pinsflora.xyz/Pysnista/Crawler/Crawler/py_Crawler_weibo/"/>
     <id>https://u.pinsflora.xyz/Pysnista/Crawler/Crawler/py_Crawler_weibo/</id>
@@ -1685,6 +1629,33 @@
     
     
     <category term="Weibo" scheme="https://u.pinsflora.xyz/tags/Weibo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python Web Crawler - Google</title>
+    <link href="https://u.pinsflora.xyz/Pysnista/Crawler/Crawler/py_Crawler_google/"/>
+    <id>https://u.pinsflora.xyz/Pysnista/Crawler/Crawler/py_Crawler_google/</id>
+    <published>2018-04-14T16:00:00.000Z</published>
+    <updated>2018-04-14T16:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Python" scheme="https://u.pinsflora.xyz/categories/Python/"/>
+    
+    <category term="Crawler" scheme="https://u.pinsflora.xyz/categories/Python/Crawler/"/>
+    
+    
+    <category term="Crawler" scheme="https://u.pinsflora.xyz/tags/Crawler/"/>
     
   </entry>
   
@@ -1832,6 +1803,156 @@
     
     
     <category term="German" scheme="https://u.pinsflora.xyz/tags/German/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spanish - S2 - Animals</title>
+    <link href="https://u.pinsflora.xyz/Lang/es/duo_es_s11_travel/"/>
+    <id>https://u.pinsflora.xyz/Lang/es/duo_es_s11_travel/</id>
+    <published>2018-03-11T16:00:00.000Z</published>
+    <updated>2020-12-01T16:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
+    
+    
+    <category term="Spanish" scheme="https://u.pinsflora.xyz/tags/Spanish/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spanish - S2 - Animals</title>
+    <link href="https://u.pinsflora.xyz/Lang/es/duo_es_s2_animals/"/>
+    <id>https://u.pinsflora.xyz/Lang/es/duo_es_s2_animals/</id>
+    <published>2018-03-11T16:00:00.000Z</published>
+    <updated>2020-12-01T16:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
+    
+    
+    <category term="Spanish" scheme="https://u.pinsflora.xyz/tags/Spanish/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spanish - S2 - Animals</title>
+    <link href="https://u.pinsflora.xyz/Lang/es/duo_es_s3_clothing/"/>
+    <id>https://u.pinsflora.xyz/Lang/es/duo_es_s3_clothing/</id>
+    <published>2018-03-11T16:00:00.000Z</published>
+    <updated>2020-12-01T16:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
+    
+    
+    <category term="Spanish" scheme="https://u.pinsflora.xyz/tags/Spanish/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spanish - S2 - Animals</title>
+    <link href="https://u.pinsflora.xyz/Lang/es/duo_es_s4_nature/"/>
+    <id>https://u.pinsflora.xyz/Lang/es/duo_es_s4_nature/</id>
+    <published>2018-03-11T16:00:00.000Z</published>
+    <updated>2020-12-01T16:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
+    
+    
+    <category term="Spanish" scheme="https://u.pinsflora.xyz/tags/Spanish/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spanish - S2 - Animals</title>
+    <link href="https://u.pinsflora.xyz/Lang/es/duo_es_s5_places/"/>
+    <id>https://u.pinsflora.xyz/Lang/es/duo_es_s5_places/</id>
+    <published>2018-03-11T16:00:00.000Z</published>
+    <updated>2020-12-01T16:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
+    
+    
+    <category term="Spanish" scheme="https://u.pinsflora.xyz/tags/Spanish/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spanish - S2 - Animals</title>
+    <link href="https://u.pinsflora.xyz/Lang/es/duo_es_s6_stuff/"/>
+    <id>https://u.pinsflora.xyz/Lang/es/duo_es_s6_stuff/</id>
+    <published>2018-03-11T16:00:00.000Z</published>
+    <updated>2020-12-01T16:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
+    
+    
+    <category term="Spanish" scheme="https://u.pinsflora.xyz/tags/Spanish/"/>
     
   </entry>
   
@@ -2104,133 +2225,6 @@
     
     
     <category term="Study" scheme="https://u.pinsflora.xyz/tags/Study/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>德语入门</title>
-    <link href="https://u.pinsflora.xyz/Lang/de/duo_de/"/>
-    <id>https://u.pinsflora.xyz/Lang/de/duo_de/</id>
-    <published>2018-01-26T16:00:00.000Z</published>
-    <updated>2020-01-26T16:00:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
-    
-    
-    <category term="German" scheme="https://u.pinsflora.xyz/tags/German/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hindi - Vol.1 - Introduction</title>
-    <link href="https://u.pinsflora.xyz/Lang/hi/duo_hi001_intro/"/>
-    <id>https://u.pinsflora.xyz/Lang/hi/duo_hi001_intro/</id>
-    <published>2018-01-26T16:00:00.000Z</published>
-    <updated>2018-01-26T16:00:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
-    
-    
-    <category term="Hindi" scheme="https://u.pinsflora.xyz/tags/Hindi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hawaiian- Vol.1 - Introduction</title>
-    <link href="https://u.pinsflora.xyz/Lang/hw/duo_hw001_intro/"/>
-    <id>https://u.pinsflora.xyz/Lang/hw/duo_hw001_intro/</id>
-    <published>2018-01-26T16:00:00.000Z</published>
-    <updated>2019-11-26T16:00:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Duolingo" scheme="https://u.pinsflora.xyz/categories/Duolingo/"/>
-    
-    
-    <category term="Hawaiian" scheme="https://u.pinsflora.xyz/tags/Hawaiian/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R - Strings</title>
-    <link href="https://u.pinsflora.xyz/Reverie/R_packages/"/>
-    <id>https://u.pinsflora.xyz/Reverie/R_packages/</id>
-    <published>2018-01-24T16:00:00.000Z</published>
-    <updated>2018-04-20T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">A string of similar strings</summary>
-    
-    
-    
-    <category term="R" scheme="https://u.pinsflora.xyz/categories/R/"/>
-    
-    <category term="Introduction" scheme="https://u.pinsflora.xyz/categories/R/Introduction/"/>
-    
-    
-    <category term="R" scheme="https://u.pinsflora.xyz/tags/R/"/>
-    
-    <category term="Strings" scheme="https://u.pinsflora.xyz/tags/Strings/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R - Tools</title>
-    <link href="https://u.pinsflora.xyz/Reverie/R_tools/"/>
-    <id>https://u.pinsflora.xyz/Reverie/R_tools/</id>
-    <published>2018-01-24T16:00:00.000Z</published>
-    <updated>2018-04-20T16:00:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="R" scheme="https://u.pinsflora.xyz/categories/R/"/>
-    
-    <category term="Introduction" scheme="https://u.pinsflora.xyz/categories/R/Introduction/"/>
-    
-    
-    <category term="R" scheme="https://u.pinsflora.xyz/tags/R/"/>
-    
-    <category term="Strings" scheme="https://u.pinsflora.xyz/tags/Strings/"/>
     
   </entry>
   
